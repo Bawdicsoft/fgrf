@@ -47,12 +47,21 @@ const Hero = () => {
               handleUpdate(currentIndex - 1);
             }}
           >
-            <img
-              src="./img/new-img/slides_01.png"
-              className="w-full h-full"
-              alt=""
-            />
-            <div className="bg-[#42a5a9] md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 rounded"></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-12 h-12 text-black"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
+            </svg>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded"></div>
           </div>
           <div
             className="md:w-12 md:h-12 w-10 h-10 cursor-pointer relative"
@@ -60,71 +69,100 @@ const Hero = () => {
               handleUpdate(currentIndex + 1);
             }}
           >
-            <img
-              src="./img/new-img/slides_02.png"
-              className="w-full h-full"
-              alt=""
-            />
-            <div className="bg-[#42a5a9] md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50 rounded"></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-12 h-12 text-black"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
+            </svg>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded"></div>
           </div>
         </div>
       </div>
       <div className="w-full lg:block hidden h-16 absolute top-0 left-0 z-20">
         <div
           style={{ backgroundImage: `url(./img/new-img/VUyGCc.png)` }}
-          className="max-w-4xl mx-auto h-full bg-no-repeat bg-center bg-contain flex justify-center gap-x-16 items-center"
+          className="max-w-4xl mx-auto h-full bg-no-repeat bg-center bg-contain flex justify-around gap-x-16 items-center"
         >
-          <div
-            style={{
-              backgroundImage: `url(./img/new-img/header14.png)`,
-            }}
-            className="w-36 h-10 bg-center bg-no-repeat bg-cover rounded-full flex justify-center items-center"
-          >
-            <a
-              href="/"
-              className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
-            >
-              Donation
-            </a>
+          <div className="flex gap-x-2">
+            <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+              <a
+                href="/"
+                className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
+              >
+                Donation
+              </a>
+            </div>
+            <div className="w-12 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+              <a
+                href="/"
+                className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-lg font-semibold text-black"
+              >
+                &
+              </a>
+            </div>
+            <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
+              <a
+                href="/"
+                className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
+              >
+                Donation
+              </a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-4 h-4 text-black"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
           </div>
-          <div
-            style={{
-              backgroundImage: `url(./img/new-img/header14.png)`,
-            }}
-            className="w-40 h-12 rounded-full bg-center bg-cover bg-no-repeat flex justify-center items-center"
-          >
-            <a
-              href="/"
-              className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm font-semibold text-black"
-            >
-              Donation
-            </a>
-          </div>
-          <div
-            style={{
-              backgroundImage: `url(./img/new-img/header14.png)`,
-            }}
-            className="w-40 h-12 bg-center bg-no-repeat bg-cover rounded-full flex justify-center items-center"
-          >
-            <a
-              href="/"
-              className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
-            >
-              Donation
-            </a>
-          </div>
-          <div
-            style={{
-              backgroundImage: `url(./img/new-img/header14.png)`,
-            }}
-            className="w-40 h-12 rounded-full bg-center bg-cover bg-no-repeat flex justify-center items-center"
-          >
-            <a
-              href="/"
-              className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm font-semibold text-black"
-            >
-              Donation
-            </a>
+          <div className="flex gap-x-2">
+            <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
+              <a
+                href="/"
+                className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm font-semibold text-black"
+              >
+                Single
+              </a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="w-4 h-4 text-black"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </div>
+            <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+              <a
+                href="/"
+                className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm text-black font-bold"
+              >
+                DONATE NOW
+              </a>
+            </div>
           </div>
         </div>
       </div>

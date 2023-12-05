@@ -58,7 +58,7 @@ export default function Navbar() {
               <div className="hidden h-full absolute inset-y-0 right-0 lg:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="h-full">
                   <div
-                    className={`flex items-center font-raleway-font text-black h-full `}
+                    className={`flex items-center font-raleway-font text-black h-full gap-x-2`}
                   >
                     {navItem.map((data, index) => (
                       <div
