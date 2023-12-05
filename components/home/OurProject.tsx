@@ -1,0 +1,97 @@
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination, Autoplay } from "swiper/modules";
+
+const OurProject = () => {
+  const data = [
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+    {
+      svg: "./img/new-img/polygon.png",
+    },
+  ];
+  return (
+    <div
+      className="max-w-[1200px] mx-auto px-3 sm:py-16 py-10 flex flex-col"
+      id="modalEnd"
+    >
+      <div className="bg-[#fff9ad] mb-6 w-60 h-10 mx-auto rounded-full shadow-[0_4px_#b5a181]">
+        <h2 className="sm:text-3xl text-3xl font-semibold text-center">
+          Our Projects
+        </h2>
+      </div>
+      <div className="max-w-3xl h-96">
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={30}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            1200: {
+              slidesPerView: 2,
+            },
+          }}
+          modules={[Pagination, Autoplay]}
+          className="mx-auto h-full"
+        >
+          {data.map((data, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="bg-center bg-cover bg-no-repeat h-full flex flex-col justify-center px-8 md:w-full max-w-xs"
+                style={{ backgroundImage: `url(${data.svg})` }}
+              >
+                <h2 className="text-[#477d94] font-bold text-sm">
+                  We Work in Different countries
+                </h2>
+                <p className="text-xs">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+                  vero praesentium hic debitis quas cum maxime neque?
+                  Consequatur aut, ratione magnam temporibus vitae eveniet,
+                  labore, quod ex sequi corporis reprehenderit.
+                </p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+  );
+};
+
+export default OurProject;

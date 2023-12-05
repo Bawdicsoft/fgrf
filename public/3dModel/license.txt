@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cast Iron Water Hand Pump
+* source:	https://sketchfab.com/3d-models/cast-iron-water-hand-pump-9af93cb82a6b4804b61975c5b9975264
+* author:	James Bayer (https://sketchfab.com/james16bayer)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cast Iron Water Hand Pump" (https://sketchfab.com/3d-models/cast-iron-water-hand-pump-9af93cb82a6b4804b61975c5b9975264) by James Bayer (https://sketchfab.com/james16bayer) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
