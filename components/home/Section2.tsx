@@ -1,5 +1,11 @@
 "use client";
 import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import 'swiper/css/navigation';
+
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const Section2 = () => {
   const [showBlob, setShowBlob] = useState<boolean>(false);
@@ -47,37 +53,126 @@ const Section2 = () => {
     setShowBlob(true);
   };
   return (
-    <div className="max-w-[1200px] mx-auto py-12 px-2">
+    <div className="max-w-6xl mx-auto py-8 px-2">
       <div className="border-4 border-[#faf8f8] py-1 bg-[#efeff1] max-w-xs mx-auto rounded-full shadow-lg">
         <h1 className="text-center text-4xl">Our Department</h1>
       </div>
-      <div className="mt-10 grid lg:grid-cols-6 lg:grid-rows-none md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
-        {data.map((data, index) => (
-          <div
-            className="col-span-1 py-2 flex flex-col gap-y-1 items-center justify-between cursor-pointer"
-            key={index}
-            onMouseOver={() => handleBlob(index)}
-            onMouseLeave={() => setShowBlob(false)}
-          >
-            <div className="md:w-[30%] w-[40%] h-20 relative">
-              <img
-                src={data.blob}
-                className={`absolute top-0 z-[-1] ${
-                  blobIndex === index && showBlob
-                    ? "opacity-40 transition-all duration-500"
-                    : "opacity-0 transition-all duration-500"
-                }`}
-                alt=""
-              />
-              <img src={data.img} className="w-full h-full" alt="" />
+      <div className="mt-8">
+        <Swiper
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination , Navigation, Autoplay]}
+          className="rounded-2xl bg-[#efeff1] mySwiper"
+          navigation={true} 
+        >
+          <SwiperSlide>
+            <div className=" py-5 lg:px-10">
+              <div className="grid lg:grid-cols-6 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
+                {data.map((data, index) => (
+                  <div
+                    className="col-span-1 py-2 flex flex-col gap-y-1 items-center justify-between cursor-pointer"
+                    key={index}
+                    onMouseOver={() => handleBlob(index)}
+                    onMouseLeave={() => setShowBlob(false)}
+                  >
+                    <div className="md:h-14 h-8 relative">
+                      <img
+                        src={data.blob}
+                        className={`absolute top-0 z-[-1] ${
+                          blobIndex === index && showBlob
+                            ? "opacity-40 transition-all duration-500"
+                            : "opacity-0 transition-all duration-500"
+                        }`}
+                        alt=""
+                      />
+                      <img src={data.img} className="" alt="" />
+                    </div>
+                    <div>
+                      <h4
+                        className={`text-center text-sm text-[#394146] leading-none`}
+                      >
+                        {data.title}
+                      </h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="w-full h-14">
-              <h4 className={`text-center text-sm text-[#394146] leading-none`}>
-                {data.title}
-              </h4>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className=" py-5 lg:px-10">
+              <div className="grid lg:grid-cols-6 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
+                {data.map((data, index) => (
+                  <div
+                    className="col-span-1 py-2 flex flex-col gap-y-1 items-center justify-between cursor-pointer"
+                    key={index}
+                    onMouseOver={() => handleBlob(index)}
+                    onMouseLeave={() => setShowBlob(false)}
+                  >
+                    <div className="md:h-14 h-8 relative">
+                      <img
+                        src={data.blob}
+                        className={`absolute top-0 z-[-1] ${
+                          blobIndex === index && showBlob
+                            ? "opacity-40 transition-all duration-500"
+                            : "opacity-0 transition-all duration-500"
+                        }`}
+                        alt=""
+                      />
+                      <img src={data.img} className="" alt="" />
+                    </div>
+                    <div>
+                      <h4
+                        className={`text-center text-sm text-[#394146] leading-none`}
+                      >
+                        {data.title}
+                      </h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className=" py-5 lg:px-10">
+              <div className="grid lg:grid-cols-6 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
+                {data.map((data, index) => (
+                  <div
+                    className="col-span-1 py-2 flex flex-col gap-y-1 items-center justify-between cursor-pointer"
+                    key={index}
+                    onMouseOver={() => handleBlob(index)}
+                    onMouseLeave={() => setShowBlob(false)}
+                  >
+                    <div className="md:h-14 h-8 relative">
+                      <img
+                        src={data.blob}
+                        className={`absolute top-0 z-[-1] ${
+                          blobIndex === index && showBlob
+                            ? "opacity-40 transition-all duration-500"
+                            : "opacity-0 transition-all duration-500"
+                        }`}
+                        alt=""
+                      />
+                      <img src={data.img} className="" alt="" />
+                    </div>
+                    <div>
+                      <h4
+                        className={`text-center text-sm text-[#394146] leading-none`}
+                      >
+                        {data.title}
+                      </h4>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );

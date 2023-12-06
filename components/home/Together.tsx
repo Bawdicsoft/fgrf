@@ -48,7 +48,7 @@ const Together = () => {
               Changing the world is a big job. Lets do it together.
             </h2>
             <div className="flex justify-center gap-4">
-              <div className="w-48 h-[70px] font-bold relative py-2 hidden text-white bg-[#41a4a8] rounded-full border-y-4 border-x-8 border-[#35788f] lg:flex lg:items-center lg:flex-col">
+              <div className="w-48 h-[70px] font-bold relative py-2 hidden border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] text-black rounded-full border-y-4 border-x-8 lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}
@@ -63,7 +63,7 @@ const Together = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-white bg-[#41a4a8] rounded-full border-y-4 border-x-8 border-[#35788f] lg:flex lg:items-center lg:flex-col">
+              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}
@@ -78,7 +78,7 @@ const Together = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-white bg-[#41a4a8] rounded-full border-y-4 border-x-8 border-[#35788f] lg:flex lg:items-center lg:flex-col">
+              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}

@@ -11,9 +11,11 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@material-tailwind/react": "^2.1.5",
     "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "bootstrap": "^5.3.2",
+    "flowbite-react": "^0.7.0",
     "framer-motion": "^10.16.12",
     "gltfjsx": "^6.2.15",
     "gsap": "^3.12.2",

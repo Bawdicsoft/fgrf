@@ -7,25 +7,25 @@ import { Pagination, Autoplay } from "swiper/modules";
 const OurProject = () => {
   const data = [
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygon.png",
+      svg: "./img/new-img/polygonChange.png",
     },
   ];
   return (
@@ -73,18 +73,19 @@ const OurProject = () => {
           {data.map((data, index) => (
             <SwiperSlide key={index}>
               <div
-                className="bg-center bg-cover bg-no-repeat h-full flex flex-col justify-center px-8 md:w-full max-w-xs"
+                className="bg-center bg-cover bg-no-repeat h-full relative flex flex-col justify-center px-8 md:w-full max-w-xs"
                 style={{ backgroundImage: `url(${data.svg})` }}
               >
-                <h2 className="text-[#477d94] font-bold text-sm">
-                  We Work in Different countries
+                <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-24 left-0">
+                  Palestine <span className="text-cyan-600">Emergency</span>
                 </h2>
-                <p className="text-xs">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-                  vero praesentium hic debitis quas cum maxime neque?
-                  Consequatur aut, ratione magnam temporibus vitae eveniet,
-                  labore, quod ex sequi corporis reprehenderit.
-                </p>
+                <div className="mt-[7rem]">
+                  <h5 className="text-2xl font-bold">Palestine Emergency</h5>
+                  <p className="text-lg pb-1 font-semibold px-10">
+                    Donate us to help our palestinian brother.
+                  </p>
+                  <div className="border-b-4 border-cyan-600 w-[40%] mx-auto mt-1 rounded-full"></div>
+                </div>
               </div>
             </SwiperSlide>
           ))}

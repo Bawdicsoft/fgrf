@@ -5,6 +5,12 @@ import { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 
 export default function Navbar() {
+  const [getValue, setGetValue] = useState();
+  const handleClick = (event: any) => {
+    const clickedVal = event.target.textContent;
+    setGetValue(clickedVal);
+  };
+
   const [open, setOpen] = useState(false);
   const navItem = [
     {
@@ -39,6 +45,7 @@ export default function Navbar() {
                   alt="tokenLauncher"
                 />
               </Link>
+              <div></div>
             </div>
             <div className="hidden h-full absolute inset-y-0 right-0 lg:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               <div className="h-full">
@@ -47,7 +54,10 @@ export default function Navbar() {
                 >
                   {navItem.map((data, index) => (
                     <div
-                      className="w-36 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center"
+                      onClick={handleClick}
+                      className={`w-36 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
+                        data.name == getValue && "bg-[#83aec0] bg-opacity-30"
+                      }`}
                       key={index}
                     >
                       <Link

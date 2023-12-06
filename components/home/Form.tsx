@@ -45,7 +45,7 @@ const Form = () => {
           <div className="lg:col-span-1 col-span-1 w-full">
             <div
               ref={button1Ref}
-              className="cursor-pointer md:w-48 w-32 md:text-base text-sm font-bold md:h-12 h-10 bg-[#70ced1] rounded-full mx-auto border-y-4 border-x-8 border-[#4297b0] flex justify-center items-center"
+              className="cursor-pointer md:w-48 w-32 md:text-base text-sm font-bold md:h-12 h-10 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center"
             >
               NEWS
             </div>
@@ -70,7 +70,7 @@ const Form = () => {
             ))}
             <div
               ref={button2Ref}
-              className="mt-4 cursor-pointer md:w-48 w-32 md:h-12 h-10 font-bold md:text-base text-sm flex justify-center items-center bg-[#70ced1] rounded-full mx-auto border-y-4 border-x-8 border-[#4297b0]"
+              className="mt-4 cursor-pointer md:w-48 w-32 md:h-12 h-10 font-bold md:text-base text-sm flex justify-center items-center bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8]"
             >
               VIEW ALL
             </div>
@@ -78,7 +78,7 @@ const Form = () => {
           <div className="col-span-1 lg:mt-0 mt-4">
             <div
               ref={button3Ref}
-              className="cursor-pointer md:w-48 md:h-12 w-32 h-10 md:text-base text-sm bg-[#70ced1] rounded-full mx-auto border-y-4 border-x-8 border-[#4297b0] flex justify-center items-center font-bold"
+              className="cursor-pointer md:w-48 md:h-12 w-32 h-10 md:text-base text-sm bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
             >
               CONTACT
             </div>
@@ -91,6 +91,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="h-9 w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Enter your name"
                   />
                 </div>
                 <div className="md:col-span-1 col-span-2">
@@ -100,6 +101,7 @@ const Form = () => {
                   <input
                     type="email"
                     className="h-9 w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Enter your Email"
                   />
                 </div>
                 <div className="md:col-span-1 col-span-2">
@@ -109,6 +111,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="h-9 w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Enter your Phone Number"
                   />
                 </div>
                 <div className="md:col-span-1 col-span-2">
@@ -118,6 +121,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="h-9 w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Enter your full name"
                   />
                 </div>
                 <div className="col-span-2">
@@ -127,6 +131,7 @@ const Form = () => {
                   <input
                     type="text"
                     className="h-9 w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Enter your address"
                   />
                 </div>
                 <div className="col-span-2">
@@ -137,6 +142,7 @@ const Form = () => {
                     name=""
                     id=""
                     className="w-full rounded outline-none p-2 shadow-[5px_5px_10px_#999995]"
+                    placeholder="Write your message..."
                     rows={7}
                   ></textarea>
                 </div>
@@ -144,7 +150,7 @@ const Form = () => {
             </form>
             <div
               ref={button4Ref}
-              className="cursor-pointer w-48 text-sm h-12 bg-[#70ced1] rounded-full mx-auto border-y-4 border-x-8 border-[#4297b0] flex justify-center items-center font-bold"
+              className="cursor-pointer w-48 text-sm h-12 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
             >
               SEND YOUR MESSAGE
             </div>
