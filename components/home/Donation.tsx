@@ -6,7 +6,7 @@ const Donation = () => {
       className="max-w-[1200px] mx-auto px-2 flex flex-col items-center"
       id="modalStart"
     >
-      <div className="bg-[#fff9ad] mb-6 px-6 py-1 rounded-full shadow-[0_4px_#b5a181]">
+      <div className="mb-6 px-6 py-1 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] rounded-full">
         <h2 className="sm:text-3xl text-3xl font-semibold text-center">
           Donation
         </h2>

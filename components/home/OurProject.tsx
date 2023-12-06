@@ -33,7 +33,7 @@ const OurProject = () => {
       className="max-w-[1200px] mx-auto px-3 sm:py-16 py-10 flex flex-col"
       id="modalEnd"
     >
-      <div className="bg-[#fff9ad] mb-6 w-60 h-10 mx-auto rounded-full shadow-[0_4px_#b5a181]">
+      <div className="mb-6 w-60 mx-auto rounded-full border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
         <h2 className="sm:text-3xl text-3xl font-semibold text-center">
           Our Projects
         </h2>

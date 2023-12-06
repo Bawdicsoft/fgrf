@@ -48,7 +48,9 @@ const Section2 = () => {
   };
   return (
     <div className="max-w-[1200px] mx-auto py-12 px-2">
-      <h1 className="text-center text-4xl">Our Department</h1>
+      <div className="border-4 border-[#faf8f8] py-1 bg-[#efeff1] max-w-xs mx-auto rounded-full shadow-lg">
+        <h1 className="text-center text-4xl">Our Department</h1>
+      </div>
       <div className="mt-10 grid lg:grid-cols-6 lg:grid-rows-none md:grid-cols-3 md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
         {data.map((data, index) => (
           <div

@@ -38,7 +38,10 @@ const Achievement = () => {
         style={{ backgroundImage: `url(./img/new-img/acheive.png)` }}
       >
         <div className="flex flex-col items-center gap-y-4 max-w-[1200px] mx-auto sm:py-10 py-6 px-3">
-          <div className="h-12 bg-[#70ced1] rounded-full mx-auto border-y-4 border-x-8 border-[#4297b0] px-4 flex justify-center items-center">
+          <div
+            style={{ backgroundImage: `url(./img/new-img/Button-04.png)` }}
+            className="bg-center bg-no-repeat bg-cover rounded-full mx-auto px-4 flex justify-center items-center py-2"
+          >
             <h2 className="md:text-2xl text-xl">ACHIEVEMENTS</h2>
           </div>
         </div>
