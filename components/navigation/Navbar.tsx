@@ -11,6 +11,7 @@ export default function Navbar() {
     setGetValue(clickedVal);
   };
 
+  console.log(getValue,"Value")
   const [open, setOpen] = useState(false);
   const navItem = [
     {
@@ -56,7 +57,7 @@ export default function Navbar() {
                     <div
                       onClick={handleClick}
                       className={`w-36 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
-                        data.name == getValue && "bg-[#83aec0] bg-opacity-30"
+                        data.name == getValue && "bg-[#86b2c5] bg-opacity-30"
                       }`}
                       key={index}
                     >
