@@ -43,12 +43,12 @@ const Together = () => {
     <section>
       <div className="gradiant-color h-[500px] relative " id="main">
         <div className="max-w-[1200px] mx-auto px-3 h-full">
-          <div className="w-full mx-auto flex flex-col justify-center gap-4 pt-20">
+          <div className="w-full mx-auto flex flex-col justify-center gap-4 pt-10 lg:pt-20">
             <h2 className="text-center lg:text-5xl leading-none font-normal md:text-3xl text-2xl text-white py-2">
               Changing the world is a big job. Lets do it together.
             </h2>
-            <div className="flex justify-center gap-4">
-              <div className="w-48 h-[70px] font-bold relative py-2 hidden border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] text-black rounded-full border-y-4 border-x-8 lg:flex lg:items-center lg:flex-col">
+            <div className="flex justify-center gap-4 flex-col items-center md:flex-row mt-3 md:mt-8">
+              <div className="w-48 h-[70px] font-bold relative py-2 flex justify-center  border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] text-black rounded-full border-y-4 border-x-8 lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}
@@ -63,7 +63,7 @@ const Together = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
+              <div className="w-48 h-[70px] relative font-bold py-2 flex justify-center  text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}
@@ -78,7 +78,7 @@ const Together = () => {
                   </motion.div>
                 </AnimatePresence>
               </div>
-              <div className="w-48 h-[70px] relative font-bold py-2 hidden text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
+              <div className="w-48 h-[70px] relative font-bold py-2 flex justify-center  text-black bg-[#efeff1] shadow-inner rounded-full border-y-4 border-x-8 border-[#faf8f8] lg:flex lg:items-center lg:flex-col">
                 <AnimatePresence>
                   <motion.div
                     key={items[index].id}
@@ -124,7 +124,7 @@ const Together = () => {
               ))}
             </div>
           </div>
-          <div className="absolute w-full h-full z-[1] top-1/2 -translate-y-1/2 md:flex md:items-center hidden">
+          <div className="absolute w-full h-full z-[1] top-1/2 -translate-y-1/2 md:flex md:items-center ">
             <img
               src="./img/new-img/gallery.png"
               className="w-full h-[70%]"

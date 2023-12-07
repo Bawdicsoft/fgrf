@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Modal from "../modal/Modal";
 
 export default function Navbar() {
-  const [getValue, setGetValue] = useState();
+  const [getValue, setGetValue] = useState("Our Partners");
   const handleClick = (event: any) => {
     const clickedVal = event.target.textContent;
     setGetValue(clickedVal);
@@ -32,10 +32,10 @@ export default function Navbar() {
   ];
   return (
     <>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[50] w-full">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[50] lg:w-full w-[95%]">
         <div
-          style={{ backgroundImage: `url(./img/new-img/Button-06.png)` }}
-          className="relative rounded-xl flex items-center justify-between mx-auto max-w-[1200px] px-3 lg:px-10 h-14 w-full bg-no-repeat bg-cover bg-center"
+          style={{ backgroundImage: `url(./img/new-img/Button-06.png)`}}
+          className="relative rounded-xl flex items-center justify-between md:mx-auto md:max-w-[1200px] px-3 lg:px-10 h-14 w-full bg-no-repeat bg-cover bg-center"
         >
           <div className="flex items-center justify-center sm:items-stretch sm:justify-start h-full">
             <div className="flex-shrink-0 flex items-center p-1 rounded-lg">
@@ -57,7 +57,7 @@ export default function Navbar() {
                     <div
                       onClick={handleClick}
                       className={`w-36 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
-                        data.name == getValue && "bg-[#86b2c5] bg-opacity-30"
+                        data.name == getValue && "bg-teal-200 bg-opacity-30"
                       }`}
                       key={index}
                     >

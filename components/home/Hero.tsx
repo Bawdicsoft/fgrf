@@ -39,9 +39,9 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-full h-20 absolute left-0 transform -translate-y-1/2 z-40">
-        <div className="max-w-[1200px] mx-auto px-2 h-full flex justify-between">
+        <div className="max-w-[1200px] mx-auto px-2 h-full flex justify-between items-end mt-6 lg:mt-0">
           <div
-            className="md:w-12 md:h-12 w-10 h-10 cursor-pointer relative"
+            className="md:w-12 md:h-12 w-6 h-6 cursor-pointer relative flex items-center justify-center"
             onClick={() => {
               handleUpdate(currentIndex - 1);
             }}
@@ -52,7 +52,7 @@ const Hero = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-12 h-12 text-black"
+              className="md:w-12 md:h-12 w-6 h-6 text-black"
             >
               <path
                 stroke-linecap="round"
@@ -63,7 +63,7 @@ const Hero = () => {
             <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded"></div>
           </div>
           <div
-            className="md:w-12 md:h-12 w-10 h-10 cursor-pointer relative"
+            className="md:w-12 md:h-12 w-6 h-6 cursor-pointer relative flex items-center"
             onClick={() => {
               handleUpdate(currentIndex + 1);
             }}
@@ -74,7 +74,7 @@ const Hero = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="w-12 h-12 text-black"
+              className="md:w-12 md:h-12 w-6 h-6 text-black"
             >
               <path
                 stroke-linecap="round"
