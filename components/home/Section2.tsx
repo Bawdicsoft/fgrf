@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
@@ -59,16 +59,17 @@ const Section2 = () => {
       </div>
       <div className="mt-8">
         <Swiper
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          speed={1000}
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination , Navigation, Autoplay]}
+          modules={[Pagination, Navigation, Autoplay]}
           className="rounded-2xl bg-[#efeff1] mySwiper"
-          navigation={true} 
+          navigation={true}
         >
           <SwiperSlide>
             <div className=" py-5 lg:px-10">

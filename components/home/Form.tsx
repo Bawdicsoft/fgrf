@@ -39,7 +39,7 @@ const Form = () => {
   useButtonAnimation(button3Ref, animationOptions);
   useButtonAnimation(button4Ref, animationOptions);
   return (
-    <div className="h-auto mt-8 relative py-16 px-2 lg:bg-transparent bg-[#242424] ">
+    <div className="h-auto mt-8 relative lg:py-16 px-2 lg:bg-transparent bg-[#242424] ">
       <div className="max-w-[1000px] mx-auto w-full h-full ">
         <div className="lg:grid lg:grid-cols-2 grid grid-cols-1 gap-x-16 py-6">
           <div className="lg:col-span-1 col-span-1 w-full">

@@ -42,6 +42,7 @@ const OurProject = () => {
         <Swiper
           slidesPerView={4}
           spaceBetween={30}
+          speed={1000}
           autoplay={{
             delay: 2000,
             disableOnInteraction: false,
@@ -56,11 +57,11 @@ const OurProject = () => {
               spaceBetween: 40,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 40,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               spaceBetween: 50,
             },
             1200: {
@@ -73,7 +74,7 @@ const OurProject = () => {
           {data.map((data, index) => (
             <SwiperSlide key={index}>
               <div
-                className="bg-center bg-cover bg-no-repeat h-full relative flex flex-col justify-center px-8 md:w-full max-w-xs"
+                className="bg-center bg-cover bg-no-repeat h-full mx-auto relative flex flex-col justify-center px-8 md:w-full max-w-xs"
                 style={{ backgroundImage: `url(${data.svg})` }}
               >
                 <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-24 left-0">

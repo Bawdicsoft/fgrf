@@ -32,8 +32,8 @@ const Donation = () => {
             </div> */}
           <img src="./img/a water well.png" className="w-full h-full" alt="" />
         </div>
-        <div className="col-span-1 relative bg-center bg-no-repeat bg-cover flex justify-center items-center md:h-[420px] h-[320px]"></div>
-        <div className="col-span-1 h-[420px]">
+        <div className="col-span-1 relative bg-center bg-no-repeat bg-cover flex justify-center border-4 rounded-md items-center md:h-[420px] h-[320px]"></div>
+        <div className="col-span-1 py-5">
           <div className="flex flex-col items-center justify-center h-full gap-y-4 px-2">
             <h2 className="text-[#477d94] text-2xl font-bold text-center">
               We Work in Different countries
