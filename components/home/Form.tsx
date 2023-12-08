@@ -1,50 +1,13 @@
 "use client";
-import gsap from "gsap";
-import { useEffect, useRef } from "react";
 
 const Form = () => {
   const data = ["./img/galleryImg1.png", "./img/galleryImg2.png"];
-  const button1Ref = useRef(null);
-  const button2Ref = useRef(null);
-  const button3Ref = useRef(null);
-  const button4Ref = useRef(null);
-
-  const useButtonAnimation = (buttonRef: any, options: any) => {
-    useEffect(() => {
-      const button = buttonRef.current;
-      const tl = gsap.timeline({ paused: true });
-      tl.to(button, {
-        ...options,
-      });
-      button.addEventListener("mouseenter", () => tl.play());
-      button.addEventListener("mouseleave", () => tl.reverse());
-
-      return () => {
-        button.removeEventListener("mouseenter", () => tl.play());
-        button.removeEventListener("mouseleave", () => tl.reverse());
-      };
-    }, [buttonRef, options]);
-  };
-
-  const animationOptions = {
-    borderWidth: 0,
-    backgroundColor: "#4297b0", // Change the background color to your desired color
-    duration: 0.3,
-    ease: "power3.out",
-    color: "white",
-  };
-
-  useButtonAnimation(button1Ref, animationOptions);
-  useButtonAnimation(button2Ref, animationOptions);
-  useButtonAnimation(button3Ref, animationOptions);
-  useButtonAnimation(button4Ref, animationOptions);
   return (
     <div className="h-auto mt-8 relative lg:py-16 px-2 lg:bg-transparent bg-[#242424] ">
       <div className="max-w-[1000px] mx-auto w-full h-full ">
         <div className="lg:grid lg:grid-cols-2 grid grid-cols-1 gap-x-16 py-6">
           <div className="lg:col-span-1 col-span-1 w-full">
             <div
-              ref={button1Ref}
               className="cursor-pointer md:w-48 w-32 md:text-base text-sm font-bold md:h-12 h-10 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center"
             >
               NEWS
@@ -69,7 +32,6 @@ const Form = () => {
               </div>
             ))}
             <div
-              ref={button2Ref}
               className="mt-4 cursor-pointer md:w-48 w-32 md:h-12 h-10 font-bold md:text-base text-sm flex justify-center items-center bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8]"
             >
               VIEW ALL
@@ -77,7 +39,6 @@ const Form = () => {
           </div>
           <div className="col-span-1 lg:mt-0 mt-4">
             <div
-              ref={button3Ref}
               className="cursor-pointer md:w-48 md:h-12 w-32 h-10 md:text-base text-sm bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
             >
               CONTACT
@@ -149,7 +110,6 @@ const Form = () => {
               </div>
             </form>
             <div
-              ref={button4Ref}
               className="cursor-pointer w-48 text-sm h-12 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
             >
               SEND YOUR MESSAGE

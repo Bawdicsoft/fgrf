@@ -169,3 +169,8 @@
 .ploygon {
   clip-path: polygon(15% 0, 85% 0, 80% 100%, 20% 100%);
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000;
+}

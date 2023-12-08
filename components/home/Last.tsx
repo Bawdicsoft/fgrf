@@ -8,7 +8,7 @@ const Last = () => {
   return (
     <section className="bg-white">
       <div className="max-w-[1000px] mx-auto px-3">
-        <div className="lg:flex lg:flex-row flex flex-col items-center lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
+        <div className="lg:flex lg:flex-row flex flex-col items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
           <div className="lg:flex lg:flex-row flex flex-col items-center gap-x-3 lg:items-center">
             <img
               src="https://fgrf.org/web_assets/images/fgrf/newLogo.png"
@@ -20,15 +20,20 @@ const Last = () => {
               ROAD,BIRMINGHAM B6 6NX, Birmingham, United Kingdom
             </p>
           </div>
-          <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-4 md:mt-0 mt-5 gap-x-6 text-sm">
-            <h5>Here to help:</h5>
-            <div>
-              <h4>Monday - Friday</h4>
-              <p>Always open</p>
-            </div>
-            <div>
-              <h4>888.855.9595</h4>
-              <p>info@qgiv.com</p>
+          <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
+            <div className="bg-[#148698] flex items-center px-2 gap-3 py-1">
+              <div>
+                <div className="rounded-full bg-white border p-4">
+                  <img src="/img/icons/drop.png" alt="Drop" className="h-5 w-5" />
+                </div>
+              </div>
+              <div className="md:text-2xl text-lg text-white uppercase font-bold">
+                <span className="font-extralight">Donate a</span>
+                <br /> water well
+              </div>
+              <div className="bg-white p-2 text-yellow-500 text-xl font-[900] rounded-md">
+                <p>&#163; 300 {">"}</p>
+              </div>
             </div>
             <div className="flex gap-x-2 text-lg text-[#1eb1af]">
               <a href="https://www.facebook.com/profile.php?id=61550763330971">
@@ -48,9 +53,6 @@ const Last = () => {
         <div className="bg-[#88c6d1] w-full h-1 rounded-full"></div>
         <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-2 gap-x-10 py-2 md:mt-0 mt-5 text-sm tracking-wider font-light">
           <h3>2023 FGRF.Inc</h3>
-          <h3>Aceptable Use Policy</h3>
-          <h3>Policy Privacy</h3>
-          <h3>Hope you are having a great Tuesday</h3>
         </div>
       </div>
     </section>
