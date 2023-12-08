@@ -60,7 +60,7 @@ const Hero = () => {
                 d="M15.75 19.5L8.25 12l7.5-7.5"
               />
             </svg>
-            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded"></div>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tr rounded-br lg:rounded"></div>
           </div>
           <div
             className="md:w-12 md:h-12 w-6 h-6 cursor-pointer relative flex items-center"
@@ -82,7 +82,7 @@ const Hero = () => {
                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
-            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded"></div>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tl rounded-bl lg:rounded"></div>
           </div>
         </div>
       </div>

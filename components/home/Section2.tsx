@@ -12,37 +12,37 @@ const Section2 = () => {
   const [blobIndex, setBlobIndex] = useState<number>();
   const data = [
     {
-      img: "https://www.qgiv.com/_resources/images/icon-donation-form.svg",
+      img: "/img/icons/earthquake1.png",
       blob: "/img/icon-blob.svg",
       title: "Disaster Management and Food.",
       code: "white",
     },
     {
-      img: "https://www.qgiv.com/_resources/images/icon-text-fundraising.svg",
+      img: "/img/icons/self-development2.png",
       blob: "/img/icon-blob-yellow.svg",
       title: "Education & Skills.",
       code: "red",
     },
     {
-      img: "https://www.qgiv.com/_resources/images/icon-auctions.svg",
+      img: "/img/icons/protection3.png",
       blob: "/img/icon-blob-purple.svg",
       title: "Health Care.",
       code: "green",
     },
     {
-      img: "https://www.qgiv.com/_resources/images/icon-p2p.svg",
+      img: "/img/icons/cuve4.png",
       blob: "/img/icon-blob-orange.svg",
       title: "Cure for differently abled children.",
       code: "blue",
     },
     {
-      img: "https://www.qgiv.com/_resources/images/icon-integrations.svg",
+      img: "/img/icons/dev5.png",
       blob: "/img/icon-blob-blue.svg",
       title: "Environment Department.",
       code: "yellow",
     },
     {
-      img: "https://www.qgiv.com/_resources/images/icon-events.svg",
+      img: "/img/icons/water-tap6.png",
       blob: "/img/icon-blob.svg",
       title: "Water project.",
       code: "purple",
@@ -70,6 +70,12 @@ const Section2 = () => {
           modules={[Pagination, Navigation, Autoplay]}
           className="rounded-2xl bg-[#efeff1] mySwiper"
           navigation={true}
+          style={
+            {
+              "--swiper-navigation-color": "#000",
+              "--swiper-navigation-size": "25px",
+            } as any
+          }
         >
           <SwiperSlide>
             <div className=" py-5 lg:px-10">

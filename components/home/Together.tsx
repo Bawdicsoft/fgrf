@@ -109,10 +109,15 @@ const Together = () => {
           ></div>
         </div>
       </div>
-      <div className="pt-10">
+      <div className="pt-5 md:pt-10">
         <div className="relative">
+        <div className="mb-6 w-60 mx-auto rounded-full border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
+        <h2 className="text-xl md:text-3xl font-semibold text-center">
+          Gallery
+        </h2>
+      </div>
           <div className="md:w-[65%] w-full mx-auto relative z-[2]">
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-2">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-2 mt-5">
               {gallery.map((data, index) => (
                 <div
                   key={index}
@@ -123,6 +128,11 @@ const Together = () => {
                 </div>
               ))}
             </div>
+            <div className="mb-6 w-60 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
+        <h2 className="text-xl md:text-3xl font-semibold text-center">
+         View All
+        </h2>
+      </div>
           </div>
           <div className="absolute w-full h-full z-[1] top-1/2 -translate-y-1/2 md:flex md:items-center ">
             <img
