@@ -32,23 +32,21 @@ const Donation = () => {
             </div> */}
           <img src="./img/a water well.png" className="w-full h-full" alt="" />
         </div>
-        <div className="col-span-1 relative bg-center bg-no-repeat bg-cover flex justify-center border-4 rounded-md items-center md:h-[420px] h-[320px]"></div>
-        <div className="col-span-1 py-5">
-          <div className="flex flex-col items-center justify-center h-full gap-y-4 px-2">
-            <h2 className="text-[#477d94] text-2xl font-bold text-center">
+        <div className="col-span-1 relative bg-center bg-no-repeat bg-cover flex justify-center items-center md:h-[420px] h-[320px]"></div>
+        <div className="col-span-1 py-7 border-4 my-6 px-5 border-t-[#faf8f8] border-r-[#faf8f8] border-l-[#faf8f8] shadow-2xl bg-gradient-to-t from-[#faf8f8] to-[#e1e2e6] rounded-3xl">
+          <div className="flex flex-col items-center justify-between h-full gap-y-4 px-2">
+            <h2 className="text-sm font-bold text-center">
               We Work in Different countries
             </h2>
-            <p className="text-sm leading-relaxed text-center">
-              Donate to Dawat-e-Islami. Your donation can be spent in any
-              permissible, religious, reformative, spiritual and welfare cause,
-              and, acts of kindness and goodness.
+            <p className="md:text-xl text-base  font-semibold leading-relaxed text-center">
+              FGRF is a need of era, having its vast network spread having its
+              vast network is more than thirteen countries and huge human
+              resource availability makes it distinguished among other
+              organizations
             </p>
-            <div className="bg-yellow-300 text-center py-1 rounded-full w-60">
-              Donate with PayPal
-            </div>
-            <div className="border border-[#477d94] text-center py-1 rounded-full w-60">
-              Donate with Debit
-            </div>
+              <button className="text-center text-sm border-4 border-gray-200 border-b-gray-100 shadow-2xl bg-gradient-to-t from-[#faf8f8] to-[#e1e2e6] rounded-full w-40 outline-none">
+                Donate with<br />PayPal
+                </button>
           </div>
         </div>
       </div>
