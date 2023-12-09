@@ -56,14 +56,14 @@ export default function Navbar() {
                   {navItem.map((data, index) => (
                     <div
                       onClick={handleClick}
-                      className={`w-36 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
+                      className={`xl:w-36 w-32 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
                         data.name == getValue && "bg-teal-200 bg-opacity-30"
                       }`}
                       key={index}
                     >
                       <Link
                         href="/"
-                        className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm font-semibold"
+                        className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm font-semibold"
                       >
                         {data.name}
                       </Link>
@@ -73,7 +73,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="w-36 font-bold h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] hidden text-black rounded-full lg:flex lg:justify-center lg:gap-2 lg:items-center">
+          <div className="w-36 font-bold h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] hidden text-black rounded-full lg:flex lg:justify-center lg:gap-2 lg:items-center lg:text-xs xl:text-sm">
             Donation
             {/* <img src="/img/donate.png" alt="" /> */}
           </div>
@@ -104,7 +104,7 @@ export default function Navbar() {
               <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
+                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-sm font-semibold text-black"
                 >
                   Donation
                 </a>
@@ -112,7 +112,7 @@ export default function Navbar() {
               <div className="w-12 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-lg font-semibold text-black"
+                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm font-semibold text-black"
                 >
                   &
                 </a>
@@ -120,7 +120,7 @@ export default function Navbar() {
               <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue rounded-md text-sm font-semibold text-black"
+                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-sm font-semibold text-black"
                 >
                   Donation
                 </a>
@@ -144,7 +144,7 @@ export default function Navbar() {
               <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm font-semibold text-black"
+                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm font-semibold text-black"
                 >
                   Single
                 </a>
@@ -166,7 +166,7 @@ export default function Navbar() {
               <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md text-sm text-black font-bold"
+                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm text-black font-bold"
                 >
                   DONATE NOW
                 </a>

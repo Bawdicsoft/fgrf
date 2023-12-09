@@ -3,6 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { GrInstagram } from "react-icons/gr";
 import { BsYoutube } from "react-icons/bs";
+import Image from "next/image";
 
 const Last = () => {
   return (
@@ -23,8 +24,8 @@ const Last = () => {
           <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
             <div className="bg-[#148698] flex items-center px-2 gap-3 py-1">
               <div>
-                <div className="rounded-full bg-white border p-4">
-                  <img src="/img/icons/drop.png" alt="Drop" className="h-5 w-5" />
+                <div className="rounded-full bg-white border p-3">
+                  <img src="/img/icons/drop.png" alt="Drop" className="h-8 w-8" />
                 </div>
               </div>
               <div className="md:text-2xl text-lg text-white uppercase font-bold">
@@ -32,7 +33,7 @@ const Last = () => {
                 <br /> water well
               </div>
               <div className="bg-white p-2 text-yellow-500 text-xl font-[900] rounded-md">
-                <p>&#163; 300 {">"}</p>
+                <p className="flex items-center gap-1">&#163; 300 <Image src={'/img/icons/right-arrow.svg'} className="h-4 w-4" alt="Right Arrow" width={200} height={300} /></p>
               </div>
             </div>
             <div className="flex gap-x-2 text-lg text-[#1eb1af]">

@@ -60,7 +60,7 @@ const Hero = () => {
                 d="M15.75 19.5L8.25 12l7.5-7.5"
               />
             </svg>
-            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tr rounded-br lg:rounded"></div>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tr rounded-br xl:rounded"></div>
           </div>
           <div
             className="md:w-12 md:h-12 w-6 h-6 cursor-pointer relative flex items-center"
@@ -82,20 +82,20 @@ const Hero = () => {
                 d="M8.25 4.5l7.5 7.5-7.5 7.5"
               />
             </svg>
-            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tl rounded-bl lg:rounded"></div>
+            <div className="bg-[#edeef0] border-4 border-white shadow-inner md:w-16 md:h-16 w-12 h-12 z-[-1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-tl rounded-bl xl:rounded"></div>
           </div>
         </div>
       </div>
       <div
-        className="absolute md:block hidden maskanimation2 -bottom-[7%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
+        className="absolute md:block hidden maskanimation2 -bottom-[1%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
         style={{ backgroundImage: `url(/img/mask1.svg)` }}
       ></div>
       <div
-        className="absolute md:block hidden maskanimation -bottom-[7%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
+        className="absolute md:block hidden maskanimat1on -bottom-[1%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
         style={{ backgroundImage: `url(/img/mask2.svg)` }}
       ></div>
       <div
-        className="absolute md:block hidden -bottom-[7%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
+        className="absolute md:block hidden -bottom-[1%] right-0 w-full bg-no-repeat bg-center bg-cover z-[3] 2xl:h-[320px] xl:h-[260px] lg:h-[230px] h-[300px]"
         style={{ backgroundImage: `url(/img/mask3.svg)` }}
       ></div>
     </div>
