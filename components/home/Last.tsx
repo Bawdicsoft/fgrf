@@ -8,8 +8,8 @@ import Image from "next/image";
 const Last = () => {
   return (
     <section className="bg-white">
-      <div className="max-w-[1000px] mx-auto px-3">
-        <div className="lg:flex lg:flex-row flex flex-col items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
+      <div className="lg:max-w-[1000px] mx-auto px-3">
+        <div className="lg:flex lg:flex-row flex flex-col lg:items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
           <div className="lg:flex lg:flex-row flex flex-col items-center gap-x-3 lg:items-center">
             <img
               src="https://fgrf.org/web_assets/images/fgrf/newLogo.png"
@@ -21,7 +21,7 @@ const Last = () => {
               ROAD,BIRMINGHAM B6 6NX, Birmingham, United Kingdom
             </p>
           </div>
-          <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
+          <div className="flex lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
             <div className="bg-[#148698] flex items-center px-2 gap-3 py-1">
               <div>
                 <div className="rounded-full bg-white border p-3">
@@ -36,8 +36,8 @@ const Last = () => {
                 <span className="font-extralight">Donate a</span>
                 <br /> water well
               </div>
-              <div className="bg-white p-2 text-yellow-500 text-xl font-[900] rounded-md">
-                <p className="flex items-center gap-1">
+              <div className="bg-white p-2 text-yellow-500 md:text-xl text-base font-[900] rounded-md">
+                <p className="flex items-center">
                   &#163; 300{" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ const Last = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="w-6 h-6 text-yellow-500 font-extrabold"
+                    className="md:w-5 md:h-5 w-4 h-4 text-yellow-500 font-extrabold"
                   >
                     <path
                       strokeLinecap="round"
@@ -56,7 +56,7 @@ const Last = () => {
                 </p>
               </div>
             </div>
-            <div className="flex gap-x-2 text-lg text-[#1eb1af]">
+            <div className="flex lg:justify-normal justify-center gap-x-2 text-lg text-[#1eb1af]">
               <a href="https://www.facebook.com/profile.php?id=61550763330971">
                 <GrFacebook />
               </a>
@@ -72,7 +72,7 @@ const Last = () => {
           </div>
         </div>
         <div className="bg-[#88c6d1] w-full h-1 rounded-full"></div>
-        <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-2 gap-x-10 py-2 md:mt-0 mt-5 text-sm tracking-wider font-light">
+        <div className="flex flex-wrap justify-center lg:gap-y-0 gap-y-2 gap-x-10 py-2 md:mt-0 mt- text-sm tracking-wider font-light">
           <h3>2023 FGRF.Inc</h3>
         </div>
       </div>
