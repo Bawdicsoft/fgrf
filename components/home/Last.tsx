@@ -25,7 +25,11 @@ const Last = () => {
             <div className="bg-[#148698] flex items-center px-2 gap-3 py-1">
               <div>
                 <div className="rounded-full bg-white border p-3">
-                  <img src="/img/icons/drop.png" alt="Drop" className="h-8 w-8" />
+                  <img
+                    src="/img/icons/drop.png"
+                    alt="Drop"
+                    className="h-8 w-8"
+                  />
                 </div>
               </div>
               <div className="md:text-2xl text-lg text-white uppercase font-bold">
@@ -33,7 +37,23 @@ const Last = () => {
                 <br /> water well
               </div>
               <div className="bg-white p-2 text-yellow-500 text-xl font-[900] rounded-md">
-                <p className="flex items-center gap-1">&#163; 300 <Image src={'/img/icons/right-arrow.svg'} className="h-4 w-4" alt="Right Arrow" width={200} height={300} /></p>
+                <p className="flex items-center gap-1">
+                  &#163; 300{" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6 text-yellow-500 font-extrabold"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </p>
               </div>
             </div>
             <div className="flex gap-x-2 text-lg text-[#1eb1af]">
