@@ -5,7 +5,7 @@ import VideoModel from "../modal/videoModal";
 
 const Form = () => {
   const data = ["/video/v2.mp4", "/video/v2.mp4", "/video/v2.mp4"];
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="h-auto mt-8 relative lg:py-16 px-2 lg:bg-transparent bg-[#242424] ">
@@ -16,24 +16,28 @@ const Form = () => {
               NEWS
             </div>
             {data.map((data, index) => (
-              <div key={index} className="flex md:flex-row flex-col gap-3 gapy-6 py-4 lg:ml-8 xl:ml-0">
-                {/* <div>
-                <video width="320" height="240" controls className="rounded-2xl" poster={""}>
-                <source src={data} type="video/mp4"/>
-                </video>
-                </div> */}
-                <div onClick={() => {
-                  setOpen(true)
-                }}>
-                  <img src="/video/videoThumbnail.jpg" alt="" className="rounded-2xl w-[400px]" />
+              <div
+                key={index}
+                className="flex md:flex-row flex-col gap-3 gapy-6 py-4 lg:ml-8 xl:ml-0"
+              >
+                <div
+                  onClick={() => {
+                    setOpen(true);
+                  }}
+                >
+                  <img
+                    src="/video/videoThumbnail.jpg"
+                    alt=""
+                    className="rounded-2xl w-[400px] cursor-pointer"
+                  />
                 </div>
                 <div className=" text-white text-sm flex flex-col justify-between">
                   <p className="text-2xl lg:text-lg font-medium">
                     Faizan Global Relief Foundation (Abdul Habib Attari)
                   </p>
                   <div>
-                  <p className="text-gray-300">Duration: 00:30:45</p>
-                  <p className="text-gray-300">Created Date: 2021-02-23</p>
+                    <p className="text-gray-300">Duration: 00:30:45</p>
+                    <p className="text-gray-300">Created Date: 2021-02-23</p>
                   </div>
                 </div>
               </div>
@@ -125,7 +129,19 @@ const Form = () => {
           alt=""
         />
       </div>
-      <VideoModel open={open} setOpen={setOpen} >
+      <VideoModel open={open} setOpen={setOpen}>
+        <div >
+          <video
+            width="900"
+            height="900"
+            controls
+            className="rounded-2xl"
+            poster={""}
+            autoPlay
+          >
+            <source src="/video/v2.mp4" type="video/mp4" />
+          </video>
+        </div>
       </VideoModel>
     </div>
   );
