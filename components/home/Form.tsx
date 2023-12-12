@@ -26,7 +26,7 @@ const Form = () => {
                   }}
                 >
                   <img
-                    src="/video/videoThumbnail.jpg"
+                    src="/video/videoThumbnail.JPG"
                     alt=""
                     className="rounded-2xl w-[400px] cursor-pointer"
                   />
