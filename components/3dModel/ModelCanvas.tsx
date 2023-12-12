@@ -1,7 +1,6 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
 import React, { Suspense } from "react";
-import { OrbitControls } from "@react-three/drei";
 import { PumpModel } from "./PumpModel";
 
 const ModelCanvas = () => {
