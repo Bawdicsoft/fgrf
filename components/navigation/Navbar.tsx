@@ -16,32 +16,37 @@ export default function Navbar() {
   const navItem = [
     {
       name: "Our Partners",
+      href: '/'
     },
     {
       name: "Achievement",
+      href: '/achievements'
     },
     {
       name: "Our Department",
+      href: '/achievements'
     },
     {
       name: "Project",
+      href: '/achievements'
     },
     {
       name: "CEO Message",
+      href: '/achievements'
     },
   ];
   return (
     <>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-[50] lg:w-full w-[95%]">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 lg:w-full w-[95%] ">
         <div
-          style={{ backgroundImage: `url(./img/new-img/Button-06.png)`}}
-          className="relative rounded-xl flex items-center justify-between md:mx-auto md:max-w-[1200px] px-3 lg:px-10 h-14 w-full bg-no-repeat bg-cover bg-center"
+          style={{ backgroundImage: `url(./img/new-img/Button-06.png)`,}}
+          className="relative rounded-xl flex items-center justify-between md:mx-auto max-w-4xl px-3 lg:px-10 h-14 w-full bg-no-repeat bg-cover bg-center"
         >
           <div className="flex items-center justify-center sm:items-stretch sm:justify-start h-full">
             <div className="flex-shrink-0 flex items-center p-1 rounded-lg">
               <Link href="/">
                 <img
-                  className="w-20 lg:block md:block cursor-pointer"
+                  className="w-12 lg:block md:block cursor-pointer"
                   src="/img/fgrf.png"
                   alt="tokenLauncher"
                 />
@@ -56,16 +61,18 @@ export default function Navbar() {
                   {navItem.map((data, index) => (
                     <div
                       onClick={handleClick}
-                      className={`xl:w-36 w-32 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
+                      className={`xl:w-28 w-32 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
                         data.name == getValue && "bg-teal-200 bg-opacity-30"
                       }`}
                       key={index}
                     >
                       <Link
-                        href="/"
-                        className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm font-semibold"
+                        href={data.href}
+                        className="cursor-pointer hover:text-light-blue py-2 rounded-md lg:text-xs xl:text-sm font-semibold"
                       >
-                        {data.name}
+                        <div className="text-xs">
+                          {data.name}
+                          </div>
                       </Link>
                     </div>
                   ))}
@@ -95,21 +102,21 @@ export default function Navbar() {
             </svg>
           </div>
         </div>
-        <div className="w-full lg:block hidden h-16">
+        <div className="w-full lg:block hidden h-16 -mt-2">
           <div
             style={{ backgroundImage: `url(./img/new-img/VUyGCc.png)` }}
-            className="max-w-4xl mx-auto h-full bg-no-repeat bg-center bg-contain flex justify-around gap-x-16 items-center"
+            className="max-w-2xl mx-auto h-full bg-no-repeat bg-center bg-contain flex justify-around gap-x-16 items-center"
           >
-            <div className="flex gap-x-2">
-              <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+            <div className="flex gap-x-5 ml-5 items-center">
+              <div className="w-20 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
                 <a
                   href="/"
-                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-sm font-semibold text-black"
+                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-black"
                 >
                   Donation
                 </a>
               </div>
-              <div className="w-12 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+              <div className="w-8 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
                 <a
                   href="/"
                   className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-sm font-semibold text-black"
@@ -117,7 +124,7 @@ export default function Navbar() {
                   &
                 </a>
               </div>
-              <div className="w-36 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
+              <div className="w-24 h-10 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-around items-center">
                 <a
                   href="/"
                   className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-sm font-semibold text-black"

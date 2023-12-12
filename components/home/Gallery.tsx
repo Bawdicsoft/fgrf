@@ -43,7 +43,7 @@ const Gallery = () => {
             className="h-60 col-span-1 relative"
             onMouseOver={() => handleOpacity(index)}
             onMouseLeave={() => setShow(false)}
-          >
+          > 
             <div
               className={`absolute top-0 left-0 bg-[#f49f38] z-[1] w-full h-full rounded-lg ${
                 saveIndex === index && show
