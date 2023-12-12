@@ -1,46 +1,53 @@
 "use client";
 
+import { useState } from "react";
+import VideoModel from "../modal/videoModal";
+
 const Form = () => {
-  const data = ["./img/galleryImg1.png", "./img/galleryImg2.png"];
+  const data = ["/video/v2.mp4", "/video/v2.mp4", "/video/v2.mp4"];
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="h-auto mt-8 relative lg:py-16 px-2 lg:bg-transparent bg-[#242424] ">
       <div className="max-w-[1000px] mx-auto w-full h-full ">
-        <div className="lg:grid lg:grid-cols-2 grid grid-cols-1 gap-x-16 py-6">
+        <div className="lg:grid lg:grid-cols-2 grid grid-cols-1 gap-x-5 py-6">
           <div className="lg:col-span-1 col-span-1 w-full">
-            <div
-              className="cursor-pointer md:w-48 w-32 md:text-base text-sm font-bold md:h-12 h-10 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center"
-            >
+            <div className="cursor-pointer md:w-48 w-32 md:text-base text-sm font-bold md:h-12 h-10 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center">
               NEWS
             </div>
             {data.map((data, index) => (
               <div
                 key={index}
-                className="lg:grid lg:grid-cols-2 lg:max-w-lg lg:items-center lg:gap-x-6 max-w-xs mx-auto mt-4"
+                className="flex md:flex-row flex-col gap-3 gapy-6 py-4 lg:ml-8 xl:ml-0"
               >
                 <div
-                  className="bg-[#e7ebeb] rounded-lg col-span-1 lg:h-52 h-72 shadow-[8px_0_#999995] p-1 border"
-                  key={index}
+                  onClick={() => {
+                    setOpen(true);
+                  }}
                 >
-                  <img src={data} className="w-full h-full" alt="" />
+                  <img
+                    src="/video/videoThumbnail.jpg"
+                    alt=""
+                    className="rounded-2xl w-[400px] cursor-pointer"
+                  />
                 </div>
-                <div className="col-span-1 text-sm lg:mt-0 mt-3">
-                  <p className="lg:text-left text-center text-white">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Quisquam cum ducimus fugit quo eius assumenda eum. Sequi ea
+                <div className=" text-white text-sm flex flex-col justify-between">
+                  <p className="text-2xl lg:text-lg font-medium">
+                    Faizan Global Relief Foundation (Abdul Habib Attari)
                   </p>
+                  <div>
+                    <p className="text-gray-300">Duration: 00:30:45</p>
+                    <p className="text-gray-300">Created Date: 2021-02-23</p>
+                  </div>
                 </div>
               </div>
             ))}
-            <div
-              className="mt-4 cursor-pointer md:w-48 w-32 md:h-12 h-10 font-bold md:text-base text-sm flex justify-center items-center bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8]"
-            >
+            <div className="mt-4 cursor-pointer md:w-48 w-32 md:h-12 h-10 font-bold md:text-base text-sm flex justify-center items-center bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8]">
               VIEW ALL
             </div>
           </div>
           <div className="col-span-1 lg:mt-0 mt-4">
-            <div
-              className="cursor-pointer md:w-48 md:h-12 w-32 h-10 md:text-base text-sm bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
-            >
+            <div className="cursor-pointer md:w-48 md:h-12 w-32 h-10 md:text-base text-sm bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold">
               CONTACT
             </div>
             <form className="lg:w-full max-w-sm mx-auto bg-white p-3 rounded-md shadow-[-7px_0_#999995] my-4">
@@ -109,9 +116,7 @@ const Form = () => {
                 </div>
               </div>
             </form>
-            <div
-              className="cursor-pointer w-48 text-sm h-12 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold"
-            >
+            <div className="cursor-pointer w-48 text-sm h-12 bg-[#efeff1] rounded-full mx-auto border-y-4 border-x-8 border-[#faf8f8] flex justify-center items-center font-bold">
               SEND YOUR MESSAGE
             </div>
           </div>
@@ -124,6 +129,20 @@ const Form = () => {
           alt=""
         />
       </div>
+      <VideoModel open={open} setOpen={setOpen}>
+        <div >
+          <video
+            width="900"
+            height="900"
+            controls
+            className="rounded-2xl"
+            poster={""}
+            autoPlay
+          >
+            <source src="/video/v2.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </VideoModel>
     </div>
   );
 };
