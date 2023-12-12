@@ -98,7 +98,7 @@ const Achievement = () => {
           </Swiper>
           <Link href={'/achievements'}>   
           <div className="mb-6 w-48 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
-        <h2 className="text-lg md:text-2xl text-center">
+        <h2 className="text-lg md:text-xl text-center">
          View All
         </h2>
       </div>
