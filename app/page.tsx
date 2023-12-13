@@ -2,6 +2,7 @@
 import BackgroundModel from "@/components/3dModel/BackgroundModel";
 import ModelCanvas from "@/components/3dModel/ModelCanvas";
 import ThreadsParticles from "@/components/ThreadsParticles";
+import BackgroundCanvas from "@/components/backgroundCanvas/backgroundCanvas";
 import Achievement from "@/components/home/Achievement";
 import Donation from "@/components/home/Donation";
 import Hero from "@/components/home/Hero";
@@ -27,11 +28,12 @@ export default function Home() {
         <div className="relative">
           <Donation />
           <OurProject />
-          <ModelCanvas />
+          {/* <ModelCanvas /> */}
         </div>
         <Achievement />
         <Together />
-        <ThreadsParticles />
+        <BackgroundCanvas />
+        {/* <ThreadsParticles /> */}
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
       </div>
     </>
