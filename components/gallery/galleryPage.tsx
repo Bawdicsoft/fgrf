@@ -15,14 +15,14 @@ const GalleryPage = () => {
   ];
   return (
     <section>
-      <div className="pt-5 md:pt-40 pb-8">
+      <div className="pt-20 lg:pt-36 pb-8">
         <div className="relative">
           <div className="mb-6 w-60 mx-auto rounded-full border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
             <h2 className="text-xl md:text-3xl font-semibold text-center">
               Gallery
             </h2>
           </div>
-          <div className="max-w-6xl mx-auto relative z-[2]">
+          <div className="max-w-6xl xl:mx-auto mx-2  relative z-[2]">
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-2 mt-5">
               {gallery.map((data, index) => (
                 <div

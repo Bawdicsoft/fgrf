@@ -1,8 +1,9 @@
 "use client";
-import { Fragment } from "react";
+import { Fragment} from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import Link from "next/link";
 
-export default function Modal({ open, setOpen }: any) {
+export default function NavModal({ open, setOpen }: any) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={setOpen}>
@@ -31,7 +32,7 @@ export default function Modal({ open, setOpen }: any) {
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md bg-white px-4 py-6">
                   <div className="flex justify-between">
-                    <h2 className="text-3xl">Menu</h2>
+                    <h2 className="text-3xl"><img src="/img/fgrf.png" alt="FGRF" className="w-16" /></h2>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -48,21 +49,21 @@ export default function Modal({ open, setOpen }: any) {
                       />
                     </svg>
                   </div>
-                  <ul className="mt-6 flex flex-col gap-y-6">
-                    <li>
-                      <a href="">Our Partners </a>
+                  <ul className="mt-10 flex flex-col gap-y-6 items-center">
+                    <li className="border-b pb-1">
+                      <Link  onClick={() => setOpen(false)} className="outline-none" href="/">Our Partners</Link>
                     </li>
-                    <li>
-                      <a href="">Achievement</a>
+                    <li className="border-b pb-1">
+                      <Link  onClick={() => setOpen(false)} className="outline-none" href="achievements">Achievement</Link>
                     </li>
-                    <li>
-                      <a href="">Our Department</a>
+                    <li className="border-b pb-1">
+                      <Link  onClick={() => setOpen(false)} className="outline-none" href="">Our Department</Link>
                     </li>
-                    <li>
-                      <a href="">Project</a>
+                    <li className="border-b pb-1">
+                      <Link  onClick={() => setOpen(false)} className="outline-none" href="">Project</Link>
                     </li>
-                    <li>
-                      <a href="">CEO Message</a>
+                    <li className="border-b pb-1">
+                      <Link  onClick={() => setOpen(false)} className="outline-none" href="">CEO Message</Link>
                     </li>
                   </ul>
                 </Dialog.Panel>

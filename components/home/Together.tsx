@@ -129,13 +129,11 @@ const Together = () => {
                 </div>
               ))}
             </div>
-            <Link href={'/gallery'}>   
-          <div className="mb-6 w-48 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
-        <h2 className="text-lg md:text-xl text-center">
-         View All
-        </h2>
-      </div>
-          </Link>
+            <Link href={"/gallery"}>
+              <div className="mb-6 w-48 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
+                <h2 className="text-lg md:text-xl text-center">View All</h2>
+              </div>
+            </Link>
           </div>
           <div className="absolute w-full h-full z-[1] top-1/2 -translate-y-1/2 md:flex md:items-center ">
             <img

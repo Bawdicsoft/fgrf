@@ -5,7 +5,6 @@ import ThreadsParticles from "@/components/ThreadsParticles";
 import Achievement from "@/components/home/Achievement";
 import Donation from "@/components/home/Donation";
 import Hero from "@/components/home/Hero";
-import Last from "@/components/home/Last";
 import OurProject from "@/components/home/OurProject";
 import Section2 from "@/components/home/Section2";
 import Together from "@/components/home/Together";
@@ -28,12 +27,11 @@ export default function Home() {
         <div className="relative">
           <Donation />
           <OurProject />
-          <ModelCanvas />
+          {/* <ModelCanvas /> */}
         </div>
         <Achievement />
         <Together />
-        <Last />
-        <ThreadsParticles />
+        {/* <ThreadsParticles /> */}
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
       </div>
     </>
