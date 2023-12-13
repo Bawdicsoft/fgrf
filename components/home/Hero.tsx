@@ -4,12 +4,12 @@ import { useState } from "react";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const heroImage = [
-    "./img/slidersImage/slider1.jpg",
-    "./img/slidersImage/slider2.jpg",
-    "./img/slidersImage/slider3.jpg",
-    "./img/slidersImage/slider4.jpg",
-    "./img/slidersImage/slider5.jpg",
     "./img/slidersImage/slider6.jpg",
+    "./img/slidersImage/slider5.jpg",
+    "./img/slidersImage/slider4.jpg",
+    "./img/slidersImage/slider3.jpg",
+    "./img/slidersImage/slider2.jpg",
+    "./img/slidersImage/slider1.jpg",
   ];
   const handleUpdate = (newIndex: any) => {
     if (newIndex < 0) {

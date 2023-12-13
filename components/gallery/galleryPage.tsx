@@ -1,3 +1,6 @@
+"use client";
+import React, { useState } from "react";
+
 const GalleryPage = () => {
   const gallery = [
     "./img/galleryImg1.png",
@@ -13,6 +16,9 @@ const GalleryPage = () => {
     "./img/galleryImg5.png",
     "./img/galleryImg6.png",
   ];
+
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <section>
       <div className="pt-20 lg:pt-36 pb-8">
@@ -22,15 +28,24 @@ const GalleryPage = () => {
               Gallery
             </h2>
           </div>
-          <div className="max-w-6xl xl:mx-auto mx-2  relative z-[2]">
+          <div className="max-w-5xl xl:mx-auto mx-2  relative z-[2]">
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-2 mt-5">
-              {gallery.map((data, index) => (
+              {gallery.map((data, index: any) => (
                 <div
                   key={index}
-                  className="col-span-1 h-72 bg-[#f1fcd1] relative rounded-lg border-[6px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                  className="col-span-1 relative rounded p-1 border flex flex-col justify-center items-center gap-y-3"
+                  onMouseEnter={() => setHoveredIndex(index)}
+                  onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <img src={data} className="w-full h-full" alt="" />
-                  <div className="bg-[#42a5a9] opacity-50 w-full h-full absolute top-0 left-0"></div>
+                  <img
+                    src={data}
+                    className={`w-full h-full ${
+                      hoveredIndex === index
+                        ? "transition ease-in-out duration-500"
+                        : "grayscale"
+                    }`}
+                    alt=""
+                  />
                 </div>
               ))}
             </div>
@@ -40,4 +55,5 @@ const GalleryPage = () => {
     </section>
   );
 };
+
 export default GalleryPage;
