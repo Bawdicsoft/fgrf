@@ -1,10 +1,11 @@
 "use client";
-import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import Modal from "../modal/Modal";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import NavModal from "../modal/NavbarModal";
 
 export default function Navbar() {
+  const pathName = usePathname()
   const [getValue, setGetValue] = useState("Our Partners");
   const handleClick = (event: any) => {
     const clickedVal = event.target.textContent;
@@ -24,15 +25,15 @@ export default function Navbar() {
     },
     {
       name: "Our Department",
-      href: '/achievements'
+      href: ''
     },
     {
       name: "Project",
-      href: '/achievements'
+      href: ''
     },
     {
       name: "CEO Message",
-      href: '/achievements'
+      href: ''
     },
   ];
   return (
@@ -61,8 +62,8 @@ export default function Navbar() {
                   {navItem.map((data, index) => (
                     <div
                       onClick={handleClick}
-                      className={`xl:w-28 w-32 rounded-full h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
-                        data.name == getValue && "bg-teal-200 bg-opacity-30"
+                      className={`w-28 rounded-full h-9 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
+                        pathName == data.href && "bg-[#82adbf] bg-opacity-30"
                       }`}
                       key={index}
                     >
@@ -80,9 +81,8 @@ export default function Navbar() {
               </div>
             </div>
           </div>
-          <div className="w-32 font-bold h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] hidden text-black rounded-full lg:flex lg:justify-center lg:gap-2 lg:items-center lg:text-xs xl:text-sm">
+          <div className="xl:w-32 w-28 font-bold h-10 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] hidden text-black rounded-full lg:flex lg:justify-center lg:gap-2 lg:items-center lg:text-xs xl:text-sm">
             Donation
-            {/* <img src="/img/donate.png" alt="" /> */}
           </div>
           <div className="lg:hidden block">
             <svg
@@ -186,7 +186,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      <Modal open={open} setOpen={setOpen} />
+      <NavModal open={open} setOpen={setOpen} />
     </>
   );
 }

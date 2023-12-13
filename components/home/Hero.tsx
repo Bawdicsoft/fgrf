@@ -20,7 +20,7 @@ const Hero = () => {
     setCurrentIndex(newIndex);
   };
   return (
-    <div className="md:h-screen h-[400px] w-full flex items-center text-white relative overflow-hidden">
+    <div className="md:h-[500px] h-[300px] w-full flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div className="overflow-hidden w-full h-full flex flex-col justify-center">
           <div
@@ -30,14 +30,19 @@ const Hero = () => {
             {heroImage.map((data, index) => (
               <>
                 <div
-                  className="inline-flex w-full items-center justify-center h-full bg-white"
+                  className="inline-flex w-full relative items-center justify-center h-full bg-white"
                   key={index}
                 >
-                  <img className="w-full h-full" src={data} alt="" />
+                  <img
+                    className="w-full h-full md:object-fill object-cover"
+                    src={data}
+                    alt=""
+                  />
                 </div>
               </>
             ))}
           </div>
+          <div className="bg-black absolute top-0 md:h-[500px] w-full opacity-40"></div>
         </div>
       </div>
       <div className="w-full h-20 absolute left-0 transform -translate-y-1/2 z-40">
