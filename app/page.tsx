@@ -27,11 +27,11 @@ export default function Home() {
         <div className="relative">
           <Donation />
           <OurProject />
-          {/* <ModelCanvas /> */}
+          <ModelCanvas />
         </div>
         <Achievement />
         <Together />
-        {/* <ThreadsParticles /> */}
+        <ThreadsParticles />
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
       </div>
     </>
