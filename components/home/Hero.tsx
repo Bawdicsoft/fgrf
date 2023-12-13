@@ -34,7 +34,7 @@ const Hero = () => {
                   key={index}
                 >
                   <img
-                    className="w-full h-full md:object-none object-cover"
+                    className="w-full h-full md:object-fill object-cover"
                     src={data}
                     alt=""
                   />
