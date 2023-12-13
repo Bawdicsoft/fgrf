@@ -42,7 +42,7 @@ const Hero = () => {
               </>
             ))}
           </div>
-          <div className="bg-black absolute top-0 md:h-[500px] w-full opacity-40"></div>
+          <div className="bg-lime-800 absolute top-0 md:h-[500px] w-full opacity-40"></div>
         </div>
       </div>
       <div className="w-full h-20 absolute left-0 transform -translate-y-1/2 z-40">
