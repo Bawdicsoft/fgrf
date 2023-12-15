@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
-import Footer from "@/components/navigation/footer";
+import Footer from "@/components/navigation/Footer";
 
 export const metadata: Metadata = {
   title: "FGRF | Faizan Global Relief Foundation UK",

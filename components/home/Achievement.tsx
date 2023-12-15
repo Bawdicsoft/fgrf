@@ -36,7 +36,7 @@ const Achievement = () => {
     <>
       <div
         className="relative bg-center bg-no-repeat bg-cover"
-        style={{ backgroundImage: `url(./img/new-img/acheive.png)` }}
+        // style={{ backgroundImage: `url(./img/new-img/acheive.png)` }}
       >
         <div className="flex flex-col items-center gap-y-4 max-w-[1200px] mx-auto sm:py-10 py-6 px-3">
           <div
@@ -96,12 +96,10 @@ const Achievement = () => {
               </>
             ))}
           </Swiper>
-          <Link href={'/achievements'}>   
-          <div className="mb-6 w-48 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
-        <h2 className="text-lg md:text-xl text-center">
-         View All
-        </h2>
-      </div>
+          <Link href={"/achievements"}>
+            <div className="mb-6 w-48 mx-auto rounded-full mt-8 border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
+              <h2 className="text-lg md:text-xl text-center">View All</h2>
+            </div>
           </Link>
         </div>
         <div className="w-full absolute top-0 right-0 z-[-1]">
