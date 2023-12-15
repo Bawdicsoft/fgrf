@@ -64,7 +64,7 @@ const GalleryPage = () => {
                   >
                     <div className="group h-64 w-full [perspective:600px]">
                       <div className="w-full h-full">
-                        <div className="relative h-full w-full transition duration-1000 shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] ">
+                        <div className="relative h-full w-full transition duration-700 ease-linear shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] ">
                           <div className="absolute inset-0 bg-white shadow-md">
                             <img
                               className="h-full w-full shadow shadow-black/40"
