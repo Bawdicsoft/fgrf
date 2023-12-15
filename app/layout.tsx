@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navigation/Navbar";
 import Footer from "@/components/navigation/Footer";
 
+
 export const metadata: Metadata = {
   title: "FGRF | Faizan Global Relief Foundation UK",
   description: "FGRF | Faizan Global Relief Foundation UK",
