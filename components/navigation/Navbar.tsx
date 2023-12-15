@@ -168,7 +168,7 @@ export default function Navbar() {
                   />
                 </svg>
               </div>
-              <div className="w-28 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+              <div className="w-32 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
                 <a
                   href="/"
                   className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs text-black font-extrabold"
