@@ -62,17 +62,30 @@ const GalleryPage = () => {
                     onMouseLeave={() => setHoveredIndex(null)}
                     onClick={() => handleOpenForImg(data)}
                   >
-                    <figure className="w-full h-full overflow-hidden">
-                      <img
-                        src={data}
-                        className={`w-full h-full ${
-                          hoveredIndex === index
-                            ? "scale-110 transition duration-1000"
-                            : "grayscale transition duration-1000"
-                        }`}
-                        alt="FGRF Gallery"
-                      />
-                    </figure>
+                    <div className="group h-64 w-full [perspective:600px]">
+                      <div className="w-full h-full">
+                        <div className="relative h-full w-full transition duration-1000 shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] ">
+                          <div className="absolute inset-0 bg-white shadow-md">
+                            <img
+                              className="h-full w-full shadow shadow-black/40"
+                              src={data}
+                              alt="FGRF"
+                            />
+                          </div>
+                          <div className="absolute inset-0 h-full w-full bg-white px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                            <div className="h-full flex flex-col justify-center">
+                              <h1 className="font-bold text-3xl text-black">
+                                John Doe
+                              </h1>
+                              <p className="text-gray-700">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </motion.div>
                 </>
               ))}
@@ -80,8 +93,11 @@ const GalleryPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Old Design Code */}
+
       {/* Image Main Gallery */}
-      <GalleryImagesModal open={open} setOpen={setOpen}>
+      {/* <GalleryImagesModal open={open} setOpen={setOpen}>
         <Carousel
           className="md:w-[65vh] w-[50vh] mt-4"
           showIndicators={false}
@@ -93,7 +109,18 @@ const GalleryPage = () => {
             </div>
           ))}
         </Carousel>
-      </GalleryImagesModal>
+      </GalleryImagesModal> */}
+      {/* <figure className="w-full h-full overflow-hidden">
+        <img
+          src={data}
+          className={`w-full h-full ${
+            hoveredIndex === index
+              ? "scale-110 transition duration-1000"
+              : "grayscale transition duration-1000"
+          }`}
+          alt="FGRF Gallery"
+        />
+      </figure> */}
     </section>
   );
 };
