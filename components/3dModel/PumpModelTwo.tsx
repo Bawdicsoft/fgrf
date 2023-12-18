@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
-export function PumpModel(props: any) {
+export function PumpModelTwo(props: any) {
   const group = useRef<THREE.Group>();
 
   const { nodes, materials }: any = useGLTF(
@@ -25,21 +25,19 @@ export function PumpModel(props: any) {
         scrub: 1,
       },
     });
-    t1.to(scene.position, { y: -1 }, "key1");
-    t1.to(scene.position, { y: -2.8 }, "key2")
-      .to(scene.position, { x: 0.5, z: 0.1 }, "key2")
-      .to(scene.rotation, { x: -0.4 }, "key3")
-      .to(scene.position, { x: 0.9, z: 0.2 }, "key3")
-      .to(scene.position, { x: 1.0, z: 0.3 }, "key4")
-      .to(scene.rotation, { x: -0.7, y: 0, z: 0 }, "key5")
-      .to(scene.position, { x: 2.2, y: -3.2, z: 0.3 }, "key5")
-      .to(scene.rotation, { x: -1.9, y: 1.2, z: 1.5 }, "key6") //worked
-      .to(scene.position, { x: 3.0, y: -3.4, z: 0.3 }, "key6") //worked
-      .to(scene.position, { x: 1.2, y: -4.8, z: 0.3 }, "key7");
-    // .to(scene.rotation, { x: -2.1, y: 1.0, z: 1.2 }, "key6");
-    // .to(scene.rotation, { x: -0.6, y: 1, z: 0 }, "key6");
-    // .to(scene.position, { x: 10, y: -3, z: 0.4 }, "key5");
-
+    t1.to(scene.position, { x: 0.5, y: -0.55 }, "key1")
+      .to(scene.position, { x: 0.6, y: -0.95 }, "key2")
+      .to(scene.position, { x: 0.7, y: -1.35 }, "key3")
+      .to(scene.position, { x: 0.9, y: -1.65 }, "key4")
+      .to(scene.rotation, { x: -0.1, y: -0.2, z: -0.1 }, "key4")
+      .to(scene.scale, { x: 1.2, y: 1.1, z: 1.1 }, "key4")
+      .to(scene.position, { x: 0.7, y: -1.95 }, "key5")
+      .to(scene.rotation, { x: 0.2, y: 0.1, z: 0.1 }, "key5")
+      .to(scene.position, { x: 0.65, y: -2.05 }, "key6") // worked
+      .to(scene.position, { x: 0.55, y: -2.3 }, "key7")
+      .to(scene.rotation, { x: 0.3, y: 0.2, z: 0.1 }, "key7")
+      .to(scene.position, { x: 0.45, y: -2.35 }, "key8")
+      .to(scene.rotation, { x: 0.3, y: 0.4, z: 0.1 }, "key8");
     return () => {
       t1.kill();
     };
@@ -47,7 +45,7 @@ export function PumpModel(props: any) {
   return (
     <group {...props} dispose={null}>
       {/* <group scale={0.16} position={[0, -1.5, 0]} rotation={[0, -4.7, 0]}> */}
-      <group scale={0.08} position={[0, 1, 0]} rotation={[0.4, 0.05, 0]}>
+      <group scale={0.03} position={[0, 2.8, 0]} rotation={[0.6, 0.08, 0]}>
         <group
           position={[-6.347, -0.243, -7.094]}
           rotation={[0, -0.9, 0]}
