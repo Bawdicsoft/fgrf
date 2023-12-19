@@ -60,7 +60,10 @@ const Donation = () => {
         </div>
       </div>
       <OurProject />
-      <div className="bg-transparent pb-[96rem]  "></div>
+      <div className="h-96 border-red-600">Hello</div>
+      <div className="bg-transparent pb-[96rem]  border-red-600" id="modalEnd">
+        Hello2
+      </div>
     </>
   );
 };
