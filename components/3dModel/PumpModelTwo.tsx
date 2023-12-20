@@ -20,7 +20,7 @@ export function PumpModelTwo(props: any) {
         trigger: '#modalStart',
         start: 'top top',
         end: 'top +=100 top',
-        markers: true,
+        markers: false,
         endTrigger: '#modalEnd',
         scrub: 2,
       },
@@ -31,39 +31,82 @@ export function PumpModelTwo(props: any) {
       .to(scene.position, { x: 0.8, y: -0.8 }, 'key4')
       .to(scene.position, { x: 0.9, y: -0.9 }, 'key5')
       .to(scene.position, { x: 1.0, y: -1.0 }, 'key6')
-      .to(scene.position, { x: 1.0, y: -1.1 }, 'key7')
-      .to(scene.position, { x: 1.0, y: -1.2 }, 'key8')
-      .to(scene.position, { x: 1.0, y: -1.3 }, 'key9')
-      .to(scene.position, { x: 1.0, y: -1.4 }, 'key10')
-      .to(scene.position, { x: 1.0, y: -1.5 }, 'key12')
-      .to(scene.position, { x: 0.8, y: -1.6 }, 'key13')
-      .to(scene.position, { x: 0.6, y: -1.7 }, 'key14')
-      .to(scene.position, { x: 0.4, y: -1.8 }, 'key15')
-      .to(scene.position, { x: 0.2, y: -1.9 }, 'key16')
-      .to(scene.position, { x: 0.0, y: -2.0 }, 'key17')
-      .to(camera.position, { z: 5 }, 'key18')
-      .to(scene.position, { x: 0.0, y: -2.1 }, 'key18')
-      .to(camera.position, { z: 4.5 }, 'key19')
-      .to(scene.position, { x: 0.0, y: -2.2 }, 'key19')
-      .to(camera.position, { z: 4 }, 'key20')
-      .to(scene.position, { x: 0.0, y: -2.3 }, 'key20')
-      .to(camera.position, { z: 3.5 }, 'key21')
-      .to(scene.position, { x: 0.0, y: -2.4 }, 'key21')
-      .to(camera.position, { z: 3 }, 'key22')
-      .to(scene.position, { x: 0.0, y: -2.5 }, 'key22')
-      .to(camera.position, { z: 2.5 }, 'key23')
-      .to(scene.position, { x: 0.0, y: -2.6 }, 'key23')
-      .to(camera.position, { z: 2 }, 'key24')
-      .to(scene.position, { x: 0.0, y: -2.7 }, 'key24')
-      .to(camera.position, { z: 1.5 }, 'key25')
-      .to(scene.position, { x: 0.0, y: -2.8 }, 'key25')
-      .to(camera.position, { z: 1 }, 'key26')
-      .to(camera.position, { z: 0.5 }, 'key27')
-      .to(camera.position, { z: 0 }, 'key28')
-      .to(camera.position, { z: -0.5 }, 'key29')
-      .to(camera.position, { z: -1 }, 'key30')
-      .to(camera.position, { z: -1.5 }, 'key31')
-      .to(camera.position, { z: -2 }, 'key32');
+      .to(scene.position, { x: 1.1, y: -1.1 }, 'key7')
+      .to(scene.position, { x: 1.2, y: -1.2 }, 'key8')
+      .to(scene.position, { x: 1.3, y: -1.3 }, 'key9')
+      .to(scene.position, { x: 1.4, y: -1.4 }, 'key10')
+      .to(scene.position, { x: 1.5, y: -1.5 }, 'key12')
+      .to(scene.position, { x: 1.6, y: -1.6 }, 'key13')
+      .to(scene.position, { x: 1.7, y: -1.7 }, 'key14')
+      .to(scene.position, { x: 1.8, y: -1.8 }, 'key15')
+      .to(scene.position, { x: 1.8, y: -1.9 }, 'key16')
+      .to(scene.position, { x: 1.8, y: -2.0 }, 'key17')
+      .to(scene.position, { x: 1.8, y: -2.1 }, 'key18')
+      .to(scene.position, { x: 1.8, y: -2.2 }, 'key19')
+      .to(scene.position, { x: 1.8, y: -2.3 }, 'key20')
+      .to(scene.position, { x: 1.8, y: -2.4 }, 'key21')
+      .to(scene.position, { x: 1.8, y: -2.5 }, 'key22')
+      // .to(scene.position, { x: 1.9, y: -2.6 }, 'key23')
+      // .to(scene.position, { x: 1.8, y: -2.7 }, 'key24')
+      .to(scene.position, { x: 1.6, y: -2.8 }, 'key25')
+      .to(scene.position, { x: 1.4, y: -2.8 }, 'key26')
+      .to(scene.position, { x: 1.2, y: -2.9 }, 'key27')
+      .to(scene.position, { x: 1.0, y: -3.0 }, 'key28')
+      .to(scene.position, { x: 0.8, y: -3.1 }, 'key29')
+      .to(scene.position, { x: 0.6, y: -3.2 }, 'key30')
+      .to(scene.position, { x: 0.4, y: -3.3 }, 'key31')
+      .to(scene.position, { x: 0.2, y: -3.4 }, 'key32')
+      .to(scene.position, { x: 0, y: -3.5 }, 'key33')
+      .to(camera.position, { z: 3 }, 'key33')
+      .to(scene.position, { x: 0, y: -3.6 }, 'key34')
+      .to(camera.position, { z: 3 }, 'key34')
+      .to(scene.position, { x: 0, y: -3.7 }, 'key35')
+      .to(camera.position, { z: 3 }, 'key35')
+      // .to(scene.position, { x: 0, y: -3.8 }, 'key36')
+      .to(camera.position, { z: 4 }, 'key36')
+      // .to(scene.position, { x: 0, y: -3.9 }, 'key37')
+      .to(camera.position, { z: 3.5 }, 'key37')
+      // .to(scene.position, { x: 0, y: -4.0 }, 'key38')
+      .to(camera.position, { z: 3 }, 'key38')
+      // .to(scene.position, { x: 0, y: -4.1 }, 'key39')
+      .to(camera.position, { z: 2.5 }, 'key39')
+      // .to(scene.position, { x: 0, y: -4.2 }, 'key40')
+      .to(camera.position, { z: 2 }, 'key40')
+      // .to(scene.position, { x: 0, y: -4.3 }, 'key41')
+      .to(camera.position, { z: 1.5 }, 'key41');
+
+    // .to(camera.position, { z: 5 }, 'key41')
+    // .to(scene.position, { x: 0.0, y: -3.4 }, 'key42')
+    // .to(camera.position, { z: 4.5 }, 'key42')
+    // .to(scene.position, { x: 0.0, y: -3.5 }, 'key44')
+    // .to(camera.position, { z: 4 }, 'key43')
+    // .to(scene.position, { x: 0.0, y: -3.6 }, 'key44')
+    // .to(camera.position, { z: 3.5 }, 'key44')
+    // .to(scene.position, { x: 0.0, y: -3.7 }, 'key45')
+    // .to(camera.position, { z: 3 }, 'key45');
+    // .to(scene.position, { x: 0.0, y: -2.1 }, 'key18')
+    // .to(camera.position, { z: 4.5 }, 'key19')
+    // .to(scene.position, { x: 0.0, y: -2.2 }, 'key19')
+    // .to(camera.position, { z: 4 }, 'key20')
+    // .to(scene.position, { x: 0.0, y: -2.3 }, 'key20')
+    // .to(camera.position, { z: 3.5 }, 'key21')
+    // .to(scene.position, { x: 0.0, y: -2.4 }, 'key21')
+    // .to(camera.position, { z: 3 }, 'key22')
+    // .to(scene.position, { x: 0.0, y: -2.5 }, 'key22')
+    // .to(camera.position, { z: 2.5 }, 'key23')
+    // .to(scene.position, { x: 0.0, y: -2.6 }, 'key23')
+    // .to(camera.position, { z: 2 }, 'key24')
+    // .to(scene.position, { x: 0.0, y: -2.7 }, 'key24')
+    // .to(camera.position, { z: 1.5 }, 'key25')
+    // .to(scene.position, { x: 0.0, y: -2.8 }, 'key25')
+    // .to(camera.position, { z: 1 }, 'key26')
+    // .to(camera.position, { z: 0.5 }, 'key27')
+    // .to(camera.position, { z: 0 }, 'key28');
+
+    // .to(camera.position, { z: -0.5 }, 'key29')
+    // .to(camera.position, { z: -1 }, 'key30')
+    // .to(camera.position, { z: -1.5 }, 'key31')
+    // .to(camera.position, { z: -2 }, 'key32');
     // .to(scene.scale, { x: 0.0, y: 0.0, z: 0.0 }, 'key18')
     // .to(scene.scale, { x: 1, y: 1, z: 1 }, 'key19');
     // .to(scene.scale, { x: 0.0, y: -2.0, z: 1.1 }, 'key20')
@@ -90,7 +133,7 @@ export function PumpModelTwo(props: any) {
   return (
     <group {...props} dispose={null}>
       {/* <group scale={0.16} position={[0, -1.5, 0]} rotation={[0, -4.7, 0]}> */}
-      <group scale={0.03} position={[0, 2.8, 0]} rotation={[0.6, 0.08, 0]}>
+      <group scale={0.05} position={[0, 2.2, 0]} rotation={[0.6, 0.08, 0]}>
         <group
           position={[-6.347, -0.243, -7.094]}
           rotation={[0, -0.9, 0]}

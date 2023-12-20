@@ -24,7 +24,7 @@ export default function Home() {
         </div>
         <Hero />
         <Section2 />
-        <div className="relative "> 
+        <div className="relative">
           <Donation />
           <ModelCanvas />
         </div>

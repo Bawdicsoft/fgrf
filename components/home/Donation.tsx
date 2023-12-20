@@ -1,5 +1,6 @@
 import ModelCanvas from "../3dModel/ModelCanvas";
-import OurProject from "./OurProject";
+import Achievement from './Achievement';
+import OurProject from './OurProject';
 
 const Donation = () => {
   return (
@@ -60,10 +61,7 @@ const Donation = () => {
         </div>
       </div>
       <OurProject />
-      <div className="h-96 border-red-600">Hello</div>
-      <div className="bg-transparent pb-[96rem]  border-red-600" id="modalEnd">
-        Hello2
-      </div>
+      <div id="modalEnd" className="h-[120vh]"></div>
     </>
   );
 };
