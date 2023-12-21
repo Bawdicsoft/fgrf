@@ -61,7 +61,8 @@ const Donation = () => {
         </div>
       </div>
       <OurProject />
-      <div id="modalEnd" className="h-[120vh]"></div>
+      <div id="modalEnd" className="h-[120vh]">
+      </div>
     </>
   );
 };
