@@ -36,9 +36,6 @@ const Achievement = () => {
     <div>
       <div
         className="relative bg-center bg-no-repeat bg-cover -z-30"
-        // id="modalEnd"
-
-        // style={{ backgroundImage: `url(./img/new-img/acheive.png)` }}
       >
         <div className="flex flex-col items-center gap-y-4 max-w-[1200px] mx-auto sm:py-10 py-6 px-3">
           <div
