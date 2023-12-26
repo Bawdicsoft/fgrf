@@ -1,10 +1,13 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
-// import { PumpModel } from "./PumpModel";
 import { OrbitControls } from "@react-three/drei";
-import { PumpModelTwo } from "./PumpModelTwo";
-const ModelCanvas = () => {
+import { Canvas } from "@react-three/fiber";
+import PumpModelTwo from './PumpModelTwo';
+import React, { Suspense } from "react";
+
+interface ModelCanvasProps {
+  onModelLoaded: () => void;
+}
+const ModelCanvas: React.FC<ModelCanvasProps> = ({ onModelLoaded }) => {
   return (
     <div className="absolute top-0 left-0 z-[-2] w-full h-full">
       <Canvas>
@@ -12,9 +15,9 @@ const ModelCanvas = () => {
         <directionalLight position={[0, 20, 20]} intensity={20} />
         {/* Auto rotation <OrbitControls autoRotate /> */}
         <OrbitControls />
-        <Suspense>
+        <Suspense >
           {/* <PumpModel /> */}
-          <PumpModelTwo />
+          <PumpModelTwo onModelLoaded={onModelLoaded} />
         </Suspense>
       </Canvas>
     </div>

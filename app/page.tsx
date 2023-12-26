@@ -1,16 +1,25 @@
 "use client";
+import { useState } from 'react';
 import ModelCanvas from "@/components/3dModel/ModelCanvas";
-import ThreadsParticles from "@/components/ThreadsParticles";
-import BackgroundCanvas from "@/components/backgroundCanvas/backgroundCanvas";
+import { FullPageLoader } from '@/components/3dModel/fullPageLoader';
 import Achievement from "@/components/home/Achievement";
 import Donation from "@/components/home/Donation";
 import Hero from "@/components/home/Hero";
-import OurProject from "@/components/home/OurProject";
 import Section2 from "@/components/home/Section2";
 import Together from "@/components/home/Together";
+
+
+
+
 export default function Home() {
+  const [isModelLoading, setIsModelLoading] = useState(true);
+
+  const handleModelLoaded = () => {
+    setIsModelLoading(false); 
+  };
   return (
     <>
+     {isModelLoading && <FullPageLoader />}
       <div className="relative">
         <div className="fixed top-[80%] right-[3%] z-50 flex flex-col items-center">
           <img
@@ -26,7 +35,8 @@ export default function Home() {
         <Section2 />
         <div className="relative">
           <Donation />
-          <ModelCanvas />
+          <ModelCanvas onModelLoaded={handleModelLoaded}
+          />
         </div>
         {/* <OurProject />s */}
         <Achievement />

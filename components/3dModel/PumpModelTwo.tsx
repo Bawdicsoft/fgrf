@@ -4,16 +4,21 @@ import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useEffect } from "react";
-
-export function PumpModelTwo(props: any) {
+interface PumpModelTwoProps {
+  onModelLoaded: () => void;
+  props?:any
+}
+const PumpModelTwo: React.FC<PumpModelTwoProps> = ({ onModelLoaded,props }) => {
   const group = useRef<THREE.Group>();
-  useEffect(() => {
-    console.log("Window size:", window.innerWidth, window.innerHeight);
-  }, []);
-
+  
   const { nodes, materials }: any = useGLTF(
     "./backgroundModel/greenhouse.gltf"
   );
+  useEffect(() => {
+    if (nodes) {
+      onModelLoaded(); // Call the onModelLoaded callback when the model is loaded
+    }
+  }, [nodes, onModelLoaded]);
   gsap.registerPlugin(ScrollTrigger);
   let scene = useThree((state) => state.scene);
   let camera = useThree((state) => state.camera);
@@ -5577,3 +5582,5 @@ export function PumpModelTwo(props: any) {
 }
 
 useGLTF.preload("./backgroundModel/greenhouse.gltf");
+
+export default PumpModelTwo;
