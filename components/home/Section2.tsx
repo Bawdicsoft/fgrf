@@ -67,7 +67,7 @@ const Section2 = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination, Navigation, Autoplay]}
+          modules={[Pagination, Navigation]}
           className="rounded-2xl bg-[#efeff1] mySwiper"
           navigation={true}
           style={

@@ -12,7 +12,6 @@ export default function Navbar() {
     setGetValue(clickedVal);
   };
 
-  console.log(getValue, "Value");
   const [open, setOpen] = useState(false);
   const navItem = [
     {
@@ -127,6 +126,7 @@ export default function Navbar() {
                         id="small-input"
                         placeholder="Amount"
                         className="block w-full p-2 text-gray-900 bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
+                        required
                       />
                     </div>
                   </div>
@@ -137,9 +137,10 @@ export default function Navbar() {
                   <select
                     id="countries"
                     className="bg-transparent rounded-lg text-gray-900 text-sm block w-full p-2.5 peer outline-none"
+                    required
                   >
-                    <option value="US">Single</option>
-                    <option value="CA">Monthly</option>
+                    <option value="single">Single</option>
+                    <option value="monthly">Monthly</option>
                   </select>
                 </div>
                 <div className="w-32 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
