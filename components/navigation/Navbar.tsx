@@ -103,80 +103,52 @@ export default function Navbar() {
         <div className="w-full lg:block hidden h-16 -mt-2">
           <div
             style={{ backgroundImage: `url(./img/new-img/VUyGCc.png)` }}
-            className="max-w-2xl mx-auto h-full bg-no-repeat bg-center bg-contain flex justify-around gap-x-16 items-center"
+            className="max-w-2xl mx-auto h-full bg-no-repeat bg-center bg-contain flex items-center"
           >
-            <div className="flex gap-x-5 items-center">
-              <div className="w-24 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
-                <a
-                  href="/"
-                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-black"
-                >
-                  Donation
-                </a>
+            <form
+              className="max-w-2xl mx-auto gap-x-16 w-full flex justify-around"
+              action=""
+              method="post"
+            >
+              <div className="flex gap-x-5 items-center">
+                <div className="w-32 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
+                  <span className="hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-black">
+                    DONATE TO FUND
+                  </span>
+                </div>
+                <div className="w-36 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
+                  <span className="w-8 h-8 hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs font-semibold text-black">
+                    <strong>&#163;</strong>
+                  </span>
+                  <div className="w-28 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-around items-center">
+                    <div>
+                      <input
+                        type="number"
+                        id="small-input"
+                        placeholder="Amount"
+                        className="block w-full p-2 text-gray-900 bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="w-8 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-center items-center">
-                <a
-                  href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs font-semibold text-black"
-                >
-                  <strong>&#163;</strong>
-                </a>
+              <div className="flex gap-x-2 items-center">
+                <div className="w-28 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
+                  <select
+                    id="countries"
+                    className="bg-transparent rounded-lg text-gray-900 text-sm block w-full p-2.5 peer outline-none"
+                  >
+                    <option value="US">Single</option>
+                    <option value="CA">Monthly</option>
+                  </select>
+                </div>
+                <div className="w-32 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
+                  <button className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs text-black font-extrabold">
+                    DONATE NOW
+                  </button>
+                </div>
               </div>
-              <div className="w-28 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded-md flex justify-around items-center">
-                <a
-                  href="/"
-                  className="cursor-pointer hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-black"
-                >
-                  Donation
-                </a>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="w-4 h-4 text-black"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="flex gap-x-2 items-center">
-              <div className="w-28 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-around items-center">
-                <a
-                  href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs font-semibold text-black"
-                >
-                  Single
-                </a>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  className="w-4 h-4 text-black"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  />
-                </svg>
-              </div>
-              <div className="w-32 h-8 bg-[#edeef0] shadow-inner border-4 border-[#faf9f9] rounded flex justify-center items-center">
-                <a
-                  href="/"
-                  className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs text-black font-extrabold"
-                >
-                  <strong className="font-extrabold">DONATE NOW</strong>
-                </a>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
