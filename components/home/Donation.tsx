@@ -1,8 +1,34 @@
-import ModelCanvas from "../3dModel/ModelCanvas";
-import Achievement from './Achievement';
+import { useEffect, useState } from 'react';
 import OurProject from './OurProject';
 
 const Donation = () => {
+   // State to track the scroll position
+   const [scrollPosition, setScrollPosition] = useState(0);
+
+   // Function to handle scroll events
+   const handleScroll = () => {
+     // Update the scroll position in the state
+     setScrollPosition(window.scrollY);
+   };
+ 
+   // Attach the scroll event listener when the component mounts
+   useEffect(() => {
+     window.addEventListener('scroll', handleScroll);
+ 
+     // Clean up the event listener when the component unmounts
+     return () => {
+       window.removeEventListener('scroll', handleScroll);
+     };
+   }, []);
+ 
+   // Calculate the darkness level based on the scroll position
+   const darknessLevel = Math.min((scrollPosition - 1500) / 200, 1);
+   const bgDarknessLevel = Math.max(0, darknessLevel);
+ 
+   // Style object for dynamic background color
+   const divStyle = {
+     backgroundColor: `rgba(0, 0, 0, ${bgDarknessLevel})`,
+   };
   return (
     <>
       <div
@@ -61,7 +87,7 @@ const Donation = () => {
         </div>
       </div>
       <OurProject />
-      <div id="modalEnd" className="h-[120vh]">
+      <div id="modalEnd" className="scrollable-div h-[120vh] relative z-[-4]" >
       </div>
     </>
   );
