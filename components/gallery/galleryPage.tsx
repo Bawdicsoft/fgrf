@@ -45,49 +45,28 @@ const GalleryPage = () => {
             </h2>
           </div>
           <div className="max-w-5xl xl:mx-auto mx-2  relative z-[2]">
-            <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 px-2 mt-5">
+            <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4 px-2 mt-5">
               {gallery.map((data, index: any) => (
-                <>
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      translateX: index % 2 === 0 ? -50 : 50,
-                      translateY: -50,
-                    }}
-                    animate={{ opacity: 1, translateX: 0, translateY: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    key={index}
-                    className="col-span-1 relative rounded cursor-pointer p-1 border flex flex-col justify-center items-center gap-y-3"
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                    onClick={() => handleOpenForImg(data)}
-                  >
-                    <div className="group h-64 w-full [perspective:600px]">
-                      <div className="w-full h-full">
-                        <div className="relative h-full w-full transition-all duration-700 ease-linear shadow-xl [transform-style:preserve-3d] group-hover:[transform:rotateY(-180deg)] ">
-                          <div className="absolute inset-0 bg-white shadow-md">
-                            <img
-                              className="h-full w-full shadow shadow-black/40"
-                              src={data}
-                              alt="FGRF"
-                            />
-                          </div>
-                          <div className="absolute inset-0 h-full w-full bg-white px-12 text-center text-slate-200 [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                            <div className="h-full flex flex-col justify-center">
-                              <h1 className="font-bold text-3xl text-black">
-                                John Doe
-                              </h1>
-                              <p className="text-gray-700">
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                <div key={index} className="card relative group h-full w-full">
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      className="h-full w-full shadow shadow-black/40"
+                      src={data}
+                      alt="FGRF"
+                    />
+                  </div>
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                      <div className="sm space-x-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        </p>
                       </div>
                     </div>
-                  </motion.div>
-                </>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
