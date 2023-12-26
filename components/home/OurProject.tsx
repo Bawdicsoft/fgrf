@@ -7,24 +7,30 @@ import { Pagination, Autoplay } from "swiper/modules";
 const OurProject = () => {
   const data = [
     {
+      firstHeading: "Palestine",
+      secondHeading: "Emergency",
+      paragraph: "Stand in solidarity with Palestinians in Gaza.",
       svg: "./img/new-img/polygonChange.png",
     },
     {
+      firstHeading: "Winter",
+      secondHeading: "Emergency",
+      paragraph:
+        "You could help save someones life during the harsh winter months.",
       svg: "./img/new-img/polygonChange.png",
     },
     {
+      firstHeading: "Give",
+      secondHeading: "Sadaqah",
+      paragraph:
+        "Donate your sadaqah online today to make a real difference for someone in need.",
       svg: "./img/new-img/polygonChange.png",
     },
     {
-      svg: "./img/new-img/polygonChange.png",
-    },
-    {
-      svg: "./img/new-img/polygonChange.png",
-    },
-    {
-      svg: "./img/new-img/polygonChange.png",
-    },
-    {
+      firstHeading: "Feed",
+      secondHeading: "Our World",
+      paragraph:
+        " “Feed for the love of Allah” Quran 76:8 Show your love and compassion by helping to feed our world!",
       svg: "./img/new-img/polygonChange.png",
     },
   ];
@@ -73,25 +79,29 @@ const OurProject = () => {
           modules={[Pagination, Autoplay]}
           className="mx-auto h-full"
         >
-          {data.map((data, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="bg-center bg-cover bg-no-repeat h-full mx-auto relative flex flex-col justify-center px-8 md:w-full max-w-xs"
-                style={{ backgroundImage: `url(${data.svg})` }}
-              >
-                <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-24 left-0">
-                  Palestine <span className="text-cyan-600">Emergency</span>
-                </h2>
-                <div className="mt-[7rem]">
-                  <h5 className="text-2xl font-bold">Palestine Emergency</h5>
-                  <p className="text-lg pb-1 font-semibold px-10">
-                    Donate us to help our palestinian brother.
-                  </p>
-                  <div className="border-b-4 border-cyan-600 w-[40%] mx-auto mt-1 rounded-full"></div>
+          {data.map((data, index) => {
+            const { svg, firstHeading, secondHeading, paragraph } = data;
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  className="bg-center bg-cover bg-no-repeat h-full mx-auto relative flex flex-col justify-center px-8 md:w-full max-w-xs"
+                  style={{ backgroundImage: `url(${svg})` }}
+                >
+                  <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-24 left-0 right-0">
+                    {firstHeading}
+                    <span className="text-cyan-600 block">{secondHeading}</span>
+                  </h2>
+                  <div className="mt-[7rem]">
+                    {/* <h5 className="text-2xl font-bold">Palestine Emergency</h5> */}
+                    <p className="text-sm pb-1 font-semibold px-10">
+                      {paragraph}
+                    </p>
+                    <div className="border-b-4 border-cyan-600 w-[40%] mx-auto mt-1 rounded-full"></div>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>

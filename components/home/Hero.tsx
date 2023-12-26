@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,13 +12,21 @@ const Hero = () => {
     "./img/slidersImage/slider1.jpg",
   ];
   const handleUpdate = (newIndex: any) => {
-    if (newIndex < 0) {
+    if (newIndex < 0 || newIndex > 5) {
       newIndex = 0;
     } else if (newIndex >= heroImage.length) {
       newIndex = heroImage.length - 1;
     }
     setCurrentIndex(newIndex);
   };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleUpdate(currentIndex + 1);
+    }, 10000);
+
+    return () => clearInterval(intervalId);
+  }, [currentIndex, heroImage]);
+
   return (
     <div className="md:h-[500px] h-[300px] w-full flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
