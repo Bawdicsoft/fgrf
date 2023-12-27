@@ -16,31 +16,34 @@ export default function Home() {
   };
   return (
     <>
-      {isModelLoading && <FullPageLoader />}
-      <div className="relative">
-        <div className="fixed top-[80%] right-[3%] z-50 flex flex-col items-center">
-          <img
-            src="/img/center-lg.png"
-            className="w-10 animate-bounce"
-            alt=""
-          />
-          <button className="bg-[#1eb1af] text-white text-sm px-2 py-1 rounded-lg">
-            Donate Now
-          </button>
-        </div>
-        <Hero />
-        <Section2 />
+      {isModelLoading ? (
+        <FullPageLoader />
+      ) : (
         <div className="relative">
-          <Donation />
-          <ModelCanvas onModelLoaded={handleModelLoaded} />
-        </div>
-        {/* <OurProject />s */}
-        <Achievement />
-        <Together />
-        {/* <BackgroundCanvas /> */}
-        {/*<ThreadsParticles />*}
+          <div className="fixed top-[80%] right-[3%] z-50 flex flex-col items-center">
+            <img
+              src="/img/center-lg.png"
+              className="w-10 animate-bounce"
+              alt=""
+            />
+            <button className="bg-[#1eb1af] text-white text-sm px-2 py-1 rounded-lg">
+              Donate Now
+            </button>
+          </div>
+          <Hero />
+          <Section2 />
+          <div className="relative">
+            <Donation />
+            <ModelCanvas onModelLoaded={handleModelLoaded} />
+          </div>
+          {/* <OurProject />s */}
+          <Achievement />
+          <Together />
+          {/* <BackgroundCanvas /> */}
+          {/*<ThreadsParticles />*}
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
-      </div>
+        </div>
+      )}
     </>
   );
 }
