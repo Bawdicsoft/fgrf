@@ -3,22 +3,21 @@ import Image from "next/image";
 export const FullPageLoader = () => {
   return (
     <div
-      style={{
-        overflowY: "hidden",
-        maxHeight: "100vh",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: "100vh",
-        zIndex: 1000,
-        backgroundColor: "rgba(255, 255, 255)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+        style={{
+          overflow: "hidden", // Set overflow to hidden to disable scrolling
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "100vh",
+          zIndex: 1000,
+          backgroundColor: "rgba(255, 255, 255)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
     >
       <div className="flex gap-x-5 my-5">
         <Image
