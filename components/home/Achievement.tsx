@@ -70,29 +70,27 @@ const Achievement = () => {
             className="mySwiper"
           >
             {data.map((data, index) => (
-              <>
-                <SwiperSlide key={index} className="">
-                  <div className="bg-white rounded-md p-2 w-full h-[430px] shadow-lg">
-                    <div className="w-full rounded-tr-md rounded-tl-md h-24 bg-[#bebebc] flex justify-center items-end">
-                      <div className="w-16 h-16 p-3 rounded-full shadow-xl bg-white">
-                        <img
-                          src="/img/center-lg.png"
-                          className="w-full h-full"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div className="p-2 h-80">
-                      {/* <img src={data.img} className="w-full h-full" alt="" /> */}
-                      <div
-                        className="w-full rounded-md h-full bg-[#bebebc] cursor-pointer bg-no-repeat bg-cover bg-center"
-                        style={{ backgroundImage: `url(${data.img})` }}
-                        onClick={() => handleOpenAndCerticate(data.img)}
-                      ></div>
+              <SwiperSlide key={index} className="">
+                <div className="bg-white rounded-md p-2 w-full h-[430px] shadow-lg">
+                  <div className="w-full rounded-tr-md rounded-tl-md h-24 bg-[#bebebc] flex justify-center items-end">
+                    <div className="w-16 h-16 p-3 rounded-full shadow-xl bg-white">
+                      <img
+                        src="/img/center-lg.png"
+                        className="w-full h-full"
+                        alt=""
+                      />
                     </div>
                   </div>
-                </SwiperSlide>
-              </>
+                  <div className="p-2 h-80">
+                    {/* <img src={data.img} className="w-full h-full" alt="" /> */}
+                    <div
+                      className="w-full rounded-md h-full bg-[#bebebc] cursor-pointer bg-no-repeat bg-cover bg-center"
+                      style={{ backgroundImage: `url(${data.img})` }}
+                      onClick={() => handleOpenAndCerticate(data.img)}
+                    ></div>
+                  </div>
+                </div>
+              </SwiperSlide>
             ))}
           </Swiper>
           <Link href={'/achievements'}>

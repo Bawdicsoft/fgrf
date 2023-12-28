@@ -18,9 +18,8 @@ export default function Home() {
     <>
       {isModelLoading && <FullPageLoader />}
       <div
-        className={`relative ${
-          isModelLoading ? "overflow-hidden h-[20vh]" : "overflow-auto"
-        }`}
+        className={`relative ${isModelLoading ? "overflow-hidden h-[20vh]" : "overflow-auto"
+          }`}
       >
         <div className="fixed top-[80%] right-[3%] z-50 flex flex-col items-center">
           <img

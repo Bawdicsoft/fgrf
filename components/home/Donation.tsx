@@ -1,34 +1,35 @@
 import { useEffect, useState } from 'react';
 import OurProject from './OurProject';
+import DonationSlider from './donationSlider';
 
 const Donation = () => {
-   // State to track the scroll position
-   const [scrollPosition, setScrollPosition] = useState(0);
+  // State to track the scroll position
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-   // Function to handle scroll events
-   const handleScroll = () => {
-     // Update the scroll position in the state
-     setScrollPosition(window.scrollY);
-   };
- 
-   // Attach the scroll event listener when the component mounts
-   useEffect(() => {
-     window.addEventListener('scroll', handleScroll);
- 
-     // Clean up the event listener when the component unmounts
-     return () => {
-       window.removeEventListener('scroll', handleScroll);
-     };
-   }, []);
- 
-   // Calculate the darkness level based on the scroll position
-   const darknessLevel = Math.min((scrollPosition - 1500) / 200, 1);
-   const bgDarknessLevel = Math.max(0, darknessLevel);
- 
-   // Style object for dynamic background color
-   const divStyle = {
-     backgroundColor: `rgba(0, 0, 0, ${bgDarknessLevel})`,
-   };
+  // Function to handle scroll events
+  const handleScroll = () => {
+    // Update the scroll position in the state
+    setScrollPosition(window.scrollY);
+  };
+
+  // Attach the scroll event listener when the component mounts
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Calculate the darkness level based on the scroll position
+  const darknessLevel = Math.min((scrollPosition - 1500) / 200, 1);
+  const bgDarknessLevel = Math.max(0, darknessLevel);
+
+  // Style object for dynamic background color
+  const divStyle = {
+    backgroundColor: `rgba(0, 0, 0, ${bgDarknessLevel})`,
+  };
   return (
     <>
       <div
@@ -59,11 +60,13 @@ const Donation = () => {
                 Donate with Debit
               </div>
             </div> */}
-            <img
+
+            <DonationSlider />
+            {/* <img
               src="./img/a water well.png"
               className="w-full h-full"
               alt=""
-            />
+            /> */}
           </div>
           <div className="col-span-1 relative bg-center bg-no-repeat bg-cover flex justify-center items-center md:h-[420px] h-[320px]"></div>
           <div className="col-span-1 py-7 border-4 my-6 px-5 border-t-[#faf8f8] border-r-[#faf8f8] border-l-[#faf8f8] shadow-2xl bg-gradient-to-t from-[#faf8f8] to-[#e1e2e6] rounded-3xl">

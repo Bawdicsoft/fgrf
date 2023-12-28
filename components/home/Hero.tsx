@@ -36,18 +36,16 @@ const Hero = () => {
             style={{ transform: `translate(-${currentIndex * 100}%)` }}
           >
             {heroImage.map((data, index) => (
-              <>
-                <div
-                  className="inline-flex w-full relative items-center justify-center h-full bg-white"
-                  key={index}
-                >
-                  <img
-                    className="w-full h-full md:object-fill object-cover"
-                    src={data}
-                    alt=""
-                  />
-                </div>
-              </>
+              <div
+                className="inline-flex w-full relative items-center justify-center h-full bg-white"
+                key={index}
+              >
+                <img
+                  className="w-full h-full md:object-fill object-cover"
+                  src={data}
+                  alt=""
+                />
+              </div>
             ))}
           </div>
           <div className="bg-lime-800 absolute top-0 md:h-[500px] w-full opacity-40"></div>
