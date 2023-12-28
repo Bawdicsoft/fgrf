@@ -23,7 +23,7 @@ const PalestinBannerSection = () => {
     const [bgColor, setBgColor] = useState(true)
     const [bgBtn, setbgBtn] = useState(0);
 
-    return (<div className=" mt-20 lg:mt-40">
+    return (<div className="mt-20 lg:mt-40">
         <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 md:grid-cols-3 px-5 md:px-10">
             <div className="flex flex-col gap-2">
                 <h3 className=" text-2xl md:text-3xl text-gray-800">Palestine Emergency</h3>

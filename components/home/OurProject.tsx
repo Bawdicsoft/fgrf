@@ -87,7 +87,7 @@ const OurProject = () => {
                   className="bg-center bg-cover bg-no-repeat h-full mx-auto relative flex flex-col justify-center px-8 md:w-full max-w-xs"
                   style={{ backgroundImage: `url(${svg})` }}
                 >
-                  <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-24 left-0 right-0">
+                  <h2 className="text-[#efeff1] font-bold text-4xl uppercase absolute top-[20%] left-0 right-0">
                     {firstHeading}
                     <span className="text-cyan-600 block">{secondHeading}</span>
                   </h2>
