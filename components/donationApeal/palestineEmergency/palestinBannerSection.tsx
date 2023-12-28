@@ -42,7 +42,7 @@ const PalestinBannerSection = () => {
                         {packeges.map((btn, index) => <button key={index} className={index === bgBtn ? `border-2 border-gray-300  text-white bg-teal-500 p-2 rounded-xl` : `border-2 border-gray-300 hover:bg-gray-300 p-2 rounded-xl`} onClick={() => { setDocs(index); setbgBtn(index) }}>£{btn.title}</button>)}
                     </div>
                     <input type="number" placeholder="Other Amount" className="focus:outline-none border-2 border-gray-400 rounded-xl p-4 py-2 " />
-                    <p className="text-base">Your donations will go to this appeal's general fund, so your generosity can help where it's needed most!</p>
+                    <p className="text-base">Your donations will go to this appeals general fund, so your generosity can help where its needed most!</p>
                     <button className="bg-teal-500 hover:opacity-90 text-white font-medium p-3 rounded-lg mt-4 mb-2">Add to Basket</button>
                 </div>
             </div>
