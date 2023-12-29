@@ -167,7 +167,7 @@ const WinterEmergency = () => {
 
       <p className="font-bold mx-5">
         Thank you for your support - your donation will help families like
-        Muhammad Khan's to survive the winter.
+        Muhammad Khans to survive the winter.
       </p>
 
       <p className="font-bold text-xl md:text-2xl text-teal-500 m-3 ">
