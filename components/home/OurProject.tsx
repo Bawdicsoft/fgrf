@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import Link from "next/link";
 
 const OurProject = () => {
   const data = [
@@ -83,7 +84,7 @@ const OurProject = () => {
             const { svg, firstHeading, secondHeading, paragraph } = data;
             return (
               <SwiperSlide key={index}>
-                <div
+                <Link href={"/appeal"}
                   className="bg-center bg-cover bg-no-repeat h-full mx-auto relative flex flex-col justify-center px-8 md:w-full max-w-xs"
                   style={{ backgroundImage: `url(${svg})` }}
                 >
@@ -98,7 +99,7 @@ const OurProject = () => {
                     </p>
                     <div className="border-b-4 border-cyan-600 w-[40%] mx-auto mt-1 rounded-full"></div>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             );
           })}
