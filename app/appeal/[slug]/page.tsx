@@ -1,7 +1,10 @@
 import DonateSection from "@/components/donationApeal/feedOurWold/donatSection";
 import FeedOurWoldBannerSection from "@/components/donationApeal/feedOurWold/feedOurWoldBannerSection";
+import FidyaDocSection from "@/components/donationApeal/fidyaORkaffarah/fidyaDocSection";
+import FedyaKaffaraBannerSec from "@/components/donationApeal/fidyaORkaffarah/fidyakaffarahBannerSection";
 import GhazaUnderTakDocs from "@/components/donationApeal/palestineEmergency/gazaUnderTack";
 import PalestinBannerSection from "@/components/donationApeal/palestineEmergency/palestinBannerSection";
+import WinterEmergency from "@/components/donationApeal/winterEmergency/winterEmergency";
 import YemenAppeal from "@/components/donationApeal/yemenCrisis/YemenApppeal";
 import YemanCrisisBannerSection from "@/components/donationApeal/yemenCrisis/yemenCrisisBannerSection";
 
@@ -23,6 +26,15 @@ export default function donationAppeal({ params }: { params: { slug: string } })
             {myParams === "yemen-crisis" && <div>
                 <YemanCrisisBannerSection />
                 <YemenAppeal />
+            </div>}
+            {/* fidya-or-kaffarah */}
+            {myParams === "fidya-or-kaffarah" && <div>
+                <FedyaKaffaraBannerSec />
+                <FidyaDocSection />
+            </div>}
+            {/* winter-emergency */}
+            {myParams === "winter-emergency" && <div>
+                <WinterEmergency />
             </div>}
 
 
