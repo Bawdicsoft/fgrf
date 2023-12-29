@@ -1,22 +1,16 @@
 "use client"
 import Image, { StaticImageData } from "next/image"
 import { use, useState } from "react"
-const PalestinBannerSection = () => {
+const YemanCrisisBannerSection = () => {
     const [docs, setDocs] = useState(0)
-    const oneOffBtnList = [{ title: "50", doc: "Could provide food supplies for Palestinians." },
-    { title: "100", doc: "Could help provide a range of medical consumables to support the injured." },
-    { title: "100", doc: "Could provide 15 Palestinians with 2 life-saving nutritious food packs each." },
-    { title: "200", doc: "Could provide critical medical supplies to aid the injured." },
-    { title: "300", doc: "Could provide 50 Palestinians with 6 nutritious food packs each." },
-    { title: "900", doc: "Could provide 9 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians." },
-    { title: "1500", doc: "Could provide 15 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians." },
-    { title: "3000", doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians." }
+    const oneOffBtnList = [{ title: "25", doc: "Could provide warm meals to those affected." },
+    { title: "50", doc: "Could provide enough food to feed a family for an entire month or help towards building a home." },
+    { title: "75", doc: "Could provide emergency essentials for communities affected or help towards building a home." },
+    { title: "300", doc: "Could provide emergency shelter for communities affected or help towards building a home." },
+    { title: "1000", doc: "Could provide food for an entire village or help towards building a home." },
+    { title: "2000", doc: "Could provide food, water and medical aid for an entire village or help towards building a home." },
     ]
-    const monthBtnList = [{ title: "9", doc: "Could provide 2 x life-saving Food Packs of nutritious meals to over 15 Palestinians." },
-    { title: "25", doc: "Could provide 6 x life-saving Food Packs of nutritious meals to over 50 Palestinians." },
-    { title: "75", doc: "Could provide 9 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians." },
-    { title: "125", doc: "Could provide 15 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians." },
-    { title: "250", doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians." }
+    const monthBtnList = [{ title: "25", doc: "Donate £25 a month to help save countless lives" },
     ]
 
     const [packeges, setPackeges] = useState(oneOffBtnList)
@@ -26,7 +20,7 @@ const PalestinBannerSection = () => {
     return (<div className="mt-20 lg:mt-40">
         <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 md:grid-cols-3 px-5 md:px-10">
             <div className="flex flex-col gap-2">
-                <h3 className=" text-2xl md:text-3xl text-gray-800">Palestine Emergency</h3>
+                <h3 className=" text-2xl md:text-3xl text-gray-800">Yemen Crisis</h3>
                 <span className="w-full h-[2px] bg-teal-500"></span>
                 <div className="grid grid-cols-2">
                     <button className={bgColor ? `p-2 lg:p-3 bg-teal-500 text-white text-lg` : `bg-gray-100`} onClick={() => { setPackeges(oneOffBtnList); setDocs(0); setbgBtn(0); setBgColor(true) }}>One Off</button>
@@ -34,8 +28,8 @@ const PalestinBannerSection = () => {
                 </div>
                 <div className="flex flex-col shadow-2xl py-4 px-3 lg:px-5">
 
-                    <select className="focus:outline-none border-2 border-gray-400 rounded-xl px-2 py-2">Palestine
-                        <option className="text-md" value={"Palestine"}>Palestine</option>
+                    <select className="focus:outline-none border-2 border-gray-400 rounded-xl px-2 py-2">Yemen
+                        <option className="text-md" value={"Palestine"}>Yemen</option>
                     </select>
                     <p className="text-base lg:text-lg py-4">{packeges[docs].doc}</p>
                     <div className="grid grid-cols-3 gap-5 md:gap-1 lg:gap-5 pr-5 md:pr-0 lg:pr-8 pb-5">
@@ -48,9 +42,9 @@ const PalestinBannerSection = () => {
             </div>
 
             <div className="md:col-span-2">
-                <Image src={"/donation/palestinEmergency/WebsiteMobilebanner.jpg"} alt="" width={700} height={700} className="lg:h-[560px] w-full" />
+                <Image src={"/donation/yemanCrisis/yemanbanner.jpg"} alt="" width={700} height={700} className="lg:h-[560px] w-full" />
             </div>
         </div>
     </div>)
 }
-export default PalestinBannerSection
+export default YemanCrisisBannerSection

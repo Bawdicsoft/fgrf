@@ -1,4 +1,4 @@
-import AppealSection from "@/components/donationApeal/appeal";
+import AppealSection from "@/components/donationApeal/Appeal";
 
 export default function Appeal() {
     return (

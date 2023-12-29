@@ -11,7 +11,7 @@ const AppealSection = () => {
     { link: "palestine-emergency", img: "/donation/appeal/lebaFloodEmergency.jpg", title: "Libya Floods Emergency", desc: "10,000 missing after unprecedented flooding caused by Storm Daniel across eastern Libya." },
     { link: "palestine-emergency", img: "/donation/appeal/emergencyResponse.jpg", title: "Emergency Response", desc: "Help us continue to respond quickly when disaster strikes and save lives." },
     { link: "palestine-emergency", img: "/donation/appeal/turkeyandSeriya.jpg", title: "Turkey & Syria Earthquake Emergency", desc: "Thosands killed after deadly earthquakes hit Turkey." },
-    { link: "palestine-emergency", img: "/donation/appeal/yemenEmergency.jpg", title: "Yemen Crisis", desc: "Yemen is facing the worst famine the world has seen in 100 years. Donate to help us fight famine now." },
+    { link: "yemen-crisis", img: "/donation/appeal/yemenEmergency.jpg", title: "Yemen Crisis", desc: "Yemen is facing the worst famine the world has seen in 100 years. Donate to help us fight famine now." },
     { link: "palestine-emergency", img: "/donation/appeal/fidyakafarrah.jpg", title: " Fidya or Kaffarah", desc: "Pay your Fidya or Kaffarah if you missed or broke any fasts." },
     { link: "palestine-emergency", img: "/donation/appeal/thirstRelief.jpg", title: " Thirst Relief", give: "Give water, give life!", desc: "Build a well in your name or that of a loved one." },
     { link: "palestine-emergency", img: "/donation/appeal/hifz.jpg", title: " Hifz Orphan", desc: "Combine two of Islam’s greatest rewards. Help an orphan become Hafiz of the Holy Qur'an." },
