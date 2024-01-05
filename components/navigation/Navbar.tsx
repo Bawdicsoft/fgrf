@@ -61,9 +61,8 @@ export default function Navbar() {
                   {navItem.map((data, index) => (
                     <div
                       onClick={handleClick}
-                      className={`w-28 rounded-full h-9 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${
-                        pathName == data.href && "bg-sky-300 bg-opacity-25"
-                      }`}
+                      className={`w-28 rounded-full h-9 border-4 border-[#faf8f8] shadow-inner bg-[#efeff1] flex justify-center items-center ${pathName == data.href && "bg-sky-300 bg-opacity-25"
+                        }`}
                       key={index}
                     >
                       <Link
@@ -157,3 +156,5 @@ export default function Navbar() {
     </>
   );
 }
+
+

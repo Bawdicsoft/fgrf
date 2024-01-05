@@ -54,11 +54,10 @@ const Fundraisers = () => {
                 <div className="w-14 relative cursor-pointer">
                   <img
                     src="/img/icon-blob-blue.svg"
-                    className={`absolute top-0 z-[-1] ${
-                      blobIndex === index && showBlob
+                    className={`absolute top-0 z-[-1] ${blobIndex === index && showBlob
                         ? "opacity-70 transition-all duration-500"
                         : "opacity-0 transition-all duration-500"
-                    }`}
+                      }`}
                     alt=""
                   />
                   <img src={data.svg} className="w-full" alt="" />

@@ -4,19 +4,20 @@ import ModelCanvas from "@/components/3dModel/ModelCanvas";
 import { FullPageLoader } from "@/components/3dModel/fullPageLoader";
 import Achievement from "@/components/home/Achievement";
 import Donation from "@/components/home/Donation";
-import Hero from "@/components/home/Hero";
 import Section2 from "@/components/home/Section2";
 import Together from "@/components/home/Together";
+import Hero from "@/components/newUi/home/Hero";
+
 
 export default function Home() {
-  const [isModelLoading, setIsModelLoading] = useState(true);
+  // const [isModelLoading, setIsModelLoading] = useState(true);
 
-  const handleModelLoaded = () => {
-    setIsModelLoading(false);
-  };
+  // const handleModelLoaded = () => {
+  //   setIsModelLoading(false);
+  // };
   return (
     <>
-      {isModelLoading && <FullPageLoader />}
+      {/* {isModelLoading && <FullPageLoader />}
       <div
         className={`relative ${isModelLoading ? "overflow-hidden h-[20vh]" : "overflow-auto"
           }`}
@@ -36,13 +37,19 @@ export default function Home() {
         <div className="relative">
           <Donation />
           <ModelCanvas onModelLoaded={handleModelLoaded} />
-        </div>
-        {/* <OurProject />s */}
-        <Achievement />
-        <Together />
-        {/* <BackgroundCanvas /> */}
-        {/*<ThreadsParticles />*}
+        </div> */}
+      {/* <OurProject />s */}
+      {/* <Achievement />
+        <Together /> */}
+      {/* <BackgroundCanvas /> */}
+      {/*<ThreadsParticles />*}
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
+      {/* </div> */}
+
+      {/* MyCode */}
+      <div className="relative">
+        <Hero />
+        <Section2 />
       </div>
     </>
   );
