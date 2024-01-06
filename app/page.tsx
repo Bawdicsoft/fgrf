@@ -1,13 +1,16 @@
 "use client";
 import { useState } from "react";
 import ModelCanvas from "@/components/3dModel/ModelCanvas";
-import { FullPageLoader } from "@/components/3dModel/fullPageLoader";
-import Achievement from "@/components/home/Achievement";
-import Donation from "@/components/home/Donation";
-import Section2 from "@/components/home/Section2";
-import Together from "@/components/home/Together";
-import Hero from "@/components/newUi/home/Hero";
-
+import { FullPageLoader } from '@/components/3dModel/fullPageLoader';
+import Hero from '@/components/newUi/home/Hero';
+import OurDepartments from '@/components/newUi/home/OurDepartments';
+import AchievementPage from '@/components/achievement/achievements';
+import OurProject from '@/components/home/OurProject';
+import Achievement from '@/components/newUi/home/Achievements';
+import Together from '@/components/newUi/home/Together';
+import Gallery from '@/components/newUi/home/Gallery';
+import Appeals from '@/components/newUi/home/Appeals';
+import DonationSlider from '@/components/home/donationSlider';
 
 export default function Home() {
   // const [isModelLoading, setIsModelLoading] = useState(true);
@@ -35,12 +38,9 @@ export default function Home() {
         <Hero />
         <Section2 />
         <div className="relative">
-          <Donation />
-          <ModelCanvas onModelLoaded={handleModelLoaded} />
-        </div> */}
-      {/* <OurProject />s */}
-      {/* <Achievement />
-        <Together /> */}
+        <ModelCanvas onModelLoaded={handleModelLoaded} />
+      </div> */}
+      {/* <OurProject /> */}
       {/* <BackgroundCanvas /> */}
       {/*<ThreadsParticles />*}
         {/* <div className="gradiant-bg w-full h-screen z-[-3] fixed top-0 left-0"></div> */}
@@ -49,7 +49,11 @@ export default function Home() {
       {/* MyCode */}
       <div className="relative">
         <Hero />
-        <Section2 />
+        <OurDepartments />
+        <Appeals />
+        <Achievement />
+        <Together />
+        {/* <Gallery /> */}
       </div>
     </>
   );
