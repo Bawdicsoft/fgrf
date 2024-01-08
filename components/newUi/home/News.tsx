@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import NewsSlider from './NewsSlider';
-import ContactUs from './contactus';
+import ContactUs from './Contactus';
 
 
 const NewsSection: React.FC = () => {
