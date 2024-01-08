@@ -22,7 +22,7 @@ const Gallery: React.FC = () => {
         <h2 className='text-center text-white pt-10 pb-8 text-2xl md:text-3xl lg:text-5xl font-bold'>Gallery</h2>
 
         <div className="md:w-[65%] w-full mx-auto relative">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 px-2 mt-5">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             {gallery.map((data, index) => (
               <div
                 key={index}
