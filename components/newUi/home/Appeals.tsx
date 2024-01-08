@@ -48,7 +48,7 @@ const Appeals = () => {
           return (
             <div key={index} className="col-span-1 text-center">
               <DonationSlider />
-              <button className="rounded-md bg-sky-900 px-4 py-0 mt-3">
+              <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                 <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                   Donate Now
                 </span>

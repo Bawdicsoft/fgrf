@@ -11,6 +11,7 @@ import Together from '@/components/newUi/home/Together';
 import Gallery from '@/components/newUi/home/Gallery';
 import Appeals from '@/components/newUi/home/Appeals';
 import DonationSlider from '@/components/home/donationSlider';
+import NewsSection from "@/components/newUi/home/News";
 
 export default function Home() {
   // const [isModelLoading, setIsModelLoading] = useState(true);
@@ -53,7 +54,8 @@ export default function Home() {
         <Appeals />
         <Achievement />
         <Together />
-        {/* <Gallery /> */}
+        <Gallery />
+        <NewsSection />
       </div>
     </>
   );

@@ -67,7 +67,7 @@ const Achievement = () => {
           })}
         </div>
         <Link href={'/achievements'}>
-          <div className="w-40 mx-auto rounded-md bg-sky-900 px-4 py-0 my-3">
+          <div className="w-40 mx-auto rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
             <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
               Show more
             </span>
