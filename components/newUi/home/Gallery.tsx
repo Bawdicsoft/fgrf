@@ -1,39 +1,47 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from "next/link";
+import React from "react";
 
 const gallery = [
-  './img/galleryImg2.png',
-  './img/galleryImg2.png',
-  './img/galleryImg2.png',
-  './img/galleryImg2.png',
-  './img/galleryImg2.png',
-  './img/galleryImg2.png',
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
 ];
 const Gallery: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-sky-600 via-sky-900 to-sky-600 pb-10">
-      <div className="relative">
+    <section
+      className="bg-gradient-to-r pb-10 bg-center bg-cover bg-no-repeat bg-blend-multiply"
+      style={{
+        backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+        height: "100%",
+      }}
+    >
+      <div className="relative max-w-6xl mx-auto px-5">
         {/* <div className="mb-6 w-60 mx-auto rounded-full border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
           <h2 className="text-xl md:text-2xl font-semibold text-center">
             Gallery
           </h2>
         </div> */}
 
-        <h2 className='text-center text-white pt-10 pb-8 text-2xl md:text-3xl lg:text-5xl font-bold'>Gallery</h2>
+        <h2 className="text-center text-white pt-10 pb-8 text-2xl md:text-3xl lg:text-5xl font-bold">
+          Gallery
+        </h2>
 
-        <div className="md:w-[65%] w-full mx-auto relative">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:gap-8 px-2 mt-5 pb-8">
+        <div className="w-full mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             {gallery.map((data, index) => (
               <div
                 key={index}
-                className="col-span-1 h-72 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
               >
                 <img src={data} className="w-full h-full opacity-90" alt="" />
               </div>
             ))}
           </div>
-          <Link href={'/gallery'}>
-            <div className="w-40 mx-auto rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+          <Link href={"/gallery"}>
+            <div className="w-44 mx-auto rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
               <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                 Show more
               </span>
