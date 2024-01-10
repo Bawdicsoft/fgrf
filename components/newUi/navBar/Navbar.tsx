@@ -1,4 +1,5 @@
 "use client";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io";
@@ -151,8 +152,23 @@ export default function Navbar() {
                   <span className="text-sm pl-1">+44 7300 559919</span>
                 </div>
               </div>
+
               <div className="bg-sky-800 p-2 text-white flex justify-center items-center">
-                <LiaDonateSolid className="w-10 h-10" />
+                <motion.div
+                  whileHover={{
+                    scale: 1.4,
+                    // filter: "brightness(1.8)",
+                    rotate: 50,
+                  }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10,
+                  }}
+                >
+                  {" "}
+                  <LiaDonateSolid className="w-10 h-10" />
+                </motion.div>
               </div>
             </div>
           </div>
@@ -234,7 +250,7 @@ export default function Navbar() {
               <span className=" text-white">DONATE TO FUND</span>
               {/* <div className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-0"> */}
               <div className="w-24 bg-green-600  shadow-inner  border-[#faf9f9] rounded-md flex justify-center items-center">
-                <span className="px-3 rounded-md text-xs font-semibold">
+                <span className="px-2 rounded-md text-xs font-semibold">
                   <strong>&#163;</strong>
                 </span>
                 <div className="py-1 bg-green-600 shadow-inner  border-[#faf9f9] rounded-md flex justify-around items-center">
