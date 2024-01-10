@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <>
       <div className="max-w-screen-2xl grid grid-cols-2 py-2 md:py-0  px-3 md:px-0  md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
-        <div className="flex  items-center justify-center">
+        <div className="flex items-center justify-start md:justify-center">
           <Link href="/">
             <Image
               width={150}
@@ -178,7 +178,7 @@ export default function Navbar() {
         <button
           onClick={() => setToggel(!toggel)}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden self-center text-gray-400 border border-gray-400 ml-24 focus:outline-none focus:ring-1 focus:ring-gray-400"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden self-center text-gray-400 border border-gray-400 ml-32 focus:outline-none focus:ring-1 focus:ring-gray-400"
         >
           <span className="sr-only">Open main menu</span>
           <svg

@@ -47,36 +47,54 @@ const Gallery: React.FC = () => {
         <div className="w-full mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             <AnimatedComponentLeft>
-              {gallery.slice(0, 2).map((data, index) => (
-                <div
-                  key={index}
-                  className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
-                >
-                  <img src={data} className="w-full h-full opacity-90" alt="" />
-                </div>
-              ))}
+              <div className="flex flex-col gap-5 md:gap-6">
+                {gallery.slice(0, 2).map((data, index) => (
+                  <div
+                    key={index}
+                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                  >
+                    <img
+                      src={data}
+                      className="w-full h-full opacity-90"
+                      alt=""
+                    />
+                  </div>
+                ))}
+              </div>
             </AnimatedComponentLeft>
 
             <AnimationBottom>
-              {gallery.slice(2, 4).map((data, index) => (
-                <div
-                  key={index}
-                  className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
-                >
-                  <img src={data} className="w-full h-full opacity-90" alt="" />
-                </div>
-              ))}
+              <div className="flex flex-col gap-5 md:gap-6">
+                {gallery.slice(2, 4).map((data, index) => (
+                  <div
+                    key={index}
+                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                  >
+                    <img
+                      src={data}
+                      className="w-full h-full opacity-90"
+                      alt=""
+                    />
+                  </div>
+                ))}
+              </div>
             </AnimationBottom>
 
             <AnimatedComponentRight>
-              {gallery.slice(4, 6).map((data, index) => (
-                <div
-                  key={index}
-                  className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
-                >
-                  <img src={data} className="w-full h-full opacity-90" alt="" />
-                </div>
-              ))}
+              <div className="flex flex-col gap-5 md:gap-6">
+                {gallery.slice(4, 6).map((data, index) => (
+                  <div
+                    key={index}
+                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                  >
+                    <img
+                      src={data}
+                      className="w-full h-full opacity-90"
+                      alt=""
+                    />
+                  </div>
+                ))}
+              </div>
             </AnimatedComponentRight>
           </div>
           <Link

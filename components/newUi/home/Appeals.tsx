@@ -79,7 +79,7 @@ const Appeals = () => {
           > */}
           <AnimationTop>
             <motion.div
-              className="box"
+              // className="box"
               whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
