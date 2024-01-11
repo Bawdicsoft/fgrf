@@ -1,49 +1,6 @@
 "use client";
-// import { useEffect } from "react";
-// import { motion, useAnimation } from "framer-motion";
-// import { useInView } from "react-intersection-observer";
 
-// interface AnimatedComponentProps {
-//   children: any;
-// }
-
-// const AnimatedComponentLeft: React.FC<AnimatedComponentProps> = ({
-//   children,
-// }: {
-//   children: any;
-// }) => {
-//   const controls = useAnimation();
-//   const [ref, inView] = useInView({
-//     triggerOnce: false,
-//   });
-
-//   useEffect(() => {
-//     if (inView) {
-//       controls.start("visible");
-//     } else {
-//       controls.start("hidden");
-//     }
-//   }, [controls, inView]);
-
-//   return (
-//     <motion.div
-//       ref={ref}
-//       initial="hidden"
-//       animate={controls}
-//       variants={{
-//         visible: { opacity: 1, x: 0 },
-//         hidden: { opacity: 0, x: [-150] },
-//       }}
-//       transition={{ duration: 1.1 }}
-//     >
-//       {children}
-//     </motion.div>
-//   );
-// };
-
-// export default AnimatedComponentLeft;
-
-// new Code
+// New Code
 import { motion, useAnimation, Variants } from "framer-motion";
 import { useMedia } from "react-use";
 import { useEffect } from "react";
@@ -61,44 +18,61 @@ const AnimatedComponentLeft: React.FC<MyAnimatedComponentProps> = ({
     triggerOnce: true,
   });
 
-  const isExtraSmall = useMedia("(max-width: 576px)");
-  const isSmall = useMedia("(min-width: 577px) and (max-width: 768px)");
-  const isMedium = useMedia("(min-width: 769px) and (max-width: 992px)");
+  const isExtraSmall = useMedia("(max-width: 320px)");
+  const isSmallM = useMedia("(min-width: 321px) and (max-width: 375px)");
+  const isSmallL = useMedia("(min-width: 376px) and (max-width: 425px)");
+  const isMedium = useMedia("(min-width: 768px) and (max-width: 992px)");
   const isLarge = useMedia("(min-width: 993px) and (max-width: 1200px)");
+  const isLlarge = useMedia("(min-width: 1201px) and (max-width: 1440px)");
+  // const isXLarge = useMedia("(min-width: 1200px)");
 
-  const xVariants = (isDesktop: boolean, xValue: number): Variants => ({
-    hidden: { opacity: 0, x: [xValue] },
+  const xVariants = (xValue: number): Variants => ({
+    hidden: { opacity: 0, x: xValue },
     visible: { opacity: 1, x: 0 },
   });
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
+    let xValue = 0;
+
+    // console.log("isExtraSmall--->", isExtraSmall);
+    // console.log("isSmallL--->", isSmallL);
+    // console.log("isSmallM--->", isSmallM);
+    // console.log("isMedium--->", isMedium);
+    // console.log("isLarge--->", isLarge);
+    // console.log("isLLarge--->", isLlarge);
 
     if (isExtraSmall) {
-      controls.start(xVariants(true, -50));
-    } else if (isSmall) {
-      controls.start(xVariants(true, -100));
+      xValue = -40;
+    } else if (isSmallM) {
+      xValue = -60;
+    } else if (isSmallL) {
+      xValue = -70;
     } else if (isMedium) {
-      controls.start(xVariants(true, -150));
+      xValue = -125;
     } else if (isLarge) {
-      controls.start(xVariants(true, -200));
+      xValue = -170;
+    } else if (isLlarge) {
+      xValue = -200;
     } else {
-      controls.start(xVariants(true, -250));
+      xValue = -250;
     }
-  }, [inView, isExtraSmall, isSmall, isMedium, isLarge, controls]);
+
+    if (inView) {
+      controls.start(xVariants(xValue).visible);
+    } else {
+      controls.start(xVariants(xValue).hidden);
+    }
+  }, [inView, isExtraSmall, isSmallL, isMedium, isLarge, controls]);
 
   return (
     <motion.div
       ref={ref}
+      // drag="x"
       initial="hidden"
       animate={controls}
       variants={{
         visible: { opacity: 1, x: 0 },
-        hidden: { opacity: 0, x: [-250] },
+        hidden: { opacity: 0 },
       }}
       transition={{ duration: 1.5 }}
     >

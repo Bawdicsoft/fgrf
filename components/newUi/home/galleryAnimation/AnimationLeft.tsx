@@ -10,7 +10,7 @@ interface MyAnimatedComponentProps {
   children: React.ReactNode;
 }
 
-const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
+const AnimatedComponentLeft: React.FC<MyAnimatedComponentProps> = ({
   children,
 }) => {
   const controls = useAnimation();
@@ -42,19 +42,19 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
     // console.log("isLLarge--->", isLlarge);
 
     if (isExtraSmall) {
-      xValue = 40;
+      xValue = -10;
     } else if (isSmallM) {
-      xValue = 60;
+      xValue = -20;
     } else if (isSmallL) {
-      xValue = 70;
+      xValue = -30;
     } else if (isMedium) {
-      xValue = 125;
+      xValue = -50;
     } else if (isLarge) {
-      xValue = 170;
+      xValue = -70;
     } else if (isLlarge) {
-      xValue = 200;
+      xValue = -100;
     } else {
-      xValue = 250;
+      xValue = -150;
     }
 
     if (inView) {
@@ -81,4 +81,4 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
   );
 };
 
-export default AnimatedComponentRight;
+export default AnimatedComponentLeft;

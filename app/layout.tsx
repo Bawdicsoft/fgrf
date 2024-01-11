@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Footer from "@/components/navigation/Footer";
+// import Footer from "@/components/navigation/Footer";
 import Navbar from "@/components/newUi/navBar/Navbar";
+import Footer from "@/components/newUi/Footer/Footer";
 // import Navbar from "@/components/navigation/Navbar";
-
 
 export const metadata: Metadata = {
   title: "FGRF | Faizan Global Relief Foundation UK",
@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* myCode */}
         {/* <Navbar /> */}
         {children}
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

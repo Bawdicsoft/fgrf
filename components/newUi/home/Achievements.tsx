@@ -10,6 +10,7 @@ import ImageModal from "@/components/modal/ImageModal";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
 import AnimationBottom from "./AnimationBtm";
+import Image from "next/image";
 
 const Achievement = () => {
   const data = [
@@ -56,22 +57,20 @@ const Achievement = () => {
             className="bg-center bg-no-repeat bg-cover rounded-full mx-auto flex justify-center items-center py-2"
           />
         </div> */}
-        <div className="flex flex-col items-center max-w-[1400px] mx-auto px-3">
+        <div className="flex justify-center pt-5 pb-3 md:pt-8 md:pb-5 px-3">
           <motion.div
             // className="box"
             whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div
-              id="box3d"
-              className="border-4 border-[#85d0d0] w-60  md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
-            >
-              <h2
-                id=""
-                className="text-2xl md:text-3xl font-bold hover:text-sky-800 text-white text-center"
-              >
-                ACHIEVEMENTS
-              </h2>
+            <div id="" className="w-60">
+              <Image
+                src={"/finalIconAssets/Achievement.png"}
+                alt=""
+                width={100}
+                height={50}
+                className="w-full "
+              />
             </div>
           </motion.div>
         </div>

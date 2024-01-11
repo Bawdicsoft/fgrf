@@ -4,8 +4,8 @@ import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "./AnimationBtm";
 import AnimationTop from "./AnimationTop";
 import { FaAngleLeft } from "react-icons/fa6";
-import AnimatedComponentRight from "./AnimationRight";
-import AnimatedComponentLeft from "./AnimationLeft";
+import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
+import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
   "./img/galleryImg2.png",
@@ -47,52 +47,64 @@ const Gallery: React.FC = () => {
         <div className="w-full mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             <AnimatedComponentLeft>
-              <div className="flex flex-col gap-5 md:gap-6">
+              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(0, 2).map((data, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    className="box"
+                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <img
-                      src={data}
-                      className="w-full h-full opacity-90"
-                      alt=""
-                    />
-                  </div>
+                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                      <img
+                        src={data}
+                        className="w-full h-full opacity-90"
+                        alt=""
+                      />
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </AnimatedComponentLeft>
 
             <AnimationBottom>
-              <div className="flex flex-col gap-5 md:gap-6">
+              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(2, 4).map((data, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    className="box"
+                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <img
-                      src={data}
-                      className="w-full h-full opacity-90"
-                      alt=""
-                    />
-                  </div>
+                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                      <img
+                        src={data}
+                        className="w-full h-full opacity-90"
+                        alt=""
+                      />
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </AnimationBottom>
 
             <AnimatedComponentRight>
-              <div className="flex flex-col gap-5 md:gap-6">
+              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(4, 6).map((data, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    className="box"
+                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
                   >
-                    <img
-                      src={data}
-                      className="w-full h-full opacity-90"
-                      alt=""
-                    />
-                  </div>
+                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                      <img
+                        src={data}
+                        className="w-full h-full opacity-90"
+                        alt=""
+                      />
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </AnimatedComponentRight>
