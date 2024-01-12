@@ -72,11 +72,6 @@ const Appeals = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
-          {/* <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={controls}
-            transition={{ duration: 0.5 }}
-          > */}
           <AnimationTop>
             <motion.div
               // className="box"
@@ -96,7 +91,6 @@ const Appeals = () => {
               </div>
             </motion.div>
           </AnimationTop>
-          {/* </motion.div> */}
         </div>
         <div className="w-2/3 mx-auto py-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
           <div className="col-span-1 text-center">
@@ -117,9 +111,14 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -139,12 +138,22 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                {/* <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                   <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                     Donate Now
+                  </span>
+                </button> */}
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -164,12 +173,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -189,12 +203,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -214,12 +233,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -239,12 +263,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -264,12 +293,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -289,12 +323,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>
@@ -314,12 +353,17 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
+                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Donate Now
+                    </span>
                   </span>
                 </button>
               </motion.div>

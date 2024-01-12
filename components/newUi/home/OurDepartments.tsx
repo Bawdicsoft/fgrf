@@ -18,6 +18,7 @@ import AnimationBottom from "./AnimationBtm";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
 import Image from "next/image";
+import AnimationTop from "./AnimationTop";
 
 const OurDepartments = () => {
   const [showBlob, setShowBlob] = useState<boolean>(false);
@@ -130,31 +131,26 @@ const OurDepartments = () => {
   };
   return (
     <div className="max-w-7xl mx-auto py-6">
-      <AnimationBottom>
-        <div id="" className="flex justify-center pt-5 pb-3">
+      <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
+        <AnimationTop>
           <motion.div
             whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <div id="" className="w-60">
-              <Image
-                src={"/finalIconAssets/ourDepartment.png"}
-                alt=""
-                width={100}
-                height={50}
-                className="w-full "
-              />
-              {/* {" "}
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-sky-400">
-                Our
-              </span>
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold text-white pl-2">
-                Department
-              </span> */}
+            <div
+              id="box3d"
+              className="border-4 border-[#85d0d0]  w-60 md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+            >
+              <h2
+                id=""
+                className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+              >
+                Our Department
+              </h2>
             </div>
           </motion.div>
-        </div>
-      </AnimationBottom>
+        </AnimationTop>
+      </div>
       {/* <h1 id="text3d">Our Department</h1> */}
       <div
         id="depart-box-shadow"

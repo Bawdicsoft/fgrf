@@ -13,8 +13,29 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Image from "next/image";
 import { LiaDonateSolid } from "react-icons/lia";
 import { useState } from "react";
+import AnalogWatch from "./AnalogWatch";
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thirsday",
+    "Friday",
+    "Saturday",
+  ];
+  const data = new Date();
+  let gethour = Math.round(data.getHours());
+  const mint = Math.round(data.getMinutes());
+  let amPm = "AM";
+  if (gethour > 12) {
+    gethour -= 12;
+    amPm = "PM";
+  } else {
+    gethour = gethour;
+  }
+  const day = days[data.getDay()];
 
   // hide and Show Machinasim
   const [show1, setShow1] = useState(false);
@@ -25,20 +46,38 @@ export default function Navbar() {
   const resetFilter = { filter: "none" };
 
   const [toggel, setToggel] = useState<boolean>(false);
+  const [logo, setLogo] = useState(false);
   return (
     <>
       <div className="max-w-screen-2xl md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
-        <div className="flex items-center bg-white justify-start md:justify-center">
+        <div
+          onMouseMove={() => setLogo(true)}
+          onMouseLeave={() => setLogo(false)}
+          className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center"
+        >
+          <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-80 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
+
           <Link href="/">
             <Image
               width={150}
               height={150}
-              className="w-24 h-full  lg:w-32 lg:h-16 lg:block md:block cursor-pointer"
-              src="/img/fgrf.png"
+              className="w-24 h-full relative  lg:w-32 lg:h-14 lg:block md:block cursor-pointer"
+              src={!logo ? `/img/fgrf.png` : "/img/white-logo.png"}
               alt="tokenLauncher"
             />
           </Link>
         </div>
+
+        {/* new yha */}
+        {/* <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+          <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+          <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+            <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+            <span className="relative group-hover:text-white">Show more</span>
+          </span>
+        </div> */}
+        {/* yha tk */}
         <div className="col-span-3 hidden lg:hidden md:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center ">
           <span className="hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-white">
             DONATE TO FUND
@@ -190,19 +229,14 @@ export default function Navbar() {
             </div>
 
             <div className="lg:col-span-5  hidden lg:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center border-r border-black">
-              <span
-                className="font-semibold text-xs relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
-              before:bottom-0 before:left-0 before:bg-sky-400
-              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
-              before:transition before:ease-in-out before:duration-300 lg:text-base hover:text-sky-400"
-              >
+              <span className="bg-sky-900 text-white px-5 py-1 text-sm">
                 DONATE TO FUND
               </span>
-              <div className="w-full py-1 bg-[#19afaf] shadow-inner  border-[#faf9f9] rounded-md flex justify-center items-center">
-                <span className="hover:text-light-blue px-3 rounded-md text-s font-semibold text-black">
+              <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
+                <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
                   <strong>&#163;</strong>
                 </span>
-                <div className="py-1 bg-[#19afaf] shadow-inner  border-[#faf9f9] rounded-md flex justify-around items-center">
+                <div className="py-1 bg-[#fff] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
                   <input
                     type="number"
                     id="small-input"
@@ -215,27 +249,25 @@ export default function Navbar() {
 
               <select
                 id="countries"
-                className="bg-sky-900 py-2 px-2 rounded-md xl:w-36  text-gray-300 font-semibold text-xs block  outline-none"
+                className="bg-gray-200 py-1 px-2 rounded-md xl:w-36  text-black font-medium text-xs block  outline-none"
                 required
               >
                 <option value="single">Single</option>
                 <option value="monthly">Monthly</option>
                 <option value="Others">Others</option>
               </select>
-              <button
-                className=" text-xs font-semibold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
-              before:bottom-0 before:left-0 before:bg-sky-400
-              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
-              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:text-base"
-              >
+              <button className="bg-sky-900 text-white py-1 px-3 text-sm">
                 DONATE NOW
               </button>
             </div>
             <div className=" border-r border-black flex justify-center items-center">
-              <div className="flex items-center justify-center ">
-                <BsStopwatch className="w-5 h-5 lg:w-3.5 lg:h-3.5" />
-                <p className="text-[14px] lg:text-[11px] pl-1 text-gray-700 font-semibold">
-                  Mon Friday At 10:00 Pm
+              <div className="flex items-center justify-evenly ">
+                {/* <BsStopwatch className="w-5 h-5 lg:w-3.5 lg:h-3.5" />
+                 */}
+                {/* <AnalogWatch></AnalogWatch> */}
+                <p className="text-[14px] lg:text-[12px] pl-1 text-gray-700 font-semibold">
+                  {day} At {gethour < 10 ? `0${gethour}` : gethour}:
+                  {mint < 10 ? "0" + mint : mint} {amPm}
                 </p>
               </div>
 
@@ -354,7 +386,7 @@ export default function Navbar() {
                     damping: 10,
                   }}
                 > */}{" "}
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-sky-300 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 <LiaDonateSolid className="w-10 h-10 relative transition duration-300 group-hover:text-red-600 ease" />
                 <span className="relative text-xs font-semibold text-white text-center group-hover:text-red-600">
                   Donate Now

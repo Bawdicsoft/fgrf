@@ -11,6 +11,7 @@ import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
 import AnimationBottom from "./AnimationBtm";
 import Image from "next/image";
+import AnimationTop from "./AnimationTop";
 
 const Achievement = () => {
   const data = [
@@ -57,22 +58,25 @@ const Achievement = () => {
             className="bg-center bg-no-repeat bg-cover rounded-full mx-auto flex justify-center items-center py-2"
           />
         </div> */}
-        <div className="flex justify-center pt-5 pb-3 md:pt-8 md:pb-5 px-3">
-          <motion.div
-            // className="box"
-            whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            <div id="" className="w-60">
-              <Image
-                src={"/finalIconAssets/Achievement.png"}
-                alt=""
-                width={100}
-                height={50}
-                className="w-full "
-              />
-            </div>
-          </motion.div>
+        <div className="flex flex-col my-10 items-center max-w-[1200px] mx-auto px-3">
+          <AnimationTop>
+            <motion.div
+              whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div
+                id="box3d"
+                className="border-4 border-[#85d0d0]  w-60 md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+              >
+                <h2
+                  id=""
+                  className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+                >
+                  Achievement
+                </h2>
+              </div>
+            </motion.div>
+          </AnimationTop>
         </div>
         <div className="w-2/3 mx-auto my-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4">
           <AnimatedComponentLeft>
@@ -146,12 +150,17 @@ const Achievement = () => {
           <AnimationBottom>
             <motion.div
               // className="box"
-              whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+              whileHover={{ scale: 1.2 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <div className="w-44 mx-auto rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
-                <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                  Show more
+              <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                  <span className="relative group-hover:text-white">
+                    Show more
+                  </span>
                 </span>
               </div>
             </motion.div>

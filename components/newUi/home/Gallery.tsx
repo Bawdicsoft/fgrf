@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "./AnimationBtm";
 import AnimationTop from "./AnimationTop";
@@ -16,6 +16,21 @@ const gallery = [
   "./img/galleryImg2.png",
 ];
 const Gallery: React.FC = () => {
+  const controls = useAnimation();
+  const [isFlipped, setIsFlipped] = useState(false);
+  const handleHover = () => {
+    controls.start({
+      scale: 1.1,
+      filter: "brightness(1.3)",
+    });
+  };
+
+  const handleHoverExit = () => {
+    controls.start({
+      scale: 1,
+      filter: "brightness(1)",
+    });
+  };
   return (
     <section
       className="bg-gradient-to-r pb-10 bg-center bg-cover bg-no-repeat bg-blend-multiply"
@@ -30,16 +45,23 @@ const Gallery: React.FC = () => {
             Gallery
           </h2>
         </div> */}
-        <div className="flex justify-center ">
+        <div className="flex flex-col items-center max-w-[1200px] py-5 md:py-8 mx-auto px-3">
           <AnimationTop>
             <motion.div
-              // className="box"
-              whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+              whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <h2 className="text-center w-40 text-white pt-10 pb-8 text-2xl md:text-3xl lg:text-5xl font-bold">
-                Gallery
-              </h2>
+              <div
+                id="box3d"
+                className="border-4 border-[#85d0d0]  w-60 md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+              >
+                <h2
+                  id=""
+                  className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+                >
+                  Gallery
+                </h2>
+              </div>
             </motion.div>
           </AnimationTop>
         </div>
@@ -47,64 +69,153 @@ const Gallery: React.FC = () => {
         <div className="w-full mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             <AnimatedComponentLeft>
-              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
+              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(0, 2).map((data, index) => (
-                  <motion.div
+                  // <motion.div
+                  //   key={index}
+                  //   className="box"
+                  //   whileHover={{
+                  //     scale: 1.1,
+                  //     filter: "brightness(1.3)",
+                  //     rotateY: 180,
+                  //   }}
+                  //   transition={{
+                  //     type: "spring",
+                  //     stiffness: 20,
+                  //     damping: 10,
+                  //   }}
+                  // >
+                  <div
                     key={index}
-                    className="box"
-                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
                   >
-                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "}
+                      </div>{" "}
                     </div>
-                  </motion.div>
+                  </div>
+                  // </motion.div>
+                  // <div
+                  //   key={index}
+                  //   className="card relative group h-full w-full"
+                  // >
+                  //   <div className="front group-hover:rotate-y-180 h-full w-full">
+                  //     <img
+                  //       className="h-full w-full shadow shadow-black/40"
+                  //       src={data}
+                  //       alt="FGRF"
+                  //     />
+                  //   </div>
+                  //   <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                  //     <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                  //       <div className="sm space-x-2">
+                  //         <h3>Lorem ipsum</h3>
+                  //         <p>
+                  //           Lorem ipsum dolor sit amet consectetur adipisicing
+                  //           elit. Lorem ipsum dolor sit amet consectetur
+                  //           adipisicing elit.
+                  //         </p>
+                  //       </div>
+                  //     </div>
+                  //   </div>
+                  // </div>
                 ))}
               </div>
             </AnimatedComponentLeft>
 
             <AnimationBottom>
-              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
+              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(2, 4).map((data, index) => (
-                  <motion.div
+                  // <motion.div
+                  //   key={index}
+                  //   className="box"
+                  //   whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
+                  //   transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  // >
+                  <div
                     key={index}
-                    className="box"
-                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
                   >
-                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "}
+                      </div>{" "}
                     </div>
-                  </motion.div>
+                  </div>
+                  // </motion.div>
                 ))}
               </div>
             </AnimationBottom>
 
             <AnimatedComponentRight>
-              <div className="flex flex-col gap-5 md:gap-6 lg:gap-10">
+              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(4, 6).map((data, index) => (
-                  <motion.div
+                  // <motion.div
+                  //   key={index}
+                  //   className="box"
+                  //   whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
+                  //   transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  // >
+                  <div
                     key={index}
-                    className="box"
-                    whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
                   >
-                    <div className="col-span-1 h-60 lg:h-64 bg-[#f1fcd1] relative rounded-lg border-[3px] border-[#7caec1] shadow-2xl flex flex-col justify-center items-center gap-y-3">
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "}
+                      </div>{" "}
                     </div>
-                  </motion.div>
+                  </div>
+                  // </motion.div>
                 ))}
               </div>
             </AnimatedComponentRight>
@@ -116,12 +227,17 @@ const Gallery: React.FC = () => {
             <AnimationBottom>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <div className="w-44 mx-auto rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Show more
+                <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-white">
+                      Show more
+                    </span>
                   </span>
                 </div>
               </motion.div>

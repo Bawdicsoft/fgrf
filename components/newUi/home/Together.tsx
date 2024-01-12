@@ -1,6 +1,13 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useRef, useState, useEffect, FC } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useAnimation,
+  useTransform,
+  animate,
+} from "framer-motion";
 import Link from "next/link";
 import Form from "@/components/home/Form";
 import Image from "next/image";
@@ -8,9 +15,42 @@ import AnimationTop from "./AnimationTop";
 import AnimationBottom from "./AnimationBtm";
 import AnimatedComponentRight from "./AnimationRight";
 import AnimatedComponentLeft from "./AnimationLeft";
+import Counter1 from "./galleryAnimation/Counter";
+import { useInView } from "react-intersection-observer";
 
 const Together = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    } else {
+      controls.start("hidden");
+    }
+  }, [controls, inView]);
+  const count1 = useMotionValue(0);
+  const count = useMotionValue(0);
+  const rounded1: any = useTransform(count1, Math.round);
+  const rounded: any = useTransform(count, Math.round);
+
   const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const animations: any[] = [];
+
+    if (true) {
+      animations.push(animate(count1, 2700000, { duration: 10 }));
+      animations.push(animate(count, 54000, { duration: 10 }));
+    }
+
+    // Cleanup function
+    return () => {
+      animations.forEach((animation) => animation.stop());
+    };
+  }, [count, count1]);
+
   const items = [
     {
       id: 1,
@@ -48,76 +88,97 @@ const Together = () => {
                 Changing the world is a big job. Lets do it together.
               </h2>
             </div>
-            <div className="flex justify-center pt-5">
+            <div className="flex -ml-32 md:ml-0 justify-center pt-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <motion.div
-                  whileHover={{ scale: 1.6, filter: "brightness(1.5)" }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 10,
-                  }}
-                >
-                  <div className="flex">
-                    <div className="relative w-32 lg:w-40 xl:w-60">
-                      <AnimationTop>
-                        <Image
-                          src={"/blood.png"}
-                          alt=""
-                          width={200}
-                          height={200}
-                          className="w-full h-full"
-                        />
-                      </AnimationTop>
-                      <AnimatedComponentLeft>
-                        <div className="absolute top-5 -right-12 lg:top-6 xl:top-12 lg:-right-12 xl:-right-5 flex flex-col lg:gap-3">
-                          <span className="text-white font-semibold lg:text-lg">
-                            54000
-                          </span>
-                          <span className="text-white font-semibold lg:text-lg">
-                            Blood Bags
-                          </span>
-                        </div>
-                      </AnimatedComponentLeft>
+                <div className="relative w-32 lg:w-40 xl:w-60 z-50">
+                  <AnimationTop>
+                    <motion.div
+                      whileHover={{ scale: 1.6, filter: "brightness(1.5)" }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      <Image
+                        src={"/blood.png"}
+                        alt=""
+                        width={200}
+                        height={200}
+                        className="w-full h-full"
+                      />
+                    </motion.div>
+                  </AnimationTop>
+                  <AnimatedComponentLeft>
+                    <div className="absolute top-5 -right-16 md:-right-12 lg:top-6 xl:top-12 lg:-right-12 xl:-right-5 flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold lg:text-lg">
+                        {/* <Counter1>
+                          <motion.h1>{rounded2}</motion.h1>;
+                        </Counter1> */}
+                        <motion.div
+                          ref={ref}
+                          initial="hidden"
+                          animate={controls}
+                          variants={{
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: [-20] },
+                          }}
+                          transition={{ duration: 1.5 }}
+                        >
+                          {rounded}
+                        </motion.div>
+                      </span>
+                      <span className="text-white font-semibold lg:text-lg">
+                        Blood Bags
+                      </span>
                     </div>
-                  </div>
-                </motion.div>
-                <div className="flex">
-                  <motion.div
-                    // className="box"
-                    whileHover={{
-                      scale: 1.6,
-                      filter: "brightness(1.5)",
-                      rotate: 360,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 400,
-                      damping: 10,
-                    }}
-                  >
-                    <div className="relative w-32 lg:w-40 xl:w-60">
-                      <AnimationBottom>
-                        <Image
-                          src={"/tree.png"}
-                          alt=""
-                          width={200}
-                          height={200}
-                          className="w-full h-full"
-                        />
-                      </AnimationBottom>
-                      <AnimatedComponentRight>
-                        <div className="absolute top-5 -right-12 lg:top-6 xl:top-12 lg:-right-12 xl:-right-5 flex flex-col  lg:gap-3">
-                          <span className="text-white font-semibold lg:text-lg">
-                            54000
-                          </span>
-                          <span className="text-white font-semibold lg:text-lg">
-                            Blood Bags
-                          </span>
-                        </div>
-                      </AnimatedComponentRight>
+                  </AnimatedComponentLeft>
+                </div>
+
+                <div className="relative w-32 lg:w-40 xl:w-60 z-50 ">
+                  <AnimationBottom>
+                    <motion.div
+                      // className="box"
+                      whileHover={{
+                        scale: 1.6,
+                        filter: "brightness(1.5)",
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 10,
+                      }}
+                    >
+                      <Image
+                        src={"/tree.png"}
+                        alt=""
+                        width={200}
+                        height={200}
+                        className="w-full h-full"
+                      />
+                    </motion.div>
+                  </AnimationBottom>
+                  <AnimatedComponentRight>
+                    <div className="absolute top-5 -right-20 md:-right-16 lg:top-6 xl:top-12 lg:-right-16 xl:-right-10 flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold lg:text-lg">
+                        <motion.div
+                          ref={ref}
+                          initial="hidden"
+                          animate={controls}
+                          variants={{
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: [-20] },
+                          }}
+                          transition={{ duration: 1.5 }}
+                        >
+                          {rounded1}
+                        </motion.div>
+                      </span>
+                      <span className="text-white font-semibold lg:text-lg">
+                        Planted Trees
+                      </span>
                     </div>
-                  </motion.div>
+                  </AnimatedComponentRight>
                 </div>
               </div>
             </div>
