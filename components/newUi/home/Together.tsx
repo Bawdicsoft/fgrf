@@ -14,9 +14,47 @@ import AnimationBottom from "./AnimationBtm";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
 import AnimationTop from "./AnimationTop";
+import AnimatedNumberCounter from "./AnimationCounter";
 const Together = () => {
 
   // for cardBLood
+  // const x = useMotionValue(0);
+  // const y = useMotionValue(0);
+
+  // const mouseXSpring = useSpring(x);
+  // const mouseYSpring = useSpring(y);
+
+  // const rotateX = useTransform(
+  //   mouseYSpring,
+  //   [-1.5, 1.5],
+  //   ["47.5deg", "-47.5deg"]
+  // );
+  // const rotateY = useTransform(
+  //   mouseXSpring,
+  //   [-1.5, 1.5],
+  //   ["-47.5deg", "47.5deg"]
+  // );
+  // const handleMouseMove = (e:any) => {
+  //   const rect = e.target.getBoundingClientRect();
+
+  //   const width = rect.width;
+  //   const height = rect.height;
+
+  //   const mouseX = e.clientX - rect.left;
+  //   const mouseY = e.clientY - rect.top;
+
+  //   const xPct = mouseX / width - 0.5;
+  //   const yPct = mouseY / height - 0.5;
+
+  //   x.set(xPct);
+  //   y.set(yPct);
+  // };
+
+  // const handleMouseLeave = () => {
+  //   x.set(0);
+  //   y.set(0);
+  // };
+
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -25,13 +63,14 @@ const Together = () => {
 
   const rotateX = useTransform(
     mouseYSpring,
-    [-1.5, 1.5],
-    ["47.5deg", "-47.5deg"]
+    [-1, 1],
+    [47.5, -47.5] // Adjusted the degree values
   );
+
   const rotateY = useTransform(
     mouseXSpring,
-    [-1.5, 1.5],
-    ["-47.5deg", "47.5deg"]
+    [-1, 1],
+    [-47.5, 47.5] // Adjusted the degree values
   );
 
   const handleMouseMove = (e:any) => {
@@ -43,8 +82,8 @@ const Together = () => {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
+    const xPct = (mouseX / width - 0.5) * 2; // Adjusted the formula to get a full range from -1 to 1
+    const yPct = (mouseY / height - 0.5) * 2; // Adjusted the formula to get a full range from -1 to 1
 
     x.set(xPct);
     y.set(yPct);
@@ -60,6 +99,22 @@ const Together = () => {
     triggerOnce: true,
   });
 
+  const count1 = useMotionValue(0);
+  const count = useMotionValue(0);
+  const rounded1: any = useTransform(count1, Math.round);
+  const rounded: any = useTransform(count, Math.round);
+
+  useEffect(() => {
+    const animations: any[] = [];
+    if (inView) {
+      animations.push(animate(count1, 2700000, { duration: 10 }));
+      animations.push(animate(count, 54000, { duration: 10 }));
+    }
+    return () => {
+      animations.forEach((animation) => animation.stop());
+    };
+  }, [count, count1, inView]);
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
@@ -67,52 +122,34 @@ const Together = () => {
       controls.start("hidden");
     }
   }, [controls, inView]);
-  const count1 = useMotionValue(0);
-  const count = useMotionValue(0);
-  const rounded1: any = useTransform(count1, Math.round);
-  const rounded: any = useTransform(count, Math.round);
-
-  const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const animations: any[] = [];
-
-    if (true) {
-      animations.push(animate(count1, 2700000, { duration: 10 }));
-      animations.push(animate(count, 54000, { duration: 10 }));
-    }
-
-    // Cleanup function
-    return () => {
-      animations.forEach((animation) => animation.stop());
-    };
-  }, [count, count1]);
-
-  const items = [
-    {
-      id: 1,
-      content: "3,24,000",
-      data: "Planted",
-    },
-    {
-      id: 2,
-      content: "3,04,000",
-      data: "Trees",
-    },
-    {
-      id: 3,
-      content: "3,00,000",
-      data: "You",
-    },
-  ];
-  useEffect(() => {
-    const id = setInterval(() => {
-      setIndex((state) => {
-        if (state >= items.length - 1) return 0;
-        return state + 1;
-      });
-    }, 2000);
-    return () => clearInterval(id);
-  }, []);
+  
+  // const [index, setIndex] = useState(0);
+  // const items = [
+    //   {
+      //     id: 1,
+  //     content: "3,24,000",
+  //     data: "Planted",
+  //   },
+  //   {
+  //     id: 2,
+  //     content: "3,04,000",
+  //     data: "Trees",
+  //   },
+  //   {
+  //     id: 3,
+  //     content: "3,00,000",
+  //     data: "You",
+  //   },
+  // ];
+  // useEffect(() => {
+  //   const id = setInterval(() => {
+  //     setIndex((state) => {
+  //       if (state >= items.length - 1) return 0;
+  //       return state + 1;
+  //     });
+  //   }, 2000);
+  //   return () => clearInterval(id);
+  // }, []);
 
   return (
     <section>
@@ -125,22 +162,27 @@ const Together = () => {
               </h2>
             </div>
             <div className="flex -ml-32 md:ml-0 justify-center pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5 gap-3">
                 <div className="relative w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
-                    <motion.div
-                      whileHover={{ scale: 1.6, filter: "brightness(1.5)" }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      <Image
+                  <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateY,
+        rotateX,
+        transformStyle: "preserve-3d",
+      }}
+      className="flex md:absolute  h-full w-full"
+    > 
+                     <Image
+          style={{
+            transform: "translateZ(25px)",
+          }}
                         src={"/blood.png"}
                         alt=""
-                        width={200}
-                        height={200}
+                        width={300}
+                        height={300}
                         className="w-full h-full"
                       />
                     </motion.div>
@@ -151,18 +193,18 @@ const Together = () => {
                         {/* <Counter1>
                           <motion.h1>{rounded2}</motion.h1>;
                         </Counter1> */}
-                        <motion.div
-                          ref={ref}
-                          initial="hidden"
-                          animate={controls}
-                          variants={{
-                            visible: { opacity: 1, x: 0 },
-                            hidden: { opacity: 0, x: [-20] },
-                          }}
-                          transition={{ duration: 1.5 }}
-                        >
-                          {rounded}
-                        </motion.div>
+                         <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={{
+          visible: { opacity: 1, x: 0 },
+          hidden: { opacity: 0, x: -20 },
+        }}
+        transition={{ duration: 2.5 }}
+      >
+        {rounded}
+      </motion.div>
                       </span>
                       <span className="text-white font-semibold lg:text-lg">
                         Blood Bags
@@ -171,19 +213,12 @@ const Together = () => {
                   </AnimatedComponentLeft>
                 </div>
 
-                <div className="w-32 relative lg:w-40 xl:w-60 z-50 ">
+                <div className="w-32 relative h-full md:h-[120px] xl:h-[180px]   lg:w-64 z-50 ">
                  
                   <AnimationBottom>
-                   
-                      {/* <Image
-                        src={"/tree.png"}
-                        alt=""
-                        width={200}
-                        height={200}
-                        className="w-full h-full"
-                      /> */}
                        {/* new from here 13-1-2024 */}
-                       <motion.div
+                    
+    <motion.div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -191,35 +226,28 @@ const Together = () => {
         rotateX,
         transformStyle: "preserve-3d",
       }}
-      className="absolute w-60 h-60 h-full w-full"
-    >
-      {/* <div
-        style={{
-          transform: "translateZ(85px)",
-          transformStyle: "preserve-3d",
-        }}
-        className="   grid place-content-center shadow-lg"
-      > */}
+      className="flex md:absolute  h-full w-full"
+    > 
          <Image
           style={{
-            transform: "translateZ(85px)",
+            transform: "translateZ(25px)",
           }}
                         src={"/tree1.png"}
                         alt=""
-                        width={200}
-                        height={200}
-                        className="w-full  h-full"
+                        width={300}
+                        height={300}
+                        className="w-full h-full"
                       />
-      
-      {/* </div> */}
     </motion.div>
+                   
+
                       {/* yeha tk */}
                   </AnimationBottom>
                
                   <AnimatedComponentRight>
                     <div className="absolute top-5 -right-20 md:-right-16 lg:top-6 xl:top-12 lg:-right-16 xl:-right-10 flex flex-col lg:gap-3">
                       <span className="text-white font-semibold lg:text-lg">
-                        <motion.div
+                      <motion.div
                           ref={ref}
                           initial="hidden"
                           animate={controls}
@@ -227,8 +255,9 @@ const Together = () => {
                             visible: { opacity: 1, x: 0 },
                             hidden: { opacity: 0, x: [-20] },
                           }}
-                          transition={{ duration: 1.5 }}
+                          transition={{ duration: 2.5 }}
                         >
+  
                           {rounded1}
                         </motion.div>
                       </span>
@@ -237,6 +266,7 @@ const Together = () => {
                       </span>
                     </div>
                   </AnimatedComponentRight>
+                
                 </div>
               </div>
             </div>
