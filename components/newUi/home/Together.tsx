@@ -1,24 +1,60 @@
 "use client";
-import React, { useRef, useState, useEffect, FC } from "react";
 import {
-  motion,
-  AnimatePresence,
-  useMotionValue,
-  useAnimation,
-  useTransform,
   animate,
+  motion,
+  useAnimation,
+  useMotionValue,
+  useSpring,
+  useTransform
 } from "framer-motion";
-import Link from "next/link";
-import Form from "@/components/home/Form";
 import Image from "next/image";
-import AnimationTop from "./AnimationTop";
-import AnimationBottom from "./AnimationBtm";
-import AnimatedComponentRight from "./AnimationRight";
-import AnimatedComponentLeft from "./AnimationLeft";
-import Counter1 from "./galleryAnimation/Counter";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-
+import AnimationBottom from "./AnimationBtm";
+import AnimatedComponentLeft from "./AnimationLeft";
+import AnimatedComponentRight from "./AnimationRight";
+import AnimationTop from "./AnimationTop";
 const Together = () => {
+
+  // for cardBLood
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-1.5, 1.5],
+    ["47.5deg", "-47.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-1.5, 1.5],
+    ["-47.5deg", "47.5deg"]
+  );
+
+  const handleMouseMove = (e:any) => {
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const height = rect.height;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+  // yha tk
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -135,29 +171,51 @@ const Together = () => {
                   </AnimatedComponentLeft>
                 </div>
 
-                <div className="relative w-32 lg:w-40 xl:w-60 z-50 ">
+                <div className="w-32 relative lg:w-40 xl:w-60 z-50 ">
+                 
                   <AnimationBottom>
-                    <motion.div
-                      // className="box"
-                      whileHover={{
-                        scale: 1.6,
-                        filter: "brightness(1.5)",
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 10,
-                      }}
-                    >
-                      <Image
+                   
+                      {/* <Image
                         src={"/tree.png"}
                         alt=""
                         width={200}
                         height={200}
                         className="w-full h-full"
+                      /> */}
+                       {/* new from here 13-1-2024 */}
+                       <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateY,
+        rotateX,
+        transformStyle: "preserve-3d",
+      }}
+      className="absolute w-60 h-60 h-full w-full"
+    >
+      {/* <div
+        style={{
+          transform: "translateZ(85px)",
+          transformStyle: "preserve-3d",
+        }}
+        className="   grid place-content-center shadow-lg"
+      > */}
+         <Image
+          style={{
+            transform: "translateZ(85px)",
+          }}
+                        src={"/tree1.png"}
+                        alt=""
+                        width={200}
+                        height={200}
+                        className="w-full  h-full"
                       />
-                    </motion.div>
+      
+      {/* </div> */}
+    </motion.div>
+                      {/* yeha tk */}
                   </AnimationBottom>
+               
                   <AnimatedComponentRight>
                     <div className="absolute top-5 -right-20 md:-right-16 lg:top-6 xl:top-12 lg:-right-16 xl:-right-10 flex flex-col lg:gap-3">
                       <span className="text-white font-semibold lg:text-lg">
