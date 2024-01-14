@@ -82,9 +82,9 @@ const Footer = () => {
         <div className="flex flex-col ">
           <div className="flex justify-evenly items-center py-4">
             <div className="">
-              <span className="text-gray-400 font-medium text-3xl">penny</span>
+              {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
               <span className="text-gray-500 font-bold text-3xl relative">
-                appeal.org
+                fgrf.org
                 <span>
                   <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute top-0 -right-3" />
                 </span>
@@ -111,31 +111,31 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="col-span-2 flex flex-col gap-2 py-3">
               <p className="text-xs text-center">
-                *03000 calls are included in any mobile minutes packages and are
-                local rate from any landline.
+              Any leftover donation can be spent in any permissible, welfare, well-wishing, water, food, agriculture, construction, reglious and good purpose.
+              Registered Charity, number 1200869
               </p>
-              <p className="text-sm text-gray-500 text-center">
+              {/* <p className="text-sm text-gray-500 text-center">
                 Penny Appeal is a UK registered charity 1128341 and UK
                 registered company 06578382.
               </p>
               <p className="text-sm text-gray-500 text-center">
                 Registered Address: Penny Appeal Campus, Thornes Park,
                 Wakefield, England, WF2 8QZ
-              </p>
+              </p> */}
               <div className="flex text-gray-500 text-sm justify-center">
                 <Link href={"#"} className="text-orange-600">
-                  {" "}
+                  
                   Terms and Conditions
-                </Link>{" "}
-                |{" "}
+                </Link>
+                |
                 <Link href={"#"} className="text-orange-600">
-                  Privacy Policy{" "}
-                </Link>{" "}
-                |{" "}
+                  Privacy Policy
+                </Link>
+                |
                 <Link href={"#"} className="text-orange-600">
-                  Complaints Procedure{" "}
-                </Link>{" "}
-                © 2024 Penny Appeal
+                  Complaints Procedure
+                </Link>
+                © 2024 Fgrf.org
               </div>
             </div>
             <div className="flex self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
@@ -163,7 +163,7 @@ const Footer = () => {
                 </div>
                 <div className="group overflow-hidden bg-white p-2 text-yellow-500  font-bold rounded-md">
                   <p className="flex items-center relative">
-                    &#163; 300{" "}
+                    &#163; 300
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
