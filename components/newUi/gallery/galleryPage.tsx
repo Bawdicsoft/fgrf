@@ -6,6 +6,9 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import AnimationTop from "../home/AnimationTop";
+import AnimatedComponentLeft from "../home/galleryAnimation/AnimationLeft";
+import AnimationBottom from "../home/AnimationBtm";
+import AnimatedComponentRight from "../home/galleryAnimation/AnimationRight";
 
 const GalleryPage = () => {
   const [open, setOpen] = useState(false);
@@ -69,7 +72,8 @@ const GalleryPage = () => {
           </div>
           <div className="max-w-5xl xl:mx-auto mx-2  relative z-[2]">
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-2 gap-4 px-2 mt-5">
-              {gallery.map((data, index: any) => (
+              {gallery.slice(0,4).map((data, index: any) => (
+                <AnimatedComponentLeft key={index}>
                 <div key={index} className="card relative group h-full w-full">
                   <div className="front group-hover:rotate-y-180 h-full w-full">
                     <img
@@ -91,6 +95,82 @@ const GalleryPage = () => {
                     </div>
                   </div>
                 </div>
+                </AnimatedComponentLeft>
+              ))}
+              {gallery.slice(4,8).map((data, index: any) => (
+                <AnimatedComponentRight key={index}>
+                <div key={index} className="card relative group h-full w-full">
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      className="h-full w-full shadow shadow-black/40"
+                      src={data}
+                      alt="FGRF"
+                    />
+                  </div>
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                      <div className="sm space-x-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Lorem ipsum dolor sit amet consectetur
+                          adipisicing elit.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </AnimatedComponentRight>
+              ))}
+              {gallery.slice(8,12).map((data, index: any) => (
+                <AnimatedComponentLeft key={index}>
+                <div key={index} className="card relative group h-full w-full">
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      className="h-full w-full shadow shadow-black/40"
+                      src={data}
+                      alt="FGRF"
+                    />
+                  </div>
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                      <div className="sm space-x-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Lorem ipsum dolor sit amet consectetur
+                          adipisicing elit.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </AnimatedComponentLeft>
+              ))}
+              {gallery.slice(12,15).map((data, index: any) => (
+                <AnimatedComponentRight key={index}>
+                <div key={index} className="card relative group h-full w-full">
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      className="h-full w-full shadow shadow-black/40"
+                      src={data}
+                      alt="FGRF"
+                    />
+                  </div>
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                      <div className="sm space-x-2">
+                        <h3>Lorem ipsum</h3>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Lorem ipsum dolor sit amet consectetur
+                          adipisicing elit.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </AnimatedComponentRight>
               ))}
             </div>
           </div>

@@ -116,6 +116,10 @@ const Footer = () => {
                 and good purpose.
               </p>
               <p className="text-xs text-center">
+                Faizan Global Relief Foundation UK 24 WITTON ROAD,BIRMINGHAM B6
+                6NX, Birmingham, United Kingdom
+              </p>
+              <p className="text-xs text-center">
                 Registered Charity, number 1200869
               </p>
               {/* <p className="text-sm text-gray-500 text-center">

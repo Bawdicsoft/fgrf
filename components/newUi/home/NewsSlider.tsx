@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaCirclePlay } from "react-icons/fa6";
+import { FaRegCirclePlay } from "react-icons/fa6";
 
 // Import Swiper styles
 import "swiper/css";
@@ -54,11 +56,19 @@ export default function NewsSlider() {
         className=""
       >
         {videosList.map((videoItems, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="relative">
             {/* <iframe className="w-full h-full aspect-video " src={videoItems.video}></iframe> */}
-            <video className="h-full w-full" controls>
+            {/* <video className="h-full w-full" controls>
               <source src={videoItems.video} type="video/mp4" />
-            </video>
+            </video> */}
+              <Image
+                src="/video/thumnail.JPG"
+                alt={"thumNail"}
+                width={800}
+                height={800}
+                className="h-full w-full  object-cover"
+              />
+              <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 text-white" />
           </SwiperSlide>
         ))}
       </Swiper>

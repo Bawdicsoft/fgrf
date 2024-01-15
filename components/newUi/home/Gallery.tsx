@@ -13,22 +13,25 @@ const gallery = [
   "./img/galleryImg2.png",
   "./img/galleryImg2.png",
   "./img/galleryImg2.png",
- "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
 ];
 
 const Gallery: React.FC = () => {
   const controls = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
-const [border, setBorder] = useState<Boolean>(false);
+  const [border, setBorder] = useState<Boolean>(false);
   const [picIndex, setPicIndex] = useState<number>();
-
-  const borderHandler = (index:number) => {
-    setPicIndex(index)
-    console.log(picIndex)
-    setBorder(!border);
-   setTimeout(() => {
-   setBorder(false);
-    }, 3000)
+const arry1 = gallery.slice(0, 2);
+  const borderHandler = (index: number) => {
+    console.log(picIndex);
+   
+    setTimeout(() => {
+      setBorder(false);
+    }, 3000);
+  };
+  const borderHandler1 = (index: number) => {
+    setPicIndex(index);
+    console.log(picIndex);
   };
   const handleHover = () => {
     controls.start({
@@ -57,7 +60,10 @@ const [border, setBorder] = useState<Boolean>(false);
             Gallery
           </h2>
         </div> */}
-        <div className="flex flex-col items-center max-w-[1200px] py-5 md:py-8 mx-auto px-3">
+        <Link
+          href={"/gallery"}
+          className="flex flex-col items-center max-w-[1200px] py-5 md:py-8 mx-auto px-3"
+        >
           <AnimationTop>
             <motion.div
               whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
@@ -76,7 +82,7 @@ const [border, setBorder] = useState<Boolean>(false);
               </div>
             </motion.div>
           </AnimationTop>
-        </div>
+        </Link>
 
         <div className="w-full mx-auto relative">
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
@@ -85,9 +91,13 @@ const [border, setBorder] = useState<Boolean>(false);
                 {gallery.slice(0, 2).map((data, index) => (
                   <div
                     key={index}
-                    onMouseLeave={() => setTimeout(() => {
-        borderHandler(index);
-      }, 1000)}
+                    onMouseEnter={() =>{
+    setPicIndex(index);
+
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler(index);
+                    }}
                     className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === index && border ? "border-0" : ""
                     }`}

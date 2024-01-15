@@ -189,7 +189,7 @@ const Together = () => {
               </h2>
             </div>
             <div className="flex -ml-16 md:ml-0 justify-center pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16 lg:gap-28 xl:gap-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 lg:gap-28 xl:gap-16">
                 <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
                     <motion.div
@@ -199,14 +199,15 @@ const Together = () => {
                         rotateY,
                         rotateX,
                         transformStyle: "preserve-3d",
+                        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.2)",
                       }}
-                      className="flex md:absolute  h-full w-full"
+                      className="flex md:absolute  h-24 md:h-32 w-20 md:w-24  lg:w-32"
                     >
                       <Image
                         style={{
                           transform: "translateZ(25px)",
                         }}
-                        src={"/blood.png"}
+                        src={"/blood2.png"}
                         alt=""
                         width={300}
                         height={300}
@@ -215,7 +216,7 @@ const Together = () => {
                     </motion.div>
                   </AnimationTop>
                   <AnimatedComponentLeft>
-                    <div className="absolute top-5 -right-16 md:-right-12 lg:top-6 xl:top-12 lg:-right-12 xl:-right-5 flex flex-col lg:gap-3">
+                    <div className="absolute top-5 -right-10 md:-right-16  lg:top-6 xl:top-12 lg:-right-20 xl:right-0 flex flex-col lg:gap-3">
                       <span className="text-white font-semibold lg:text-lg">
                         {/* <Counter1>
                           <motion.h1>{rounded2}</motion.h1>;
@@ -249,14 +250,16 @@ const Together = () => {
                         rotateY: rotateY1,
                         rotateX: rotateX1,
                         transformStyle: "preserve-3d",
+                        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.2)",
                       }}
-                      className="flex md:absolute  h-24 w-16 md:h-32 md:w-20"
+                      className="relative flex md:absolute  h-24  md:h-32 w-20 md:w-24 lg:w-24"
                     >
+                  
                       <Image
                         style={{
                           transform: "translateZ(25px)",
                         }}
-                        src={"/tree.png"}
+                        src={"/tree2.png"}
                         alt=""
                         width={300}
                         height={300}
@@ -266,7 +269,7 @@ const Together = () => {
                   </AnimationBottom>
 
                   <AnimatedComponentRight>
-                    <div className="absolute top-5 left-20 lg:top-6 xl:top-12  flex flex-col lg:gap-3">
+                    <div className="absolute top-5 left-20 md:left-24 lg:left-28 lg:top-6 xl:top-12  flex flex-col lg:gap-3">
                       <span className="text-white font-semibold lg:text-lg">
                         <motion.div
                           ref={ref}
