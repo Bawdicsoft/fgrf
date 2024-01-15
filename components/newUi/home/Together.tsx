@@ -5,7 +5,7 @@ import {
   useAnimation,
   useMotionValue,
   useSpring,
-  useTransform
+  useTransform,
 } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -16,7 +16,6 @@ import AnimatedComponentRight from "./AnimationRight";
 import AnimationTop from "./AnimationTop";
 import AnimatedNumberCounter from "./AnimationCounter";
 const Together = () => {
-
   // for cardBLood
   // const x = useMotionValue(0);
   // const y = useMotionValue(0);
@@ -57,23 +56,48 @@ const Together = () => {
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const x1 = useMotionValue(0);
+  const y1 = useMotionValue(0);
 
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
+  const mouseXSpring1 = useSpring(x1);
+  const mouseYSpring1 = useSpring(y1);
 
   const rotateX = useTransform(
     mouseYSpring,
     [-1, 1],
-    [47.5, -47.5] // Adjusted the degree values
+    [47.5, -47.5]
+  );
+  const rotateX1 = useTransform(
+    mouseYSpring1,
+    [-1, 1],
+    [47.5, -47.5]
   );
 
   const rotateY = useTransform(
     mouseXSpring,
     [-1, 1],
-    [-47.5, 47.5] // Adjusted the degree values
+    [-47.5, 47.5] 
+  );
+  const rotateY1 = useTransform(
+    mouseXSpring1,
+    [-1, 1],
+    [-47.5, 47.5] 
   );
 
-  const handleMouseMove = (e:any) => {
+  const handleMouseMove = (e: any) => {
+    const rect = e.target.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = (mouseX / width - 0.5) * 2;
+    const yPct = (mouseY / height - 0.5) * 2; 
+    x.set(xPct);
+    y.set(yPct);
+  };
+  const handleMouseMove1 = (e: any) => {
     const rect = e.target.getBoundingClientRect();
 
     const width = rect.width;
@@ -82,18 +106,21 @@ const Together = () => {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPct = (mouseX / width - 0.5) * 2; // Adjusted the formula to get a full range from -1 to 1
-    const yPct = (mouseY / height - 0.5) * 2; // Adjusted the formula to get a full range from -1 to 1
-
-    x.set(xPct);
-    y.set(yPct);
+    const xPct = (mouseX / width - 0.5) * 2;
+    const yPct = (mouseY / height - 0.5) * 2; 
+    x1.set(xPct);
+    y1.set(yPct);
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
   };
-  // yha tk
+  const handleMouseLeave1 = () => {
+    x1.set(0);
+    y1.set(0);
+  };
+  
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -122,11 +149,11 @@ const Together = () => {
       controls.start("hidden");
     }
   }, [controls, inView]);
-  
+
   // const [index, setIndex] = useState(0);
   // const items = [
-    //   {
-      //     id: 1,
+  //   {
+  //     id: 1,
   //     content: "3,24,000",
   //     data: "Planted",
   //   },
@@ -161,24 +188,24 @@ const Together = () => {
                 Changing the world is a big job. Lets do it together.
               </h2>
             </div>
-            <div className="flex -ml-32 md:ml-0 justify-center pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-5 gap-3">
-                <div className="relative w-32 lg:w-40 xl:w-60 z-50">
+            <div className="flex -ml-16 md:ml-0 justify-center pt-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16 lg:gap-28 xl:gap-16">
+                <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
-                  <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className="flex md:absolute  h-full w-full"
-    > 
-                     <Image
-          style={{
-            transform: "translateZ(25px)",
-          }}
+                    <motion.div
+                      onMouseMove={handleMouseMove}
+                      onMouseLeave={handleMouseLeave}
+                      style={{
+                        rotateY,
+                        rotateX,
+                        transformStyle: "preserve-3d",
+                      }}
+                      className="flex md:absolute  h-full w-full"
+                    >
+                      <Image
+                        style={{
+                          transform: "translateZ(25px)",
+                        }}
                         src={"/blood.png"}
                         alt=""
                         width={300}
@@ -193,18 +220,18 @@ const Together = () => {
                         {/* <Counter1>
                           <motion.h1>{rounded2}</motion.h1>;
                         </Counter1> */}
-                         <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={controls}
-        variants={{
-          visible: { opacity: 1, x: 0 },
-          hidden: { opacity: 0, x: -20 },
-        }}
-        transition={{ duration: 2.5 }}
-      >
-        {rounded}
-      </motion.div>
+                        <motion.div
+                          ref={ref}
+                          initial="hidden"
+                          animate={controls}
+                          variants={{
+                            visible: { opacity: 1, x: 0 },
+                            hidden: { opacity: 0, x: -20 },
+                          }}
+                          transition={{ duration: 2.5 }}
+                        >
+                          {rounded}
+                        </motion.div>
                       </span>
                       <span className="text-white font-semibold lg:text-lg">
                         Blood Bags
@@ -213,41 +240,35 @@ const Together = () => {
                   </AnimatedComponentLeft>
                 </div>
 
-                <div className="w-32 relative h-full md:h-[120px] xl:h-[180px]   lg:w-64 z-50 ">
-                 
+                <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50 ">
                   <AnimationBottom>
-                       {/* new from here 13-1-2024 */}
-                    
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className="flex md:absolute  h-full w-full"
-    > 
-         <Image
-          style={{
-            transform: "translateZ(25px)",
-          }}
-                        src={"/tree1.png"}
+                    <motion.div
+                      onMouseMove={handleMouseMove1}
+                      onMouseLeave={handleMouseLeave1}
+                      style={{
+                        rotateY: rotateY1,
+                        rotateX: rotateX1,
+                        transformStyle: "preserve-3d",
+                      }}
+                      className="flex md:absolute  h-24 w-16 md:h-32 md:w-20"
+                    >
+                      <Image
+                        style={{
+                          transform: "translateZ(25px)",
+                        }}
+                        src={"/tree.png"}
                         alt=""
                         width={300}
                         height={300}
                         className="w-full h-full"
                       />
-    </motion.div>
-                   
-
-                      {/* yeha tk */}
+                    </motion.div>
                   </AnimationBottom>
-               
+
                   <AnimatedComponentRight>
-                    <div className="absolute top-5 -right-20 md:-right-16 lg:top-6 xl:top-12 lg:-right-16 xl:-right-10 flex flex-col lg:gap-3">
+                    <div className="absolute top-5 left-20 lg:top-6 xl:top-12  flex flex-col lg:gap-3">
                       <span className="text-white font-semibold lg:text-lg">
-                      <motion.div
+                        <motion.div
                           ref={ref}
                           initial="hidden"
                           animate={controls}
@@ -257,7 +278,6 @@ const Together = () => {
                           }}
                           transition={{ duration: 2.5 }}
                         >
-  
                           {rounded1}
                         </motion.div>
                       </span>
@@ -266,7 +286,6 @@ const Together = () => {
                       </span>
                     </div>
                   </AnimatedComponentRight>
-                
                 </div>
               </div>
             </div>

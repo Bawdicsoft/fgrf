@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
         </div> */}
         <div className="flex flex-col ">
-          <div className="flex justify-evenly items-center py-4">
+          <div className="flex justify-evenly flex-wrap items-center py-4">
             <div className="">
               {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
               <span className="text-gray-500 font-bold text-3xl relative">
@@ -111,8 +111,9 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             <div className="col-span-2 flex flex-col gap-2 py-3">
               <p className="text-xs text-center">
-              Any leftover donation can be spent in any permissible, welfare, well-wishing, water, food, agriculture, construction, reglious and good purpose.
-              Registered Charity, number 1200869
+                Any leftover donation can be spent in any permissible, welfare,
+                well-wishing, water, food, agriculture, construction, reglious
+                and good purpose. Registered Charity, number 1200869
               </p>
               {/* <p className="text-sm text-gray-500 text-center">
                 Penny Appeal is a UK registered charity 1128341 and UK
@@ -124,7 +125,6 @@ const Footer = () => {
               </p> */}
               <div className="flex text-gray-500 text-sm justify-center">
                 <Link href={"#"} className="text-orange-600">
-                  
                   Terms and Conditions
                 </Link>
                 |
@@ -139,10 +139,11 @@ const Footer = () => {
               </div>
             </div>
             <div className="flex self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
-              <div className="group overflow-hidden bg-[#148698] flex items-center px-2 gap-3 py-4">
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <div>
-                  <div className="rounded-full group overflow-hidden bg-white border p-3">
+              <div className="group relative overflow-hidden bg-[#148698] flex items-center px-2 gap-3 py-4">
+                <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
+                <div className="">
+                  <div className="relative overflow-hidden rounded-full  bg-white border p-3">
+                    <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <svg
                       fill="#000000"
                       width="30px"
@@ -150,19 +151,20 @@ const Footer = () => {
                       viewBox="0 0 22 22"
                       xmlns="http://www.w3.org/2000/svg"
                       id="memory-well"
+                      className="relative group-hover:fill-white"
                     >
                       <path d="M19 21H3V16H1V14H21V16H19V21M5 16V19H17V16H5M2 7V5H3V4H4V3H5V2H6V1H16V2H17V3H18V4H19V5H20V7H18V13H16V7H12V9H14V13H8V9H10V7H6V13H4V7H2M7 3V4H6V5H16V4H15V3H7Z" />
                     </svg>
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   </div>
                 </div>
-                <div className="group overflow-hidden md:text-xl text-lg text-white uppercase font-bold">
+                <div className="relative md:text-xl text-lg text-white uppercase font-bold">
                   <span className="relative ">Donate a</span>
                   <br /> water well
-                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="absolute h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 </div>
-                <div className="group overflow-hidden bg-white p-2 text-yellow-500  font-bold rounded-md">
-                  <p className="flex items-center relative">
+                <div className="relative overflow-hidden group-hover:border bg-white p-2 text-yellow-500  font-bold rounded-md">
+                  <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <p className="flex items-center relative group-hover:text-white">
                     &#163; 300
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +172,7 @@ const Footer = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="md:w-4 md:h-4 w-4 h-4 text-yellow-500 font-bold"
+                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-yellow-500 font-bold"
                     >
                       <path
                         strokeLinecap="round"
@@ -179,7 +181,6 @@ const Footer = () => {
                       />
                     </svg>
                   </p>
-                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 </div>
               </div>
               {/* new */}

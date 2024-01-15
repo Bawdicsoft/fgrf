@@ -29,9 +29,11 @@ export default function Navbar() {
   let gethour = Math.round(data.getHours());
   const mint = Math.round(data.getMinutes());
   let amPm = "AM";
+  if(gethour>= 12 ){
+    amPm = "PM";
+  }
   if (gethour > 12) {
     gethour -= 12;
-    amPm = "PM";
   } else {
     gethour = gethour;
   }
@@ -229,19 +231,20 @@ export default function Navbar() {
             </div>
 
             <div className="lg:col-span-5  hidden lg:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center border-r border-black">
-              <span className="bg-sky-900 text-white px-5 py-1 text-sm">
-                DONATE TO FUND
+              <span className="relative group overflow-hidden bg-sky-900 text-white px-5 py-1 text-sm">
+                <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
+                <span className="relative"> DONATE TO FUND</span>
               </span>
               <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
                 <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
                   <strong>&#163;</strong>
                 </span>
-                <div className="py-1 bg-[#fff] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
+                <div className="py-1 bg-[#eee] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
                   <input
                     type="number"
                     id="small-input"
                     placeholder="Amount"
-                    className="block w-full text-white font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
+                    className="block pl-2 w-full font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
                     required
                   />
                 </div>
@@ -256,8 +259,9 @@ export default function Navbar() {
                 <option value="monthly">Monthly</option>
                 <option value="Others">Others</option>
               </select>
-              <button className="bg-sky-900 text-white py-1 px-3 text-sm">
-                DONATE NOW
+              <button className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm">
+                <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
+                <span className="relative"> DONATE NOW</span>
               </button>
             </div>
             <div className=" border-r border-black flex justify-center items-center">

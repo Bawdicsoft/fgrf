@@ -108,7 +108,7 @@ const Appeals = () => {
             <AnimationTop>
               <motion.div
                 // className="box"
-                whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+                whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
                 <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">

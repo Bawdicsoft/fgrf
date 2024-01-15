@@ -8,16 +8,27 @@ import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
+  {id:1,img:"./img/galleryImg2.png"},
+  {id:2,img:"./img/galleryImg2.png"},
+  {id:3,img:"./img/galleryImg2.png"},
+  {id:4,img:"./img/galleryImg2.png"},
+  {id:5,img:"./img/galleryImg2.png"},
+  {id:6,img:"./img/galleryImg2.png"},
 ];
+
 const Gallery: React.FC = () => {
   const controls = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
+const [border, setBorder] = useState<Boolean>(false);
+  const [picIndex, setPicIndex] = useState<number>();
+
+  const borderHandler = (index:number) => {
+    setPicIndex(index)
+    setBorder(!border);
+   setTimeout(() => {
+   setBorder(false);
+    }, 600)
+  };
   const handleHover = () => {
     controls.start({
       scale: 1.1,
@@ -87,11 +98,14 @@ const Gallery: React.FC = () => {
                   // >
                   <div
                     key={index}
-                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    onMouseLeave={() => borderHandler(data.id)}
+                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === index && border ? "border-0" : ""
+                    }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -151,11 +165,14 @@ const Gallery: React.FC = () => {
                   // >
                   <div
                     key={index}
-                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    onMouseLeave={() => borderHandler(data.id)}
+                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === index && border ? "border-0" : ""
+                    }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -191,11 +208,14 @@ const Gallery: React.FC = () => {
                   // >
                   <div
                     key={index}
-                    className=" card1 relative group w-full h-full   rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3"
+                    onMouseLeave={() => borderHandler(data.id)}
+                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === index && border ? "border-0" : ""
+                    }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
