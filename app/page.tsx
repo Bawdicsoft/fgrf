@@ -12,14 +12,16 @@ import Gallery from '@/components/newUi/home/Gallery';
 import Appeals from '@/components/newUi/home/Appeals';
 import DonationSlider from '@/components/home/donationSlider';
 import NewsSection from "@/components/newUi/home/News";
-import Fgrflogo from '../components/newUi/home/PermenantLogo'
 
 export default function Home() {
-  // const [isModelLoading, setIsModelLoading] = useState(true);
+  const [isModelLoading, setIsModelLoading] = useState(true);
 
   // const handleModelLoaded = () => {
   //   setIsModelLoading(false);
   // };
+    setTimeout(() => {
+      setIsModelLoading(false);
+    }, 3000);
   return (
     <>
       {/* {isModelLoading && <FullPageLoader />}
@@ -50,9 +52,7 @@ export default function Home() {
 
       {/* MyCode */}
       <div className="relative">
-        <div>
-          <Fgrflogo />
-        </div>
+        {isModelLoading && <FullPageLoader />}
 
         <Hero />
         <OurDepartments />

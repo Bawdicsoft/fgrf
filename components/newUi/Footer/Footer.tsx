@@ -15,7 +15,7 @@ const Footer = () => {
   return (
     <section className="bg-white">
       <div className="lg:max-w-[1000px] mx-auto px-3">
-        <div className="bg-orange-400 w-full h-1 rounded-full"></div>
+        <div className="bg-[#19afaf] w-full h-1 rounded-full"></div>
         {/* <div className="lg:flex lg:flex-row flex flex-col lg:items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
           <div className="lg:flex lg:flex-row flex flex-col items-center gap-x-3 lg:items-center">
             <img
@@ -84,7 +84,7 @@ const Footer = () => {
             <div className="">
               {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
               <span className="text-gray-500 font-bold text-3xl relative">
-                fgrf.org
+                fgrf.uk
                 <span>
                   <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute top-0 -right-3" />
                 </span>
@@ -113,7 +113,10 @@ const Footer = () => {
               <p className="text-xs text-center">
                 Any leftover donation can be spent in any permissible, welfare,
                 well-wishing, water, food, agriculture, construction, reglious
-                and good purpose. Registered Charity, number 1200869
+                and good purpose.
+              </p>
+              <p className="text-xs text-center">
+                Registered Charity, number 1200869
               </p>
               {/* <p className="text-sm text-gray-500 text-center">
                 Penny Appeal is a UK registered charity 1128341 and UK
@@ -124,15 +127,15 @@ const Footer = () => {
                 Wakefield, England, WF2 8QZ
               </p> */}
               <div className="flex text-gray-500 text-sm justify-center">
-                <Link href={"#"} className="text-orange-600">
+                <Link href={"#"} className="text-[#19afaf]">
                   Terms and Conditions
                 </Link>
                 |
-                <Link href={"#"} className="text-orange-600">
+                <Link href={"#"} className="text-[#19afaf]">
                   Privacy Policy
                 </Link>
                 |
-                <Link href={"#"} className="text-orange-600">
+                <Link href={"#"} className="text-[#19afaf]">
                   Complaints Procedure
                 </Link>
                 © 2024 Fgrf.org
@@ -162,7 +165,7 @@ const Footer = () => {
                   <br /> water well
                   <span className="absolute h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 </div>
-                <div className="relative overflow-hidden group-hover:border bg-white p-2 text-yellow-500  font-bold rounded-md">
+                <div className="relative overflow-hidden group-hover:border bg-white p-2 text-[#19afaf]  font-bold rounded-md">
                   <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   <p className="flex items-center relative group-hover:text-white">
                     &#163; 300
@@ -172,7 +175,7 @@ const Footer = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-yellow-500 font-bold"
+                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-sky-500 font-bold"
                     >
                       <path
                         strokeLinecap="round"

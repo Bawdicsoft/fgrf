@@ -8,12 +8,12 @@ import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
-  {id:1,img:"./img/galleryImg2.png"},
-  {id:2,img:"./img/galleryImg2.png"},
-  {id:3,img:"./img/galleryImg2.png"},
-  {id:4,img:"./img/galleryImg2.png"},
-  {id:5,img:"./img/galleryImg2.png"},
-  {id:6,img:"./img/galleryImg2.png"},
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+  "./img/galleryImg2.png",
+ "./img/galleryImg2.png",
 ];
 
 const Gallery: React.FC = () => {
@@ -24,10 +24,11 @@ const [border, setBorder] = useState<Boolean>(false);
 
   const borderHandler = (index:number) => {
     setPicIndex(index)
+    console.log(picIndex)
     setBorder(!border);
    setTimeout(() => {
    setBorder(false);
-    }, 600)
+    }, 3000)
   };
   const handleHover = () => {
     controls.start({
@@ -82,30 +83,18 @@ const [border, setBorder] = useState<Boolean>(false);
             <AnimatedComponentLeft>
               <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(0, 2).map((data, index) => (
-                  // <motion.div
-                  //   key={index}
-                  //   className="box"
-                  //   whileHover={{
-                  //     scale: 1.1,
-                  //     filter: "brightness(1.3)",
-                  //     rotateY: 180,
-                  //   }}
-                  //   transition={{
-                  //     type: "spring",
-                  //     stiffness: 20,
-                  //     damping: 10,
-                  //   }}
-                  // >
                   <div
                     key={index}
-                    onMouseLeave={() => borderHandler(data.id)}
+                    onMouseLeave={() => setTimeout(() => {
+        borderHandler(index);
+      }, 1000)}
                     className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === index && border ? "border-0" : ""
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data.img}
+                        src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -125,31 +114,6 @@ const [border, setBorder] = useState<Boolean>(false);
                       </div>{" "}
                     </div>
                   </div>
-                  // </motion.div>
-                  // <div
-                  //   key={index}
-                  //   className="card relative group h-full w-full"
-                  // >
-                  //   <div className="front group-hover:rotate-y-180 h-full w-full">
-                  //     <img
-                  //       className="h-full w-full shadow shadow-black/40"
-                  //       src={data}
-                  //       alt="FGRF"
-                  //     />
-                  //   </div>
-                  //   <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
-                  //     <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                  //       <div className="sm space-x-2">
-                  //         <h3>Lorem ipsum</h3>
-                  //         <p>
-                  //           Lorem ipsum dolor sit amet consectetur adipisicing
-                  //           elit. Lorem ipsum dolor sit amet consectetur
-                  //           adipisicing elit.
-                  //         </p>
-                  //       </div>
-                  //     </div>
-                  //   </div>
-                  // </div>
                 ))}
               </div>
             </AnimatedComponentLeft>
@@ -157,22 +121,16 @@ const [border, setBorder] = useState<Boolean>(false);
             <AnimationBottom>
               <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(2, 4).map((data, index) => (
-                  // <motion.div
-                  //   key={index}
-                  //   className="box"
-                  //   whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
-                  //   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  // >
                   <div
                     key={index}
-                    onMouseLeave={() => borderHandler(data.id)}
+                    onMouseLeave={() => borderHandler(index)}
                     className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === index && border ? "border-0" : ""
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data.img}
+                        src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -192,7 +150,6 @@ const [border, setBorder] = useState<Boolean>(false);
                       </div>{" "}
                     </div>
                   </div>
-                  // </motion.div>
                 ))}
               </div>
             </AnimationBottom>
@@ -200,22 +157,16 @@ const [border, setBorder] = useState<Boolean>(false);
             <AnimatedComponentRight>
               <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
                 {gallery.slice(4, 6).map((data, index) => (
-                  // <motion.div
-                  //   key={index}
-                  //   className="box"
-                  //   whileHover={{ scale: 1.1, filter: "brightness(1.3)" }}
-                  //   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  // >
                   <div
                     key={index}
-                    onMouseLeave={() => borderHandler(data.id)}
+                    onMouseLeave={() => borderHandler(index)}
                     className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === index && border ? "border-0" : ""
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data.img}
+                        src={data}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
