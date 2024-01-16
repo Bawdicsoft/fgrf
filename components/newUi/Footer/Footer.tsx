@@ -101,7 +101,11 @@ const Footer = () => {
               </h2>
             </div>
             <div className="flex justify-evenly text-gray-500 gap-4">
-              <RiFacebookFill />
+              <Link
+                href={"https://www.facebook.com/profile.php?id=61550763330971"}
+              >
+                <RiFacebookFill className="hover:text-[#19afaf]" />
+              </Link>
               <FaTwitter />
               <FaLinkedin />
               <FaInstagram />

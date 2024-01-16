@@ -9,42 +9,47 @@ import { FaCirclePause } from "react-icons/fa6";
 import Image from "next/image";
 
 const NewsSection: React.FC = () => {
-  const [image, setImage] = useState(false)
-  const [image1, setImage1] = useState(false)
-  const [image2, setImage2] = useState(false)
-  const [image3, setImage3] = useState(false)
-  const [image4, setImage4] = useState(false)
+  const [image, setImage] = useState(false);
+  const [image1, setImage1] = useState(false);
+  const [image2, setImage2] = useState(false);
+  const [image3, setImage3] = useState(false);
+  const [image4, setImage4] = useState(false);
+  const [pause, setPause] = useState<Boolean>(true);
+  const [pause1, setPause1] = useState<Boolean>(true);
+  const [pause2, setPause2] = useState<Boolean>(true);
+  const [pause3, setPause3] = useState<Boolean>(true);
+  const [pause4, setPause4] = useState<Boolean>(true);
 
   const allPuseHandler = () => {
-      setImage1(false)
-      setImage2(false);
-      setImage3(false);
-      setImage4(false);
-  }
+    setImage1(false);
+    setImage2(false);
+    setImage3(false);
+    setImage4(false);
+  };
   const allPuseHandler1 = () => {
-      setImage(false)
-      setImage2(false);
-      setImage3(false);
-      setImage4(false);
-  }
+    setImage(false);
+    setImage2(false);
+    setImage3(false);
+    setImage4(false);
+  };
   const allPuseHandler2 = () => {
-      setImage(false)
-      setImage1(false);
-      setImage3(false);
-      setImage4(false);
-  }
+    setImage(false);
+    setImage1(false);
+    setImage3(false);
+    setImage4(false);
+  };
   const allPuseHandler3 = () => {
-      setImage(false)
-      setImage1(false);
-      setImage2(false);
-      setImage4(false);
-  }
+    setImage(false);
+    setImage1(false);
+    setImage2(false);
+    setImage4(false);
+  };
   const allPuseHandler4 = () => {
-      setImage3(false)
-      setImage1(false);
-      setImage2(false);
-      setImage(false);
-  }
+    setImage3(false);
+    setImage1(false);
+    setImage2(false);
+    setImage(false);
+  };
   return (
     <section
       className="bg-gradient-to-r py-20 bg-center bg-cover bg-no-repeat bg-blend-multiply"
@@ -76,14 +81,26 @@ const NewsSection: React.FC = () => {
         </div>
         <div className="bg-white grid grid-cols-1 lg:grid-cols-4 max-w-5xl gap-5 p-5 rounded-lg">
           <div className="flex flex-col gap-4 justify-evenly">
-            <div className="relative" onClick={() => {setImage1(!image1);allPuseHandler1()}}>
+            <div
+              className="relative"
+              onClick={() => {
+                setImage1(!image1);
+                allPuseHandler1();
+              }}
+              onMouseLeave={() =>
+                setTimeout(() => {
+                  setPause1(!pause1);
+                }, 1000)
+              }
+              onMouseEnter={() => setPause1(!pause1)}
+            >
               {image1 ? (
                 <video className="h-full w-full" controls autoPlay>
                   <source src="/video/v2.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/video/thumnail.JPG"
+                  src="/video/thumnail1.JPG"
                   alt={"thumNail"}
                   width={800}
                   height={800}
@@ -92,18 +109,32 @@ const NewsSection: React.FC = () => {
               )}
               {!image1 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
-              ) : (
+              ) : pause1 ? (
                 <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
+              ) : (
+                ""
               )}
             </div>
-            <div className="relative" onClick={() => {setImage2(!image2); allPuseHandler2();}}>
+            <div
+              className="relative"
+              onClick={() => {
+                setImage2(!image2);
+                allPuseHandler2();
+              }}
+              onMouseLeave={() =>
+                setTimeout(() => {
+                  setPause2(!pause2);
+                }, 1000)
+              }
+              onMouseEnter={() => setPause2(!pause2)}
+            >
               {image2 ? (
                 <video className="h-full w-full" controls autoPlay>
                   <source src="/video/v2.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/video/thumnail.JPG"
+                  src="/video/thumnail1.JPG"
                   alt={"thumNail"}
                   width={800}
                   height={800}
@@ -112,14 +143,24 @@ const NewsSection: React.FC = () => {
               )}
               {!image2 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
-              ) : (
+              ) : pause2 ? (
                 <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
+              ) : (
+                ""
               )}
             </div>
           </div>
           <div
             className="md:col-span-2 md:h-[350px] relative"
-            onClick={() => {setImage(!image), allPuseHandler();}}
+            onClick={() => {
+              setImage(!image), allPuseHandler();
+            }}
+            onMouseLeave={() =>
+              setTimeout(() => {
+                setPause(!pause);
+              }, 1000)
+            }
+            onMouseEnter={() => setPause(!pause)}
           >
             {image ? (
               <video
@@ -131,7 +172,7 @@ const NewsSection: React.FC = () => {
               </video>
             ) : (
               <Image
-                src="/video/thumnail.JPG"
+                src="/video/thumnail1.JPG"
                 alt={"thumNail"}
                 width={800}
                 height={800}
@@ -140,19 +181,33 @@ const NewsSection: React.FC = () => {
             )}
             {!image ? (
               <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-24 md:h-24 text-white" />
-            ) : (
+            ) : pause ? (
               <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-24 md:h-24 text-white" />
+            ) : (
+              ""
             )}
           </div>
           <div className="flex flex-col gap-4 justify-evenly">
-            <div className="relative" onClick={() => {setImage3(!image3);allPuseHandler3();}}>
+            <div
+              className="relative"
+              onClick={() => {
+                setImage3(!image3);
+                allPuseHandler3();
+              }}
+              onMouseLeave={() =>
+                setTimeout(() => {
+                  setPause3(!pause3);
+                }, 1000)
+              }
+              onMouseEnter={() => setPause3(!pause3)}
+            >
               {image3 ? (
                 <video className="h-full w-full" controls autoPlay>
                   <source src="/video/v2.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/video/thumnail.JPG"
+                  src="/video/thumnail1.JPG"
                   alt={"thumNail"}
                   width={800}
                   height={800}
@@ -161,18 +216,32 @@ const NewsSection: React.FC = () => {
               )}
               {!image3 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
-              ) : (
+              ) : pause3 ? (
                 <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
+              ) : (
+                ""
               )}
             </div>
-            <div className="relative" onClick={() =>{ setImage4(!image4);allPuseHandler4();}}>
+            <div
+              className="relative"
+              onClick={() => {
+                setImage4(!image4);
+                allPuseHandler4();
+              }}
+              onMouseLeave={() =>
+                setTimeout(() => {
+                  setPause4(!pause4);
+                }, 1000)
+              }
+              onMouseEnter={() => setPause4(!pause4)}
+            >
               {image4 ? (
                 <video className="h-full w-full" controls autoPlay>
                   <source src="/video/v2.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
-                  src="/video/thumnail.JPG"
+                  src="/video/thumnail1.JPG"
                   alt={"thumNail"}
                   width={800}
                   height={800}
@@ -181,8 +250,10 @@ const NewsSection: React.FC = () => {
               )}
               {!image4 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
-              ) : (
+              ) : pause4 ? (
                 <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
+              ) : (
+                ""
               )}
             </div>
           </div>

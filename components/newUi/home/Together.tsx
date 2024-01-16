@@ -64,27 +64,11 @@ const Together = () => {
   const mouseXSpring1 = useSpring(x1);
   const mouseYSpring1 = useSpring(y1);
 
-  const rotateX = useTransform(
-    mouseYSpring,
-    [-1, 1],
-    [47.5, -47.5]
-  );
-  const rotateX1 = useTransform(
-    mouseYSpring1,
-    [-1, 1],
-    [47.5, -47.5]
-  );
+  const rotateX = useTransform(mouseYSpring, [-1, 1], [47.5, -47.5]);
+  const rotateX1 = useTransform(mouseYSpring1, [-1, 1], [47.5, -47.5]);
 
-  const rotateY = useTransform(
-    mouseXSpring,
-    [-1, 1],
-    [-47.5, 47.5] 
-  );
-  const rotateY1 = useTransform(
-    mouseXSpring1,
-    [-1, 1],
-    [-47.5, 47.5] 
-  );
+  const rotateY = useTransform(mouseXSpring, [-1, 1], [-47.5, 47.5]);
+  const rotateY1 = useTransform(mouseXSpring1, [-1, 1], [-47.5, 47.5]);
 
   const handleMouseMove = (e: any) => {
     const rect = e.target.getBoundingClientRect();
@@ -93,7 +77,7 @@ const Together = () => {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
     const xPct = (mouseX / width - 0.5) * 2;
-    const yPct = (mouseY / height - 0.5) * 2; 
+    const yPct = (mouseY / height - 0.5) * 2;
     x.set(xPct);
     y.set(yPct);
   };
@@ -107,7 +91,7 @@ const Together = () => {
     const mouseY = e.clientY - rect.top;
 
     const xPct = (mouseX / width - 0.5) * 2;
-    const yPct = (mouseY / height - 0.5) * 2; 
+    const yPct = (mouseY / height - 0.5) * 2;
     x1.set(xPct);
     y1.set(yPct);
   };
@@ -120,7 +104,7 @@ const Together = () => {
     x1.set(0);
     y1.set(0);
   };
-  
+
   const controls = useAnimation();
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -254,7 +238,6 @@ const Together = () => {
                       }}
                       className="relative flex md:absolute  h-24  md:h-32 w-20 md:w-24 lg:w-24"
                     >
-                  
                       <Image
                         style={{
                           transform: "translateZ(25px)",

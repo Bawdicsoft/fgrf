@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FaCirclePlay } from "react-icons/fa6";
 import { FaRegCirclePlay } from "react-icons/fa6";
-
+import { FaCirclePause } from "react-icons/fa6";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,6 +23,11 @@ const videosList = [
   { video: "/video/v2.mp4" },
 ];
 export default function NewsSlider() {
+  const [image, setImage] = useState(false);
+  const [video, setVideo] = useState(false);
+  const [pause, setPause] = useState(false);
+  const [imageIndex, setImageIndex] = useState<Number>();
+  const [iconsIndex, seticonsIndex] = useState<Number>();
   return (
     <>
       <Swiper
@@ -56,19 +61,45 @@ export default function NewsSlider() {
         className=""
       >
         {videosList.map((videoItems, index) => (
-          <SwiperSlide key={index} className="relative">
-            {/* <iframe className="w-full h-full aspect-video " src={videoItems.video}></iframe> */}
-            {/* <video className="h-full w-full" controls>
-              <source src={videoItems.video} type="video/mp4" />
-            </video> */}
+          <SwiperSlide
+            key={index}
+            className="relative"
+            onClick={() => {
+              setImageIndex(index);
+              seticonsIndex(index);
+              setVideo(!video);
+              setImage(!image);
+              setPause(!pause);
+            }}
+            onMouseLeave={() =>
+              setTimeout(() => {
+                setPause(!pause);
+              }, 1000)
+            }
+            onMouseEnter={() => setPause(!pause)}
+          >
+            {imageIndex === index && video ? (
+              <video className="h-full w-full" controls autoPlay>
+                <source src={videoItems.video} type="video/mp4" />
+              </video>
+            ) : (
               <Image
-                src="/video/thumnail.JPG"
+                src="/video/thumnail1.JPG"
                 alt={"thumNail"}
                 width={800}
                 height={800}
                 className="h-full w-full  object-cover"
               />
+            )}
+            {iconsIndex === index && image ? (
+              pause ? (
+                <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
+              ) : (
+                ""
+              )
+            ) : (
               <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 text-white" />
+            )}
           </SwiperSlide>
         ))}
       </Swiper>

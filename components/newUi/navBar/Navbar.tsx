@@ -29,7 +29,7 @@ export default function Navbar() {
   let gethour = Math.round(data.getHours());
   const mint = Math.round(data.getMinutes());
   let amPm = "AM";
-  if(gethour>= 12 ){
+  if (gethour >= 12) {
     amPm = "PM";
   }
   if (gethour > 12) {
@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <>
       <div className="max-w-screen-2xl md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
-        <div
+        <button
           onMouseMove={() => setLogo(true)}
           onMouseLeave={() => setLogo(false)}
           className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center"
@@ -68,7 +68,7 @@ export default function Navbar() {
               alt="tokenLauncher"
             />
           </Link>
-        </div>
+        </button>
 
         {/* new yha */}
         {/* <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
@@ -312,22 +312,24 @@ export default function Navbar() {
               >
                 Our Department
               </h1>
-              <h1
+              <Link
+                href={"/appeal"}
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
               >
                 Appeal
-              </h1>
-              <h1
+              </Link>
+              <Link
+                href={"/donation"}
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
               >
                 Donation
-              </h1>
+              </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 place-content-center">
               <div className="md:col-span-2 flex justify-between items-center px-3">
