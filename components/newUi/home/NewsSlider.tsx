@@ -84,7 +84,7 @@ export default function NewsSlider() {
               </video>
             ) : (
               <Image
-                src="/video/thumnail1.JPG"
+                src="/video/thumnail1.jpg"
                 alt={"thumNail"}
                 width={800}
                 height={800}
