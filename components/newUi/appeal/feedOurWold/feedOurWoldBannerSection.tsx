@@ -112,7 +112,7 @@ const FeedOurWoldBannerSection = () => {
 
         <div className="md:col-span-2">
           <Image
-            src={"/donation/feedOurWorld/feedOurWorldBanner.jpg"}
+            src={"/AppealNew/food/6.jpg"}
             alt=""
             width={700}
             height={700}

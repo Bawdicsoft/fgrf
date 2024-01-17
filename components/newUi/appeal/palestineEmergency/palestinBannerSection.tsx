@@ -144,7 +144,7 @@ const PalestinBannerSection = () => {
 
         <div className="md:col-span-2">
           <Image
-            src={"/donation/palestinEmergency/WebsiteMobilebanner.jpg"}
+            src={"/AppealNew/palestine/19.png"}
             alt=""
             width={700}
             height={700}

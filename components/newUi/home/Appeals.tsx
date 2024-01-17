@@ -7,11 +7,12 @@ import { Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ImageModal from "@/components/modal/ImageModal";
-import DonationSlider from "@/components/home/donationSlider";
+// import DonationSlider from "@/components/home/donationSlider";
 import AnimatedComponentRight from "./AnimationRight";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimationTop from "./AnimationTop";
 import AnimationBottom from "./AnimationBtm";
+import DonationSlider from "./DonationSlider";
 
 const Appeals = () => {
   const data = [

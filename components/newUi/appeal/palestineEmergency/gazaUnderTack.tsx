@@ -1,12 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import SliderSectionPlstine from "./slider";
 
 const GhazaUnderTakDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center">
+      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
       </h2>
+
+      <SliderSectionPlstine />
+
       <p className="text-base text-center pt-8 py-3">
         The violence in Gaza has claimed over 20,000 lives, leaving thousands
         injured, according to the Palestinian Health Ministry - Inna Lillahi Wa
@@ -38,7 +42,6 @@ const GhazaUnderTakDocs = () => {
         critical time. Please keep the people of Palestine in your duas -
         Jazak’Allah Khair.
       </p>
-      {/* Donate Now */}
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -48,7 +51,6 @@ const GhazaUnderTakDocs = () => {
         </Link>
         {/* <Image src={"/donation/palestinEmergency/button.jpg"} alt="" width={700} height={900} /> */}
       </div>
-      {/* PennyAppeal */}
       <div>
         <h2 className="text-teal-500 font-bold text-center text-xl md:text-3xl">
           Penny Appeal is helping people and hospitals in Palestine
@@ -82,6 +84,7 @@ const GhazaUnderTakDocs = () => {
           </Link>
         </div>
       </div>
+
       {/* UN Security */}
       {/* <div className="flex flex-col items-center gap-8">
             <h2 className="text-orange-400 font-bold text-3xl text-center max-w-5xl">UN Security Council rejects an immediate ceasefire in Gaza - Our Director of Marcomms speaks to Sky News</h2>

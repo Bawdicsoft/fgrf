@@ -14,6 +14,13 @@ const orphansList = [
   "Orphan Sponsorship Programme - $70",
   "Family Sponsorship - $205",
 ];
+const orphansOthersList = ["150", "100", "50", "others"];
+const onOffList = ["200", "150", "100", "others"];
+const plestinDollarList = ["210", "180", "95", "others"];
+const winterDollarList = ["195", "140", "100", "others"];
+const whereDollarList = ["150", "100", "50", "others"];
+const TukSyriaDollarList = ["195", "100", "65", "others"];
+const ribaDollarList = ["50", "20", "10", "others"];
 const orphansList2 = [
   "Higher Education Scholarship Fund - $25",
   "Orphan Medical Care - $25",
@@ -60,9 +67,38 @@ export const DonationSectionPage = () => {
   const [bgOneOff, setBgOneOff] = useState(false);
   const [line1, setLine1] = useState(false);
   const [bgTwo, setBgTwo] = useState(false);
+  const [orphanOtherData, setorphanOtherData] = useState(true);
   const [list, setList] = useState<any[]>([]);
   const [orphan, setOrphan] = useState<any[]>([]);
   const [orphanHandle, setorphanHandle] = useState(false);
+  const [dollar, setDollar] = useState(100);
+  const [donateText, setDonateText] = useState(true);
+  const [input, setInput] = useState(false);
+  const [addToCartBtn, setAddToCartBtn] = useState(false);
+  const [detailsPage, setdetailsPage] = useState(false);
+  const [twoBtns, setTwoBtns] = useState(false);
+  const [selectFound, setSelectFound] = useState(true);
+  const [donationName, setDonationName] = useState<any>();
+  const [donationDollar, setDonationDollar] = useState<any>(100);
+  const [redText, setRedText] = useState(false);
+  const [showdet, setShowdet] = useState(true);
+  const [bgBtn, setbgBtn] = useState(1);
+
+  const donationHandlerf = () => {
+    if (!donationName) {
+      setSelectFound(true);
+    }
+  };
+  const detailPageHandler = () => {
+    if (donationName) {
+      setShowdet(false);
+    }
+  };
+  const detailPageHandler1 = () => {
+    if (donationName) {
+      setdetailsPage(true);
+    }
+  };
   return (
     <div className="max-w-3xl mx-auto">
       {/* first container */}
@@ -144,6 +180,8 @@ export const DonationSectionPage = () => {
                   setLine1(true);
                   setBgTwo(false);
                   setorphanHandle(false);
+                  setTwoBtns(true);
+                  setSelectFound(true);
                 }}
                 className={`border-2 hover:bg-gray-200 border-[#19afaf] py-2 px-4 text-2xl font-bold text-gray-400 bg-white ${
                   bgMonthly ? "!bg-[#19afaf] text-white" : ""
@@ -160,6 +198,9 @@ export const DonationSectionPage = () => {
                   setBgOneOff(true);
                   setLine1(true);
                   setBgTwo(false);
+                  setTwoBtns(true);
+                  setSelectFound(true);
+                  setorphanHandle(false);
                 }}
                 className={`border-2 hover:bg-gray-200 border-[#19afaf] py-2 px-4 text-2xl font-bold text-gray-400 bg-white ${
                   bgOneOff ? "!bg-[#19afaf] text-white" : ""
@@ -170,105 +211,466 @@ export const DonationSectionPage = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col justify-center">
-            <h2 className="text-sky-800 font-bold text-xl py-5 uppercase self-start">
-              Select Your Fund
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {list.map((title, index) =>
-                title === "Orphans" ? (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setOrphan(orphansList);
-                      setorphanHandle(true);
-                    }}
-                    className="bg-white py-4 px-4 hover:bg-[#19afaf] hover:text-white"
+          //
+          showdet &&
+          selectFound && (
+            <div className="flex flex-col justify-center">
+              <h2 className="text-sky-800 font-bold text-xl py-5 uppercase self-start">
+                Select Your Fund
+              </h2>
+              {redText
+                ? !donationName && (
+                    <p className="text-red-600 text-md text-center py-2">
+                      You must select a fund and specify an amount.
+                    </p>
+                  )
+                : ""}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {list.map((title, index) =>
+                  title === "Orphans" && index === 0 ? (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setOrphan(orphansList);
+                        setorphanHandle(true);
+                        setorphanOtherData(true);
+                        setDonateText(true);
+                        setInput(false);
+                        setDonationName(title);
+                      }}
+                      className="bg-white py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white"
+                    >
+                      {title}
+                    </button>
+                  ) : (title === "Sadaqah" && index === 1) ||
+                    (title === "Water For Life" && index === 2) ||
+                    (title === "Global Emergencies" && index === 3) ? (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setOrphan(orphansOthersList);
+                        setorphanHandle(true);
+                        setorphanOtherData(false);
+                        setDonateText(true);
+                        setInput(false);
+                        setDonationName(title);
+                      }}
+                      className="bg-white py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white"
+                    >
+                      {title}
+                    </button>
+                  ) : (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setOrphan(onOffList);
+                        setorphanHandle(true);
+                        setorphanOtherData(false);
+                        setDonateText(false);
+                        setInput(false);
+                        setAddToCartBtn(true);
+                        setDonationName(title);
+                      }}
+                      className="bg-white py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white"
+                    >
+                      {title}
+                    </button>
+                  )
+                )}
+              </div>
+              {orphanHandle && (
+                <div className="grid grid-cols-1  gap-5">
+                  {donateText ? (
+                    <span className="text-sky-800 font-bold text-xl pt-8 px-8 uppercase self-start">
+                      DONATION AMOUNT
+                    </span>
+                  ) : (
+                    ""
+                  )}
+                  {orphanOtherData ? (
+                    <span
+                      className={`flex justify-center gap-3 ${
+                        donateText ? "" : "pt-8"
+                      }`}
+                    >
+                      <button
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                        onClick={() => setOrphan(orphansList)}
+                      >
+                        USD
+                      </button>
+                      <button
+                        onClick={() => setOrphan(orphansList2)}
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                      >
+                        GBP
+                      </button>
+                      <button
+                        onClick={() => setOrphan(orphansList3)}
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                      >
+                        {" "}
+                        EUR
+                      </button>
+                    </span>
+                  ) : (
+                    <span
+                      className={`flex justify-center gap-3 ${
+                        donateText ? "" : "pt-8"
+                      }`}
+                    >
+                      <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
+                        USD
+                      </button>
+                      <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
+                        GBP
+                      </button>
+                      <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
+                        {" "}
+                        EUR
+                      </button>
+                    </span>
+                  )}
+                  <div
+                    className={`${
+                      !orphanOtherData ? "grid grid-cols-4 gap-2" : ""
+                    }`}
                   >
-                    {title}
-                  </button>
-                ) : (
-                  <button
-                    key={index}
-                    className="bg-white py-4 px-4 hover:bg-[#19afaf] hover:text-white"
-                  >
-                    {title}
-                  </button>
-                )
+                    {orphan.map((title, index) =>
+                      orphanOtherData ? (
+                        <div key={index}>
+                          <div
+                            // key={index}
+                            className="flex  border p-4 gap-16 justify-between"
+                          >
+                            <span className="text-lg  font-semibold">
+                              {title}
+                            </span>
+                            <div className="flex flex-col gap-3">
+                              <div className="flex gap-8">
+                                <p>Quantity</p>
+                                <input
+                                  type="number"
+                                  className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
+                                />
+                              </div>
+                              <div className="flex gap-8">
+                                <p>SubTotal</p>
+                                <input
+                                  type="number"
+                                  className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ) : title === "others" ? (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setInput(true), setDonationDollar(title);
+                          }}
+                          className="uppercase text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white"
+                        >
+                          {title}
+                        </button>
+                      ) : (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setDollar(title);
+                            setDonationDollar(title);
+                            setInput(false);
+                            setbgBtn(index);
+                          }}
+                          className={`text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5  hover:bg-[#19afaf] hover:text-white ${
+                            index === bgBtn
+                              ? "text-white bg-[#19afaf] focus:bg-[#19afaf]"
+                              : "bg-white"
+                          }`}
+                        >
+                          {title}
+                        </button>
+                      )
+                    )}
+                  </div>
+                  {input && (
+                    <input
+                      type="text"
+                      className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                    />
+                  )}
+                  {orphanOtherData ? (
+                    <p className="text-red-600 font-bold text-3xl">
+                      Total: $0.00
+                    </p>
+                  ) : (
+                    <div className="flex items-center flex-col">
+                      <p className="text-gray-400 text-lg font-medium text-center">
+                        Making a donation of {dollar} will help save lives
+                      </p>
+                      {addToCartBtn && (
+                        <button className="max-w-[200px] rounded hover:bg-[#2dc2c2] uppercase py-2 px-5 mt-1 bg-[#19afaf] text-white font-bold text-xl">
+                          Add to cart
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
               )}
             </div>
-            {orphanHandle && (
-              <div className="grid grid-cols-1  gap-5">
-                <span className="text-sky-800 font-bold text-xl p-8 uppercase self-start">
-                  DONATION AMOUNT
-                </span>
-                <span className="flex justify-center gap-3">
-                  <button
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                    onClick={() => setOrphan(orphansList)}
-                  >
-                    USD
-                  </button>
-                  <button
-                    onClick={() => setOrphan(orphansList2)}
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                  >
-                    GBP
-                  </button>
-                  <button
-                    onClick={() => setOrphan(orphansList3)}
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                  >
-                    {" "}
-                    EUR
-                  </button>
-                </span>
+          )
+        )}
 
-                {orphan.map((title, index) => (
-                  <div
-                    key={index}
-                    className="flex  border p-4 gap-16 justify-between"
-                  >
-                    <span className="text-lg  font-semibold">{title}</span>
-                    <div className="flex flex-col gap-3">
-                      <div className="flex gap-8">
-                        <p>Quantity</p>
-                        <input
-                          type="number"
-                          className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
-                        />
-                      </div>
-                      <div className="flex gap-8">
-                        <p>SubTotal</p>
-                        <input
-                          type="number"
-                          className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-                <p className="text-red-600 font-bold text-3xl">Total: $0.00</p>
-              </div>
-            )}
-            <div className="py-10 flex justify-between">
-              <button
-                onClick={() => {
-                  setMonthly1(true);
-                  setBgTwo(true);
-                  setLine1(false);
-                  setorphanHandle(false);
-                }}
-                className="uppercase hover:bg-gray-300  py-2 px-4 text-2xl font-bold text-gray-400 bg-gray-200 flex gap-2 items-center justify-center"
-              >
-                <FaRegArrowAltCircleLeft className="w-6 h-6" />
-                <span> Back</span>
-              </button>
-              <button className=" uppercase hover:bg-[#19cfcf]  py-2 px-4 text-2xl font-bold text-white bg-[#19afaf] flex gap-2 items-center justify-center">
-                <span> Next </span>
-                <FaRegArrowAltCircleRight className="w-6 h-6" />
-              </button>
+        {/* YOUR DETAILS */}
+        {donationName && detailsPage && (
+          <div>
+            <h2 className="text-3xl font-bold text-[#19afaf] text-center">
+              YOUR DETAILS
+            </h2>
+            <p className="text-gray-700 text-base py-4 text-center">
+              Your Monthly Donation : ${donationDollar}.00
+            </p>
+            <p className="bg-gray-300 h-[2px] w-full"></p>
+            <div className="py-2 flex justify-between">
+              <p className="text-gray-700 text-base">{donationName}</p>
+              <p className="text-gray-700 text-base">{donationDollar}</p>
             </div>
+            <p className="bg-gray-300 h-[2px]  w-full"></p>
+
+            <div>
+              <form className="max-w-2xl mx-auto py-8">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+                  <div className="mb-5">
+                    <label
+                      htmlFor="countries"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Title
+                    </label>
+                    <select
+                      id="countries"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    >
+                      <option>Title</option>
+                      <option>Mr</option>
+                      <option>Ms</option>
+                      <option>Msr</option>
+                      <option>Dr</option>
+                    </select>
+                  </div>
+                  <div className="md:col-span-2 mb-5">
+                    <label
+                      htmlFor="FirstName"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      First Name
+                    </label>
+                    <input
+                      type="FirstName"
+                      id="FirstName"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="First Name"
+                      required
+                    />
+                  </div>
+                  <div className="md:col-span-2 mb-5">
+                    <label
+                      htmlFor="LastName"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Last Name
+                    </label>
+                    <input
+                      type="LastName"
+                      id="LastName"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="Last Name"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="mb-5">
+                    <label
+                      htmlFor="email"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="your@email.com"
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <label
+                      htmlFor="ContactNumber"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Contact Number
+                    </label>
+                    <input
+                      type="ContactNumber"
+                      id="ContactNumber"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="0237278327"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="Address"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Address
+                  </label>
+                  <input
+                    type="Address"
+                    id="Address"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    placeholder="123 High Street"
+                    required
+                  />
+                </div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="Address"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Address 2
+                  </label>
+                  <input
+                    type="Address"
+                    id="Address"
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    placeholder="123 High Street"
+                    required
+                  />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="mb-5">
+                    <label
+                      htmlFor="Address"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Town City
+                    </label>
+                    <input
+                      type="Address"
+                      id="Address"
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="Enter City"
+                      required
+                    />
+                  </div>
+                  <div className="mb-5">
+                    <label
+                      htmlFor="countries"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Country
+                    </label>
+                    <select
+                      id="countries"
+                      className="bg-gray-50 outline-0 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    >
+                      <option className="">Select Your Country</option>
+                      <option>Canada</option>
+                      <option>France</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                    </select>
+                  </div>
+                </div>
+                <h2 className="text-3xl font-bold py-4 text-[#19afaf] text-center">
+                  KEEP IN TOUCH
+                </h2>
+                <div className="flex justify-center items-center mb-5">
+                  <input
+                    id="terms"
+                    type="checkbox"
+                    value=""
+                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-[#19afaf] focus:border-0 "
+                    required
+                  />
+                  <label
+                    htmlFor="terms"
+                    className="ms-2 text-lg font-medium text-gray-600"
+                  >
+                    Yes, I would like to hear from IRW{" "}
+                  </label>
+                </div>
+                <p className="text-gray-500 text-sm text-center ">
+                  We would like to keep in touch with you to share the latest
+                  info on our work as well as how your donations have helped,
+                  via email. We will always treat your personal information with
+                  the utmost care and will keep it private.
+                </p>
+              </form>
+            </div>
+          </div>
+        )}
+        {twoBtns && (
+          <div className="py-10 flex justify-between">
+            <button
+              onClick={() => {
+                setMonthly1(true);
+                setBgTwo(true);
+                setLine1(false);
+                setorphanHandle(true);
+                setTwoBtns(false);
+                setAddToCartBtn(false);
+                setdetailsPage(false);
+                setDonationDollar(100);
+                setDonationName("");
+                setShowdet(true);
+                setRedText(false);
+                // setSelectFound(true);
+              }}
+              className="uppercase hover:bg-gray-200  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
+            >
+              <FaRegArrowAltCircleLeft className="w-6 h-6" />
+              <span> Back</span>
+            </button>
+            <button
+              onClick={() => {
+                detailPageHandler1();
+                setMonthly1(false);
+                // setSelectFound(false);
+                setorphanHandle(false);
+                setRedText(true);
+                donationHandlerf();
+                detailPageHandler();
+              }}
+              className=" uppercase hover:bg-[#2dc2c2]  py-2 px-4 text-2xl font-bold text-white bg-[#19afaf] flex gap-2 items-center justify-center"
+            >
+              <span> Next </span>
+              <FaRegArrowAltCircleRight className="w-6 h-6" />
+            </button>
           </div>
         )}
       </div>
