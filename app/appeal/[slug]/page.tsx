@@ -30,6 +30,8 @@ import WaterWellBannerSection from "@/components/newUi/appeal/waterWell/waterWel
 import WaterWellDocs from "@/components/newUi/appeal/waterWell/waterWellDoc";
 import ZakatBannerSection from "@/components/newUi/appeal/zakat/zakatBanner";
 import ZakatDocs from "@/components/newUi/appeal/zakat/zakatlDoc";
+import RamadanBannerSection from "@/components/newUi/appeal/ramadan/ramdanBanner";
+import RamadanDocs from "@/components/newUi/appeal/ramadan/ramdanlDoc";
 
 export default function donationAppeal({
   params,
@@ -116,6 +118,13 @@ export default function donationAppeal({
         <div className="max-w-7xl mx-auto bg-gray-200">
           <ZakatBannerSection />
           <ZakatDocs />
+        </div>
+      )}
+      {/* Zakat */}
+      {myParams === "ramadan" && (
+        <div className="max-w-7xl mx-auto bg-gray-200">
+          <RamadanBannerSection />
+          <RamadanDocs />
         </div>
       )}
     </div>

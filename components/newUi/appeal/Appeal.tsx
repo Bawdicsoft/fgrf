@@ -6,6 +6,24 @@ import { motion, useAnimation } from "framer-motion";
 const AppealSection = () => {
   const appealList = [
     {
+      link: "ramadan",
+      img: "/Final/palestine.png",
+      title: "Ramadan 2024",
+      desc: "Stand in solidarity with Palestinians in Gaza.",
+    },
+    {
+      link: "zakat",
+      img: "/Final/Zakat.png",
+      title: "Zakat",
+      desc: "Donate your Zakat with FGRF and give to those most in need.",
+    },
+    {
+      link: "sadaqah",
+      img: "/Final/Sadaqah.png",
+      title: "Sadaqah",
+      desc: "Donate your sadaqah online today to make a real difference for someone in need.",
+    },
+    {
       link: "palestine-emergency",
       img: "/Final/palestine.png",
       title: " Palestine Emergency",
@@ -26,15 +44,16 @@ const AppealSection = () => {
       desc: "Show your love and compassion by helping to feed our world!",
     },
     {
-      link: "masjid-project",
-      img: "/Final/masjid.png",
-      title: "The Mosque Project",
-      desc: "Build a mosque in this world and build your place in Jannah.",
-    },
-    {
       link: "hand-pump-project",
       img: "/Final/handPump.png",
       title: "Hand Pump Project",
+      para: "“Feed for the love of Allah” – Qur’an 76:8",
+      desc: "Show your love and compassion by helping to feed our world!",
+    },
+    {
+      link: "water-well-project",
+      img: "/Final/waterwell.png",
+      title: "Waterwell Project",
       para: "“Feed for the love of Allah” – Qur’an 76:8",
       desc: "Show your love and compassion by helping to feed our world!",
     },
@@ -45,24 +64,12 @@ const AppealSection = () => {
       desc: "Muhammad (pbuh) was an orphan. Help us to honour and care for orphans around the world.",
     },
     {
-      link: "sadaqah",
-      img: "/Final/Sadaqah.png",
-      title: "Sadaqah",
-      desc: "Donate your sadaqah online today to make a real difference for someone in need.",
+      link: "masjid-project",
+      img: "/Final/masjid.png",
+      title: "The Mosque Project",
+      desc: "Build a mosque in this world and build your place in Jannah.",
     },
-    {
-      link: "water-well-project",
-      img: "/Final/waterwell.png",
-      title: "Waterwell Project",
-      para: "“Feed for the love of Allah” – Qur’an 76:8",
-      desc: "Show your love and compassion by helping to feed our world!",
-    },
-    {
-      link: "zakat",
-      img: "/Final/Zakat.png",
-      title: "Zakat",
-      desc: "Donate your Zakat with FGRF and give to those most in need.",
-    },
+
     // { link: "palestine-emergency", img: "/donation/appeal/zakat100.jpg", title: "100% Zakat", desc: "Donate your Zakat with Penny appeal and give to those most in need." },
     // { link: "palestine-emergency", img: "/donation/appeal/afghanistanEmergencey.jpg", title: "Afghanistan Emergency Response", desc: "Help us continue to respond quickly when disaster strikes and save lives." },
     // { link: "palestine-emergency", img: "/donation/appeal/moroccoEarthQuick.jpg", title: "Morocco Earthquake Emergency", desc: "A devastating 6.8 magnitude earthquake has hit Morocco and stunned the world." },

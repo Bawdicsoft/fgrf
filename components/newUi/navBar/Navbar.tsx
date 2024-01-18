@@ -304,14 +304,15 @@ export default function Navbar() {
           {/* containter-2 */}
           <div className="grid grid-cols-3 border-b-0 border-t border-black">
             <div className="md:col-span-2 grid grid-cols-3 place-content-center place-items-center lg:grid-cols-3 border-b-0 border-r border-black">
-              <h1
+              <a
+                href="#ourDepartment"
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
               >
                 Our Department
-              </h1>
+              </a>
               <Link
                 href={"/appeal"}
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 

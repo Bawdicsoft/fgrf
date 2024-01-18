@@ -51,37 +51,19 @@ const OrphanDocs = () => {
         </Link>
         {/* <Image src={"/donation/palestinEmergency/button.jpg"} alt="" width={700} height={900} /> */}
       </div>
-      <div>
-        <h2 className="text-teal-500 font-bold text-center text-xl md:text-3xl">
-          Penny Appeal is helping people and hospitals in Palestine
-        </h2>
-        <p className="text-base text-center pt-8 py-3">
-          Over the past decade, Penny Appeal has worked extensively across the
-          Palestinian territories, from Jerusalem to Gaza City, providing
-          comprehensive humanitarian aid throughout crisis after crisis.
-        </p>
-        <p className="text-base text-center py-3">
-          More than ever, the people of Palestine need quality medical care.
-          Penny Appeal has long supported the Makassed Islamic Charitable
-          Hospital in East Jerusalem, which is the largest Palestinian
-          non-profit, non-governmental organisation.
-        </p>
-        <p className="text-base text-center py-3">
-          Penny Appeal is on the ground working directly with this hospital in
-          Jerusalem, as well as United Nations shelters, hospitals and medical
-          clinics throughout Gaza, to provide much-needed critical medical aid
-          to our sisters and brothers as and when needed.
-        </p>
-        <p className="text-sm text-gray-950 text-center py-2">
-          PALESTINE NEEDS YOU TODAY
-        </p>
-        <div className="flex justify-center items-center py-8">
-          <Link
-            href={"/"}
-            className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
-          >
-            DONATE NOW
-          </Link>
+      <div className="flex flex-col items-center">
+        <div className="w-3/4 ">
+          <video className="h-full w-full rounded-2xl" controls>
+            <source src="/Videonews/5.mp4" type="video/mp4" />
+          </video>
+          <div className="flex justify-center items-center py-8">
+            <Link
+              href={"/"}
+              className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
+            >
+              DONATE NOW
+            </Link>
+          </div>
         </div>
       </div>
     </div>

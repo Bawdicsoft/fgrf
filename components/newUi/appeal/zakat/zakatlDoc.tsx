@@ -52,7 +52,7 @@ const ZakatDocs = () => {
         </Link>
         {/* <Image src={"/donation/palestinEmergency/button.jpg"} alt="" width={700} height={900} /> */}
       </div>
-      <div>
+      {/* <div>
         <h2 className="text-teal-500 font-bold text-center text-xl md:text-3xl">
           Penny Appeal is helping people and hospitals in Palestine
         </h2>
@@ -76,13 +76,21 @@ const ZakatDocs = () => {
         <p className="text-sm text-gray-950 text-center py-2">
           PALESTINE NEEDS YOU TODAY
         </p>
-        <div className="flex justify-center items-center py-8">
-          <Link
-            href={"/"}
-            className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
-          >
-            DONATE NOW
-          </Link>
+      </div> */}
+      {/* <iframe className="w-full aspect-video" src="/Videonews/1.mp4"></iframe> */}
+      <div className="flex flex-col items-center">
+        <div className="w-3/4 ">
+          <video className="h-full w-full rounded-2xl" controls>
+            <source src="/Videonews/1.mp4" type="video/mp4" />
+          </video>
+          <div className="flex justify-center items-center py-8">
+            <Link
+              href={"/"}
+              className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
+            >
+              DONATE NOW
+            </Link>
+          </div>
         </div>
       </div>
     </div>

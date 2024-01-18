@@ -173,7 +173,7 @@ const Together = () => {
               </h2>
             </div>
             <div className="flex -ml-16 md:ml-0 justify-center pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20 lg:gap-28 xl:gap-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-24 lg:gap-36 xl:gap-24">
                 <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
                     <motion.div
@@ -200,8 +200,8 @@ const Together = () => {
                     </motion.div>
                   </AnimationTop>
                   <AnimatedComponentLeft>
-                    <div className="absolute top-5 -right-10 md:-right-16  lg:top-6 xl:top-12 lg:-right-20 xl:right-0 flex flex-col lg:gap-3">
-                      <span className="text-white font-semibold lg:text-lg">
+                    <div className="absolute w-32 top-5 -right-24 md:-right-28  lg:top-6 xl:top-8 lg:-right-28 xl:-right-8 flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold lg:text-4xl xl:text-5xl">
                         {/* <Counter1>
                           <motion.h1>{rounded2}</motion.h1>;
                         </Counter1> */}
@@ -236,7 +236,7 @@ const Together = () => {
                         transformStyle: "preserve-3d",
                         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.2)",
                       }}
-                      className="relative flex md:absolute  h-24  md:h-32 w-20 md:w-24 lg:w-24"
+                      className="relative flex md:absolute h-24 md:h-32 w-20 md:w-24 lg:w-24"
                     >
                       <Image
                         style={{
@@ -252,8 +252,8 @@ const Together = () => {
                   </AnimationBottom>
 
                   <AnimatedComponentRight>
-                    <div className="absolute top-5 left-20 md:left-24 lg:left-28 lg:top-6 xl:top-12  flex flex-col lg:gap-3">
-                      <span className="text-white font-semibold lg:text-lg">
+                    <div className="absolute w-32 top-5 left-24 md:left-28  lg:top-6 xl:top-8  flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold lg:text-4xl xl:text-5xl">
                         <motion.div
                           ref={ref}
                           initial="hidden"

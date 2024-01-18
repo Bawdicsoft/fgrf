@@ -4,16 +4,63 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
-// interface DonationSectionPageProps {
+import StartSec from "./Start";
+import DonationSec from "./Donation1";
 
-// }
+// const orphansList = [
+//   "Higher Education Scholarship Fund - $30",
+//   "Orphan Medical Care - $30",
+//   "Orphan Sponsorship Programme - $70",
+//   "Family Sponsorship - $205",
+// ];
+// const orphansOthersList = ["150", "100", "50", "others"];
+// const onOffList = ["200", "150", "100", "others"];
+// const plestinDollarList = ["210", "180", "95", "others"];
+// const winterDollarList = ["195", "140", "100", "others"];
+// const whereDollarList = ["150", "100", "50", "others"];
+// const TukSyriaDollarList = ["195", "100", "65", "others"];
+// const ribaDollarList = ["50", "20", "10", "others"];
+// const orphansList2 = [
+//   "Higher Education Scholarship Fund - $25",
+//   "Orphan Medical Care - $25",
+//   "Orphan Sponsorship Programme - $60",
+//   "Family Sponsorship - $170",
+// ];
+// const orphansList3 = [
+//   "Higher Education Scholarship Fund - $25",
+//   "Orphan Medical Care - $25",
+//   "Orphan Sponsorship Programme - $65",
+//   "Family Sponsorship - $195",
+// ];
+// const monthaly1List = [
+//   "Orphans",
+//   "Sadaqah",
+//   "Water For Life",
+//   "Global Emergencies",
+// ];
+// const oneOffList = [
+//   "Palestine Emergency Appeal",
+//   "Winter Appeal",
+//   "Afghanistan Emergency Appeal",
+//   "Zakat",
+//   "Sadaqah",
+//   "Wherever Needed Most",
+//   "Sudan Emergency Appeal",
+//   "Turkey/Syria Earthquake Emergency",
+//   "Syria Crisis Appeal",
+//   "Yemen Appeal",
+//   "Water For Life",
+//   "Orphans And Children",
+//   "Sadaqah Jariyah",
+//   "People In Debt",
+//   "Waqf",
+//   "Interest (RIBA)",
+//   "Capacity Building For Humanitarians",
+//   "Global Emergencies",
+// ];
 
-const orphansList = [
-  "Higher Education Scholarship Fund - $30",
-  "Orphan Medical Care - $30",
-  "Orphan Sponsorship Programme - $70",
-  "Family Sponsorship - $205",
-];
+// New Code
+
 const orphansOthersList = ["150", "100", "50", "others"];
 const onOffList = ["200", "150", "100", "others"];
 const plestinDollarList = ["210", "180", "95", "others"];
@@ -21,88 +68,67 @@ const winterDollarList = ["195", "140", "100", "others"];
 const whereDollarList = ["150", "100", "50", "others"];
 const TukSyriaDollarList = ["195", "100", "65", "others"];
 const ribaDollarList = ["50", "20", "10", "others"];
-const orphansList2 = [
-  "Higher Education Scholarship Fund - $25",
-  "Orphan Medical Care - $25",
-  "Orphan Sponsorship Programme - $60",
-  "Family Sponsorship - $170",
-];
-const orphansList3 = [
-  "Higher Education Scholarship Fund - $25",
-  "Orphan Medical Care - $25",
-  "Orphan Sponsorship Programme - $65",
-  "Family Sponsorship - $195",
-];
-const monthaly1List = [
-  "Orphans",
-  "Sadaqah",
-  "Water For Life",
-  "Global Emergencies",
-];
-const oneOffList = [
-  "Palestine Emergency Appeal",
-  "Winter Appeal",
-  "Afghanistan Emergency Appeal",
-  "Zakat",
-  "Sadaqah",
-  "Wherever Needed Most",
-  "Sudan Emergency Appeal",
-  "Turkey/Syria Earthquake Emergency",
-  "Syria Crisis Appeal",
-  "Yemen Appeal",
-  "Water For Life",
-  "Orphans And Children",
-  "Sadaqah Jariyah",
-  "People In Debt",
-  "Waqf",
-  "Interest (RIBA)",
-  "Capacity Building For Humanitarians",
-  "Global Emergencies",
-];
 
 export const DonationSectionPage = () => {
-  const [monthly1, setMonthly1] = useState(true);
-  const [oneOff1, setOneOff1] = useState(true);
-  const [bgMonthly, setBgMonthly] = useState(false);
-  const [bgOneOff, setBgOneOff] = useState(false);
-  const [line1, setLine1] = useState(false);
-  const [bgTwo, setBgTwo] = useState(false);
-  const [orphanOtherData, setorphanOtherData] = useState(true);
-  const [list, setList] = useState<any[]>([]);
-  const [orphan, setOrphan] = useState<any[]>([]);
-  const [orphanHandle, setorphanHandle] = useState(false);
-  const [dollar, setDollar] = useState(100);
-  const [donateText, setDonateText] = useState(true);
-  const [input, setInput] = useState(false);
-  const [addToCartBtn, setAddToCartBtn] = useState(false);
-  const [detailsPage, setdetailsPage] = useState(false);
-  const [twoBtns, setTwoBtns] = useState(false);
-  const [selectFound, setSelectFound] = useState(true);
-  const [donationName, setDonationName] = useState<any>();
-  const [donationDollar, setDonationDollar] = useState<any>(100);
-  const [redText, setRedText] = useState(false);
-  const [showdet, setShowdet] = useState(true);
-  const [bgBtn, setbgBtn] = useState(1);
+  // const [monthly1, setMonthly1] = useState(true);
+  // const [oneOff1, setOneOff1] = useState(true);
+  // const [bgMonthly, setBgMonthly] = useState(false);
+  // const [bgOneOff, setBgOneOff] = useState(false);
+  // const [line1, setLine1] = useState(false);
+  // const [bgTwo, setBgTwo] = useState(false);
+  // const [orphanOtherData, setorphanOtherData] = useState(true);
+  // const [list, setList] = useState<any[]>([]);
+  // const [orphan, setOrphan] = useState<any[]>([]);
+  // const [orphanHandle, setorphanHandle] = useState(false);
+  // const [dollar, setDollar] = useState(100);
+  // const [donateText, setDonateText] = useState(true);
+  // const [input, setInput] = useState(false);
+  // const [addToCartBtn, setAddToCartBtn] = useState(false);
+  // const [detailsPage, setdetailsPage] = useState(false);
+  // const [twoBtns, setTwoBtns] = useState(false);
+  // const [selectFound, setSelectFound] = useState(true);
+  // const [donationName, setDonationName] = useState<any>();
+  // const [donationDollar, setDonationDollar] = useState<any>(100);
+  // const [redText, setRedText] = useState(false);
+  // const [showdet, setShowdet] = useState(true);
+  // const [bgBtn, setbgBtn] = useState(1);
 
-  const donationHandlerf = () => {
-    if (!donationName) {
-      setSelectFound(true);
+  // const donationHandlerf = () => {
+  //   if (!donationName) {
+  //     setSelectFound(true);
+  //   }
+  // };
+  // const detailPageHandler = () => {
+  //   if (donationName) {
+  //     setShowdet(false);
+  //   }
+  // };
+  // const detailPageHandler1 = () => {
+  //   if (donationName) {
+  //     setdetailsPage(true);
+  //   }
+  // };
+
+  // New Code
+
+  const [donationTitleArray, setDonationTitleArray] = useState<any[]>();
+  const [donationDollarArray, setDonationDollarArray] = useState<any[]>();
+
+  const [monthly, setMonthly] = useState(false);
+
+  const monthlyHandler = (data: any[]) => {
+    if (monthly) {
+      setMonthly(false);
+    } else {
+      setMonthly(true);
     }
+    setDonationTitleArray(data);
   };
-  const detailPageHandler = () => {
-    if (donationName) {
-      setShowdet(false);
-    }
-  };
-  const detailPageHandler1 = () => {
-    if (donationName) {
-      setdetailsPage(true);
-    }
-  };
+
   return (
     <div className="max-w-3xl mx-auto">
       {/* first container */}
-      <div className="flex h-40 justify-center ml-20">
+      {/* <div className="flex h-40 justify-center ml-20">
         <div className="w-40 md:w-60 relative flex items-center">
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
             <span
@@ -145,7 +171,6 @@ export const DonationSectionPage = () => {
           </div>
         </div>
         <div className="w-40 md:w-60 relative flex items-center">
-          {/* <span className="bg-red-600 h-[6px] w-full"></span> */}
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
             <span className="border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
               4
@@ -153,10 +178,11 @@ export const DonationSectionPage = () => {
             <span className="text-gray-500">Payment</span>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Second container */}
-      <div className="bg-gray-100 p-8">
-        {monthly1 ? (
+      {/* <div className="bg-gray-100 p-8"> */}
+
+      {/* {monthly1 ? (
           <div className="flex flex-col items-center justify-center ">
             <h2 className="text-sky-800 font-bold text-3xl py-5">
               MAKE YOUR DONATION
@@ -211,7 +237,6 @@ export const DonationSectionPage = () => {
             </div>
           </div>
         ) : (
-          //
           showdet &&
           selectFound && (
             <div className="flex flex-col justify-center">
@@ -340,7 +365,7 @@ export const DonationSectionPage = () => {
                       orphanOtherData ? (
                         <div key={index}>
                           <div
-                            // key={index}
+                          
                             className="flex  border p-4 gap-16 justify-between"
                           >
                             <span className="text-lg  font-semibold">
@@ -420,9 +445,8 @@ export const DonationSectionPage = () => {
               )}
             </div>
           )
-        )}
-
-        {/* YOUR DETAILS */}
+        )} */}
+      {/* 
         {donationName && detailsPage && (
           <div>
             <h2 className="text-3xl font-bold text-[#19afaf] text-center">
@@ -649,7 +673,6 @@ export const DonationSectionPage = () => {
                 setDonationName("");
                 setShowdet(true);
                 setRedText(false);
-                // setSelectFound(true);
               }}
               className="uppercase hover:bg-gray-200  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
             >
@@ -660,7 +683,6 @@ export const DonationSectionPage = () => {
               onClick={() => {
                 detailPageHandler1();
                 setMonthly1(false);
-                // setSelectFound(false);
                 setorphanHandle(false);
                 setRedText(true);
                 donationHandlerf();
@@ -672,6 +694,61 @@ export const DonationSectionPage = () => {
               <FaRegArrowAltCircleRight className="w-6 h-6" />
             </button>
           </div>
+        )} */}
+
+      {/* </div> */}
+
+      {/* New Code */}
+      {/* container-01 */}
+      <div className="flex h-40 justify-center ml-20">
+        <div className="w-40 md:w-60 relative flex items-center">
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              className={`border-2 border-[#19afaf] font-bold p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500 `}
+            >
+              1
+            </span>
+            <span className="text-gray-500 ">Start</span>
+          </div>
+          <span className={`bg-gray-100 h-[6px] w-full`}></span>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <span className="relative bg-gray-100 h-[6px] w-full"></span>
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              className={`border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500`}
+            >
+              2
+            </span>
+            <span className="text-gray-500">Donation</span>
+          </div>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <span className="relative bg-gray-100 h-[6px] w-full"></span>
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span className="border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
+              3
+            </span>
+            <span className="text-gray-500">Details</span>
+          </div>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span className="border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
+              4
+            </span>
+            <span className="text-gray-500">Payment</span>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gray-100 p-8">
+        {monthly ? (
+          <DonationSec
+            donationTitleArray={donationTitleArray}
+            monthlyHandler={monthlyHandler}
+          />
+        ) : (
+          <StartSec monthlyHandler={monthlyHandler} />
         )}
       </div>
     </div>
