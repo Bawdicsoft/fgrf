@@ -54,7 +54,7 @@ const DonateSection = () => {
             The Impact on Hunger by Covid-19
           </h2>
           <Image
-            src={"/donation/feedOurWorld/poordistribution.jpeg"}
+            src={"/AppealNew/food/5.jpg"}
             alt=""
             width={700}
             height={700}
@@ -89,7 +89,7 @@ const DonateSection = () => {
             Give a Gift that Grows
           </h2>
           <Image
-            src={"/donation/feedOurWorld/feildworking.jpeg"}
+            src={"/AppealNew/food/4.jpg"}
             alt=""
             width={700}
             height={700}

@@ -12,7 +12,16 @@ import AnimatedComponentRight from "./AnimationRight";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimationTop from "./AnimationTop";
 import AnimationBottom from "./AnimationBtm";
-import DonationSlider from "./DonationSlider";
+import DonationSlider1 from "./DonationSliders/DonationSlider1";
+import DonationSlider2 from "./DonationSliders/DonationSlider2";
+import DonationSlider3 from "./DonationSliders/DonationSlider3";
+import DonationSlider4 from "./DonationSliders/DonationSlider4";
+import DonationSlider5 from "./DonationSliders/DonationSlider5";
+import DonationSlider6 from "./DonationSliders/DonationSlider6";
+import DonationSlider7 from "./DonationSliders/DonationSlider7";
+import DonationSlider8 from "./DonationSliders/DonationSlider8";
+import DonationSlider9 from "./DonationSliders/DonationSlider9";
+// import DonationSlider from "./DonationSlider";
 
 const Appeals = () => {
   const data = [
@@ -102,7 +111,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider1 />
               </motion.div>
             </AnimatedComponentLeft>
 
@@ -134,7 +143,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider2 />
               </motion.div>
             </AnimationBottom>
 
@@ -171,7 +180,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider3 />
               </motion.div>
             </AnimatedComponentRight>
 
@@ -203,7 +212,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider4 />
               </motion.div>
             </AnimatedComponentLeft>
 
@@ -235,7 +244,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider5 />
               </motion.div>
             </AnimationBottom>
 
@@ -267,7 +276,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider6 />
               </motion.div>
             </AnimatedComponentRight>
 
@@ -299,7 +308,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider7 />
               </motion.div>
             </AnimatedComponentLeft>
 
@@ -331,7 +340,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider8 />
               </motion.div>
             </AnimationBottom>
 
@@ -363,7 +372,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider />
+                <DonationSlider9 />
               </motion.div>
             </AnimatedComponentRight>
 

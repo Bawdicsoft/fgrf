@@ -1,7 +1,7 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
 import { use, useState } from "react";
-const FeedOurWoldBannerSection = () => {
+const FoodBoxBannerSection = () => {
   const [docs, setDocs] = useState(0);
   const mostaNeedBtnList = [
     { title: "50", doc: "Could provide a food pack." },
@@ -59,9 +59,7 @@ const FeedOurWoldBannerSection = () => {
     <div className="pt-10 lg:pt-20">
       <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 md:grid-cols-3 px-5 md:px-10">
         <div className="flex flex-col gap-2">
-          <h3 className=" text-2xl md:text-3xl text-gray-800">
-            Feed Our World
-          </h3>
+          <h3 className=" text-2xl md:text-3xl text-gray-800">Food Box</h3>
           <span className="w-full h-[2px] bg-teal-500"></span>
           <div className="flex flex-col shadow-2xl py-4 px-3 lg:px-5">
             <select
@@ -123,4 +121,4 @@ const FeedOurWoldBannerSection = () => {
     </div>
   );
 };
-export default FeedOurWoldBannerSection;
+export default FoodBoxBannerSection;
