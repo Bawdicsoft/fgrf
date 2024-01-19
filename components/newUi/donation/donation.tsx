@@ -703,10 +703,11 @@ export const DonationSectionPage = () => {
       <div className="flex h-40 justify-center ml-20">
         <div className="w-40 md:w-60 relative flex items-center">
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
-            <span
-              className={`border-2 border-[#19afaf] font-bold p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500 `}
-            >
-              1
+            <span className="cursor-pointer relative group overflow-hidden border-2 group-hover:border-4  group-hover:border-gray-100 border-[#19afaf] p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span className="relative text-gray-500 group-hover:text-white  ">
+                1
+              </span>
             </span>
             <span className="text-gray-500 ">Start</span>
           </div>
@@ -715,10 +716,11 @@ export const DonationSectionPage = () => {
         <div className="w-40 md:w-60 relative flex items-center">
           <span className="relative bg-gray-100 h-[6px] w-full"></span>
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
-            <span
-              className={`border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500`}
-            >
-              2
+            <span className="cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span className="relative text-gray-500 group-hover:text-white">
+                2
+              </span>
             </span>
             <span className="text-gray-500">Donation</span>
           </div>
@@ -726,16 +728,22 @@ export const DonationSectionPage = () => {
         <div className="w-40 md:w-60 relative flex items-center">
           <span className="relative bg-gray-100 h-[6px] w-full"></span>
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
-            <span className="border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
-              3
+            <span className="cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span className="relative text-gray-500 group-hover:text-white">
+                3
+              </span>
             </span>
             <span className="text-gray-500">Details</span>
           </div>
         </div>
         <div className="w-40 md:w-60 relative flex items-center">
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
-            <span className="border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
-              4
+            <span className="cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 ">
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span className="relative text-gray-500 group-hover:text-white">
+                4
+              </span>
             </span>
             <span className="text-gray-500">Payment</span>
           </div>

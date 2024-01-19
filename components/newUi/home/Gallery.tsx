@@ -8,44 +8,44 @@ import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
-  "./img/galleryImg2.png",
+  { id: 1, img: "./img/galleryImg2.png" },
+  { id: 2, img: "./img/galleryImg2.png" },
+  { id: 3, img: "./img/galleryImg2.png" },
+  { id: 4, img: "./img/galleryImg2.png" },
+  { id: 5, img: "./img/galleryImg2.png" },
+  { id: 6, img: "./img/galleryImg2.png" },
 ];
 
 const Gallery: React.FC = () => {
   const controls = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
-  const [border, setBorder] = useState<Boolean>(false);
+  const [border, setBorder] = useState<Boolean>(true);
   const [picIndex, setPicIndex] = useState<number>();
-const arry1 = gallery.slice(0, 2);
-  const borderHandler = (index: number) => {
-    console.log(picIndex);
-   
+
+  const borderHandler = () => {
+    // console.log(picIndex);
     setTimeout(() => {
       setBorder(false);
-    }, 3000);
+    }, 600);
   };
-  const borderHandler1 = (index: number) => {
-    setPicIndex(index);
-    console.log(picIndex);
-  };
-  const handleHover = () => {
-    controls.start({
-      scale: 1.1,
-      filter: "brightness(1.3)",
-    });
-  };
+  // const borderHandler1 = (index: number) => {
+  //   setPicIndex(index);
+  //   console.log(picIndex);
+  // };
+  // const handleHover = () => {
+  //   controls.start({
+  //     scale: 1.1,
+  //     filter: "brightness(1.3)",
+  //   });
+  // };
 
-  const handleHoverExit = () => {
-    controls.start({
-      scale: 1,
-      filter: "brightness(1)",
-    });
-  };
+  // const handleHoverExit = () => {
+  //   controls.start({
+  //     scale: 1,
+  //     filter: "brightness(1)",
+  //   });
+  // };
+
   return (
     <section
       className="bg-gradient-to-r pb-10 bg-center bg-cover bg-no-repeat bg-blend-multiply"
@@ -91,20 +91,25 @@ const arry1 = gallery.slice(0, 2);
                 {gallery.slice(0, 2).map((data, index) => (
                   <div
                     key={index}
-                    onMouseEnter={() =>{
-    setPicIndex(index);
-
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      console.log(picIndex);
                     }}
                     onMouseLeave={() => {
-                      borderHandler(index);
+                      borderHandler();
                     }}
-                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === index && border ? "border-0" : ""
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -133,14 +138,25 @@ const arry1 = gallery.slice(0, 2);
                 {gallery.slice(2, 4).map((data, index) => (
                   <div
                     key={index}
-                    onMouseLeave={() => borderHandler(index)}
-                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === index && border ? "border-0" : ""
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />
@@ -169,14 +185,25 @@ const arry1 = gallery.slice(0, 2);
                 {gallery.slice(4, 6).map((data, index) => (
                   <div
                     key={index}
-                    onMouseLeave={() => borderHandler(index)}
-                    className={`card1 relative group w-full h-full rounded-lg border-[3px] border-[#7caec1] hover:border-0 shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === index && border ? "border-0" : ""
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
                     }`}
                   >
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
-                        src={data}
+                        src={data.img}
                         className="w-full h-full opacity-90"
                         alt=""
                       />

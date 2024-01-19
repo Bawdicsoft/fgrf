@@ -1,16 +1,16 @@
 "use client";
 import { useState } from "react";
-import ModelCanvas from "@/components/3dModel/ModelCanvas";
-import { FullPageLoader } from '@/components/3dModel/fullPageLoader';
-import Hero from '@/components/newUi/home/Hero';
-import OurDepartments from '@/components/newUi/home/OurDepartments';
-import AchievementPage from '@/components/achievement/achievements';
-import OurProject from '@/components/home/OurProject';
-import Achievement from '@/components/newUi/home/Achievements';
-import Together from '@/components/newUi/home/Together';
-import Gallery from '@/components/newUi/home/Gallery';
-import Appeals from '@/components/newUi/home/Appeals';
-import DonationSlider from '@/components/home/donationSlider';
+// import ModelCanvas from "@/components/3dModel/ModelCanvas";
+import { FullPageLoader } from "@/components/3dModel/fullPageLoader";
+import Hero from "@/components/newUi/home/Hero";
+import OurDepartments from "@/components/newUi/home/OurDepartments";
+import AchievementPage from "@/components/achievement/achievements";
+import OurProject from "@/components/home/OurProject";
+import Achievement from "@/components/newUi/home/Achievements";
+import Together from "@/components/newUi/home/Together";
+import Gallery from "@/components/newUi/home/Gallery";
+import Appeals from "@/components/newUi/home/Appeals";
+import DonationSlider from "@/components/home/donationSlider";
 import NewsSection from "@/components/newUi/home/News";
 
 export default function Home() {
@@ -19,9 +19,9 @@ export default function Home() {
   // const handleModelLoaded = () => {
   //   setIsModelLoading(false);
   // };
-    setTimeout(() => {
-      setIsModelLoading(false);
-    }, 3000);
+  setTimeout(() => {
+    setIsModelLoading(false);
+  }, 3000);
   return (
     <>
       {/* {isModelLoading && <FullPageLoader />}

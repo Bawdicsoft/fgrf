@@ -13,7 +13,7 @@ import {
   Mousewheel,
   Keyboard,
 } from "swiper/modules";
-import { div } from "three/examples/jsm/nodes/Nodes.js";
+// import { div } from "three/examples/jsm/nodes/Nodes.js";
 import AnimationBottom from "./AnimationBtm";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";

@@ -2,6 +2,9 @@ import { FC, useState } from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import DetailsSec from "./Details";
+import PaymentSec from "./Payment";
+import AnimatedComponentRight from "../home/AnimationRight";
+import AnimatedComponentLeft from "../home/AnimationLeft";
 interface DonationSecProps {
   donationTitleArray: any[] | undefined;
   monthlyHandler: (data: string[]) => void;
@@ -68,196 +71,203 @@ const DonationSec: React.FC<DonationSecProps> = ({
   return (
     <div>
       {!nextStep ? (
-        <div className="flex flex-col justify-center">
-          <h2 className="text-sky-800 font-bold text-xl py-5 uppercase self-start">
-            Select Your Fund
-          </h2>
-          {alertText && (
-            <p className="text-red-600 text-md text-center py-2">
-              You must select a fund and specify an amount.
-            </p>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {donationTitleArray?.map((title, index) =>
-              title === "Orphans" && index === 0 ? (
-                <button
-                  key={index}
-                  onClick={() => {
-                    orphanDollarHandler(orphansDollarList1);
-                    setOrphanData(true);
-                    setDonateAmountText(true);
-                    setBtnDollar(false);
-                    setTitleDonate(title);
-                    setAlertText(false);
-                    setbgFundIndex(index);
-                  }}
-                  className={` py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white ${
-                    bgFundIndex === index
-                      ? "bg-[#19afaf] text-white"
-                      : "bg-white"
-                  }`}
-                >
-                  {title}
-                </button>
-              ) : (title === "Sadaqah" && index === 1) ||
-                (title === "Water For Life" && index === 2) ||
-                (title === "Global Emergencies" && index === 3) ? (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setOrphanData(false);
-                    setDonateAmountText(true);
-                    seOtherBtnDollar(orphansOthersList);
-                    setBtnDollar(true);
-                    setInput(false);
-                    setTitleDonate(title);
-                    setAlertText(false);
-                    setbgFundIndex(index);
-                  }}
-                  className={` py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white ${
-                    bgFundIndex === index
-                      ? "bg-[#19afaf] text-white"
-                      : "bg-white"
-                  }`}
-                >
-                  {title}
-                </button>
-              ) : (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setOrphanData(false);
-                    setDonateAmountText(true);
-                    seOtherBtnDollar(onOffList);
-                    setBtnDollar(true);
-                    setInput(false);
-                    setTitleDonate(title);
-                    setAlertText(false);
-                    setbgFundIndex(index);
-                  }}
-                  className={`py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4 hover:bg-[#19afaf] hover:text-white ${
-                    bgFundIndex === index
-                      ? "bg-[#19afaf] text-white"
-                      : "bg-white"
-                  }`}
-                >
-                  {title}
-                </button>
-              )
+        <AnimatedComponentRight>
+          <div className="flex flex-col justify-center">
+            <h2 className="text-sky-800 font-bold text-xl py-5 uppercase self-start">
+              Select Your Fund
+            </h2>
+            {alertText && (
+              <p className="text-red-600 text-md text-center py-2">
+                You must select a fund and specify an amount.
+              </p>
             )}
-          </div>
-
-          {donateAmountText && (
-            <div className="grid grid-cols-1  gap-5">
-              <span className="text-sky-800 font-bold text-xl pt-8 px-8 uppercase self-start">
-                DONATION AMOUNT
-              </span>
-              {orphanData ? (
-                <span className={`flex justify-center gap-3 `}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {donationTitleArray?.map((title, index) =>
+                title === "Orphans" && index === 0 ? (
                   <button
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                    key={index}
                     onClick={() => {
                       orphanDollarHandler(orphansDollarList1);
+                      setOrphanData(true);
+                      setDonateAmountText(true);
+                      setBtnDollar(false);
+                      setTitleDonate(title);
+                      setAlertText(false);
+                      setbgFundIndex(index);
                     }}
+                    className={` py-3 font-medium relative group overflow-hidden text-gray-800 focus:bg-[#19afaf] focus:text-white px-4  hover:text-white ${
+                      bgFundIndex === index
+                        ? "bg-[#19afaf] text-white"
+                        : "bg-white"
+                    }`}
                   >
-                    USD
+                    <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                    <span className="relative ">{title}</span>
                   </button>
+                ) : (title === "Sadaqah" && index === 1) ||
+                  (title === "Water For Life" && index === 2) ||
+                  (title === "Global Emergencies" && index === 3) ? (
                   <button
+                    key={index}
                     onClick={() => {
-                      orphanDollarHandler(orphansDollarList2);
+                      setOrphanData(false);
+                      setDonateAmountText(true);
+                      seOtherBtnDollar(orphansOthersList);
+                      setBtnDollar(true);
+                      setInput(false);
+                      setTitleDonate(title);
+                      setAlertText(false);
+                      setbgFundIndex(index);
                     }}
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                    className={`relative group overflow-hidden py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4  hover:text-white ${
+                      bgFundIndex === index
+                        ? "bg-[#19afaf] text-white"
+                        : "bg-white"
+                    }`}
                   >
-                    GBP
+                    <span className="absolute w-[400px] h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                    <span className="relative ">{title}</span>
                   </button>
+                ) : (
                   <button
+                    key={index}
                     onClick={() => {
-                      orphanDollarHandler(orphansDollarList3);
+                      setOrphanData(false);
+                      setDonateAmountText(true);
+                      seOtherBtnDollar(onOffList);
+                      setBtnDollar(true);
+                      setInput(false);
+                      setTitleDonate(title);
+                      setAlertText(false);
+                      setbgFundIndex(index);
                     }}
-                    className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                    className={`relative group overflow-hidden py-3 font-medium text-gray-800 focus:bg-[#19afaf] focus:text-white px-4  hover:text-white ${
+                      bgFundIndex === index
+                        ? "bg-[#19afaf] text-white"
+                        : "bg-white"
+                    }`}
                   >
-                    {" "}
-                    EUR
+                    <span className="absolute w-[600px]  h-0 transition-all duration-500 origin-center rotate-45 -translate-x-40 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                    <span className="relative ">{title}</span>
                   </button>
-                </span>
-              ) : (
-                <div>
-                  <span className={`flex justify-center gap-3 `}>
-                    <button
-                      className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                      onClick={() => {
-                        //   orphanDollarHandler(orphansDollarList1);
-                      }}
-                    >
-                      USD
-                    </button>
-                    <button
-                      onClick={() => {
-                        //   orphanDollarHandler(orphansDollarList2);
-                      }}
-                      className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                    >
-                      GBP
-                    </button>
-                    <button
-                      onClick={() => {
-                        //   orphanDollarHandler(orphansDollarList3);
-                      }}
-                      className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                    >
-                      {" "}
-                      EUR
-                    </button>
+                )
+              )}
+            </div>
+
+            {donateAmountText && (
+              <AnimatedComponentLeft>
+                <div className="grid grid-cols-1  gap-5">
+                  <span className="text-sky-800 font-bold text-xl pt-8 px-8 uppercase self-start">
+                    DONATION AMOUNT
                   </span>
-                  {btnDollar && (
-                    <div className="flex flex-col gap-4">
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
-                        {otherBtnDollar?.map((title, index) =>
-                          title === "others" ? (
-                            <button
-                              key={index}
-                              onClick={() => {
-                                setInput(true);
-                                setBgBtnIndex(index);
-                              }}
-                              className={`text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-3 px-5  hover:bg-[#19afaf] hover:text-white `}
-                            >
-                              {title}
-                            </button>
-                          ) : (
-                            <button
-                              key={index}
-                              onClick={() => {
-                                setDollar(title);
-                                setDollarDonate(title);
-                                setInput(false);
-                                setBgBtnIndex(index);
-                              }}
-                              className={`text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold py-3 px-5  hover:bg-[#19afaf] hover:text-white ${
-                                bgBtnIndex === index
-                                  ? "bg-[#19afaf] text-white"
-                                  : "bg-white"
-                              } `}
-                            >
-                              {title}
-                            </button>
-                          )
-                        )}
-                      </div>
-                      {input && (
-                        <input
-                          type="text"
-                          className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
-                        />
+                  {orphanData ? (
+                    <span className={`flex justify-center gap-3 `}>
+                      <button
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                        onClick={() => {
+                          orphanDollarHandler(orphansDollarList1);
+                        }}
+                      >
+                        USD
+                      </button>
+                      <button
+                        onClick={() => {
+                          orphanDollarHandler(orphansDollarList2);
+                        }}
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                      >
+                        GBP
+                      </button>
+                      <button
+                        onClick={() => {
+                          orphanDollarHandler(orphansDollarList3);
+                        }}
+                        className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                      >
+                        {" "}
+                        EUR
+                      </button>
+                    </span>
+                  ) : (
+                    <div>
+                      <span className={`flex justify-center gap-3 `}>
+                        <button
+                          className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                          onClick={() => {
+                            //   orphanDollarHandler(orphansDollarList1);
+                          }}
+                        >
+                          USD
+                        </button>
+                        <button
+                          onClick={() => {
+                            //   orphanDollarHandler(orphansDollarList2);
+                          }}
+                          className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                        >
+                          GBP
+                        </button>
+                        <button
+                          onClick={() => {
+                            //   orphanDollarHandler(orphansDollarList3);
+                          }}
+                          className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
+                        >
+                          {" "}
+                          EUR
+                        </button>
+                      </span>
+                      {btnDollar && (
+                        <div className="flex flex-col gap-4">
+                          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+                            {otherBtnDollar?.map((title, index) =>
+                              title === "others" ? (
+                                <button
+                                  key={index}
+                                  onClick={() => {
+                                    setInput(true);
+                                    setBgBtnIndex(index);
+                                  }}
+                                  className={`relative group overflow-hidden text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-3 px-5  hover:text-white `}
+                                >
+                                  <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                  <span className="relative ">{title}</span>
+                                </button>
+                              ) : (
+                                <button
+                                  key={index}
+                                  onClick={() => {
+                                    setDollar(title);
+                                    setDollarDonate(title);
+                                    setInput(false);
+                                    setBgBtnIndex(index);
+                                  }}
+                                  className={`relative group overflow-hidden text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold py-3 px-5  hover:text-white ${
+                                    bgBtnIndex === index
+                                      ? "bg-[#19afaf] text-white"
+                                      : "bg-white"
+                                  } `}
+                                >
+                                  <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                  <span className="relative ">{title}</span>
+                                </button>
+                              )
+                            )}
+                          </div>
+                          {input && (
+                            <input
+                              type="text"
+                              className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                            />
+                          )}
+                          <p className="text-gray-400 text-lg font-medium text-center">
+                            Making a donation of {dollar} will help save lives
+                          </p>
+                        </div>
                       )}
-                      <p className="text-gray-400 text-lg font-medium text-center">
-                        Making a donation of {dollar} will help save lives
-                      </p>
                     </div>
                   )}
-                </div>
-              )}
-              {/* <span
+                  {/* <span
                 className={`flex justify-center gap-3 `}
               >
                 <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
@@ -272,60 +282,60 @@ const DonationSec: React.FC<DonationSecProps> = ({
                 </button>
               </span> */}
 
-              {orphanData && (
-                <div>
-                  <div className={` "grid grid-cols-4 gap-2" `}>
-                    {orphanDonationDollarArray?.map(
-                      (title, index) => (
-                        <div key={index}>
-                          <div className="flex  border p-4 gap-16 justify-between">
-                            <span className="text-lg  font-semibold">
-                              {title}
-                            </span>
-                            <div className="flex flex-col gap-3">
-                              <div className="flex gap-8">
-                                <p>Quantity</p>
-                                <input
-                                  type="number"
-                                  className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
-                                />
-                              </div>
-                              <div className="flex gap-8">
-                                <p>SubTotal</p>
-                                <input
-                                  type="number"
-                                  className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
-                                />
+                  {orphanData && (
+                    <div>
+                      <div className={` "grid grid-cols-4 gap-2" `}>
+                        {orphanDonationDollarArray?.map(
+                          (title, index) => (
+                            <div key={index}>
+                              <div className="flex  border p-4 gap-16 justify-between">
+                                <span className="text-lg  font-semibold">
+                                  {title}
+                                </span>
+                                <div className="flex flex-col gap-3">
+                                  <div className="flex gap-8">
+                                    <p>Quantity</p>
+                                    <input
+                                      type="number"
+                                      className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
+                                    />
+                                  </div>
+                                  <div className="flex gap-8">
+                                    <p>SubTotal</p>
+                                    <input
+                                      type="number"
+                                      className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
+                                    />
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      )
-                      //  : title === "others" ? (
-                      //   <button
-                      //     key={index}
-                      //     onClick={() => {}}
-                      //     className="uppercase text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white"
-                      //   >
-                      //     {title}
-                      //   </button>
-                      // ) : (
-                      //   <button
-                      //     key={index}
-                      //     onClick={() => {}}
-                      //     className={`text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white`}
-                      //   >
-                      //     {title}
-                      //   </button>
-                    )}
-                  </div>
-                  <p className="text-red-600 font-bold text-3xl pt-5">
-                    Total: $0.00
-                  </p>
-                </div>
-              )}
+                          )
+                          //  : title === "others" ? (
+                          //   <button
+                          //     key={index}
+                          //     onClick={() => {}}
+                          //     className="uppercase text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white"
+                          //   >
+                          //     {title}
+                          //   </button>
+                          // ) : (
+                          //   <button
+                          //     key={index}
+                          //     onClick={() => {}}
+                          //     className={`text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white`}
+                          //   >
+                          //     {title}
+                          //   </button>
+                        )}
+                      </div>
+                      <p className="text-red-600 font-bold text-3xl pt-5">
+                        Total: $0.00
+                      </p>
+                    </div>
+                  )}
 
-              {/* <input
+                  {/* <input
                 type="text"
                 className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
               />
@@ -340,30 +350,43 @@ const DonationSec: React.FC<DonationSecProps> = ({
                   </button>
           
               </div> */}
-            </div>
-          )}
-        </div>
+                </div>
+              </AnimatedComponentLeft>
+            )}
+          </div>
+        </AnimatedComponentRight>
       ) : (
-        <DetailsSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
+        // <DetailsSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
+        <PaymentSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
       )}
       <div className="py-10 flex justify-between">
         <button
           onClick={() => {
             backHandler();
           }}
-          className="uppercase hover:bg-gray-200  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
+          className="relative group overflow-hidden uppercase  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
         >
-          <FaRegArrowAltCircleLeft className="w-6 h-6" />
-          <span> Back</span>
+          <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+          <FaRegArrowAltCircleLeft className="w-6 h-6 relative group-hover:text-white text-gray-400" />
+          <span className="relative group-hover:text-white text-gray-400">
+            {" "}
+            Back
+          </span>
         </button>
         <button
           onClick={() => {
             nextHandler();
           }}
-          className=" uppercase hover:bg-[#2dc2c2]  py-2 px-4 text-2xl font-bold text-white bg-[#19afaf] flex gap-2 items-center justify-center"
+          className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
         >
-          <span> Next </span>
-          <FaRegArrowAltCircleRight className="w-6 h-6" />
+          <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+          <span className="relative group-hover:text-gray-400 text-white">
+            {" "}
+            Next{" "}
+          </span>
+          <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
         </button>
       </div>
     </div>
