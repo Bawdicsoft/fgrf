@@ -16,8 +16,8 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
     // }
     const script = document.createElement("script");
     script.src =
-      "https://www.paypal.com/sdk/js?client-id=AcKA0k1CSwjth14RN9FK5uDUmvGA8Jcv7yEfb024RnoMfJjCzT2wpYDtqKA7kD6YpHzjQW0lwn4TE-Fg";
-    script.type = "text/javascript";
+      // "https://www.paypal.com/sdk/js?client-id=AcKA0k1CSwjth14RN9FK5uDUmvGA8Jcv7yEfb024RnoMfJjCzT2wpYDtqKA7kD6YpHzjQW0lwn4TE-Fg";
+      script.type = "text/javascript";
     script.async = true;
     script.onload = () => setScriptLoaded(true);
     document.body.appendChild(script);
