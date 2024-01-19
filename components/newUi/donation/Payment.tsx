@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { PayPalButton } from "react-paypal-button-v2";
+// import { PayPalButton } from "react-paypal-button-v2";
 interface PaymentProps {
   dollarDonate: number;
   titleDonate: string;
@@ -45,16 +45,16 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           {/* <button className="uppercase font-bold text-white py-2 px-4 bg-red-600 hover:bg-red-400">
             Donate now
           </button> */}
-          {scriptLoaded ? (
+          {/* {scriptLoaded ? (
             <PayPalButton
               amount={dollarDonate}
               onSuccess={(details: any) => {
                 console.log(details);
               }}
             />
-          ) : (
-            <span>Loading...</span>
-          )}
+          ) : ( */}
+          <span>Loading...</span>
+          {/* )} */}
         </div>
       </div>
     </div>
