@@ -36,7 +36,7 @@ const ContactUs: React.FC = () => {
                     <div className="shadow-lg  rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-2">
                       <input
                         type="text"
-                        className="bg-[#19afaf] text-white font-extrabold p-0.5 text-2xl w-full"
+                        className="bg-[#19afaf] outline-none text-white font-extrabold p-0.5 text-2xl w-full"
                       />
                     </div>
                   </motion.div>
@@ -58,7 +58,7 @@ const ContactUs: React.FC = () => {
                     <div className="shadow-lg  rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-2">
                       <input
                         type="text"
-                        className="bg-[#19afaf] text-white font-extrabold p-0.5 text-2xl w-full"
+                        className="bg-[#19afaf] text-white outline-none font-extrabold p-0.5 text-2xl w-full"
                       />
                     </div>
                   </motion.div>
@@ -79,7 +79,7 @@ const ContactUs: React.FC = () => {
                     <div className="shadow-lg  rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-2">
                       <input
                         type="text"
-                        className="bg-[#19afaf] text-white font-extrabold p-0.5 text-2xl w-full"
+                        className="bg-[#19afaf] outline-none text-white font-extrabold p-0.5 text-2xl w-full"
                       />
                     </div>
                   </motion.div>
@@ -122,7 +122,7 @@ const ContactUs: React.FC = () => {
                   <div className="shadow-lg  rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0">
                     <textarea
                       rows={4}
-                      className="bg-[#19afaf] text-white font-extrabold p-0.5 text-2xl resize-none w-full"
+                      className="bg-[#19afaf] outline-none text-white font-extrabold p-0.5 text-2xl resize-none w-full"
                     ></textarea>
                   </div>
                 </motion.div>

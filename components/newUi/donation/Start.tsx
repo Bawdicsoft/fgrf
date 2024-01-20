@@ -7,31 +7,24 @@ import AnimatedComponentRight from "../home/AnimationRight";
 interface StartSecProps {
   monthlyHandler: (data: string[]) => void;
 }
-const monthlyList = [
-  "Orphans",
-  "Sadaqah",
-  "Water For Life",
-  "Global Emergencies",
-];
+const monthlyList = ["Sadaqah", "water", "food", "emergency"];
 const oneOffList = [
-  "Palestine Emergency Appeal",
-  "Winter Appeal",
-  "Afghanistan Emergency Appeal",
-  "Zakat",
+  " Zakat ",
+  "Palestine appeal ",
+  "Winter Appeal ",
   "Sadaqah",
-  "Wherever Needed Most",
-  "Sudan Emergency Appeal",
-  "Turkey/Syria Earthquake Emergency",
-  "Syria Crisis Appeal",
-  "Yemen Appeal",
-  "Water For Life",
-  "Orphans And Children",
-  "Sadaqah Jariyah",
-  "People In Debt",
-  "Waqf",
-  "Interest (RIBA)",
-  "Capacity Building For Humanitarians",
-  "Global Emergencies",
+  "Food packs ",
+  "Ration Distribution ",
+  "Turkey / Syria  Appeal ",
+  "Earthquake Appeal ",
+  "Flood Appeal ",
+  "Hand pump Appeal ",
+  "Water well Appeal ",
+  "Masjid Appeal",
+  "Orphan House Appeal ",
+  "Childern Rehabilitation Appeal ",
+  "Medical Camp Appeal",
+  "Global warming Appeal",
 ];
 const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
   return (
@@ -65,12 +58,44 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <Image
+          {/* <Image
             src={"/donationNew.webp"}
             alt="donationImg"
             width={500}
             height={400}
-          />
+          /> */}
+
+          {/* new images */}
+          <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2 lg:gap-1  mx-auto">
+            <Image
+              src={"/donationImg/1.jpeg"}
+              alt="donation img"
+              width={300}
+              height={300}
+              className=" h-40"
+            />
+            <Image
+              src={"/donationImg/2.jpeg"}
+              alt="donation img"
+              width={300}
+              height={300}
+              className=" h-40"
+            />
+            <Image
+              src={"/donationImg/3.jpeg"}
+              alt="donation img"
+              width={300}
+              height={300}
+              className=" h-40"
+            />
+            <Image
+              src={"/donationImg/4.jpeg"}
+              alt="donation img"
+              width={300}
+              height={300}
+              className=" h-40"
+            />
+          </div>
         </motion.div>
       </div>
       <div className="py-10 flex">

@@ -14,13 +14,14 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
-  { video: "/video/v2.mp4" },
+  { video: "/Videonews/2.mp4" },
+  { video: "/Videonews/3.mp4" },
+  { video: "/Videonews/4.mp4" },
+  { video: "/Videonews/5.mp4" },
+  { video: "/Videonews/5.mp4" },
+  { video: "/Videonews/7.mp4" },
+  { video: "/Videonews/12.mp4" },
+  // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
   const [image, setImage] = useState(false);

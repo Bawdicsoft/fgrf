@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AnimationTop from "../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
+import AnimatedComponentLeft from "../home/galleryAnimation/AnimationLeft";
+import AnimatedComponentRight from "../home/galleryAnimation/AnimationRight";
 const AppealSection = () => {
   const appealList = [
     {
@@ -153,28 +155,80 @@ const AppealSection = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-5 md:gap-3 lg:grid-cols-4 lg:gap-6 md:grid-cols-3 px-5">
-        {appealList.map((appeal, index) => (
-          <div
-            className="p-2 pb-6 rounded-md bg-white hover:shadow-lg"
-            key={index}
-          >
-            <Link
-              href={`appeal/${appeal.link}`}
-              className="group flex flex-col gap-2 justify-start"
+        {appealList.slice(0, 4).map((appeal, index) => (
+          <AnimatedComponentLeft key={index}>
+            <div
+              key={index}
+              className="p-2 h-80 pb-6 rounded-md bg-white hover:shadow-lg"
             >
-              <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                <Image
-                  src={appeal.img}
-                  alt=""
-                  width={600}
-                  height={600}
-                  className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
-                />
-              </div>
-              <h3 className="text-center text-lg">{appeal.title}</h3>
-              <p className="text-center text-base">{appeal.desc}</p>
-            </Link>
-          </div>
+              <Link
+                href={`appeal/${appeal.link}`}
+                className="group flex flex-col gap-2 justify-start"
+              >
+                <div className="relative overflow-hidden bg-cover bg-no-repeat">
+                  <Image
+                    src={appeal.img}
+                    alt=""
+                    width={600}
+                    height={600}
+                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                  />
+                </div>
+                <h3 className="text-center text-lg">{appeal.title}</h3>
+                <p className="text-center text-base">{appeal.desc}</p>
+              </Link>
+            </div>
+          </AnimatedComponentLeft>
+        ))}
+        {appealList.slice(4, 8).map((appeal, index) => (
+          <AnimatedComponentRight key={index}>
+            <div
+              key={index}
+              className="p-2 pb-6 h-80 rounded-md bg-white hover:shadow-lg"
+            >
+              <Link
+                href={`appeal/${appeal.link}`}
+                className="group flex flex-col gap-2 justify-start"
+              >
+                <div className="relative overflow-hidden bg-cover bg-no-repeat">
+                  <Image
+                    src={appeal.img}
+                    alt=""
+                    width={600}
+                    height={600}
+                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                  />
+                </div>
+                <h3 className="text-center text-lg">{appeal.title}</h3>
+                <p className="text-center text-base">{appeal.desc}</p>
+              </Link>
+            </div>
+          </AnimatedComponentRight>
+        ))}
+        {appealList.slice(8, 10).map((appeal, index) => (
+          <AnimatedComponentLeft key={index}>
+            <div
+              key={index}
+              className="p-2 pb-6 h-80 rounded-md bg-white hover:shadow-lg"
+            >
+              <Link
+                href={`appeal/${appeal.link}`}
+                className="group flex flex-col gap-2 justify-start"
+              >
+                <div className="relative overflow-hidden bg-cover bg-no-repeat">
+                  <Image
+                    src={appeal.img}
+                    alt=""
+                    width={600}
+                    height={600}
+                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                  />
+                </div>
+                <h3 className="text-center text-lg">{appeal.title}</h3>
+                <p className="text-center text-base">{appeal.desc}</p>
+              </Link>
+            </div>
+          </AnimatedComponentLeft>
         ))}
       </div>
     </div>

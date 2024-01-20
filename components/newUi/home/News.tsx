@@ -96,7 +96,7 @@ const NewsSection: React.FC = () => {
             >
               {image1 ? (
                 <video className="h-full w-full" controls autoPlay>
-                  <source src="/video/v2.mp4" type="video/mp4" />
+                  <source src="/Videonews/5.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
@@ -130,7 +130,7 @@ const NewsSection: React.FC = () => {
             >
               {image2 ? (
                 <video className="h-full w-full" controls autoPlay>
-                  <source src="/video/v2.mp4" type="video/mp4" />
+                  <source src="/Videonews/4.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
@@ -168,7 +168,7 @@ const NewsSection: React.FC = () => {
                 controls
                 autoPlay
               >
-                <source src="/video/v2.mp4" type="video/mp4" />
+                <source src="/Videonews/1.mp4" type="video/mp4" />
               </video>
             ) : (
               <Image
@@ -203,7 +203,7 @@ const NewsSection: React.FC = () => {
             >
               {image3 ? (
                 <video className="h-full w-full" controls autoPlay>
-                  <source src="/video/v2.mp4" type="video/mp4" />
+                  <source src="/Videonews/6.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image
@@ -237,7 +237,7 @@ const NewsSection: React.FC = () => {
             >
               {image4 ? (
                 <video className="h-full w-full" controls autoPlay>
-                  <source src="/video/v2.mp4" type="video/mp4" />
+                  <source src="/Videonews/7.mp4" type="video/mp4" />
                 </video>
               ) : (
                 <Image

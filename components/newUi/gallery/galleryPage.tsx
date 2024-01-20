@@ -9,6 +9,7 @@ import AnimationTop from "../home/AnimationTop";
 import AnimatedComponentLeft from "../home/galleryAnimation/AnimationLeft";
 import AnimationBottom from "../home/AnimationBtm";
 import AnimatedComponentRight from "../home/galleryAnimation/AnimationRight";
+import Link from "next/link";
 
 const GalleryPage = () => {
   const [open, setOpen] = useState(false);
@@ -311,6 +312,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -339,6 +362,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -367,6 +412,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -395,6 +462,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -423,6 +512,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -451,6 +562,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -479,6 +612,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -507,6 +662,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -535,6 +712,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -563,6 +762,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -591,6 +812,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -619,6 +862,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -647,6 +912,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -675,6 +962,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -703,6 +1012,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -731,6 +1062,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -759,6 +1112,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -787,6 +1162,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -815,6 +1212,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -843,6 +1262,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -871,6 +1312,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -899,6 +1362,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -927,6 +1412,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -955,6 +1462,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -983,6 +1512,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -1011,6 +1562,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -1039,6 +1612,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -1067,6 +1662,28 @@ const GalleryPage = () => {
                             adipisicing elit.
                           </p>
                         </div>
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-1 -mt-2">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
+                                </span>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
                       </div>
                     </div>
                   </div>

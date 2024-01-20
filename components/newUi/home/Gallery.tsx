@@ -8,19 +8,19 @@ import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
-  { id: 1, img: "./img/galleryImg2.png" },
-  { id: 2, img: "./img/galleryImg2.png" },
-  { id: 3, img: "./img/galleryImg2.png" },
-  { id: 4, img: "./img/galleryImg2.png" },
-  { id: 5, img: "./img/galleryImg2.png" },
-  { id: 6, img: "./img/galleryImg2.png" },
+  { id: 1, img: "./GalleryNew/55.jpg" },
+  { id: 2, img: "./GalleryNew/20.jpg" },
+  { id: 3, img: "./GalleryNew/34.jpg" },
+  { id: 4, img: "./GalleryNew/58.jpg" },
+  { id: 5, img: "./GalleryNew/16.jpg" },
+  { id: 6, img: "./GalleryNew/15.jpg" },
 ];
 
 const Gallery: React.FC = () => {
   const controls = useAnimation();
-  const [isFlipped, setIsFlipped] = useState(false);
   const [border, setBorder] = useState<Boolean>(true);
   const [picIndex, setPicIndex] = useState<number>();
+  const [btnIndex, setBtnIndex] = useState(false);
 
   const borderHandler = () => {
     // console.log(picIndex);
@@ -94,10 +94,13 @@ const Gallery: React.FC = () => {
                     onMouseEnter={() => {
                       setPicIndex(data.id);
                       setBorder(!border);
+                      setBtnIndex(true);
+                      // setBtnIndex(index)
                       console.log(picIndex);
                     }}
                     onMouseLeave={() => {
                       borderHandler();
+                      setBtnIndex(false);
                     }}
                     className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === data.id
@@ -110,7 +113,7 @@ const Gallery: React.FC = () => {
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data.img}
-                        className="w-full h-full opacity-90"
+                        className="w-full h-full opacity-90 rounded-lg"
                         alt=""
                       />
                     </div>{" "}
@@ -126,6 +129,30 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "}
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
                       </div>{" "}
                     </div>
                   </div>
@@ -141,10 +168,12 @@ const Gallery: React.FC = () => {
                     onMouseEnter={() => {
                       setPicIndex(data.id);
                       setBorder(!border);
+                      setBtnIndex(true);
                       console.log(picIndex);
                     }}
                     onMouseLeave={() => {
                       borderHandler();
+                      setBtnIndex(false);
                     }}
                     className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === data.id
@@ -157,7 +186,7 @@ const Gallery: React.FC = () => {
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data.img}
-                        className="w-full h-full opacity-90"
+                        className="w-full h-full opacity-90 rounded-lg"
                         alt=""
                       />
                     </div>{" "}
@@ -173,6 +202,30 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "}
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
                       </div>{" "}
                     </div>
                   </div>
@@ -188,10 +241,12 @@ const Gallery: React.FC = () => {
                     onMouseEnter={() => {
                       setPicIndex(data.id);
                       setBorder(!border);
+                      setBtnIndex(true);
                       console.log(picIndex);
                     }}
                     onMouseLeave={() => {
                       borderHandler();
+                      setBtnIndex(false);
                     }}
                     className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
                       picIndex === data.id
@@ -204,7 +259,7 @@ const Gallery: React.FC = () => {
                     <div className="front group-hover:rotate-y-180 h-full w-full">
                       <img
                         src={data.img}
-                        className="w-full h-full opacity-90"
+                        className="w-full h-full opacity-90 rounded-lg"
                         alt=""
                       />
                     </div>{" "}
@@ -220,6 +275,30 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "}
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
                       </div>{" "}
                     </div>
                   </div>

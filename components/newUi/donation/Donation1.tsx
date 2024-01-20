@@ -83,7 +83,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {donationTitleArray?.map((title, index) =>
-                title === "Orphans" && index === 0 ? (
+                title === "Sadaqah" && index === 0 ? (
                   <button
                     key={index}
                     onClick={() => {
@@ -104,9 +104,9 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
                     <span className="relative ">{title}</span>
                   </button>
-                ) : (title === "Sadaqah" && index === 1) ||
-                  (title === "Water For Life" && index === 2) ||
-                  (title === "Global Emergencies" && index === 3) ? (
+                ) : (title === "water" && index === 1) ||
+                  (title === "food" && index === 2) ||
+                  (title === "emergency" && index === 3) ? (
                   <button
                     key={index}
                     onClick={() => {
