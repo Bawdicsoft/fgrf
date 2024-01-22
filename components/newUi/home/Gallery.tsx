@@ -121,14 +121,14 @@ const Gallery: React.FC = () => {
                       {" "}
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
                         {" "}
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.{" "}
                           </p>{" "}
-                        </div>{" "}
+                        </div>{" "} */}
                         {btnIndex && picIndex === data.id && (
                           <motion.div
                             // className="box"
@@ -194,14 +194,14 @@ const Gallery: React.FC = () => {
                       {" "}
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
                         {" "}
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.{" "}
                           </p>{" "}
-                        </div>{" "}
+                        </div>{" "} */}
                         {btnIndex && picIndex === data.id && (
                           <motion.div
                             // className="box"
@@ -213,7 +213,7 @@ const Gallery: React.FC = () => {
                             }}
                           >
                             <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 ">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                                 <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
@@ -267,14 +267,14 @@ const Gallery: React.FC = () => {
                       {" "}
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
                         {" "}
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.{" "}
                           </p>{" "}
-                        </div>{" "}
+                        </div>{" "} */}
                         {btnIndex && picIndex === data.id && (
                           <motion.div
                             // className="box"

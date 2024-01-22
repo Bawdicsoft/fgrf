@@ -48,11 +48,12 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [alertText, setAlertText] = useState<Boolean>(false);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
   const [bgFundIndex, setbgFundIndex] = useState<number>();
+  const [nextDet, setNextDet] = useState(false);
 
   const orphanDollarHandler = (data: any[]) => {
     setOrphanDonationDollarArray(data);
   };
-
+  const nextDetHandler = () => {};
   const nextHandler = () => {
     if (titleDonate) {
       setNextStep(true);
@@ -356,7 +357,11 @@ const DonationSec: React.FC<DonationSecProps> = ({
           </div>
         </AnimatedComponentRight>
       ) : (
-        // <DetailsSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
+        // <DetailsSec
+        //   dollarDonate={dollarDonate}
+        //   titleDonate={titleDonate}
+        //   submitHandler={nextDetHandler}
+        // />
         <PaymentSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
       )}
       <div className="py-10 flex justify-between">

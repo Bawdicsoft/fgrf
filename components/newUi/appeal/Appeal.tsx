@@ -5,11 +5,12 @@ import AnimationTop from "../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimatedComponentLeft from "../home/galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "../home/galleryAnimation/AnimationRight";
+
 const AppealSection = () => {
   const appealList = [
     {
       link: "ramadan",
-      img: "/Final/palestine.png",
+      img: "/Final/ramadan.png",
       title: "Ramadan 2024",
       desc: "Stand in solidarity with Palestinians in Gaza.",
     },
@@ -132,7 +133,7 @@ const AppealSection = () => {
   ];
 
   return (
-    <div className="py-16 bg-gray-200">
+    <div className="py-16">
       <div className="flex flex-col items-center max-w-[400px] mx-auto px-3 mb-10">
         <AnimationTop>
           <motion.div
@@ -141,41 +142,47 @@ const AppealSection = () => {
           >
             <div
               id="box3d"
-              className="border-4 border-[#85d0d0]  w-60 md:w-96 py-3 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+              className="border-4 border-[#85d0d0]  w-60 md:w-80 py-3 bg-[#6898b1]  flex justify-center group mx-auto rounded-full shadow-lg"
             >
-              <h2
+              <span className="text-2xl font-normal group-hover:text-sky-800 text-white">
+                Our
+              </span>
+              <span
                 id=""
-                className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+                className="text-2xl md:text-3xl group-hover:text-sky-800 font-bold text-white "
               >
-                Our Current Appeals
-              </h2>
+                Appeals
+              </span>
             </div>
           </motion.div>
         </AnimationTop>
       </div>
 
-      <div className="grid grid-cols-1 gap-5 md:gap-3 lg:grid-cols-4 lg:gap-6 md:grid-cols-3 px-5">
+      {/* <div className="flex justify-center"> */}
+      <div className="flex flex-wrap justify-center gap-5 md:gap-3  lg:gap-6 px-5">
         {appealList.slice(0, 4).map((appeal, index) => (
           <AnimatedComponentLeft key={index}>
             <div
               key={index}
-              className="p-2 h-80 pb-6 rounded-md bg-white hover:shadow-lg"
+              className="p-2 w-72 rounded-md bg-[#19afaf] hover:shadow-lg"
             >
               <Link
                 href={`appeal/${appeal.link}`}
                 className="group flex flex-col gap-2 justify-start"
               >
-                <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                  <Image
+                <div className="zoom-on-hover">
+                  <img
                     src={appeal.img}
                     alt=""
                     width={600}
                     height={600}
-                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                    className="h-64 w-full scale-x-150"
                   />
                 </div>
-                <h3 className="text-center text-lg">{appeal.title}</h3>
-                <p className="text-center text-base">{appeal.desc}</p>
+                <h3 className="text-center text-lg bg-white text-gray-600 mx-2 py-2 font-semibold">
+                  {appeal.title}
+                </h3>
+                {/* <p className="text-center text-base">{appeal.desc}</p> */}
               </Link>
             </div>
           </AnimatedComponentLeft>
@@ -184,23 +191,25 @@ const AppealSection = () => {
           <AnimatedComponentRight key={index}>
             <div
               key={index}
-              className="p-2 pb-6 h-80 rounded-md bg-white hover:shadow-lg"
+              className="p-2 w-72  rounded-md bg-[#19afaf] hover:shadow-lg"
             >
               <Link
                 href={`appeal/${appeal.link}`}
                 className="group flex flex-col gap-2 justify-start"
               >
-                <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                  <Image
+                <div className="zoom-on-hover">
+                  <img
                     src={appeal.img}
                     alt=""
                     width={600}
                     height={600}
-                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                    className="h-64 w-full scale-x-150"
                   />
                 </div>
-                <h3 className="text-center text-lg">{appeal.title}</h3>
-                <p className="text-center text-base">{appeal.desc}</p>
+                <h3 className="text-center text-lg bg-white text-gray-600 mx-2 py-2 font-semibold">
+                  {appeal.title}
+                </h3>
+                {/* <p className="text-center text-base">{appeal.desc}</p> */}
               </Link>
             </div>
           </AnimatedComponentRight>
@@ -209,28 +218,31 @@ const AppealSection = () => {
           <AnimatedComponentLeft key={index}>
             <div
               key={index}
-              className="p-2 pb-6 h-80 rounded-md bg-white hover:shadow-lg"
+              className="p-2 w-72 rounded-md bg-[#19afaf] hover:shadow-lg "
             >
               <Link
                 href={`appeal/${appeal.link}`}
                 className="group flex flex-col gap-2 justify-start"
               >
-                <div className="relative overflow-hidden bg-cover bg-no-repeat">
-                  <Image
+                <div className="zoom-on-hover">
+                  <img
                     src={appeal.img}
                     alt=""
                     width={600}
                     height={600}
-                    className="h-36 w-full transition duration-500 ease-in-out group-hover:scale-125"
+                    className="h-64 w-full scale-x-150"
                   />
                 </div>
-                <h3 className="text-center text-lg">{appeal.title}</h3>
-                <p className="text-center text-base">{appeal.desc}</p>
+                <h3 className="text-center text-lg bg-white text-gray-600 mx-2 py-2 font-semibold">
+                  {appeal.title}
+                </h3>
+                {/* <p className="text-center text-base">{appeal.desc}</p> */}
               </Link>
             </div>
           </AnimatedComponentLeft>
         ))}
       </div>
+      {/* </div> */}
     </div>
   );
 };

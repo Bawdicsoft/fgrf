@@ -32,6 +32,8 @@ import ZakatBannerSection from "@/components/newUi/appeal/zakat/zakatBanner";
 import ZakatDocs from "@/components/newUi/appeal/zakat/zakatlDoc";
 import RamadanBannerSection from "@/components/newUi/appeal/ramadan/ramdanBanner";
 import RamadanDocs from "@/components/newUi/appeal/ramadan/ramdanlDoc";
+import WinterBannerSection from "@/components/newUi/appeal/newAppeals/winterEmergency/winterBannerSec";
+import WinterDocs from "@/components/newUi/appeal/newAppeals/winterEmergency/winterDoc";
 
 export default function donationAppeal({
   params,
@@ -75,7 +77,9 @@ export default function donationAppeal({
       {/* winter-emergency */}
       {myParams === "winter-emergency" && (
         <div className="max-w-7xl mx-auto bg-gray-200">
-          <WinterEmergency />
+          {/* <WinterEmergency /> */}
+          <WinterBannerSection />
+          <WinterDocs />
         </div>
       )}
       {/* Masjid Build */}

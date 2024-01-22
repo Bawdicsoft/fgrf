@@ -19,6 +19,7 @@ import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
 import Image from "next/image";
 import AnimationTop from "./AnimationTop";
+import Link from "next/link";
 
 const OurDepartments = () => {
   const [showBlob, setShowBlob] = useState<boolean>(false);
@@ -26,43 +27,50 @@ const OurDepartments = () => {
   const data = [
     {
       img: "/finalIconAssets/OurdepatmentSlider/fireHome.png",
-      blob: "/img/icon-blob.svg",
+      // blob: "/img/icon-blob.svg",
+      link: "disaster",
       title: "Disaster Management",
       code: "white",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/health.png",
-      blob: "/img/icon-blob-yellow.svg",
+      // blob: "/img/icon-blob-yellow.svg",
+      link: "health-care",
       title: "Health Care",
       code: "red",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/water.png",
-      blob: "/img/icon-blob-purple.svg",
+      // blob: "/img/icon-blob-purple.svg",
+      link: "water-project",
       title: "Water Project",
       code: "green",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/home.png",
-      blob: "/img/icon-blob-orange.svg",
+      // blob: "/img/icon-blob-orange.svg",
+      link: "environment-department",
       title: "Environment Department",
       code: "blue",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/education.png",
-      blob: "/img/icon-blob-blue.svg",
+      // blob: "/img/icon-blob-blue.svg",
+      link: "education",
       title: "Education & Skills",
       code: "yellow",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/homeHand.png",
-      blob: "/img/icon-blob.svg",
+      // blob: "/img/icon-blob.svg",
+      link: "orphan",
       title: "Orphan",
       code: "purple",
     },
     {
       img: "/finalIconAssets/OurdepatmentSlider/masjid.png",
-      blob: "/img/icon-blob.svg",
+      // blob: "/img/icon-blob.svg",
+      link: "masjid",
       title: "Masjid",
       code: "purple",
     },
@@ -185,35 +193,40 @@ const OurDepartments = () => {
                       // onMouseOver={() => handleBlob(index)}
                       onMouseLeave={() => setShowBlob(false)}
                     >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.6,
-                          // filter: "brightness(1.8)",
-                          // rotate: 50,
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 10,
-                        }}
-                      >
-                        <div className="md:h-14 h-10 relative">
-                          <img
-                            // src={data.blob}
-                            className={`absolute top-0 z-[-1] ${
-                              blobIndex === index && showBlob
-                                ? "opacity-40 transition-all duration-500"
-                                : "opacity-0 transition-all duration-500"
-                            }`}
-                            alt=""
-                          />
-                          <img
-                            src={data.img}
-                            className="w-full h-full"
-                            alt=""
-                          />
-                        </div>
-                      </motion.div>
+                      <Link href={`/our-department/${data.link}`}>
+                        <motion.div
+                          whileHover={{
+                            scale: 1.6,
+                            // filter: "brightness(1.8)",
+                            // rotate: 50,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <div
+                            // href={`/our-department/${data.link}`}
+                            className="md:h-14 h-10 relative"
+                          >
+                            <img
+                              // src={data.blob}
+                              className={`absolute top-0 z-[-1] ${
+                                blobIndex === index && showBlob
+                                  ? "opacity-40 transition-all duration-500"
+                                  : "opacity-0 transition-all duration-500"
+                              }`}
+                              alt=""
+                            />
+                            <img
+                              src={data.img}
+                              className="w-full h-full"
+                              alt=""
+                            />
+                          </div>
+                        </motion.div>
+                      </Link>
                       <div>
                         <h4 className={`text-center text-sm  leading-none`}>
                           {data.title}
@@ -229,35 +242,37 @@ const OurDepartments = () => {
                       // onMouseOver={() => handleBlob(index)}
                       onMouseLeave={() => setShowBlob(false)}
                     >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.6,
-                          // filter: "brightness(1.8)",
-                          // rotate: 50,
-                        }}
-                        transition={{
-                          type: "spring",
-                          stiffness: 400,
-                          damping: 10,
-                        }}
-                      >
-                        <div className="md:h-14 h-10 relative">
-                          <img
-                            // src={data.blob}
-                            className={`absolute top-0 z-[-1] ${
-                              blobIndex === index && showBlob
-                                ? "opacity-40 transition-all duration-500"
-                                : "opacity-0 transition-all duration-500"
-                            }`}
-                            alt=""
-                          />
-                          <img
-                            src={data.img}
-                            className="w-full h-full"
-                            alt=""
-                          />
-                        </div>
-                      </motion.div>
+                      <Link href={`/our-department/${data.link}`}>
+                        <motion.div
+                          whileHover={{
+                            scale: 1.6,
+                            // filter: "brightness(1.8)",
+                            // rotate: 50,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <div className="md:h-14 h-10 relative">
+                            <img
+                              // src={data.blob}
+                              className={`absolute top-0 z-[-1] ${
+                                blobIndex === index && showBlob
+                                  ? "opacity-40 transition-all duration-500"
+                                  : "opacity-0 transition-all duration-500"
+                              }`}
+                              alt=""
+                            />
+                            <img
+                              src={data.img}
+                              className="w-full h-full"
+                              alt=""
+                            />
+                          </div>
+                        </motion.div>
+                      </Link>
                       <div>
                         <h4 className={`text-center text-sm  leading-none`}>
                           {data.title}

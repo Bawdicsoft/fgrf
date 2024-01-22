@@ -148,6 +148,9 @@ const Footer = () => {
                 </Link>
                 © 2024 Fgrf.org
               </div>
+              <span className="text-[12px] text-gray-500 text-center">
+                Powered by BawdicSoft
+              </span>
             </div>
             <div className="flex self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
               <div className="group relative overflow-hidden bg-[#148698] flex items-center px-2 gap-3 py-4">

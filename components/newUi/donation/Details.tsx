@@ -1,13 +1,61 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 interface DetailsSecProps {
+  submitHandler: () => void;
   dollarDonate: number;
   titleDonate: string;
 }
 const DetailsSec: React.FC<DetailsSecProps> = ({
   dollarDonate,
   titleDonate,
+  submitHandler,
 }) => {
+  const titleRef = useRef<any>();
+  const firstNameRef = useRef<any>();
+  const lastNameRef = useRef<any>();
+  const emailRef = useRef<any>();
+  const contactNoRef = useRef<any>();
+  const addressRef = useRef<any>();
+  const address2Ref = useRef<any>();
+  const cityRef = useRef<any>();
+  const countryRef = useRef<any>();
+
+  submitHandler = () => {
+    const title = titleRef.current.value;
+    const firstName = firstNameRef.current.value;
+    const lastName = lastNameRef.current.value;
+    const email = emailRef.current.value;
+    const contactNo = contactNoRef.current.value;
+    const address = addressRef.current.value;
+    const address2 = address2Ref.current.value;
+    const city = cityRef.current.value;
+    const country = countryRef.current.value;
+    if (
+      title &&
+      firstName &&
+      lastName &&
+      email &&
+      contactNo &&
+      address &&
+      address2 &&
+      city &&
+      country
+    ) {
+      return {
+        title,
+        firstName,
+        lastName,
+        email,
+        contactNo,
+        address,
+        address2,
+        city,
+        country,
+      };
+    } else {
+      return false;
+    }
+  };
   return (
     <div>
       <h2 className="text-3xl font-bold text-[#19afaf] text-center">
@@ -35,6 +83,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               </label>
               <select
                 id="countries"
+                ref={titleRef}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
               >
                 <option>Title</option>
@@ -54,6 +103,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="FirstName"
                 id="FirstName"
+                ref={firstNameRef}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="First Name"
                 required
@@ -69,6 +119,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="LastName"
                 id="LastName"
+                ref={lastNameRef}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="Last Name"
                 required
@@ -86,6 +137,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="email"
                 id="email"
+                ref={emailRef}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="your@email.com"
                 required
@@ -101,6 +153,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="ContactNumber"
                 id="ContactNumber"
+                ref={contactNoRef}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="0237278327"
                 required
@@ -117,6 +170,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
             <input
               type="Address"
               id="Address"
+              ref={addressRef}
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
               placeholder="123 High Street"
               required
@@ -132,6 +186,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
             <input
               type="Address"
               id="Address"
+              ref={address2Ref}
               className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
               placeholder="123 High Street"
               required
@@ -148,6 +203,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="Address"
                 id="Address"
+                ref={cityRef}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="Enter City"
                 required
@@ -162,6 +218,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               </label>
               <select
                 id="countries"
+                ref={countryRef}
                 className="bg-gray-50 outline-0 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
               >
                 <option className="">Select Your Country</option>
