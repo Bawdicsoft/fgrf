@@ -12,6 +12,7 @@ import Gallery from "@/components/newUi/home/Gallery";
 import Appeals from "@/components/newUi/home/Appeals";
 import DonationSlider from "@/components/home/donationSlider";
 import NewsSection from "@/components/newUi/home/News";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Home() {
   const [isModelLoading, setIsModelLoading] = useState(true);
@@ -51,17 +52,19 @@ export default function Home() {
       {/* </div> */}
 
       {/* MyCode */}
-      <div className="relative">
-        {isModelLoading && <FullPageLoader />}
+      <AnimatePresence mode="wait" initial={false}>
+        <div className="relative">
+          {isModelLoading && <FullPageLoader />}
 
-        <Hero />
-        <OurDepartments />
-        <Appeals />
-        <Achievement />
-        <Together />
-        <Gallery />
-        <NewsSection />
-      </div>
+          <Hero />
+          <OurDepartments />
+          <Appeals />
+          <Achievement />
+          <Together />
+          <Gallery />
+          <NewsSection />
+        </div>
+      </AnimatePresence>
     </>
   );
 }

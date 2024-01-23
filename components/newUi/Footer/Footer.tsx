@@ -149,7 +149,14 @@ const Footer = () => {
                 © 2024 Fgrf.org
               </div>
               <span className="text-[12px] text-gray-500 text-center">
-                Powered by BawdicSoft
+                Powered by{" "}
+                <a
+                  href="https://BawdicSoft.com"
+                  target="_blank"
+                  className="hover:text-sky-500"
+                >
+                  BawdicSoft
+                </a>
               </span>
             </div>
             <div className="flex self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">

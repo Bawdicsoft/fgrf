@@ -92,14 +92,28 @@ const WinterBannerSection = () => {
         </div> */}
 
         <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl">
-          <video className="h-full w-full rounded-lg" controls>
+          {/* <video className="h-full w-full rounded-lg" controls>
             <source src="/Videonews/4.mp4" type="video/mp4" />
-          </video>
+          </video> */}
+          <Image
+            src={"/AppealNew/winter/12.png"}
+            alt="winter img1"
+            className="w-full h-full"
+            width={600}
+            height={600}
+          />
         </div>
         <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl ">
-          <video className="h-full w-full rounded-lg" controls>
+          {/* <video className="h-full w-full rounded-lg" controls>
             <source src="/Videonews/4.mp4" type="video/mp4" />
-          </video>
+          </video> */}
+          <Image
+            src={"/AppealNew/winter/11.png"}
+            alt="winter img1"
+            className="w-full h-full"
+            width={600}
+            height={600}
+          />
         </div>
       </div>
       <div className="bg-gray-300 shadow-2xl mt-10 flex flex-col gap-2 max-w-3xl mx-auto rounded-lg">

@@ -94,19 +94,25 @@ const NewsSection: React.FC = () => {
               }
               onMouseEnter={() => setPause1(!pause1)}
             >
-              {image1 ? (
-                <video className="h-full w-full" controls autoPlay>
-                  <source src="/Videonews/5.mp4" type="video/mp4" />
-                </video>
-              ) : (
-                <Image
-                  src="/video/thumnail1.jpg"
-                  alt={"thumNail"}
-                  width={800}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
-              )}
+              <div className="lg:w-60 lg:h-40 ">
+                {image1 ? (
+                  <video
+                    className="w-full h-full object-cover"
+                    controls
+                    autoPlay
+                  >
+                    <source src="/Videonews/5.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src="/video/thumbnail/2.png"
+                    alt={"thumNail"}
+                    width={800}
+                    height={800}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
               {!image1 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
               ) : pause1 ? (
@@ -128,19 +134,25 @@ const NewsSection: React.FC = () => {
               }
               onMouseEnter={() => setPause2(!pause2)}
             >
-              {image2 ? (
-                <video className="h-full w-full" controls autoPlay>
-                  <source src="/Videonews/4.mp4" type="video/mp4" />
-                </video>
-              ) : (
-                <Image
-                  src="/video/thumnail1.jpg"
-                  alt={"thumNail"}
-                  width={800}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
-              )}
+              <div className="lg:w-60 lg:h-40 ">
+                {image2 ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    autoPlay
+                  >
+                    <source src="/Videonews/4.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src="/video/thumbnail/8.png"
+                    alt={"thumNail"}
+                    width={800}
+                    height={800}
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </div>
               {!image2 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
               ) : pause2 ? (
@@ -172,7 +184,7 @@ const NewsSection: React.FC = () => {
               </video>
             ) : (
               <Image
-                src="/video/thumnail1.jpg"
+                src="/video/thumbnail/1.png"
                 alt={"thumNail"}
                 width={800}
                 height={800}
@@ -201,19 +213,25 @@ const NewsSection: React.FC = () => {
               }
               onMouseEnter={() => setPause3(!pause3)}
             >
-              {image3 ? (
-                <video className="h-full w-full" controls autoPlay>
-                  <source src="/Videonews/6.mp4" type="video/mp4" />
-                </video>
-              ) : (
-                <Image
-                  src="/video/thumnail1.jpg"
-                  alt={"thumNail"}
-                  width={800}
-                  height={800}
-                  className="h-full w-full"
-                />
-              )}
+              <div className="lg:w-60 lg:h-40 ">
+                {image3 ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    autoPlay
+                  >
+                    <source src="/Videonews/6.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src="/video/thumbnail/6.png"
+                    alt={"thumNail"}
+                    width={800}
+                    height={800}
+                    className="h-full w-full"
+                  />
+                )}
+              </div>
               {!image3 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
               ) : pause3 ? (
@@ -235,19 +253,25 @@ const NewsSection: React.FC = () => {
               }
               onMouseEnter={() => setPause4(!pause4)}
             >
-              {image4 ? (
-                <video className="h-full w-full" controls autoPlay>
-                  <source src="/Videonews/7.mp4" type="video/mp4" />
-                </video>
-              ) : (
-                <Image
-                  src="/video/thumnail1.jpg"
-                  alt={"thumNail"}
-                  width={800}
-                  height={800}
-                  className="h-full w-full object-cover"
-                />
-              )}
+              <div className="lg:w-60 lg:h-40 ">
+                {image4 ? (
+                  <video
+                    className="h-full w-full object-cover"
+                    controls
+                    autoPlay
+                  >
+                    <source src="/Videonews/7.mp4" type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src="/video/thumbnail/7.png"
+                    alt={"thumNail"}
+                    width={800}
+                    height={800}
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </div>
               {!image4 ? (
                 <FaRegCirclePlay className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
               ) : pause4 ? (

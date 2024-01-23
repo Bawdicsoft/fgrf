@@ -231,10 +231,13 @@ export default function Navbar() {
             </div>
 
             <div className="lg:col-span-5  hidden lg:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center border-r border-black">
-              <span className="relative group overflow-hidden bg-sky-900 text-white px-5 py-1 text-sm">
+              <Link
+                href={"/donation"}
+                className="relative group overflow-hidden bg-sky-900 text-white px-5 py-1 text-sm"
+              >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <span className="relative"> DONATE TO FUND</span>
-              </span>
+              </Link>
               <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
                 <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
                   <strong>&#163;</strong>
@@ -259,10 +262,13 @@ export default function Navbar() {
                 <option value="monthly">Monthly</option>
                 <option value="Others">Others</option>
               </select>
-              <button className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm">
+              <Link
+                href={"/donation"}
+                className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm"
+              >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <span className="relative"> DONATE NOW</span>
-              </button>
+              </Link>
             </div>
             <div className=" border-r border-black flex justify-center items-center">
               <div className="flex items-center justify-evenly ">
@@ -381,7 +387,10 @@ export default function Navbar() {
 
               {/* yeha tk */}
 
-              <div className="bg-sky-800 p-2 text-white flex flex-col justify-center items-center px-3.5 py-2 overflow-hidden relative group cursor-pointer font-medium">
+              <Link
+                href={"/donation"}
+                className="bg-sky-800 p-2 text-white flex flex-col justify-center items-center px-3.5 py-2 overflow-hidden relative group cursor-pointer font-medium"
+              >
                 {/* <motion.div
                   whileHover={{
                     scale: 1.4,
@@ -399,7 +408,7 @@ export default function Navbar() {
                   Donate Now
                 </span>
                 {/* </motion.div> */}
-              </div>
+              </Link>
             </div>
           </div>
         </div>

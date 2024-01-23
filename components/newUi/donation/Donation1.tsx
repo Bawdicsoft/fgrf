@@ -49,22 +49,75 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
   const [bgFundIndex, setbgFundIndex] = useState<number>();
   const [nextDet, setNextDet] = useState(false);
+  const [check, setCheck] = useState(false);
+  const [check1, setCheck1] = useState(false);
 
   const orphanDollarHandler = (data: any[]) => {
     setOrphanDonationDollarArray(data);
   };
-  const nextDetHandler = () => {};
+  const nextDetHandler = (
+    title: string,
+    firstName: string,
+    lastName: string,
+    email: string,
+    contactNo: string,
+    address: string,
+    address2: string,
+    city: string,
+    country: string
+  ) => {
+    if (
+      // check &&
+      title &&
+      firstName &&
+      lastName &&
+      email &&
+      contactNo &&
+      address &&
+      address2 &&
+      city &&
+      country
+    ) {
+      setNextDet(true);
+      setCheck1(true);
+      // setCheck(true);
+    } else {
+      console.log(
+        title,
+        firstName,
+        lastName,
+        email,
+        contactNo,
+        address,
+        address2,
+        city,
+        country
+      );
+      setNextDet(false);
+      // setCheck1(true);
+    }
+  };
+
   const nextHandler = () => {
-    if (titleDonate) {
+    if (titleDonate && check1) {
       setNextStep(true);
+      // setNextDet(true);
+      // setCheck(true);
+    } else if (titleDonate) {
+      setNextStep(true);
+      // setCheck(true);
     } else {
       setAlertText(true);
       setNextStep(false);
     }
   };
   const backHandler = () => {
-    if (nextStep) {
+    if (nextStep && nextDet) {
+      setNextStep(true);
+      setNextDet(false);
+    } else if (nextStep) {
       setNextStep(false);
+      setNextDet(false);
     } else {
       monthlyHandler([]);
     }
@@ -357,12 +410,17 @@ const DonationSec: React.FC<DonationSecProps> = ({
           </div>
         </AnimatedComponentRight>
       ) : (
-        // <DetailsSec
-        //   dollarDonate={dollarDonate}
-        //   titleDonate={titleDonate}
-        //   submitHandler={nextDetHandler}
-        // />
-        <PaymentSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
+        <div>
+          {!nextDet ? (
+            <DetailsSec
+              dollarDonate={dollarDonate}
+              titleDonate={titleDonate}
+              submitHandler={nextDetHandler}
+            />
+          ) : (
+            <PaymentSec dollarDonate={dollarDonate} titleDonate={titleDonate} />
+          )}
+        </div>
       )}
       <div className="py-10 flex justify-between">
         <button

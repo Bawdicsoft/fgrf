@@ -8,12 +8,106 @@ import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 
 const gallery = [
-  { id: 1, img: "./GalleryNew/55.jpg" },
-  { id: 2, img: "./GalleryNew/20.jpg" },
-  { id: 3, img: "./GalleryNew/34.jpg" },
-  { id: 4, img: "./GalleryNew/58.jpg" },
-  { id: 5, img: "./GalleryNew/16.jpg" },
-  { id: 6, img: "./GalleryNew/15.jpg" },
+  {
+    id: 1,
+    img: "./GalleryNew1/bbc.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 2,
+    img: "./GalleryNew1/morco1.jpg",
+    title: "Morocco earthquake 2023 FGRF Humanitarian Support",
+  },
+  {
+    id: 3,
+    img: "./GalleryNew1/food.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 4,
+    img: "./GalleryNew1/palestine2.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 5,
+    img: "./GalleryNew1/morco2.jpg",
+    title: "Morocco earthquake 2023 FGRF Humanitarian Support",
+  },
+  {
+    id: 6,
+    img: "./GalleryNew1/turkey1.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 7,
+    img: "./GalleryNew1/palestine1.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 8,
+    img: "./GalleryNew1/health.jpeg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 9,
+    img: "./GalleryNew1/turkey.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 10,
+    img: "./GalleryNew1/11.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 11,
+    img: "./GalleryNew1/10.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 12,
+    img: "./GalleryNew1/9.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 13,
+    img: "./GalleryNew1/8.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 14,
+    img: "./GalleryNew1/7.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 15,
+    img: "./GalleryNew1/6.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 16,
+    img: "./GalleryNew1/5.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 17,
+    img: "./GalleryNew1/4.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 18,
+    img: "./GalleryNew1/3.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 19,
+    img: "./GalleryNew1/2.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
+  {
+    id: 20,
+    img: "./GalleryNew1/1.jpg",
+    title: "Humanitarian support efforts for the people of palestine",
+  },
 ];
 
 const Gallery: React.FC = () => {
@@ -88,7 +182,7 @@ const Gallery: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
             <AnimatedComponentLeft>
               <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(0, 2).map((data, index) => (
+                {gallery.slice(0, 3).map((data, index) => (
                   <div
                     key={index}
                     onMouseEnter={() => {
@@ -121,6 +215,9 @@ const Gallery: React.FC = () => {
                       {" "}
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
                         {" "}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
                         {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
@@ -162,7 +259,7 @@ const Gallery: React.FC = () => {
 
             <AnimationBottom>
               <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(2, 4).map((data, index) => (
+                {gallery.slice(3, 6).map((data, index) => (
                   <div
                     key={index}
                     onMouseEnter={() => {
@@ -194,79 +291,9 @@ const Gallery: React.FC = () => {
                       {" "}
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
                         {" "}
-                        {/* <div className="sm space-x-2">
-                          <h3>Lorem ipsum</h3>{" "}
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.{" "}
-                          </p>{" "}
-                        </div>{" "} */}
-                        {btnIndex && picIndex === data.id && (
-                          <motion.div
-                            // className="box"
-                            whileHover={{ scale: 1.2 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 400,
-                              damping: 10,
-                            }}
-                          >
-                            <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 ">
-                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                                  <span className="relative group-hover:text-white">
-                                    Donate Now
-                                  </span>
-                                </span>
-                              </button>
-                            </Link>
-                          </motion.div>
-                        )}
-                      </div>{" "}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </AnimationBottom>
-
-            <AnimatedComponentRight>
-              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(4, 6).map((data, index) => (
-                  <div
-                    key={index}
-                    onMouseEnter={() => {
-                      setPicIndex(data.id);
-                      setBorder(!border);
-                      setBtnIndex(true);
-                      console.log(picIndex);
-                    }}
-                    onMouseLeave={() => {
-                      borderHandler();
-                      setBtnIndex(false);
-                    }}
-                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === data.id
-                        ? border
-                          ? "border-0"
-                          : "border-[3px]"
-                        : "border-[3px]"
-                    }`}
-                  >
-                    <div className="front group-hover:rotate-y-180 h-full w-full">
-                      <img
-                        src={data.img}
-                        className="w-full h-full opacity-90 rounded-lg"
-                        alt=""
-                      />
-                    </div>{" "}
-                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
-                      {" "}
-                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        {" "}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
                         {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
@@ -302,10 +329,316 @@ const Gallery: React.FC = () => {
                       </div>{" "}
                     </div>
                   </div>
+                ))}
+              </div>
+            </AnimationBottom>
+
+            <AnimatedComponentRight>
+              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
+                {gallery.slice(6, 9).map((data, index) => (
+                  <div
+                    key={index}
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      setBtnIndex(true);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                      setBtnIndex(false);
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
+                    }`}
+                  >
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
+                      <img
+                        src={data.img}
+                        className="w-full h-full opacity-90 rounded-lg"
+                        alt=""
+                      />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
+                      </div>{" "}
+                    </div>
+                  </div>
                   // </motion.div>
                 ))}
               </div>
             </AnimatedComponentRight>
+            {/* <div className="flex justify-center items-center gap-5 md:gap-6 lg:gap-10"> */}
+            {gallery.slice(9, 20).map(
+              (data, index) =>
+                data.id === 10 ||
+                data.id === 13 ||
+                data.id === 16 ||
+                data.id === 19 ? (
+                  <AnimatedComponentRight key={index}>
+                    <div
+                      key={index}
+                      onMouseEnter={() => {
+                        setPicIndex(data.id);
+                        setBorder(!border);
+                        setBtnIndex(true);
+                        console.log(picIndex);
+                      }}
+                      onMouseLeave={() => {
+                        borderHandler();
+                        setBtnIndex(false);
+                      }}
+                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                        picIndex === data.id
+                          ? border
+                            ? "border-0"
+                            : "border-[3px]"
+                          : "border-[3px]"
+                      }`}
+                    >
+                      <div className="front group-hover:rotate-y-180 h-full w-full">
+                        <img
+                          src={data.img}
+                          className="w-full h-full opacity-90 rounded-lg"
+                          alt=""
+                        />
+                      </div>{" "}
+                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                        {" "}
+                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                          {" "}
+                          {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                          <p className="text-xl text-teal-500 font-bold text-center px-4">
+                            {data.title}
+                          </p>
+                          {btnIndex && picIndex === data.id && (
+                            <motion.div
+                              // className="box"
+                              whileHover={{ scale: 1.2 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                              }}
+                            >
+                              <Link href={"/donation"}>
+                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                    <span className="relative group-hover:text-white">
+                                      Donate Now
+                                    </span>
+                                  </span>
+                                </button>
+                              </Link>
+                            </motion.div>
+                          )}
+                        </div>{" "}
+                      </div>
+                    </div>
+                  </AnimatedComponentRight>
+                ) : data.id === 11 ||
+                  data.id === 14 ||
+                  data.id === 11 ||
+                  data.id === 20 ? (
+                  <AnimationTop key={index}>
+                    <div
+                      key={index}
+                      onMouseEnter={() => {
+                        setPicIndex(data.id);
+                        setBorder(!border);
+                        setBtnIndex(true);
+                        console.log(picIndex);
+                      }}
+                      onMouseLeave={() => {
+                        borderHandler();
+                        setBtnIndex(false);
+                      }}
+                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                        picIndex === data.id
+                          ? border
+                            ? "border-0"
+                            : "border-[3px]"
+                          : "border-[3px]"
+                      }`}
+                    >
+                      <div className="front group-hover:rotate-y-180 h-full w-full">
+                        <img
+                          src={data.img}
+                          className="w-full h-full opacity-90 rounded-lg"
+                          alt=""
+                        />
+                      </div>{" "}
+                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                        {" "}
+                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                          {" "}
+                          {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                          <p className="text-xl text-teal-500 font-bold text-center px-4">
+                            {data.title}
+                          </p>
+                          {btnIndex && picIndex === data.id && (
+                            <motion.div
+                              // className="box"
+                              whileHover={{ scale: 1.2 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                              }}
+                            >
+                              <Link href={"/donation"}>
+                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                    <span className="relative group-hover:text-white">
+                                      Donate Now
+                                    </span>
+                                  </span>
+                                </button>
+                              </Link>
+                            </motion.div>
+                          )}
+                        </div>{" "}
+                      </div>
+                    </div>
+                  </AnimationTop>
+                ) : (
+                  <AnimatedComponentRight key={index}>
+                    <div
+                      key={index}
+                      onMouseEnter={() => {
+                        setPicIndex(data.id);
+                        setBorder(!border);
+                        setBtnIndex(true);
+                        console.log(picIndex);
+                      }}
+                      onMouseLeave={() => {
+                        borderHandler();
+                        setBtnIndex(false);
+                      }}
+                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                        picIndex === data.id
+                          ? border
+                            ? "border-0"
+                            : "border-[3px]"
+                          : "border-[3px]"
+                      }`}
+                    >
+                      <div className="front group-hover:rotate-y-180 h-full w-full">
+                        <img
+                          src={data.img}
+                          className="w-full h-full opacity-90 rounded-lg"
+                          alt=""
+                        />
+                      </div>{" "}
+                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                        {" "}
+                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                          {" "}
+                          {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                          <p className="text-xl text-teal-500 font-bold text-center px-4">
+                            {data.title}
+                          </p>
+                          {btnIndex && picIndex === data.id && (
+                            <motion.div
+                              // className="box"
+                              whileHover={{ scale: 1.2 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 10,
+                              }}
+                            >
+                              <Link href={"/donation"}>
+                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                    <span className="relative group-hover:text-white">
+                                      Donate Now
+                                    </span>
+                                  </span>
+                                </button>
+                              </Link>
+                            </motion.div>
+                          )}
+                        </div>{" "}
+                      </div>
+                    </div>
+                  </AnimatedComponentRight>
+                )
+
+              // </motion.div>
+            )}
+            {/* </div> */}
           </div>
           <Link
             href={"/gallery"}

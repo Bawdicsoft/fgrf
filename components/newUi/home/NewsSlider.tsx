@@ -14,13 +14,13 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/2.mp4" },
-  { video: "/Videonews/3.mp4" },
-  { video: "/Videonews/4.mp4" },
-  { video: "/Videonews/5.mp4" },
-  { video: "/Videonews/5.mp4" },
-  { video: "/Videonews/7.mp4" },
-  { video: "/Videonews/12.mp4" },
+  { video: "/Videonews/2.mp4", img: "/video/thumbnail/1.png" },
+  { video: "/Videonews/3.mp4", img: "/video/thumbnail/2.png" },
+  { video: "/Videonews/4.mp4", img: "/video/thumbnail/7.png" },
+  { video: "/Videonews/5.mp4", img: "/video/thumbnail/6.png" },
+  { video: "/Videonews/5.mp4", img: "/video/thumbnail/1.png" },
+  { video: "/Videonews/7.mp4", img: "/video/thumbnail/8.png" },
+  { video: "/Videonews/12.mp4", img: "/video/thumbnail/2.png" },
   // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
@@ -79,19 +79,21 @@ export default function NewsSlider() {
             }
             onMouseEnter={() => setPause(!pause)}
           >
-            {imageIndex === index && video ? (
-              <video className="h-full w-full" controls autoPlay>
-                <source src={videoItems.video} type="video/mp4" />
-              </video>
-            ) : (
-              <Image
-                src="/video/thumnail1.jpg"
-                alt={"thumNail"}
-                width={800}
-                height={800}
-                className="h-full w-full  object-cover"
-              />
-            )}
+            <div className="w-full lg:h-40">
+              {imageIndex === index && video ? (
+                <video className="h-full w-full object-fill" controls autoPlay>
+                  <source src={videoItems.video} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={videoItems.img}
+                  alt={"thumNail"}
+                  width={800}
+                  height={800}
+                  className="h-full w-full  object-cover"
+                />
+              )}
+            </div>
             {iconsIndex === index && image ? (
               pause ? (
                 <FaCirclePause className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-14 h-14 md:w-10 md:h-14 text-white" />
