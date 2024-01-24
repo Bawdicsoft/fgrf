@@ -145,7 +145,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/8.png"
+                    src="/video/thumbnail/8.PNG"
                     alt={"thumNail"}
                     width={800}
                     height={800}

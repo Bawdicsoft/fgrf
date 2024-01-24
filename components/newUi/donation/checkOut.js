@@ -16,21 +16,20 @@
 //   });
 // }
 
-import { loadStripe } from "@stripe/stripe-js";
 // import { useRouter } from "next/router";
+import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const asyncStripe = loadStripe(process.env.NEXT_PUBLIC_KEY);
 
 const CheckoutButton = ({ amount }) => {
-  // const router = useRouter();
-
+  const router = useRouter();
   const handler = async () => {
     try {
       const stripe = await asyncStripe;
       axios
-        .post("http://localhost:8000/session", {
+        .post("/api/session", {
           amount,
         })
         .then(function (response) {
@@ -39,26 +38,14 @@ const CheckoutButton = ({ amount }) => {
         .catch(function (error) {
           console.log("error---->", error);
         });
-      // const res = await fetch("http://localhost:8000/session", {
-      //   method: "POST",
-      //   body: JSON.stringify({
-      //     amount,
-      //   }),
-      //   headers: { "Content-Type": "application/json" },
-      // });
-
-      // const { sessionId } = await res.json();
-      // console.log(sessionId);
-
-      // const { error } = await stripe.redirectToCheckout({ sessionId });
-      // console.log(error);
-      // if (error) {
-      //   // router.push("/error");
-      //   console.log(error);
-      // }
+      const { error } = await stripe.redirectToCheckout({ sessionId });
+      console.log(error);
+      if (error) {
+        router.push("/success");
+      }
     } catch (err) {
       console.log(err);
-      // router.push("/error");
+      router.push("/error");
     }
   };
 

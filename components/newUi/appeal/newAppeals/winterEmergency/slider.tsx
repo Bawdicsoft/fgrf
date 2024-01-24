@@ -9,10 +9,10 @@ import "swiper/css/pagination";
 
 // import "./styles.css";
 const imageList = [
-  "/AppealNew/winter/1.png",
+  // "/AppealNew/winter/1.png",
   "/AppealNew/winter/2.png",
-  "/AppealNew/winter/3.png",
-  "/AppealNew/winter/4.png",
+  // "/AppealNew/winter/3.png",
+  // "/AppealNew/winter/4.png",
   "/AppealNew/winter/5.png",
   "/AppealNew/winter/6.png",
   "/AppealNew/winter/7.png",
@@ -21,7 +21,7 @@ const imageList = [
   "/AppealNew/winter/10.png",
   "/AppealNew/winter/11.png",
   "/AppealNew/winter/12.png",
-  "/AppealNew/winter/13.png",
+  // "/AppealNew/winter/13.png",
 ];
 const imageList1 = [
   "/AppealNew/winter/1.png",

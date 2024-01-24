@@ -98,7 +98,7 @@ const WinterBannerSection = () => {
           <Image
             src={"/AppealNew/winter/12.png"}
             alt="winter img1"
-            className="w-full h-full"
+            className="w-full h-full rounded-lg"
             width={600}
             height={600}
           />
@@ -110,7 +110,7 @@ const WinterBannerSection = () => {
           <Image
             src={"/AppealNew/winter/11.png"}
             alt="winter img1"
-            className="w-full h-full"
+            className="w-full h-full rounded-lg"
             width={600}
             height={600}
           />
