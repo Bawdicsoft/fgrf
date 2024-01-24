@@ -24,28 +24,38 @@ import axios from "axios";
 const asyncStripe = loadStripe(process.env.NEXT_PUBLIC_KEY);
 
 const CheckoutButton = ({ amount }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   const handler = async () => {
     try {
       const stripe = await asyncStripe;
-      const res = await fetch("http://localhost:8000/session", {
-        method: "POST",
-        body: JSON.stringify({
+      axios
+        .post("http://localhost:8000/session", {
           amount,
-        }),
-        headers: { "Content-Type": "application/json" },
-      });
+        })
+        .then(function (response) {
+          console.log("response----> ", response);
+        })
+        .catch(function (error) {
+          console.log("error---->", error);
+        });
+      // const res = await fetch("http://localhost:8000/session", {
+      //   method: "POST",
+      //   body: JSON.stringify({
+      //     amount,
+      //   }),
+      //   headers: { "Content-Type": "application/json" },
+      // });
 
-      const { sessionId } = await res.json();
-      console.log(sessionId);
+      // const { sessionId } = await res.json();
+      // console.log(sessionId);
 
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-      console.log(error);
-      if (error) {
-        // router.push("/error");
-        console.log(error);
-      }
+      // const { error } = await stripe.redirectToCheckout({ sessionId });
+      // console.log(error);
+      // if (error) {
+      //   // router.push("/error");
+      //   console.log(error);
+      // }
     } catch (err) {
       console.log(err);
       // router.push("/error");
