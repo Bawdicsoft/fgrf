@@ -12,12 +12,12 @@ import Image from "next/image";
 export default function DonationSlider9() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/AppealNew/Zakat/1.jpg",
-    "/AppealNew/Zakat/2.jpg",
-    "/AppealNew/Zakat/3.jpg",
-    "/AppealNew/Zakat/4.jpg",
-    "/AppealNew/Zakat/5.jpg",
-    "/AppealNew/Zakat/6.jpg",
+    "/AppealNew/Zakat/zakat1.jpeg",
+    "/AppealNew/Zakat/zakat2.jpeg",
+    "/AppealNew/Zakat/zakat3.jpeg",
+    "/AppealNew/Zakat/zakat4.jpeg",
+    "/AppealNew/Zakat/zakat5.jpeg",
+    // "/AppealNew/Zakat/zakat6.jpeg",
     // "/AppealNew/Zakat/7.jpg",
   ];
   return (
@@ -31,8 +31,11 @@ export default function DonationSlider9() {
         className="mySwiper2 rounded-md"
       >
         {imgList.map((img, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="relative">
             <Image src={img} alt="Image" width={400} height={400} />
+            <span className="absolute bg-gray-200 text-teal-500 font-semibold py-2  rounded-md  w-10/12 top-3/4">
+              Zakat
+            </span>
           </SwiperSlide>
         ))}
       </Swiper>

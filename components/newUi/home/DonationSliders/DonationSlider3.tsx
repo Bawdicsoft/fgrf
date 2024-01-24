@@ -12,12 +12,11 @@ import Image from "next/image";
 export default function DonationSlider3() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/AppealNew/food/1.jpg",
-    "/AppealNew/food/2.png",
-    "/AppealNew/food/3.jpg",
-    "/AppealNew/food/4.jpg",
-    "/AppealNew/food/5.jpg",
-    "/AppealNew/food/6.jpg",
+    "/AppealNew/food/foodBox1.jpeg",
+    "/AppealNew/food/foodBox2.jpeg",
+    "/AppealNew/food/foodBox3.jpeg",
+    "/AppealNew/food/foodBox4.jpeg",
+    "/AppealNew/food/foodBox5.jpeg",
   ];
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
@@ -30,8 +29,11 @@ export default function DonationSlider3() {
         className="mySwiper2 rounded-md"
       >
         {imgList.map((img, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="relative">
             <Image src={img} alt="Image" width={400} height={400} />
+            <span className="absolute bg-gray-200 text-teal-500 font-semibold py-2  rounded-md  w-10/12 top-3/4">
+              Food Packages
+            </span>
           </SwiperSlide>
         ))}
       </Swiper>

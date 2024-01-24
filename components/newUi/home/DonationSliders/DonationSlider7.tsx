@@ -30,8 +30,11 @@ export default function DonationSlider7() {
         className="mySwiper2 rounded-md"
       >
         {imgList.map((img, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="relative">
             <Image src={img} alt="Image" width={400} height={400} />
+            <span className="absolute bg-gray-200 text-teal-500 font-semibold py-2  rounded-md  w-10/12 top-3/4">
+              Sadaqah
+            </span>
           </SwiperSlide>
         ))}
       </Swiper>

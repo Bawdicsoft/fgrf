@@ -9,17 +9,16 @@ import "./DonationSlider.css";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
 
-export default function DonationSlider6() {
+export default function DonationSlider10() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/AppealNew/Orphan/1.jpg",
-    "/AppealNew/Orphan/2.jpg",
-    // "/AppealNew/Orphan/3.jpg",
-    "/AppealNew/Orphan/4.jpg",
-    "/AppealNew/Orphan/5.jpg",
-    "/AppealNew/Orphan/6.jpg",
-    "/AppealNew/Orphan/7.jpg",
-    "/AppealNew/Orphan/8.jpg",
+    "/AppealNew/iftar/iftar1.jpeg",
+    "/AppealNew/iftar/iftar2.jpeg",
+    "/AppealNew/iftar/iftar3.jpeg",
+    "/AppealNew/iftar/iftar4.jpeg",
+    "/AppealNew/iftar/iftar5.jpeg",
+    // "/AppealNew/Zakat/zakat6.jpeg",
+    // "/AppealNew/Zakat/7.jpg",
   ];
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
@@ -34,8 +33,8 @@ export default function DonationSlider6() {
         {imgList.map((img, index) => (
           <SwiperSlide key={index} className="relative">
             <Image src={img} alt="Image" width={400} height={400} />
-            <span className="absolute bg-gray-200 text-teal-500 font-semibold py-2  rounded-md  w-10/12 top-3/4">
-              Orphan
+            <span className="absolute bg-gray-100 text-teal-500 font-semibold py-2  rounded-md  w-10/12 top-3/4">
+              Iftar Box
             </span>
           </SwiperSlide>
         ))}

@@ -21,6 +21,7 @@ import DonationSlider6 from "./DonationSliders/DonationSlider6";
 import DonationSlider7 from "./DonationSliders/DonationSlider7";
 import DonationSlider8 from "./DonationSliders/DonationSlider8";
 import DonationSlider9 from "./DonationSliders/DonationSlider9";
+import DonationSlider10 from "./DonationSliders/DonationSlider10";
 // import DonationSlider from "./DonationSlider";
 
 const Appeals = () => {
@@ -111,7 +112,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <DonationSlider1 />
+                <DonationSlider10 />
               </motion.div>
             </AnimatedComponentLeft>
 
@@ -397,6 +398,38 @@ const Appeals = () => {
               </motion.div>
             </AnimationTop>
           </div>
+          {/* <div className="col-span-1 text-center">
+            <AnimatedComponentRight>
+              <motion.div
+                className="box"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <DonationSlider10 />
+              </motion.div>
+            </AnimatedComponentRight>
+
+            <AnimationTop>
+              <motion.div
+                // className="box"
+                whileHover={{ scale: 1.2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <Link href={"/donation"}>
+                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                      <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                      <span className="relative group-hover:text-white">
+                        Donate Now
+                      </span>
+                    </span>
+                  </button>
+                </Link>
+              </motion.div>
+            </AnimationTop>
+          </div> */}
         </div>
         <div className="w-full absolute top-0 right-0 z-[-1]">
           <img src="./img/new-img/map.png" className="w-full h-full" alt="" />

@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import { checkout } from "./checkOut";
+// import { checkout } from "./checkOut";
 import MyPayPalButton from "./paypalBtn";
+import CheckoutButton from "./checkOut";
 interface PaymentProps {
   dollarDonate: number;
   titleDonate: string;
@@ -40,16 +41,16 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
             Donate now
           </button> */}
           {/* Stripe Code */}
-          <a
+          {/* <a
             href="https://donate.stripe.com/test_5kA9Clf89bbgfCw289"
             className="font-bold rounded-2xl text-white py-2 px-4 bg-red-600 hover:bg-red-400 mr-4"
           >
             Donate With Stripe
-          </a>
+          </a> */}
+          {/* stripe today */}
+          <CheckoutButton amount={dollarDonate} />
           {/* Today Code paypal Button*/}
-
           <MyPayPalButton amount={dollarDonate} currency="USD" />
-
           {/* )} */}
         </div>
       </div>
