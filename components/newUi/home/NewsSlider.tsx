@@ -17,7 +17,7 @@ const videosList = [
   { video: "/Videonews/2.mp4", img: "/video/thumbnail/1.PNG" },
   { video: "/Videonews/3.mp4", img: "/video/thumbnail/2.PNG" },
   { video: "/Videonews/4.mp4", img: "/video/thumbnail/7.PNG" },
-  { video: "/Videonews/5.mp4", img: "/video/thumbnail/6.png" },
+  { video: "/Videonews/5.mp4", img: "/video/thumbnail/6.PNG" },
   { video: "/Videonews/5.mp4", img: "/video/thumbnail/1.PNG" },
   { video: "/Videonews/7.mp4", img: "/video/thumbnail/8.PNG" },
   { video: "/Videonews/12.mp4", img: "/video/thumbnail/2.PNG" },
