@@ -16,13 +16,13 @@ import AnimationTop from "./AnimationTop";
 const Achievement = () => {
   const data = [
     {
-      img: "/AchievementNew/6.jpg",
+      img: "/AchievementNew/6.JPG",
     },
     {
-      img: "/AchievementNew/7.jpg",
+      img: "/AchievementNew/7.JPG",
     },
     {
-      img: "/AchievementNew/8.jpg",
+      img: "/AchievementNew/8.JPG",
     },
     // {
     //   img: '/img/index4.jpeg',

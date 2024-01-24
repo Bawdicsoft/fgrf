@@ -105,7 +105,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/2.png"
+                    src="/video/thumbnail/2.PNG"
                     alt={"thumNail"}
                     width={800}
                     height={800}
@@ -184,7 +184,7 @@ const NewsSection: React.FC = () => {
               </video>
             ) : (
               <Image
-                src="/video/thumbnail/1.png"
+                src="/video/thumbnail/1.PNG"
                 alt={"thumNail"}
                 width={800}
                 height={800}
@@ -224,7 +224,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/6.png"
+                    src="/video/thumbnail/6.PNG"
                     alt={"thumNail"}
                     width={800}
                     height={800}
@@ -264,7 +264,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/7.png"
+                    src="/video/thumbnail/7.PNG"
                     alt={"thumNail"}
                     width={800}
                     height={800}

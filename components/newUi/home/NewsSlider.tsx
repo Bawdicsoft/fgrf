@@ -14,13 +14,13 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/2.mp4", img: "/video/thumbnail/1.png" },
-  { video: "/Videonews/3.mp4", img: "/video/thumbnail/2.png" },
-  { video: "/Videonews/4.mp4", img: "/video/thumbnail/7.png" },
+  { video: "/Videonews/2.mp4", img: "/video/thumbnail/1.PNG" },
+  { video: "/Videonews/3.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/4.mp4", img: "/video/thumbnail/7.PNG" },
   { video: "/Videonews/5.mp4", img: "/video/thumbnail/6.png" },
-  { video: "/Videonews/5.mp4", img: "/video/thumbnail/1.png" },
+  { video: "/Videonews/5.mp4", img: "/video/thumbnail/1.PNG" },
   { video: "/Videonews/7.mp4", img: "/video/thumbnail/8.PNG" },
-  { video: "/Videonews/12.mp4", img: "/video/thumbnail/2.png" },
+  { video: "/Videonews/12.mp4", img: "/video/thumbnail/2.PNG" },
   // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
