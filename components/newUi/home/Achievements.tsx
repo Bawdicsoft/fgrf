@@ -86,9 +86,9 @@ const Achievement = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="bg-[#012565] rounded-lg p-3">
-                <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
+                {/* <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
                   Letter of Appreciation
-                </h2>
+                </h2> */}
                 <div className="">
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div
@@ -107,9 +107,9 @@ const Achievement = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="bg-[#012565] rounded-lg p-3">
-                <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
+                {/* <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
                   Letter of Appreciation
-                </h2>
+                </h2> */}
                 <div className="">
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div
@@ -128,9 +128,9 @@ const Achievement = () => {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <div className="bg-[#012565] rounded-lg p-3">
-                <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
+                {/* <h2 className="uppercase text-[#71b1fe] text-2xl text-center py-2">
                   Letter of Appreciation
-                </h2>
+                </h2> */}
                 <div className="">
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div

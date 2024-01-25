@@ -260,7 +260,7 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/21.mp4" type="video/mp4" />
+                    <source src="/Videonews/21.webm" type="video/webm" />
                   </video>
                 ) : (
                   <Image
