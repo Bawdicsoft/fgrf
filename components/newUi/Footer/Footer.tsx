@@ -121,11 +121,11 @@ const Footer = () => {
               </p>
               <p className="text-xs text-center">
                 Faizan Global Relief Foundation UK 24 WITTON ROAD,BIRMINGHAM B6
-                6NX, Birmingham, United Kingdom
+                6NX, Birmingham, United-Kingdom
               </p>
-              <p className="text-xs text-center">
+              {/* <p className="text-xs text-center">
                 Registered Charity, number 1200869
-              </p>
+              </p> */}
               {/* <p className="text-sm text-gray-500 text-center">
                 Penny Appeal is a UK registered charity 1128341 and UK
                 registered company 06578382.
@@ -143,10 +143,10 @@ const Footer = () => {
                   Privacy Policy
                 </Link>
                 |
-                <Link href={"#"} className="text-[#19afaf]">
+                {/* <Link href={"#"} className="text-[#19afaf]">
                   Complaints Procedure
-                </Link>
-                © 2024 Fgrf.org
+                </Link> */}
+                © 2024 Fgrf.uk Registered Charity, number 1200869
               </div>
               <span className="text-[12px] text-gray-500 text-center">
                 Powered by{" "}

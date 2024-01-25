@@ -11,12 +11,14 @@ const gallery = [
   {
     id: 1,
     img: "./GalleryNew1/bbc.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title:
+      "BBC NEWS COVERS FGRF'S HUMANITARIAN SUPPORT EFFORTS FOR THE PEOPLE OF PALESTINE 🇵🇸",
   },
   {
     id: 2,
     img: "./GalleryNew1/morco1.jpg",
-    title: "Morocco earthquake 2023 FGRF Humanitarian Support",
+    title:
+      "Metting with Turkish officials disaster management (1)Afad (2)Dayanat (3)Turkey red crescent",
   },
   {
     id: 3,
@@ -26,12 +28,12 @@ const gallery = [
   {
     id: 4,
     img: "./GalleryNew1/palestine2.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Morocco Earthquake  2023 Fgrf humanitarian support",
   },
   {
     id: 5,
     img: "./GalleryNew1/morco2.jpg",
-    title: "Morocco earthquake 2023 FGRF Humanitarian Support",
+    title: "Morocco Earthquake  2023 Fgrf humanitarian support",
   },
   {
     id: 6,
@@ -41,52 +43,55 @@ const gallery = [
   {
     id: 7,
     img: "./GalleryNew1/palestine1.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Sponsor a Water well this Ramadan with FGRF.",
   },
   {
     id: 8,
     img: "./GalleryNew1/health.jpeg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Sponsor a Water Hand pump this Ramadan with fgrf",
   },
   {
     id: 9,
     img: "./GalleryNew1/turkey.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Fgrf providing live saving aid turkiye and Syria earthquake",
   },
   {
     id: 10,
     img: "./GalleryNew1/11.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Food Distribution for flood Effectiees in Malawi",
   },
   {
     id: 11,
     img: "./GalleryNew1/10.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title:
+      "18000 acres lands fertilizers and seeds to fertilise again on flood areas in Kasoor, pakistan",
   },
   {
     id: 12,
     img: "./GalleryNew1/9.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "FGRF'S HUMANITARIAN SUPPORT IN TANZANIA.",
   },
   {
     id: 13,
     img: "./GalleryNew1/8.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "Mega Free Medical Camp in pakistan",
   },
   {
     id: 14,
     img: "./GalleryNew1/7.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title:
+      "We care, we diagnosis we treat & we help For better mental health and well-being.",
   },
   {
     id: 15,
     img: "./GalleryNew1/6.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title:
+      "In the embrace of FGRF'S caring hands. Each brick a promise to rebuild and restore.",
   },
   {
     id: 16,
     img: "./GalleryNew1/5.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    title: "HFood Distribution in Ghambia",
   },
   {
     id: 17,
@@ -489,7 +494,7 @@ const Gallery: React.FC = () => {
                   </AnimatedComponentRight>
                 ) : data.id === 11 ||
                   data.id === 14 ||
-                  data.id === 11 ||
+                  data.id === 17 ||
                   data.id === 20 ? (
                   <AnimationTop key={index}>
                     <div

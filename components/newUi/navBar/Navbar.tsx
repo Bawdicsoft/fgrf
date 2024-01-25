@@ -339,8 +339,8 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 place-content-center">
-              <div className="md:col-span-2 flex justify-between items-center px-3">
-                <h1
+              <div className="md:col-span-2 flex justify-center items-center px-3">
+                {/* <h1
                   className={`
                   text-base font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
@@ -350,7 +350,7 @@ export default function Navbar() {
               }`}
                 >
                   Call now
-                </h1>
+                </h1> */}
                 <motion.div
                   whileHover={{
                     scale: 1.3,
@@ -364,12 +364,13 @@ export default function Navbar() {
                   }}
                 >
                   <div
-                    className={`flex justify-start items-center hover:text-red-400 hover:font-bold ${
-                      show3 ? "lg:ml-10" : ""
-                    }`}
+                    className={`flex items-center font-semibold text-gray-500 hover:text-red-400 hover:font-bold`}
+                    //  ${
+                    //   show3 ? "lg:ml-5" : ""
+                    // }
                   >
-                    <FiPhoneCall className="w-3.5 h-3.5" />
-                    <span className="text-base pl-1">+44 7300 559919</span>
+                    <FiPhoneCall className="w-4.5 h-4.5" />
+                    <span className="text-lg pl-1">+44 7300 559919</span>
                   </div>
                 </motion.div>
               </div>
