@@ -21,7 +21,7 @@ export default function Navbar() {
     "Monday",
     "Tuesday",
     "Wednesday",
-    "Thirsday",
+    "Thursday",
     "Friday",
     "Saturday",
   ];

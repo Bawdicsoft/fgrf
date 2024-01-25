@@ -138,7 +138,7 @@ const OurDepartments = () => {
     setShowBlob(true);
   };
   return (
-    <div className="max-w-7xl mx-auto py-6">
+    <div className="max-w-7xl mx-auto py-6 relative bg-center bg-no-repeat bg-cover">
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
         <AnimationTop>
           <motion.div
@@ -162,7 +162,7 @@ const OurDepartments = () => {
       {/* <h1 id="text3d">Our Department</h1> */}
       <div
         id="depart-box-shadow"
-        className="mt-8 rounded-2xl max-w-6xl mx-5 xl:mx-auto py-2"
+        className="mt-8 rounded-2xl max-w-6xl mx-5 xl:mx-auto "
       >
         {" "}
         <Swiper
@@ -181,8 +181,8 @@ const OurDepartments = () => {
             } as any
           }
         >
-          <SwiperSlide className="!bg-[#075985]">
-            <div className="lg:px-10 bg-[#075985]">
+          <SwiperSlide className="">
+            <div className="lg:px-10 bg-[#075985] py-1">
               <div className="grid lg:grid-cols-7 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
                 {/* <AnimatedComponentLeft> */}{" "}
                 {data.slice(0, 3).map((data, index) => (
@@ -284,8 +284,8 @@ const OurDepartments = () => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="!bg-[#075985]">
-            <div className="lg:px-10 bg-[#075985]">
+          <SwiperSlide className="">
+            <div className="lg:px-10 bg-[#075985] py-1">
               <div className="grid lg:grid-cols-7 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
                 {/* <AnimatedComponentLeft> */}{" "}
                 {data.slice(0, 3).map((data, index) => (
@@ -396,6 +396,9 @@ const OurDepartments = () => {
             style={{ height: "100px", width: "50px" }}
           />
         </div> */}
+      </div>
+      <div className="w-full absolute top-0 right-0 -z-30">
+        <img src="./img/new-img/map.png" className="w-full h-full" alt="" />
       </div>
     </div>
   );

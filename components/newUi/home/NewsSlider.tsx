@@ -14,13 +14,13 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/2.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/3.mp4", img: "/video/thumbnail/2.PNG" },
-  { video: "/Videonews/4.mp4", img: "/video/thumbnail/7.PNG" },
-  { video: "/Videonews/5.mp4", img: "/video/thumbnail/6.PNG" },
-  { video: "/Videonews/5.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/7.mp4", img: "/video/thumbnail/8.PNG" },
-  { video: "/Videonews/12.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/18.mp4", img: "/video/thumbnail/1.PNG" },
+  { video: "/Videonews/19.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/20.mp4", img: "/video/thumbnail/7.PNG" },
+  { video: "/Videonews/21.mp4", img: "/video/thumbnail/6.PNG" },
+  { video: "/Videonews/22.mp4", img: "/video/thumbnail/1.PNG" },
+  { video: "/Videonews/23.mp4", img: "/video/thumbnail/8.PNG" },
+  { video: "/Videonews/24.mp4", img: "/video/thumbnail/2.PNG" },
   // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
@@ -79,9 +79,9 @@ export default function NewsSlider() {
             }
             onMouseEnter={() => setPause(!pause)}
           >
-            <div className="w-full lg:h-40">
+            <div className="w-full lg:h-60">
               {imageIndex === index && video ? (
-                <video className="h-full w-full object-fill" controls autoPlay>
+                <video className="h-full w-full object-cover" controls autoPlay>
                   <source src={videoItems.video} type="video/mp4" />
                 </video>
               ) : (

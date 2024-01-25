@@ -12,10 +12,10 @@ import Image from "next/image";
 export default function DonationSlider2() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/AppealNew/winter/1.png",
+    // "/AppealNew/winter/1.png",
     "/AppealNew/winter/2.png",
-    "/AppealNew/winter/3.png",
-    "/AppealNew/winter/4.png",
+    // "/AppealNew/winter/3.png",
+    // "/AppealNew/winter/4.png",
     "/AppealNew/winter/5.png",
     "/AppealNew/winter/6.png",
     "/AppealNew/winter/7.png",
@@ -24,7 +24,7 @@ export default function DonationSlider2() {
     "/AppealNew/winter/10.png",
     "/AppealNew/winter/11.png",
     "/AppealNew/winter/12.png",
-    "/AppealNew/winter/13.png",
+    // "/AppealNew/winter/13.png",
   ];
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">

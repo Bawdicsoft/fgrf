@@ -10,109 +10,109 @@ import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 const gallery = [
   {
     id: 1,
-    img: "./GalleryNew1/bbc.jpg",
+    img: "./GalleryNew1/01.png",
     title:
-      "BBC NEWS COVERS FGRF'S HUMANITARIAN SUPPORT EFFORTS FOR THE PEOPLE OF PALESTINE 🇵🇸",
+      "BBC NEWS COVERS FGRF'S HUMANITARIAN SUPPORT EFFORTS FOR THE PEOPLE OF PALESTINE",
   },
   {
     id: 2,
-    img: "./GalleryNew1/morco1.jpg",
-    title:
-      "Metting with Turkish officials disaster management (1)Afad (2)Dayanat (3)Turkey red crescent",
+    img: "./GalleryNew1/03.png",
+    title: "collaborate with FGRF to the help distressed Palestinian Muslims",
   },
   {
     id: 3,
-    img: "./GalleryNew1/food.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    img: "./GalleryNew1/07.png",
+    title: "Meeting with turkiye officials FGRF welfare Activities",
   },
   {
     id: 4,
-    img: "./GalleryNew1/palestine2.jpg",
-    title: "Morocco Earthquake  2023 Fgrf humanitarian support",
+    img: "./GalleryNew1/02.png",
+    title:
+      "All cover FGRF's efforts to help those affected by the devastating earthquake in Morocco",
   },
   {
     id: 5,
-    img: "./GalleryNew1/morco2.jpg",
-    title: "Morocco Earthquake  2023 Fgrf humanitarian support",
+    img: "./GalleryNew1/05.png",
+    title:
+      "Ration parcels being packed in Istanbul,turkiye  for Palestinian brothers and sisters",
   },
   {
     id: 6,
-    img: "./GalleryNew1/turkey1.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
+    img: "./GalleryNew1/08.png",
+    title: "Meeting with turkiye officials FGRF welfare Activities",
   },
   {
     id: 7,
-    img: "./GalleryNew1/palestine1.jpg",
-    title: "Sponsor a Water well this Ramadan with FGRF.",
+    img: "./GalleryNew1/04.png",
+    title: "collaborate with FGRF to the help distressed Palestinian Muslims",
   },
   {
     id: 8,
-    img: "./GalleryNew1/health.jpeg",
-    title: "Sponsor a Water Hand pump this Ramadan with fgrf",
+    img: "./GalleryNew1/06.png",
+    title: "Meeting with turkiye officials FGRF welfare Activities",
   },
   {
     id: 9,
-    img: "./GalleryNew1/turkey.jpg",
-    title: "Fgrf providing live saving aid turkiye and Syria earthquake",
+    img: "./GalleryNew1/09.png",
+    title: "Please Support FGRF in Dealing with this Deadly Tragedy in morocco",
   },
   {
     id: 10,
-    img: "./GalleryNew1/11.jpg",
-    title: "Food Distribution for flood Effectiees in Malawi",
+    img: "./GalleryNew1/10.png",
+    title:
+      "Gas Cylinders provided to over 1000 people impacted by the recent earthquake in Morocco to help during the winter period.",
   },
   {
     id: 11,
-    img: "./GalleryNew1/10.jpg",
-    title:
-      "18000 acres lands fertilizers and seeds to fertilise again on flood areas in Kasoor, pakistan",
+    img: "./GalleryNew1/1.jpg",
+    title: "FGRF Responded to the devastating earthquake in turkey and syria.",
   },
   {
     id: 12,
-    img: "./GalleryNew1/9.jpg",
-    title: "FGRF'S HUMANITARIAN SUPPORT IN TANZANIA.",
+    img: "./GalleryNew1/12.png",
+    title: "Sponsor a water well this ramadan with fgrf",
   },
   {
     id: 13,
-    img: "./GalleryNew1/8.jpg",
-    title: "Mega Free Medical Camp in pakistan",
+    img: "./GalleryNew1/13.png",
+    title: "sponsor a water hand pump this ramadan with fgrf",
   },
   {
     id: 14,
-    img: "./GalleryNew1/7.jpg",
-    title:
-      "We care, we diagnosis we treat & we help For better mental health and well-being.",
+    img: "./GalleryNew1/14.png",
+    title: "extend our reach to undeserved community",
   },
-  {
-    id: 15,
-    img: "./GalleryNew1/6.jpg",
-    title:
-      "In the embrace of FGRF'S caring hands. Each brick a promise to rebuild and restore.",
-  },
-  {
-    id: 16,
-    img: "./GalleryNew1/5.jpg",
-    title: "HFood Distribution in Ghambia",
-  },
-  {
-    id: 17,
-    img: "./GalleryNew1/4.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
-  },
-  {
-    id: 18,
-    img: "./GalleryNew1/3.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
-  },
-  {
-    id: 19,
-    img: "./GalleryNew1/2.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
-  },
-  {
-    id: 20,
-    img: "./GalleryNew1/1.jpg",
-    title: "Humanitarian support efforts for the people of palestine",
-  },
+  // {
+  //   id: 15,
+  //   img: "./GalleryNew1/6.jpg",
+  //   title:
+  //     "In the embrace of FGRF'S caring hands. Each brick a promise to rebuild and restore.",
+  // },
+  // {
+  //   id: 16,
+  //   img: "./GalleryNew1/5.jpg",
+  //   title: "HFood Distribution in Ghambia",
+  // },
+  // {
+  //   id: 17,
+  //   img: "./GalleryNew1/4.jpg",
+  //   title: "Humanitarian support efforts for the people of palestine",
+  // },
+  // {
+  //   id: 18,
+  //   img: "./GalleryNew1/3.jpg",
+  //   title: "Humanitarian support efforts for the people of palestine",
+  // },
+  // {
+  //   id: 19,
+  //   img: "./GalleryNew1/2.jpg",
+  //   title: "Humanitarian support efforts for the people of palestine",
+  // },
+  // {
+  //   id: 20,
+  //   img: "./GalleryNew1/1.jpg",
+  //   title: "Humanitarian support efforts for the people of palestine",
+  // },
 ];
 
 const Gallery: React.FC = () => {
@@ -415,12 +415,9 @@ const Gallery: React.FC = () => {
               </div>
             </AnimatedComponentRight>
             {/* <div className="flex justify-center items-center gap-5 md:gap-6 lg:gap-10"> */}
-            {gallery.slice(9, 20).map(
+            {gallery.slice(9, 14).map(
               (data, index) =>
-                data.id === 10 ||
-                data.id === 13 ||
-                data.id === 16 ||
-                data.id === 19 ? (
+                data.id === 10 || data.id === 13 ? (
                   <AnimatedComponentRight key={index}>
                     <div
                       key={index}
@@ -492,10 +489,7 @@ const Gallery: React.FC = () => {
                       </div>
                     </div>
                   </AnimatedComponentRight>
-                ) : data.id === 11 ||
-                  data.id === 14 ||
-                  data.id === 17 ||
-                  data.id === 20 ? (
+                ) : data.id === 11 || data.id === 14 ? (
                   <AnimationTop key={index}>
                     <div
                       key={index}

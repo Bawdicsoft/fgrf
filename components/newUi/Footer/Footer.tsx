@@ -81,15 +81,20 @@ const Footer = () => {
         </div> */}
         <div className="flex flex-col ">
           <div className="flex justify-evenly flex-wrap items-center py-4">
-            <div className="">
-              {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
+            {/* <div className=""> */}
+            {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
+            <span className="flex flex-col self-end">
               <span className="text-gray-500 font-bold text-3xl relative">
                 fgrf.uk
                 <span>
-                  <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute top-0 -right-3" />
+                  <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute -top-1 left-1/2" />
                 </span>
               </span>
-            </div>
+              <span className="text-gray-500 text-[10px]">
+                Registered Charity, number 1200869
+              </span>
+            </span>
+            {/* </div> */}
             <div className="text-center">
               <h2 className="font-medium text-base text-gray-500 hover:text-gray-400">
                 ABOUT US
@@ -121,8 +126,9 @@ const Footer = () => {
               </p>
               <p className="text-xs text-center">
                 Faizan Global Relief Foundation UK 24 WITTON ROAD,BIRMINGHAM B6
-                6NX, Birmingham, United-Kingdom
+                6NX,
               </p>
+              <p className="text-xs text-center">Birmingham, United Kingdom</p>
               {/* <p className="text-xs text-center">
                 Registered Charity, number 1200869
               </p> */}
@@ -143,17 +149,17 @@ const Footer = () => {
                   Privacy Policy
                 </Link>
                 |
-                {/* <Link href={"#"} className="text-[#19afaf]">
+                <Link href={"#"} className="text-[#19afaf]">
                   Complaints Procedure
-                </Link> */}
-                © 2024 Fgrf.uk Registered Charity, number 1200869
+                </Link>
+                © 2024 Fgrf.uk
               </div>
               <span className="text-[12px] text-gray-500 text-center">
                 Powered by{" "}
                 <a
                   href="https://BawdicSoft.com"
                   target="_blank"
-                  className="hover:text-sky-500"
+                  className="hover:text-sky-500 text-sky-600"
                 >
                   BawdicSoft
                 </a>
@@ -183,17 +189,17 @@ const Footer = () => {
                   <br /> water well
                   <span className="absolute h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 </div>
-                <div className="relative overflow-hidden group-hover:border bg-white p-2 text-[#19afaf]  font-bold rounded-md">
+                <div className="relative overflow-hidden border bg-white p-2 text-[#19afaf]  font-bold rounded-md">
                   <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                  <p className="flex items-center relative group-hover:text-white">
-                    &#163; 300
+                  <div className="flex items-center relative group-hover:text-white">
+                    &#163; 175
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-sky-500 font-bold"
+                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-sky-500"
                     >
                       <path
                         strokeLinecap="round"
@@ -201,7 +207,7 @@ const Footer = () => {
                         d="M8.25 4.5l7.5 7.5-7.5 7.5"
                       />
                     </svg>
-                  </p>
+                  </div>
                 </div>
               </div>
               {/* new */}

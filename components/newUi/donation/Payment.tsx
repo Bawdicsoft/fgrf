@@ -48,7 +48,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
             Donate With Stripe
           </a> */}
           {/* stripe today */}
-          <CheckoutButton amount={dollarDonate} />
+          {/* <CheckoutButton amount={dollarDonate} /> */}
           {/* Today Code paypal Button*/}
           <MyPayPalButton amount={dollarDonate} currency="USD" />
           {/* )} */}
