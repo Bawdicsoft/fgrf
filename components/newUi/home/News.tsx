@@ -101,7 +101,7 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/18.mp4" type="video/mp4" />
+                    <source src="/Videonews/3.mp4" type="video/mp4" />
                   </video>
                 ) : (
                   <Image
@@ -141,7 +141,7 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/19.mp4" type="video/mp4" />
+                    <source src="/Videonews/7.mp4" type="video/mp4" />
                   </video>
                 ) : (
                   <Image
@@ -220,7 +220,7 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/20.mp4" type="video/mp4" />
+                    <source src="/Videonews/23.webm" type="video/webm" />
                   </video>
                 ) : (
                   <Image

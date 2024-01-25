@@ -14,13 +14,14 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/18.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/19.mp4", img: "/video/thumbnail/2.PNG" },
-  { video: "/Videonews/20.mp4", img: "/video/thumbnail/7.PNG" },
-  { video: "/Videonews/21.mp4", img: "/video/thumbnail/6.PNG" },
-  { video: "/Videonews/22.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/23.mp4", img: "/video/thumbnail/8.PNG" },
-  { video: "/Videonews/24.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/8.mp4", img: "/video/thumbnail/1.PNG" },
+  { video: "/Videonews/9.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/10.mp4", img: "/video/thumbnail/7.PNG" },
+  { video: "/Videonews/11.mp4", img: "/video/thumbnail/6.PNG" },
+  { video: "/Videonews/13.mp4", img: "/video/thumbnail/1.PNG" },
+  { video: "/Videonews/14.mp4", img: "/video/thumbnail/8.PNG" },
+  { video: "/Videonews/15.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/16.mp4", img: "/video/thumbnail/2.PNG" },
   // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
