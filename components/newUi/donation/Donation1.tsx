@@ -51,6 +51,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [nextDet, setNextDet] = useState(false);
   const [check, setCheck] = useState(false);
   const [check1, setCheck1] = useState(false);
+  const [showFormText, setShowFormText] = useState(false);
 
   const orphanDollarHandler = (data: any[]) => {
     setOrphanDonationDollarArray(data);
@@ -74,13 +75,13 @@ const DonationSec: React.FC<DonationSecProps> = ({
       email &&
       contactNo &&
       address &&
-      address2 &&
+      // address2 &&
       city &&
       country
     ) {
-      setNextDet(true);
+      // setNextDet(true);
       setCheck1(true);
-      // setCheck(true);
+      setCheck(true);
     } else {
       console.log(
         title,
@@ -94,17 +95,20 @@ const DonationSec: React.FC<DonationSecProps> = ({
         country
       );
       setNextDet(false);
+      setShowFormText(true);
       // setCheck1(true);
     }
   };
 
   const nextHandler = () => {
-    if (titleDonate && check1) {
+    if (titleDonate && check1 && check) {
       setNextStep(true);
-      // setNextDet(true);
+      setNextDet(true);
+      console.log("I click1--->");
       // setCheck(true);
     } else if (titleDonate) {
       setNextStep(true);
+      console.log("I click2--->");
       // setCheck(true);
     } else {
       setAlertText(true);
@@ -115,6 +119,8 @@ const DonationSec: React.FC<DonationSecProps> = ({
     if (nextStep && nextDet) {
       setNextStep(true);
       setNextDet(false);
+      setCheck(false);
+      setCheck1(false);
     } else if (nextStep) {
       setNextStep(false);
       setNextDet(false);
@@ -415,6 +421,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
             <DetailsSec
               dollarDonate={dollarDonate}
               titleDonate={titleDonate}
+              showFormText={showFormText}
               submitHandler={nextDetHandler}
             />
           ) : (

@@ -15,10 +15,12 @@ interface DetailsSecProps {
 
   dollarDonate: number;
   titleDonate: string;
+  showFormText: boolean;
 }
 const DetailsSec: React.FC<DetailsSecProps> = ({
   dollarDonate,
   titleDonate,
+  showFormText,
   submitHandler,
 }) => {
   const [firstName, setFirstName] = useState("");
@@ -80,6 +82,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 <option>Msr</option>
                 <option>Dr</option>
               </select>
+              {showFormText && (
+                <p className="text-red-500 text-xs">Please Select One</p>
+              )}
             </div>
             <div className="md:col-span-2 mb-5">
               <label
@@ -97,6 +102,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 placeholder="First Name"
                 required
               />
+              <p className="text-red-500 text-xs">Please fill the blank</p>
             </div>
             <div className="md:col-span-2 mb-5">
               <label
@@ -114,6 +120,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 placeholder="Last Name"
                 required
               />
+              {showFormText && (
+                <p className="text-red-500 text-xs">Please fill the blank</p>
+              )}
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -133,6 +142,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 placeholder="your@email.com"
                 required
               />
+              {showFormText && (
+                <p className="text-red-500 text-xs">Please fill the blank</p>
+              )}
             </div>
             <div className="mb-5">
               <label
@@ -150,6 +162,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 placeholder="0237278327"
                 required
               />
+              {showFormText && (
+                <p className="text-red-500 text-xs">Please fill the blank</p>
+              )}
             </div>
           </div>
           <div className="mb-5">
@@ -168,6 +183,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               placeholder="123 High Street"
               required
             />
+            {showFormText && (
+              <p className="text-red-500 text-xs">Please fill the blank</p>
+            )}
           </div>
           <div className="mb-5">
             <label
@@ -203,6 +221,9 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 placeholder="Enter City"
                 required
               />
+              {showFormText && (
+                <p className="text-red-500 text-xs">Please fill the blank</p>
+              )}
             </div>
             <div className="mb-5">
               <label
@@ -242,6 +263,11 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
                 <option>Germany</option>
                 <option>Germany</option>
               </select>
+              {showFormText && (
+                <p className="text-red-500 text-xs">
+                  Please Select Your Country
+                </p>
+              )}
             </div>
           </div>
           <h2 className="text-3xl font-bold py-4 text-[#19afaf] text-center">
