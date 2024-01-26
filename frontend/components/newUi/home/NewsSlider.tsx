@@ -14,14 +14,14 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/8.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/9.mp4", img: "/video/thumbnail/2.PNG" },
-  { video: "/Videonews/10.mp4", img: "/video/thumbnail/7.PNG" },
-  { video: "/Videonews/11.mp4", img: "/video/thumbnail/6.PNG" },
-  { video: "/Videonews/13.mp4", img: "/video/thumbnail/1.PNG" },
-  { video: "/Videonews/14.mp4", img: "/video/thumbnail/8.PNG" },
-  { video: "/Videonews/15.mp4", img: "/video/thumbnail/2.PNG" },
-  { video: "/Videonews/16.mp4", img: "/video/thumbnail/2.PNG" },
+  { video: "/Videonews/18.webm", img: "/video/thumbnail/1.png" },
+  { video: "/Videonews/20.webm", img: "/video/thumbnail/2.png" },
+  { video: "/Videonews/23.webm", img: "/video/thumbnail/7.png" },
+  { video: "/Videonews/21.webm", img: "/video/thumbnail/6.png" },
+  // { video: "/Videonews/13.mp4", img: "/video/thumbnail/1.png" },
+  // { video: "/Videonews/14.mp4", img: "/video/thumbnail/8.png" },
+  // { video: "/Videonews/15.mp4", img: "/video/thumbnail/2.png" },
+  // { video: "/Videonews/16.mp4", img: "/video/thumbnail/2.png" },
   // { video: "/Videonews/16.mp4" },
 ];
 export default function NewsSlider() {
@@ -83,7 +83,7 @@ export default function NewsSlider() {
             <div className="w-full lg:h-60">
               {imageIndex === index && video ? (
                 <video className="h-full w-full object-cover" controls autoPlay>
-                  <source src={videoItems.video} type="video/mp4" />
+                  <source src={videoItems.video} type="video/webm" />
                 </video>
               ) : (
                 <Image

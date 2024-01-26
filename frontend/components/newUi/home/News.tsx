@@ -101,11 +101,11 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/3.mp4" type="video/mp4" />
+                    <source src="/Videonews/20.webm" type="video/webm" />
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/2.PNG"
+                    src="/video/thumbnail/2.png"
                     alt={"thumNail"}
                     width={800}
                     height={800}
@@ -141,11 +141,11 @@ const NewsSection: React.FC = () => {
                     controls
                     autoPlay
                   >
-                    <source src="/Videonews/7.mp4" type="video/mp4" />
+                    <source src="/Videonews/18.webm" type="video/webm" />
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/8.PNG"
+                    src="/video/thumbnail/8.png"
                     alt={"thumNail"}
                     width={800}
                     height={800}
@@ -184,7 +184,7 @@ const NewsSection: React.FC = () => {
               </video>
             ) : (
               <Image
-                src="/video/thumbnail/1.PNG"
+                src="/video/thumbnail/1.png"
                 alt={"thumNail"}
                 width={800}
                 height={800}
@@ -224,7 +224,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/6.PNG"
+                    src="/video/thumbnail/6.png"
                     alt={"thumNail"}
                     width={800}
                     height={800}
@@ -264,7 +264,7 @@ const NewsSection: React.FC = () => {
                   </video>
                 ) : (
                   <Image
-                    src="/video/thumbnail/7.PNG"
+                    src="/video/thumbnail/7.png"
                     alt={"thumNail"}
                     width={800}
                     height={800}
