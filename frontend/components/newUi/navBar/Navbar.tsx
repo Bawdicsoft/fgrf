@@ -30,9 +30,12 @@ export default function Navbar() {
 
   function getCurrentTime() {
     const data = new Date();
-    const gethour = Math.round(data.getHours());
+    let gethour = Math.round(data.getHours());
     const mint = Math.round(data.getMinutes());
     const amPm = gethour >= 12 ? "PM" : "AM";
+    if (gethour > 12) {
+      gethour -= 12;
+    }
     const formattedTime = `${days[data.getDay()]} At ${
       gethour < 10 ? ` 0${gethour}` : `${gethour} `
     }:${mint < 10 ? " 0" + mint : ` ${mint}`} ${amPm}`;
