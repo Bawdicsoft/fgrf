@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const heroImage = [
-    "./img/slidersImage/slider6.jpg",
-    "./img/slidersImage/slider5.jpg",
-    "./img/slidersImage/slider4.jpg",
-    "./img/slidersImage/slider3.jpg",
+    "./img/slidersImage/6.jpeg",
+    "./img/slidersImage/5.jpeg",
+    "./img/slidersImage/4.jpeg",
+    "./img/slidersImage/3.jpeg",
     "./img/slidersImage/slider2.jpg",
     "./img/slidersImage/slider1.jpg",
   ];

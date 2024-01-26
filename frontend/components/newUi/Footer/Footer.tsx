@@ -84,14 +84,14 @@ const Footer = () => {
           <div className="flex justify-evenly flex-wrap items-center py-4">
             {/* <div className=""> */}
             {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
-            <span className="flex flex-col self-end">
+            <span className="flex flex-col self-end items-center">
               <span className="text-gray-500 font-bold text-3xl relative">
                 fgrf.uk
                 <span>
-                  <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute -top-1 left-1/2" />
+                  <PiTrademarkRegisteredLight className="w-[14px] h-[14px] text-gray-400 absolute left-full -top-1" />
                 </span>
               </span>
-              <span className="text-gray-500 text-[10px]">
+              <span className="text-gray-500 text-[10px] text-center">
                 Registered Charity, number 1200869
               </span>
             </span>
