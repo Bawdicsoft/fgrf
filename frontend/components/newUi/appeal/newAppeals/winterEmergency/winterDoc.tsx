@@ -80,7 +80,7 @@ const WinterDocs = () => {
     // <div className="text-center max-w-7xl mx-auto py-14 lg:py-32 ">
     //   <div className="p-3">
     //     <h1 className="text-teal-500 font-bold py-3 md:text-3xl ">
-    //
+    //       We Are Here for Those Most Vulnerable This Winter
     //     </h1>
     //     <p className="py-3 text-xs md:text-base ">
     //       This winter is expected to be one of the deadliest for millions around
