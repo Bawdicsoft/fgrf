@@ -12,7 +12,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Image from "next/image";
 import { LiaDonateSolid } from "react-icons/lia";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AnalogWatch from "./AnalogWatch";
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
@@ -25,19 +25,71 @@ export default function Navbar() {
     "Friday",
     "Saturday",
   ];
-  const data = new Date();
-  let gethour = Math.round(data.getHours());
-  const mint = Math.round(data.getMinutes());
-  let amPm = "AM";
-  if (gethour >= 12) {
-    amPm = "PM";
+
+  const [currentTime, setCurrentTime] = useState(getCurrentTime());
+
+  function getCurrentTime() {
+    const data = new Date();
+    const gethour = Math.round(data.getHours());
+    const mint = Math.round(data.getMinutes());
+    const amPm = gethour >= 12 ? "PM" : "AM";
+    const formattedTime = `${days[data.getDay()]} At ${
+      gethour < 10 ? ` 0${gethour}` : `${gethour} `
+    }:${mint < 10 ? " 0" + mint : ` ${mint}`} ${amPm}`;
+    return formattedTime;
   }
-  if (gethour > 12) {
-    gethour -= 12;
-  } else {
-    gethour = gethour;
-  }
-  const day = days[data.getDay()];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(getCurrentTime());
+    }, 60000); // Update every minute
+
+    return () => clearInterval(intervalId); // Cleanup on component unmount
+  }, []); // Empty dependency array to run the effect only once on mount
+
+  // my Code
+  // const days = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  // ];
+  // let day;
+  // let mint;
+  // let gethour;
+  // let amPm;
+  // let data = new Date();
+  // gethour = Math.round(data.getHours());
+  // mint = Math.round(data.getMinutes());
+  // amPm = "AM";
+  // if (gethour >= 12) {
+  //   amPm = "PM";
+  // }
+  // if (gethour > 12) {
+  //   gethour -= 12;
+  // } else {
+  //   gethour = gethour;
+  // }
+  // day = days[data.getDay()];
+  // setInterval(() => {
+  //   data = data;
+  //   gethour = data.getHours();
+  //   mint = data.getMinutes();
+  //   amPm = "AM";
+  //   if (gethour >= 12) {
+  //     amPm = "PM";
+  //   }
+  //   if (gethour > 12) {
+  //     gethour -= 12;
+  //   } else {
+  //     gethour = gethour;
+  //   }
+  //   day = days[data.getDay()];
+  //   console.log(`${day}, ${gethour}:${mint} ${amPm}`);
+  // }, 1000);
 
   // hide and Show Machinasim
   const [show1, setShow1] = useState(false);
@@ -276,8 +328,9 @@ export default function Navbar() {
                  */}
                 {/* <AnalogWatch></AnalogWatch> */}
                 <p className="text-[14px] lg:text-[12px] pl-1 text-gray-700 font-semibold">
-                  {day} At {gethour < 10 ? `0${gethour}` : gethour}:
-                  {mint < 10 ? "0" + mint : mint} {amPm}
+                  {/* {day} At {gethour < 10 ? `0${gethour}` : gethour}:
+                  {mint < 10 ? "0" + mint : mint} {amPm} */}
+                  {currentTime}
                 </p>
               </div>
 
