@@ -1,21 +1,3 @@
-// import { loadStripe } from "@stripe/stripe-js";
-// export async function checkout({ lineItems }) {
-//   let stripePromise = null;
-//   let getStripe = () => {
-//     if (!stripePromise) {
-//       stripePromise = loadStripe(process.env.NEXT_PUBLIC_KEY);
-//     }
-//     return stripePromise;
-//   };
-//   const stripe = await getStripe();
-//   await stripe.redirectToCheckout({
-//     mode: "subscription",
-//     lineItems,
-//     successUrl: `${window.location.origin}?session_id={CHECKOUT_SESSION_ID}`,
-//     cancelUrl: window.location.origin,
-//   });
-// }
-
 import { loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
 import axios from "axios";
@@ -27,7 +9,7 @@ const CheckoutButton = ({ amount }) => {
   const handler = async () => {
     try {
       const stripe = await asyncStripe;
-      const response = axios.post("/api/session", { amount });
+      const response = axios.post("/api/stripe/checkout", { amount });
       console.log((await response).data);
       const { sessionId } = (await response).data;
       const { error } = await stripe.redirectToCheckout({ sessionId });

@@ -1,33 +1,3 @@
-// // get All User
-// router.get("/", userToken, async (req, res) => {
-//   try {
-//     const users = await getAllUser();
-//     return res.send({ message: users });
-//   } catch (err) {
-//     return res.send({ message: err });
-//   }
-// });
-// // user CreateUser Controller
-// router.post("/signup", upload.single("file"), async (req, res) => {
-//   try {
-//     // await joiUSerSchema.validateAsync(req.body);
-//     const { name, email, password } = req.body;
-//     console.log("reqBoy---->", req.body);
-//     // console.log(req.file.path);
-//     const image = req.file.path;
-//     const response = await createUser({
-//       name,
-//       email,
-//       images: image,
-//       password,
-//     });
-//     return res.status(200).send({ status: 200, message: response });
-//   } catch (err) {
-//     return res.status(400).send({ status: 400, message: err.message });
-//   }
-// });
-
-// module.exports = router;
 const express = require("express");
 const router = express.Router();
 const Stripe = require("stripe");
@@ -36,7 +6,7 @@ require("dotenv").config();
 const stripe = new Stripe(process.env.SECRET_KEY);
 const host = process.env.HOST;
 
-router.post("/session", async (req, res) => {
+router.post("/checkout", async (req, res) => {
   const { body } = req;
   try {
     const date = new Date().toISOString();
