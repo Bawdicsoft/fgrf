@@ -14,15 +14,22 @@ import "./NewsSlider.css";
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 const videosList = [
-  { video: "/Videonews/18.webm", img: "/video/thumbnail/1.png" },
-  { video: "/Videonews/20.webm", img: "/video/thumbnail/2.png" },
-  { video: "/Videonews/23.webm", img: "/video/thumbnail/7.png" },
-  { video: "/Videonews/21.webm", img: "/video/thumbnail/6.png" },
-  // { video: "/Videonews/13.mp4", img: "/video/thumbnail/1.png" },
-  // { video: "/Videonews/14.mp4", img: "/video/thumbnail/8.png" },
-  // { video: "/Videonews/15.mp4", img: "/video/thumbnail/2.png" },
-  // { video: "/Videonews/16.mp4", img: "/video/thumbnail/2.png" },
-  // { video: "/Videonews/16.mp4" },
+  {
+    video: "/Videonews/waterWellTanzanai.webm",
+    img: "/Videonews/waterWell.png",
+  },
+  {
+    video: "/Videonews/supportPlestine.webm",
+    img: "/Videonews/SupportPalestinian.png",
+  },
+  { video: "/Videonews/projectSirya.webm", img: "/Videonews/projectSirya.png" },
+  {
+    video: "/Videonews/mobileHealthCare.webm",
+    img: "/Videonews/thalassemia.png",
+  },
+  { video: "/Videonews/RHcenter.webm", img: "/Videonews/RH.png" },
+  { video: "/Videonews/thalassemia.webm", img: "/Videonews/thalassemia.png" },
+  { video: "/Videonews/rashenSirya.webm", img: "/Videonews/rationSirya.png" },
 ];
 export default function NewsSlider() {
   const [image, setImage] = useState(false);
@@ -80,7 +87,7 @@ export default function NewsSlider() {
             }
             onMouseEnter={() => setPause(!pause)}
           >
-            <div className="w-full lg:h-60">
+            <div className="w-full lg:h-80">
               {imageIndex === index && video ? (
                 <video className="h-full w-full object-cover" controls autoPlay>
                   <source src={videoItems.video} type="video/webm" />
