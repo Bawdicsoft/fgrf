@@ -10,16 +10,13 @@ const CheckoutButton = ({ amount }) => {
     try {
       const stripe = await asyncStripe;
       const response = axios.post("/api/stripe/checkout", { amount });
-      console.log((await response).data);
       const { sessionId } = (await response).data;
       const { error } = await stripe.redirectToCheckout({ sessionId });
-      console.log(error);
       if (error) {
-        router.push("/payment-error");
+        router.push("/stripe-error");
       }
     } catch (err) {
-      console.log(err);
-      router.push("/payment-error");
+      router.push("/stripe-error");
     }
   };
 

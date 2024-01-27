@@ -26,8 +26,8 @@ router.post("/checkout", async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `${req.headers.origin}/donation`,
-      cancel_url: `${req.headers.origin}/payment-error`,
+      success_url: `${req.headers.origin}/stripe-success`,
+      cancel_url: `${req.headers.origin}/stripe-error`,
     });
     res.status(200).json({ sessionId: session.id });
   } catch (err) {
