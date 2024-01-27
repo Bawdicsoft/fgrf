@@ -134,15 +134,15 @@ const ZakatBannerSection = () => {
           </button>
         </div>
         <div className="flex flex-col  py-4 px-3 lg:px-5">
-          <select className="w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
+          <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
             Zakat
             <option className="text-md " value={"Palestine"}>
               Zakat
             </option>
           </select>
           {/* <p className="text-base lg:text-lg py-4">{packeges[docs].doc}</p> */}
-          <div className="mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-7 gap-2 pr-5 md:pr-0 pt-4 lg:pr-8 pb-3">
+          <div className="md:mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-7 gap-2 md:pr-0 pt-4 lg:pr-8 pb-3">
               {packeges.map((btn, index) => (
                 <button
                   key={index}
@@ -167,7 +167,7 @@ const ZakatBannerSection = () => {
           <input
             type="number"
             placeholder="Other Amount"
-            className="w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
+            className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
           />
           <p className=" self-center text-sm text-center pt-4">
             Your donations will go to this appeals general fund, so your

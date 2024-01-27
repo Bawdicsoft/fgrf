@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const Hero = () => {
@@ -28,7 +29,7 @@ const Hero = () => {
   }, [currentIndex, heroImage]);
 
   return (
-    <div className="md:h-[500px] h-[300px] w-full flex items-center text-white relative overflow-hidden">
+    <div className="md:h-[500px] h-[160px] w-full flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div className="overflow-hidden w-full h-full flex flex-col justify-center">
           <div
@@ -40,10 +41,12 @@ const Hero = () => {
                 className="inline-flex w-full relative items-center justify-center h-full bg-white"
                 key={index}
               >
-                <img
-                  className="w-full h-full md:object-fill object-cover"
-                  src={data}
+                <Image
+                  className="w-full h-full md:object-fill object-fill"
+                  src={`/${data}`}
                   alt=""
+                  width={1200}
+                  height={1200}
                 />
               </div>
             ))}

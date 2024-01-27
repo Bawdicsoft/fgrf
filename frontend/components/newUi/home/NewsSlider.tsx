@@ -23,10 +23,10 @@ const videosList = [
     img: "/Videonews/SupportPalestinian.png",
   },
   { video: "/Videonews/projectSirya.webm", img: "/Videonews/projectSirya.png" },
-  {
-    video: "/Videonews/mobileHealthCare.webm",
-    img: "/Videonews/thalassemia.png",
-  },
+  // {
+  //   video: "/Videonews/mobileHealthCare.webm",
+  //   img: "/Videonews/thalassemia.png",
+  // },
   { video: "/Videonews/RHcenter.webm", img: "/Videonews/RH.png" },
   { video: "/Videonews/thalassemia.webm", img: "/Videonews/thalassemia.png" },
   { video: "/Videonews/rashenSirya.webm", img: "/Videonews/rationSirya.png" },

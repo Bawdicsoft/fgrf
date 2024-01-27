@@ -72,28 +72,28 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
               alt="donation img"
               width={300}
               height={300}
-              className=" h-40"
+              className="h-60 md:h-40"
             />
             <Image
               src={"/donationImg/2.jpeg"}
               alt="donation img"
               width={300}
               height={300}
-              className=" h-40"
+              className="h-60 md:h-40"
             />
             <Image
               src={"/donationImg/3.jpeg"}
               alt="donation img"
               width={300}
               height={300}
-              className=" h-40"
+              className="h-60 md:h-40"
             />
             <Image
               src={"/donationImg/4.jpeg"}
               alt="donation img"
               width={300}
               height={300}
-              className=" h-40"
+              className="h-60 md:h-40"
             />
           </div>
         </motion.div>

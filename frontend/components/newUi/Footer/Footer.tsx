@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
         </div> */}
         <div className="flex flex-col ">
-          <div className="flex justify-evenly flex-wrap items-center py-4">
+          <div className="flex justify-evenly gap-1 md:gap-4 flex-wrap items-center py-4">
             {/* <div className=""> */}
             {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
             <span className="flex flex-col self-end items-center">
@@ -97,16 +97,16 @@ const Footer = () => {
             </span>
             {/* </div> */}
             <div className="text-center">
-              <h2 className="font-medium text-base text-gray-500 hover:text-gray-400">
+              <h2 className="font-medium text-sm md:text-base text-gray-500 hover:text-gray-400">
                 ABOUT US
               </h2>
             </div>
             <div className="text-center">
-              <h2 className="font-medium text-base text-gray-500  hover:text-gray-400">
+              <h2 className="font-medium text-sm md:text-base text-gray-500  hover:text-gray-400">
                 CONTACT US
               </h2>
             </div>
-            <div className="flex justify-evenly text-gray-500 gap-4">
+            <div className="flex justify-evenly text-gray-500 gap-4 pt-5 md:pt-0">
               <Link
                 href={"https://www.facebook.com/profile.php?id=61550763330971"}
               >
@@ -125,7 +125,7 @@ const Footer = () => {
                 well-wishing, water, food, agriculture, construction, reglious
                 and good purpose.
               </p>
-              <p className="text-xs md:text-center lg:w-[650px]">
+              <p className="text-xs text-center lg:w-[650px]">
                 Faizan Global Relief Foundation UK 284 WITTON ROAD,BIRMINGHAM B6
                 6NX,Birmingham,United Kingdom
               </p>
@@ -140,7 +140,7 @@ const Footer = () => {
                 Registered Address: Penny Appeal Campus, Thornes Park,
                 Wakefield, England, WF2 8QZ
               </p> */}
-              <div className="flex text-gray-500 text-sm justify-center">
+              <div className="text-center md:flex text-gray-500 text-xs md:text-sm justify-center">
                 <Link href={"#"} className="text-[#19afaf]">
                   Terms and Conditions
                 </Link>

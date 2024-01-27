@@ -189,7 +189,7 @@ const Gallery: React.FC = () => {
         </Link>
 
         <div className="w-full mx-auto relative">
-          <div className="grid grid-cols-1 md:h-[500px] lg:h-[790px] overflow-y-scroll overflow-x-hidden  lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 md:px-8 lg:px-14  mt-5 pb-8">
+          <div className="grid grid-cols-1 h-[570px] lg:h-[790px] place-items-center overflow-y-scroll overflow-x-hidden lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 md:px-8 lg:px-14  mt-5 pb-8">
             {gallery.slice(0, 3).map((data, index) => (
               <AnimatedComponentLeft key={index}>
                 <div
@@ -224,7 +224,7 @@ const Gallery: React.FC = () => {
                     {" "}
                     <div className="back-content flex flex-col justify-center items-center text-gray-700">
                       {" "}
-                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                      <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                         {data.title}
                       </p>
                       {/* <div className="sm space-x-2">
@@ -246,9 +246,9 @@ const Gallery: React.FC = () => {
                           }}
                         >
                           <Link href={"/donation"}>
-                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                               <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                 <span className="relative group-hover:text-white">
@@ -297,7 +297,7 @@ const Gallery: React.FC = () => {
                     {" "}
                     <div className="back-content flex flex-col justify-center items-center text-gray-700">
                       {" "}
-                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                      <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                         {data.title}
                       </p>
                       {/* <div className="sm space-x-2">
@@ -319,9 +319,9 @@ const Gallery: React.FC = () => {
                           }}
                         >
                           <Link href={"/donation"}>
-                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                               <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                 <span className="relative group-hover:text-white">
@@ -379,7 +379,7 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                      <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                         {data.title}
                       </p>
                       {btnIndex && picIndex === data.id && (
@@ -393,9 +393,9 @@ const Gallery: React.FC = () => {
                           }}
                         >
                           <Link href={"/donation"}>
-                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                               <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                 <span className="relative group-hover:text-white">
@@ -455,7 +455,7 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                           {data.title}
                         </p>
                         {btnIndex && picIndex === data.id && (
@@ -469,9 +469,9 @@ const Gallery: React.FC = () => {
                             }}
                           >
                             <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                   <span className="relative group-hover:text-white">
@@ -527,7 +527,7 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                           {data.title}
                         </p>
                         {btnIndex && picIndex === data.id && (
@@ -541,9 +541,9 @@ const Gallery: React.FC = () => {
                             }}
                           >
                             <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                   <span className="relative group-hover:text-white">
@@ -599,7 +599,7 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        <p className="text-sm md:text-xl text-teal-500 font-bold text-center px-4">
                           {data.title}
                         </p>
                         {btnIndex && picIndex === data.id && (
@@ -613,9 +613,9 @@ const Gallery: React.FC = () => {
                             }}
                           >
                             <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2 md:px-4 py-0 mt-2 md:mt-3">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 md:text-2xl">
                                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                                   <span className="relative group-hover:text-white">
@@ -643,7 +643,7 @@ const Gallery: React.FC = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+                <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-8 md:my-3">
                   <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>

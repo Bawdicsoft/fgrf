@@ -52,13 +52,13 @@ const NewsSection: React.FC = () => {
   };
   return (
     <section
-      className="bg-gradient-to-r py-20 bg-center bg-cover bg-no-repeat bg-blend-multiply"
+      className="bg-gradient-to-r md:py-20 bg-center bg-cover bg-no-repeat bg-blend-multiply"
       style={{
         backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
         height: "100%",
       }}
     >
-      <div className="flex flex-col  items-center px-5">
+      <div className="flex flex-col items-center px-5">
         <div className="flex flex-col items-center max-w-[400px] py-5 md:py-8 mx-auto px-3">
           <AnimationTop>
             <motion.div
@@ -163,7 +163,7 @@ const NewsSection: React.FC = () => {
             </div>
           </div> */}
           <div
-            className="md:h-[330px] relative"
+            className="h-[230px] md:h-[330px] relative"
             onClick={() => {
               setImage1(!image1), allPuseHandler1();
             }}
@@ -180,11 +180,11 @@ const NewsSection: React.FC = () => {
                 controls
                 autoPlay
               >
-                <source src="/Videonews/9.mp4" type="video/mp4" />
+                <source src="/Videonews/rashenSirya.webm" type="video/webm" />
               </video>
             ) : (
               <Image
-                src="/video/thumbnail/8.png"
+                src="/Videonews/rationSirya.png"
                 alt={"thumNail"}
                 width={800}
                 height={800}
@@ -200,7 +200,7 @@ const NewsSection: React.FC = () => {
             )}
           </div>
           <div
-            className=" md:h-[330px] relative"
+            className="h-[230px] md:h-[330px]   relative"
             onClick={() => {
               setImage(!image), allPuseHandler();
             }}
@@ -237,7 +237,7 @@ const NewsSection: React.FC = () => {
             )}
           </div>
           <div
-            className=" md:h-[330px] relative"
+            className="h-[230px] md:h-[330px]  relative"
             onClick={() => {
               setImage2(!image2), allPuseHandler2();
             }}
@@ -254,11 +254,11 @@ const NewsSection: React.FC = () => {
                 controls
                 autoPlay
               >
-                <source src="/Videonews/17.mp4" type="video/mp4" />
+                <source src="/Videonews/thalassemia.webm" type="video/webm" />
               </video>
             ) : (
               <Image
-                src="/GalleryNew/83.jpg"
+                src="/Videonews/thalassemia.png"
                 alt={"thumNail"}
                 width={800}
                 height={800}
