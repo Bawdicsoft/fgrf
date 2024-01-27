@@ -5,12 +5,12 @@ import { useState, useEffect } from "react";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const heroImage = [
-    "./img/slidersImage/6.jpeg",
-    "./img/slidersImage/5.jpeg",
-    "./img/slidersImage/4.jpeg",
-    "./img/slidersImage/3.jpeg",
-    "./img/slidersImage/slider2.jpg",
-    "./img/slidersImage/slider1.jpg",
+    "/img/slidersImage/6.jpeg",
+    "/img/slidersImage/5.jpeg",
+    "/img/slidersImage/4.jpeg",
+    "/img/slidersImage/3.jpeg",
+    "/img/slidersImage/slider2.jpg",
+    "/img/slidersImage/slider1.jpg",
   ];
   const handleUpdate = (newIndex: any) => {
     if (newIndex < 0 || newIndex > 5) {
@@ -43,7 +43,7 @@ const Hero = () => {
               >
                 <Image
                   className="w-full h-full md:object-fill object-fill"
-                  src={`/${data}`}
+                  src={data}
                   alt=""
                   width={1200}
                   height={1200}
