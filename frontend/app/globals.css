@@ -17,6 +17,30 @@ body {
   background-color: rgb(7 89 133);
 }
 
+/* Scroll Design */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #19afaf;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #26c3c3;
+}
+/* scroll design end */
+
 #depart-box-shadow {
   box-shadow: rgba(13, 13, 17, 0.411) 0px 30px 60px -12px,
     rgba(0, 0, 0, 0.452) 0px 18px 36px -18px;

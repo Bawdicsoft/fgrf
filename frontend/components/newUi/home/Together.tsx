@@ -166,9 +166,9 @@ const Together = () => {
     <section>
       <div className=" h-[500px] relative " id="main">
         <div className="max-w-7xl mx-auto px-3 h-full">
-          <div className="w-full mx-auto flex flex-col justify-center gap-4 pt-10 lg:pt-16">
+          <div className="w-full mx-auto flex flex-col justify-center gap-4  md:pt-5">
             <div className="flex justify-center">
-              <h2 className="max-w-6xl text-center lg:text-5xl leading-none font-normal md:text-3xl text-2xl text-white py-0 pb-2">
+              <h2 className="max-w-4xl text-center lg:text-5xl leading-none font-normal md:text-3xl text-2xl text-white py-0 pb-2">
                 Hearts aligned, worlds redesigned. Together, we inspire change
                 with boundless hope.
               </h2>

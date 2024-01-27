@@ -82,6 +82,11 @@ const gallery = [
     img: "./GalleryNew1/14.png",
     title: "extend our reach to undeserved community",
   },
+  {
+    id: 15,
+    img: "./GalleryNew1/15.jpeg",
+    title: "100,000 meals distributed in gaza.",
+  },
   // {
   //   id: 15,
   //   img: "./GalleryNew1/6.jpg",
@@ -153,7 +158,7 @@ const Gallery: React.FC = () => {
         height: "100%",
       }}
     >
-      <div className="relative max-w-6xl mx-auto px-5">
+      <div className="relative max-w-7xl mx-auto px-5">
         {/* <div className="mb-6 w-60 mx-auto rounded-full border-4 border-[#faf8f8] shadow-xl bg-[#efeff1] py-1">
           <h2 className="text-xl md:text-2xl font-semibold text-center">
             Gallery
@@ -184,46 +189,45 @@ const Gallery: React.FC = () => {
         </Link>
 
         <div className="w-full mx-auto relative">
-          <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 px-2 mt-5 pb-8">
-            <AnimatedComponentLeft>
-              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(0, 3).map((data, index) => (
-                  <div
-                    key={index}
-                    onMouseEnter={() => {
-                      setPicIndex(data.id);
-                      setBorder(!border);
-                      setBtnIndex(true);
-                      // setBtnIndex(index)
-                      console.log(picIndex);
-                    }}
-                    onMouseLeave={() => {
-                      borderHandler();
-                      setBtnIndex(false);
-                    }}
-                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === data.id
-                        ? border
-                          ? "border-0"
-                          : "border-[3px]"
+          <div className="grid grid-cols-1 md:h-[500px] lg:h-[790px] overflow-y-scroll overflow-x-hidden  lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 md:px-8 lg:px-14  mt-5 pb-8">
+            {gallery.slice(0, 3).map((data, index) => (
+              <AnimatedComponentLeft key={index}>
+                <div
+                  key={index}
+                  onMouseEnter={() => {
+                    setPicIndex(data.id);
+                    setBorder(!border);
+                    setBtnIndex(true);
+                    // setBtnIndex(index)
+                    console.log(picIndex);
+                  }}
+                  onMouseLeave={() => {
+                    borderHandler();
+                    setBtnIndex(false);
+                  }}
+                  className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                    picIndex === data.id
+                      ? border
+                        ? "border-0"
                         : "border-[3px]"
-                    }`}
-                  >
-                    <div className="front group-hover:rotate-y-180 h-full w-full">
-                      <img
-                        src={data.img}
-                        className="w-full h-full opacity-90 rounded-lg"
-                        alt=""
-                      />
-                    </div>{" "}
-                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      : "border-[3px]"
+                  }`}
+                >
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      src={data.img}
+                      className="w-full h-full opacity-90 rounded-md"
+                      alt=""
+                    />
+                  </div>{" "}
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    {" "}
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
                       {" "}
-                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        {" "}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
-                          {data.title}
-                        </p>
-                        {/* <div className="sm space-x-2">
+                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        {data.title}
+                      </p>
+                      {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -231,75 +235,72 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        {btnIndex && picIndex === data.id && (
-                          <motion.div
-                            // className="box"
-                            whileHover={{ scale: 1.2 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 400,
-                              damping: 10,
-                            }}
-                          >
-                            <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                      {btnIndex && picIndex === data.id && (
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                                  <span className="relative group-hover:text-white">
-                                    Donate Now
-                                  </span>
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
                                 </span>
-                              </button>
-                            </Link>
-                          </motion.div>
-                        )}
-                      </div>{" "}
-                    </div>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
+                      )}
+                    </div>{" "}
                   </div>
-                ))}
-              </div>
-            </AnimatedComponentLeft>
-
-            <AnimationBottom>
-              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(3, 6).map((data, index) => (
-                  <div
-                    key={index}
-                    onMouseEnter={() => {
-                      setPicIndex(data.id);
-                      setBorder(!border);
-                      setBtnIndex(true);
-                      console.log(picIndex);
-                    }}
-                    onMouseLeave={() => {
-                      borderHandler();
-                      setBtnIndex(false);
-                    }}
-                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === data.id
-                        ? border
-                          ? "border-0"
-                          : "border-[3px]"
+                </div>
+              </AnimatedComponentLeft>
+            ))}
+            {gallery.slice(3, 6).map((data, index) => (
+              <AnimationBottom key={index}>
+                <div
+                  key={index}
+                  onMouseEnter={() => {
+                    setPicIndex(data.id);
+                    setBorder(!border);
+                    setBtnIndex(true);
+                    console.log(picIndex);
+                  }}
+                  onMouseLeave={() => {
+                    borderHandler();
+                    setBtnIndex(false);
+                  }}
+                  className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                    picIndex === data.id
+                      ? border
+                        ? "border-0"
                         : "border-[3px]"
-                    }`}
-                  >
-                    <div className="front group-hover:rotate-y-180 h-full w-full">
-                      <img
-                        src={data.img}
-                        className="w-full h-full opacity-90 rounded-lg"
-                        alt=""
-                      />
-                    </div>{" "}
-                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      : "border-[3px]"
+                  }`}
+                >
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      src={data.img}
+                      className="w-full h-full opacity-90 rounded-md"
+                      alt=""
+                    />
+                  </div>{" "}
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    {" "}
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
                       {" "}
-                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        {" "}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
-                          {data.title}
-                        </p>
-                        {/* <div className="sm space-x-2">
+                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        {data.title}
+                      </p>
+                      {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -307,72 +308,70 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        {btnIndex && picIndex === data.id && (
-                          <motion.div
-                            // className="box"
-                            whileHover={{ scale: 1.2 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 400,
-                              damping: 10,
-                            }}
-                          >
-                            <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                      {btnIndex && picIndex === data.id && (
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                                  <span className="relative group-hover:text-white">
-                                    Donate Now
-                                  </span>
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
                                 </span>
-                              </button>
-                            </Link>
-                          </motion.div>
-                        )}
-                      </div>{" "}
-                    </div>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
+                      )}
+                    </div>{" "}
                   </div>
-                ))}
-              </div>
-            </AnimationBottom>
+                </div>
+              </AnimationBottom>
+            ))}
 
-            <AnimatedComponentRight>
-              <div className="flex flex-col items-center gap-5 md:gap-6 lg:gap-10">
-                {gallery.slice(6, 9).map((data, index) => (
-                  <div
-                    key={index}
-                    onMouseEnter={() => {
-                      setPicIndex(data.id);
-                      setBorder(!border);
-                      setBtnIndex(true);
-                      console.log(picIndex);
-                    }}
-                    onMouseLeave={() => {
-                      borderHandler();
-                      setBtnIndex(false);
-                    }}
-                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                      picIndex === data.id
-                        ? border
-                          ? "border-0"
-                          : "border-[3px]"
+            {gallery.slice(6, 9).map((data, index) => (
+              <AnimatedComponentRight key={index}>
+                <div
+                  key={index}
+                  onMouseEnter={() => {
+                    setPicIndex(data.id);
+                    setBorder(!border);
+                    setBtnIndex(true);
+                    console.log(picIndex);
+                  }}
+                  onMouseLeave={() => {
+                    borderHandler();
+                    setBtnIndex(false);
+                  }}
+                  className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                    picIndex === data.id
+                      ? border
+                        ? "border-0"
                         : "border-[3px]"
-                    }`}
-                  >
-                    <div className="front group-hover:rotate-y-180 h-full w-full">
-                      <img
-                        src={data.img}
-                        className="w-full h-full opacity-90 rounded-lg"
-                        alt=""
-                      />
-                    </div>{" "}
-                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      : "border-[3px]"
+                  }`}
+                >
+                  <div className="front group-hover:rotate-y-180 h-full w-full">
+                    <img
+                      src={data.img}
+                      className="w-full h-full opacity-90 rounded-md"
+                      alt=""
+                    />
+                  </div>{" "}
+                  <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                    {" "}
+                    <div className="back-content flex flex-col justify-center items-center text-gray-700">
                       {" "}
-                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        {" "}
-                        {/* <div className="sm space-x-2">
+                      {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>{" "}
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
@@ -380,264 +379,259 @@ const Gallery: React.FC = () => {
                             adipisicing elit.{" "}
                           </p>{" "}
                         </div>{" "} */}
-                        <p className="text-xl text-teal-500 font-bold text-center px-4">
-                          {data.title}
-                        </p>
-                        {btnIndex && picIndex === data.id && (
-                          <motion.div
-                            // className="box"
-                            whileHover={{ scale: 1.2 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 400,
-                              damping: 10,
-                            }}
-                          >
-                            <Link href={"/donation"}>
-                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                      <p className="text-xl text-teal-500 font-bold text-center px-4">
+                        {data.title}
+                      </p>
+                      {btnIndex && picIndex === data.id && (
+                        <motion.div
+                          // className="box"
+                          whileHover={{ scale: 1.2 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 400,
+                            damping: 10,
+                          }}
+                        >
+                          <Link href={"/donation"}>
+                            <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                              <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                              <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
                                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                                  <span className="relative group-hover:text-white">
-                                    Donate Now
-                                  </span>
+                                <span className="relative group-hover:text-white">
+                                  Donate Now
                                 </span>
-                              </button>
-                            </Link>
-                          </motion.div>
-                        )}
-                      </div>{" "}
-                    </div>
+                              </span>
+                            </button>
+                          </Link>
+                        </motion.div>
+                      )}
+                    </div>{" "}
                   </div>
-                  // </motion.div>
-                ))}
-              </div>
-            </AnimatedComponentRight>
-            {/* <div className="flex justify-center items-center gap-5 md:gap-6 lg:gap-10"> */}
-            {gallery.slice(9, 14).map(
-              (data, index) =>
-                data.id === 10 || data.id === 13 ? (
-                  <AnimatedComponentRight key={index}>
-                    <div
-                      key={index}
-                      onMouseEnter={() => {
-                        setPicIndex(data.id);
-                        setBorder(!border);
-                        setBtnIndex(true);
-                        console.log(picIndex);
-                      }}
-                      onMouseLeave={() => {
-                        borderHandler();
-                        setBtnIndex(false);
-                      }}
-                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                        picIndex === data.id
-                          ? border
-                            ? "border-0"
-                            : "border-[3px]"
-                          : "border-[3px]"
-                      }`}
-                    >
-                      <div className="front group-hover:rotate-y-180 h-full w-full">
-                        <img
-                          src={data.img}
-                          className="w-full h-full opacity-90 rounded-lg"
-                          alt=""
-                        />
-                      </div>{" "}
-                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
-                        {" "}
-                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                          {" "}
-                          {/* <div className="sm space-x-2">
-                          <h3>Lorem ipsum</h3>{" "}
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.{" "}
-                          </p>{" "}
-                        </div>{" "} */}
-                          <p className="text-xl text-teal-500 font-bold text-center px-4">
-                            {data.title}
-                          </p>
-                          {btnIndex && picIndex === data.id && (
-                            <motion.div
-                              // className="box"
-                              whileHover={{ scale: 1.2 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                              }}
-                            >
-                              <Link href={"/donation"}>
-                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                                    <span className="relative group-hover:text-white">
-                                      Donate Now
-                                    </span>
-                                  </span>
-                                </button>
-                              </Link>
-                            </motion.div>
-                          )}
-                        </div>{" "}
-                      </div>
-                    </div>
-                  </AnimatedComponentRight>
-                ) : data.id === 11 || data.id === 14 ? (
-                  <AnimationTop key={index}>
-                    <div
-                      key={index}
-                      onMouseEnter={() => {
-                        setPicIndex(data.id);
-                        setBorder(!border);
-                        setBtnIndex(true);
-                        console.log(picIndex);
-                      }}
-                      onMouseLeave={() => {
-                        borderHandler();
-                        setBtnIndex(false);
-                      }}
-                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                        picIndex === data.id
-                          ? border
-                            ? "border-0"
-                            : "border-[3px]"
-                          : "border-[3px]"
-                      }`}
-                    >
-                      <div className="front group-hover:rotate-y-180 h-full w-full">
-                        <img
-                          src={data.img}
-                          className="w-full h-full opacity-90 rounded-lg"
-                          alt=""
-                        />
-                      </div>{" "}
-                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
-                        {" "}
-                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                          {" "}
-                          {/* <div className="sm space-x-2">
-                          <h3>Lorem ipsum</h3>{" "}
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.{" "}
-                          </p>{" "}
-                        </div>{" "} */}
-                          <p className="text-xl text-teal-500 font-bold text-center px-4">
-                            {data.title}
-                          </p>
-                          {btnIndex && picIndex === data.id && (
-                            <motion.div
-                              // className="box"
-                              whileHover={{ scale: 1.2 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                              }}
-                            >
-                              <Link href={"/donation"}>
-                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                                    <span className="relative group-hover:text-white">
-                                      Donate Now
-                                    </span>
-                                  </span>
-                                </button>
-                              </Link>
-                            </motion.div>
-                          )}
-                        </div>{" "}
-                      </div>
-                    </div>
-                  </AnimationTop>
-                ) : (
-                  <AnimatedComponentRight key={index}>
-                    <div
-                      key={index}
-                      onMouseEnter={() => {
-                        setPicIndex(data.id);
-                        setBorder(!border);
-                        setBtnIndex(true);
-                        console.log(picIndex);
-                      }}
-                      onMouseLeave={() => {
-                        borderHandler();
-                        setBtnIndex(false);
-                      }}
-                      className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
-                        picIndex === data.id
-                          ? border
-                            ? "border-0"
-                            : "border-[3px]"
-                          : "border-[3px]"
-                      }`}
-                    >
-                      <div className="front group-hover:rotate-y-180 h-full w-full">
-                        <img
-                          src={data.img}
-                          className="w-full h-full opacity-90 rounded-lg"
-                          alt=""
-                        />
-                      </div>{" "}
-                      <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
-                        {" "}
-                        <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                          {" "}
-                          {/* <div className="sm space-x-2">
-                          <h3>Lorem ipsum</h3>{" "}
-                          <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit.{" "}
-                          </p>{" "}
-                        </div>{" "} */}
-                          <p className="text-xl text-teal-500 font-bold text-center px-4">
-                            {data.title}
-                          </p>
-                          {btnIndex && picIndex === data.id && (
-                            <motion.div
-                              // className="box"
-                              whileHover={{ scale: 1.2 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 400,
-                                damping: 10,
-                              }}
-                            >
-                              <Link href={"/donation"}>
-                                <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                                  <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                                    <span className="relative group-hover:text-white">
-                                      Donate Now
-                                    </span>
-                                  </span>
-                                </button>
-                              </Link>
-                            </motion.div>
-                          )}
-                        </div>{" "}
-                      </div>
-                    </div>
-                  </AnimatedComponentRight>
-                )
-
+                </div>
+              </AnimatedComponentRight>
               // </motion.div>
+            ))}
+
+            {gallery.slice(9, 15).map((data, index) =>
+              data.id === 10 || data.id === 13 ? (
+                <AnimatedComponentRight key={index}>
+                  <div
+                    key={index}
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      setBtnIndex(true);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                      setBtnIndex(false);
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
+                    }`}
+                  >
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
+                      <img
+                        src={data.img}
+                        className="w-full h-full opacity-90 rounded-md"
+                        alt=""
+                      />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
+                      </div>{" "}
+                    </div>
+                  </div>
+                </AnimatedComponentRight>
+              ) : data.id === 11 || data.id === 14 ? (
+                <AnimationTop key={index}>
+                  <div
+                    key={index}
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      setBtnIndex(true);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                      setBtnIndex(false);
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
+                    }`}
+                  >
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
+                      <img
+                        src={data.img}
+                        className="w-full h-full opacity-90 rounded-md"
+                        alt=""
+                      />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
+                      </div>{" "}
+                    </div>
+                  </div>
+                </AnimationTop>
+              ) : (
+                <AnimatedComponentRight key={index}>
+                  <div
+                    key={index}
+                    onMouseEnter={() => {
+                      setPicIndex(data.id);
+                      setBorder(!border);
+                      setBtnIndex(true);
+                      console.log(picIndex);
+                    }}
+                    onMouseLeave={() => {
+                      borderHandler();
+                      setBtnIndex(false);
+                    }}
+                    className={`card1 relative group w-full h-full rounded-lg  border-[#7caec1]  shadow-2xl flex flex-col justify-center items-center gap-y-3 ${
+                      picIndex === data.id
+                        ? border
+                          ? "border-0"
+                          : "border-[3px]"
+                        : "border-[3px]"
+                    }`}
+                  >
+                    <div className="front group-hover:rotate-y-180 h-full w-full">
+                      <img
+                        src={data.img}
+                        className="w-full h-full opacity-90 rounded-md"
+                        alt=""
+                      />
+                    </div>{" "}
+                    <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
+                      {" "}
+                      <div className="back-content flex flex-col justify-center items-center text-gray-700">
+                        {" "}
+                        {/* <div className="sm space-x-2">
+                          <h3>Lorem ipsum</h3>{" "}
+                          <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit.{" "}
+                          </p>{" "}
+                        </div>{" "} */}
+                        <p className="text-xl text-teal-500 font-bold text-center px-4">
+                          {data.title}
+                        </p>
+                        {btnIndex && picIndex === data.id && (
+                          <motion.div
+                            // className="box"
+                            whileHover={{ scale: 1.2 }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 400,
+                              damping: 10,
+                            }}
+                          >
+                            <Link href={"/donation"}>
+                              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
+                                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                                  <span className="relative group-hover:text-white">
+                                    Donate Now
+                                  </span>
+                                </span>
+                              </button>
+                            </Link>
+                          </motion.div>
+                        )}
+                      </div>{" "}
+                    </div>
+                  </div>
+                </AnimatedComponentRight>
+              )
             )}
-            {/* </div> */}
           </div>
           <Link
             href={"/gallery"}
