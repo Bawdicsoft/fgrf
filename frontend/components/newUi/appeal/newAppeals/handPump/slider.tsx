@@ -1,27 +1,24 @@
 "use client";
 import React, { useRef, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PiArrowFatRightFill } from "react-icons/pi";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const imageList = [
-  "/AppealNew/winter/2.png",
-  "/AppealNew/winter/5.png",
-  "/AppealNew/winter/6.png",
-  "/AppealNew/winter/7.png",
-  "/AppealNew/winter/8.png",
-  "/AppealNew/winter/9.png",
-  "/AppealNew/winter/10.png",
-  "/AppealNew/winter/11.png",
-  "/AppealNew/winter/12.png",
+  "/AppealNew/handPump/1.jpg",
+  "/AppealNew/handPump/2.png",
+  "/AppealNew/handPump/3.jpg",
+  "/AppealNew/handPump/4.png",
+  "/AppealNew/handPump/5.png",
 ];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-export default function SliderSectionWinter() {
+export default function SliderSectionHandPump() {
   return (
     <>
       <Swiper
@@ -67,28 +64,6 @@ export default function SliderSectionWinter() {
             />
           </SwiperSlide>
         ))}
-        {/* {imageList1.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
-            />
-          </SwiperSlide>
-        ))}
-        {imageList2.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
-            />
-          </SwiperSlide>
-        ))} */}
         {/* Add Navigation Buttons */}
         <div className="swiper-button-next">
           <PiArrowFatRightFill className="w-32 h-10 text-white" />

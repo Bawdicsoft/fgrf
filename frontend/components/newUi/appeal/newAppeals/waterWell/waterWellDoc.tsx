@@ -1,6 +1,6 @@
 import Link from "next/link";
-import SliderSectionWinter from "./slider";
-const WinterDocs = () => {
+import SliderSectionWaterWell from "./slider";
+const WaterWellDocs = () => {
   return (
     // new Code
     <div>
@@ -9,7 +9,7 @@ const WinterDocs = () => {
           GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
         </h2>
 
-        <SliderSectionWinter />
+        <SliderSectionWaterWell />
 
         <p className="text-base text-center pt-8 py-3">
           The violence in Gaza has claimed over 20,000 lives, leaving thousands
@@ -69,4 +69,4 @@ const WinterDocs = () => {
   );
 };
 
-export default WinterDocs;
+export default WaterWellDocs;

@@ -1,27 +1,33 @@
 "use client";
 import React, { useRef, useState } from "react";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PiArrowFatRightFill } from "react-icons/pi";
 import "swiper/css";
 import "swiper/css/pagination";
 
 const imageList = [
-  "/AppealNew/winter/2.png",
-  "/AppealNew/winter/5.png",
-  "/AppealNew/winter/6.png",
-  "/AppealNew/winter/7.png",
-  "/AppealNew/winter/8.png",
-  "/AppealNew/winter/9.png",
-  "/AppealNew/winter/10.png",
-  "/AppealNew/winter/11.png",
-  "/AppealNew/winter/12.png",
+  "/AppealNew/palestine/1.png",
+  "/AppealNew/palestine/4.png",
+  "/AppealNew/palestine/5.png",
+  "/AppealNew/palestine/6.png",
+  "/AppealNew/palestine/7.png",
+  "/AppealNew/palestine/2.png",
+  "/AppealNew/palestine/3.png",
+  "/AppealNew/palestine/12.png",
+  "/AppealNew/palestine/8.png",
+  "/AppealNew/palestine/16.png",
+  "/AppealNew/palestine/17.png",
+  "/AppealNew/palestine/9.png",
+  "/AppealNew/palestine/19.png",
+  "/AppealNew/palestine/23.png",
 ];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-export default function SliderSectionWinter() {
+export default function SliderSectionPalestine() {
   return (
     <>
       <Swiper

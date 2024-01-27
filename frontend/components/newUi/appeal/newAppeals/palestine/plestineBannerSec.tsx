@@ -2,7 +2,7 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { use, useState } from "react";
-const WinterBannerSection = () => {
+const PalestineBannerSection = () => {
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -67,7 +67,7 @@ const WinterBannerSection = () => {
       <div className="max-w-3xl mx-auto">
         <div className="flex justify-center rounded-t-xl border-t-2 border-l-2 border-r-2 border-b-0 border-sky-600 pb-8 ">
           <p className="text-center bg-sky-700 rounded-b-2xl  text-xl lg:text-2xl text-white font-semibold py-2 px-8">
-            Winter Emergency
+            Palestine Emergency
           </p>
         </div>
       </div>
@@ -96,7 +96,7 @@ const WinterBannerSection = () => {
             <source src="/Videonews/4.mp4" type="video/mp4" />
           </video> */}
           <Image
-            src={"/AppealNew/winter/12.png"}
+            src={"/AppealNew/palestine/12.png"}
             alt="winter img1"
             className="w-full h-full rounded-lg"
             width={600}
@@ -108,7 +108,7 @@ const WinterBannerSection = () => {
             <source src="/Videonews/4.mp4" type="video/mp4" />
           </video> */}
           <Image
-            src={"/AppealNew/winter/11.png"}
+            src={"/AppealNew/palestine/5.png"}
             alt="winter img1"
             className="w-full h-full rounded-lg"
             width={600}
@@ -214,4 +214,4 @@ const WinterBannerSection = () => {
     </div>
   );
 };
-export default WinterBannerSection;
+export default PalestineBannerSection;
