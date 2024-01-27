@@ -125,7 +125,7 @@ const Footer = () => {
                 well-wishing, water, food, agriculture, construction, reglious
                 and good purpose.
               </p>
-              <p className="text-xs w-screen">
+              <p className="text-xs md:text-center lg:w-[650px]">
                 Faizan Global Relief Foundation UK 284 WITTON ROAD,BIRMINGHAM B6
                 6NX,Birmingham,United Kingdom
               </p>
