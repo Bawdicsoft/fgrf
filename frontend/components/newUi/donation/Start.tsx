@@ -53,11 +53,11 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
         >
           <div
             id="box3d"
-            className="border-4 mb-4 border-[#85d0d0]  max-w-2xl py-1 md:py-3 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+            className="border-4 mb-2 md:mb-4 border-[#85d0d0]  max-w-2xl py-1 md:py-3 bg-[#6898b1] mx-auto rounded-full shadow-lg"
           >
             <h2
               id=""
-              className="text-xl px-3 md:px-5 md:text-3xl uppercase hover:text-sky-800 font-bold text-white text-center"
+              className="text-lg px-3  md:px-5 md:text-3xl uppercase hover:text-sky-800 font-bold text-white text-center"
             >
               Make your donation
             </h2>

@@ -13,7 +13,7 @@ interface DetailsSecProps {
     country: string
   ) => void;
 
-  dollarDonate: number;
+  dollarDonate: string;
   titleDonate: string;
   showFormText: boolean;
 }
@@ -51,7 +51,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
         YOUR DETAILS
       </h2>
       <p className="text-gray-700 text-base py-4 text-center">
-        Your Monthly Donation : ${dollarDonate}.00
+        Your Monthly Donation : &#163;{dollarDonate}.00
       </p>
       <p className="bg-gray-300 h-[2px] w-full"></p>
       <div className="py-2 flex justify-between">

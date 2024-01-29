@@ -15,8 +15,9 @@ import AnimationBottom from "./AnimationBtm";
 // import AnimatedComponentRight from "./AnimationRight";
 import AnimationTop from "./AnimationTop";
 import AnimatedNumberCounter from "./AnimationCounter";
-import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
-import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
+import AnimatedComponentLeft from "./AnimationLeft";
+import AnimatedComponentRight from "./AnimationRight";
+
 const Together = () => {
   // for cardBLood
   // const x = useMotionValue(0);
@@ -177,7 +178,7 @@ const Together = () => {
             </div>
             <div className="flex -ml-16 md:-ml-20 lg:ml-0 justify-center pt-5">
               <div className="grid grid-cols-1 md:grid-cols-2 md:gap-36 xl:gap-24">
-                <div className="relative flex gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50">
+                <div className="relative flex gap-2 md:gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
                     <motion.div
                       onMouseMove={handleMouseMove}
@@ -228,7 +229,7 @@ const Together = () => {
                   </AnimatedComponentLeft>
                 </div>
 
-                <div className="relative flex gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50 ">
+                <div className="relative flex gap-2 md:gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50 ">
                   <AnimationBottom>
                     <motion.div
                       onMouseMove={handleMouseMove1}

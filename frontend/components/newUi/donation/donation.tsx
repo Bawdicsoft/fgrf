@@ -700,7 +700,7 @@ export const DonationSectionPage = () => {
 
       {/* New Code */}
       {/* container-01 */}
-      <div className="flex h-40 justify-center ml-20">
+      <div className="flex h-40 justify-center ml-10 md:ml-20">
         <div className="w-40 md:w-60 relative flex items-center">
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
             <span className="cursor-pointer relative group overflow-hidden border-2 group-hover:border-4  group-hover:border-gray-100 border-[#19afaf] p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
@@ -709,7 +709,7 @@ export const DonationSectionPage = () => {
                 1
               </span>
             </span>
-            <span className="text-gray-500 ">Start</span>
+            <span className="text-gray-500 text-sm md:text-base">Start</span>
           </div>
           <span className={`bg-gray-100 h-[6px] w-full`}></span>
         </div>
@@ -722,7 +722,7 @@ export const DonationSectionPage = () => {
                 2
               </span>
             </span>
-            <span className="text-gray-500">Donation</span>
+            <span className="text-gray-500 text-sm md:text-base">Donation</span>
           </div>
         </div>
         <div className="w-40 md:w-60 relative flex items-center">
@@ -734,7 +734,7 @@ export const DonationSectionPage = () => {
                 3
               </span>
             </span>
-            <span className="text-gray-500">Details</span>
+            <span className="text-gray-500 text-sm md:text-base">Details</span>
           </div>
         </div>
         <div className="w-40 md:w-60 relative flex items-center">
@@ -745,7 +745,7 @@ export const DonationSectionPage = () => {
                 4
               </span>
             </span>
-            <span className="text-gray-500">Payment</span>
+            <span className="text-gray-500 text-sm md:text-base">Payment</span>
           </div>
         </div>
       </div>

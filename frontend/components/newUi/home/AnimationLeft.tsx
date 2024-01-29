@@ -42,7 +42,7 @@ const AnimatedComponentLeft: React.FC<MyAnimatedComponentProps> = ({
     // console.log("isLLarge--->", isLlarge);
 
     if (isExtraSmall) {
-      xValue = 30;
+      xValue = -20;
     } else if (isSmallM) {
       xValue = -30;
     } else if (isSmallL) {

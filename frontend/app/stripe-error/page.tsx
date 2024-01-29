@@ -10,8 +10,8 @@ export default function Error() {
         }}
       >
         <div>
-          <h2 className="text-red-500 font-bold text-2xl md:text-3xl py-10 px-5 text-center">
-            Sorry! Your Payment has Failed.
+          <h2 className="text-red-500 font-bold text-xl md:text-3xl py-10 px-5 text-center">
+            Sorry! Your stripe Payment has Failed.
           </h2>
           <div className="flex gap-5 justify-center">
             <Link

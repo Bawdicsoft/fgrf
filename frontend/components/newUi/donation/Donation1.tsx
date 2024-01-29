@@ -40,7 +40,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [btnDollar, setBtnDollar] = useState<Boolean>(false);
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<number>(100);
-  const [dollarDonate, setDollarDonate] = useState<number>(1);
+  const [dollarDonate, setDollarDonate] = useState<string>("1");
   const [titleDonate, setTitleDonate] = useState<string>("");
   const [orphanData, setOrphanData] = useState<Boolean>(true);
   const [donateAmountText, setDonateAmountText] = useState<Boolean>(false);
@@ -100,12 +100,8 @@ const DonationSec: React.FC<DonationSecProps> = ({
     if (titleDonate && check1 && check) {
       setNextStep(true);
       setNextDet(true);
-      console.log("I click1--->");
-      // setCheck(true);
     } else if (titleDonate) {
       setNextStep(true);
-      console.log("I click2--->");
-      // setCheck(true);
     } else {
       setAlertText(true);
       setNextStep(false);

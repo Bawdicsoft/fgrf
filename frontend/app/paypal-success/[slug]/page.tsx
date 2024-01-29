@@ -1,6 +1,7 @@
+"use client";
 import Link from "next/link";
-
-export default function Success() {
+export default function Success({ params }: { params: { slug: string } }) {
+  const myParams = params.slug;
   return (
     <div className="bg-gray-200">
       <div
@@ -10,9 +11,12 @@ export default function Success() {
         }}
       >
         <div>
-          <h2 className="text-green-500 font-bold text-xl md:text-3xl py-10 px-5 text-center">
-            Your Stripe Payment has been Successful.
+          <h2 className="text-green-500 font-bold text-xl md:text-3xl  px-5 text-center">
+            Your Paypal Payment has been Successful.
           </h2>
+          <h3 className="text-teal-500 font-semibold text-lg md:text-xl py-10 px-5 text-center">
+            Thanks For &#163; {myParams} Donation.
+          </h3>
           <div className="flex gap-5 justify-center">
             <Link
               href={"/"}

@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 // import { checkout } from "./checkOut";
-import MyPayPalButton from "./paypalBtn";
+
 import CheckoutButton from "./checkOut";
+import MyPayPalButton from "./paypalBtn";
 interface PaymentProps {
-  dollarDonate: number;
+  dollarDonate: string;
   titleDonate: string;
 }
 const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
@@ -19,7 +20,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           payment
         </h2>
         <p className="text-gray-700 text-base py-4 text-center">
-          Your Monthly Donation : ${dollarDonate}.00
+          Your Monthly Donation : &#163;{dollarDonate}.00
         </p>
         <p className="bg-gray-300 h-[2px] w-full"></p>
         <div className="py-2 flex justify-between">

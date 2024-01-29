@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Success() {
+export default function Error() {
   return (
     <div className="bg-gray-200">
       <div
@@ -10,8 +10,8 @@ export default function Success() {
         }}
       >
         <div>
-          <h2 className="text-green-500 font-bold text-xl md:text-3xl py-10 px-5 text-center">
-            Your Stripe Payment has been Successful.
+          <h2 className="text-red-500 font-bold text-xl md:text-3xl py-10 px-5 text-center">
+            Sorry! Your Paypal Payment has Failed.
           </h2>
           <div className="flex gap-5 justify-center">
             <Link

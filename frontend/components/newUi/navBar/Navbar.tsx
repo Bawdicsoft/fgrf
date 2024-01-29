@@ -555,28 +555,20 @@ export default function Navbar() {
                 </div>
               </div>
             </li>
-            <li className="flex justify-between py-2 px-3 ">
-              <button className="cursor-pointer text-white border p-1 px-2 rounded-lg">
-                DONATE NOW
-              </button>
-              {/* <div className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-0"> */}
+            <li className="flex justify-start py-2 px-2">
+              <span className=" text-white p-1 px-2">DONATE TO FUND</span>
+            </li>
+            <li className="flex justify-between gap-4 py-2 px-3">
               <select
-                id="countries"
-                className="bg-gray-200  p-1 rounded-lg font-semibold text-xs block  outline-none"
+                id=""
+                className="bg-gray-200  p-1 rounded-lg font-semibold text-xs w-full  outline-none"
                 required
               >
                 <option value="single">Single</option>
                 <option value="monthly">Monthly</option>
               </select>
-              {/* </div> */}
-            </li>
-            <li className="flex justify-between py-2 px-3">
-              <span className=" text-white p-1 px-2 rounded-lg border">
-                DONATE TO FUND
-              </span>
-              {/* <div className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-3 py-0"> */}
-              <div className="w-24 bg-gray-200  shadow-inner  border-[#faf9f9] rounded-md flex justify-center items-center">
-                <span className="px-1 rounded-md text-sm font-semibold">
+              <div className="w-full bg-gray-200  shadow-inner  border-[#faf9f9] rounded-md flex justify-center items-center">
+                <span className="px-2 rounded-md text-sm font-semibold">
                   <strong>&#163;</strong>
                 </span>
                 <div className="py-1 bg-gray-200 shadow-inner  border-[#faf9f9] rounded-md flex justify-around items-center">
@@ -591,15 +583,20 @@ export default function Navbar() {
                 {/* </div> */}
               </div>
             </li>
+            <li className="py-4 px-3 ">
+              <Link href={"/donation"} onClick={() => setToggel(false)}>
+                <button className="cursor-pointer text-white border p-2 px-2 rounded-lg w-full">
+                  DONATE NOW
+                </button>
+              </Link>
+            </li>
             <hr className="my-4 h-[2px] border-t-0 bg-transparent bg-gradient-to-r from-transparent via-green-200 to-transparent opacity-25" />
 
-            <li className="grid grid-cols-5 place-content-center place-items-center px-10  border-r border-black ">
+            <li className="grid grid-cols-5 place-content-center py-2 place-items-center px-10  border-r border-black ">
               <div className="bg-gray-100 text-black  rounded-full w-8 h-8 flex justify-center items-center">
                 <motion.div
                   whileHover={{
                     scale: 1.6,
-                    // filter: "brightness(1.8)",
-                    // rotate: 50,
                     filter: "drop-shadow(0px 0px 10px rgba(256, 0, 0, 0.9))",
                   }}
                   onHoverStart={() => setIsHovered(true)}
