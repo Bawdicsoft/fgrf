@@ -23,9 +23,9 @@ const CheckoutButton = ({ amount }) => {
   return (
     <button
       onClick={handler}
-      className="bg-blue-700 hover:bg-blue-800 duration-200 px-8 py-4 text-white"
+      className="bg-blue-700 hover:bg-blue-800 text-sm duration-200 px-10 py-3 text-white md:font-semibold rounded-2xl"
     >
-      Checkout
+      Pay with Stripe
     </button>
   );
 };

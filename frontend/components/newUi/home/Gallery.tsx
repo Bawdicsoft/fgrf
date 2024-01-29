@@ -175,11 +175,11 @@ const Gallery: React.FC = () => {
             >
               <div
                 id="box3d"
-                className="border-4 border-[#85d0d0]  w-60 md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
+                className="border-4 border-[#85d0d0]  w-40 md:w-80 py-1 bg-[#6898b1] mx-auto rounded-full shadow-lg"
               >
                 <h2
                   id=""
-                  className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+                  className="text-xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
                 >
                   Gallery
                 </h2>

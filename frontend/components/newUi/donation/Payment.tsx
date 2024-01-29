@@ -27,31 +27,14 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           <p className="text-gray-700 text-base">{dollarDonate}</p>
         </div>
         <p className="bg-gray-300 h-[2px]  w-full"></p>
-        <div className="flex justify-center pt-8">
-          {/* <button
-            onClick={() => {
-              checkout({
-                lineItems: [
-                  { price: "price_1OaY8LDryADxr33F2K8QWk6q", quantity: 1 },
-                ],
-              });
-            }}
-            className="uppercase font-bold text-white py-2 px-4 bg-red-600 hover:bg-red-400"
-          >
-            Donate now
-          </button> */}
-          {/* Stripe Code */}
-          {/* <a
-            href="https://donate.stripe.com/test_5kA9Clf89bbgfCw289"
-            className="font-bold rounded-2xl text-white py-2 px-4 bg-red-600 hover:bg-red-400 mr-4"
-          >
-            Donate With Stripe
-          </a> */}
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-5 md:gap-0 pt-8">
           {/* stripe today */}
-          <CheckoutButton amount={dollarDonate} />
-          {/* Today Code paypal Button*/}
-          <MyPayPalButton amount={dollarDonate} currency="USD" />
-          {/* )} */}
+          <div className="flex justify-center md:block">
+            <CheckoutButton amount={dollarDonate} />
+          </div>
+          <div className="md:col-span-2">
+            <MyPayPalButton amount={dollarDonate} currency="USD" />
+          </div>
         </div>
       </div>
     </div>

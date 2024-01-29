@@ -68,18 +68,15 @@ const DonationSec: React.FC<DonationSecProps> = ({
     country: string
   ) => {
     if (
-      // check &&
       title &&
       firstName &&
       lastName &&
       email &&
       contactNo &&
       address &&
-      // address2 &&
       city &&
       country
     ) {
-      // setNextDet(true);
       setCheck1(true);
       setCheck(true);
     } else {
@@ -96,7 +93,6 @@ const DonationSec: React.FC<DonationSecProps> = ({
       );
       setNextDet(false);
       setShowFormText(true);
-      // setCheck1(true);
     }
   };
 
@@ -149,7 +145,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     onClick={() => {
                       orphanDollarHandler(orphansDollarList1);
                       setOrphanData(true);
-                      setDonateAmountText(true);
+                      // setDonateAmountText(true);
                       setBtnDollar(false);
                       setTitleDonate(title);
                       setAlertText(false);
@@ -171,7 +167,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     key={index}
                     onClick={() => {
                       setOrphanData(false);
-                      setDonateAmountText(true);
+                      // setDonateAmountText(true);
                       seOtherBtnDollar(orphansOthersList);
                       setBtnDollar(true);
                       setInput(false);
@@ -193,7 +189,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     key={index}
                     onClick={() => {
                       setOrphanData(false);
-                      setDonateAmountText(true);
+                      // setDonateAmountText(true);
                       seOtherBtnDollar(onOffList);
                       setBtnDollar(true);
                       setInput(false);
@@ -253,24 +249,18 @@ const DonationSec: React.FC<DonationSecProps> = ({
                       <span className={`flex justify-center gap-3 `}>
                         <button
                           className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
-                          onClick={() => {
-                            //   orphanDollarHandler(orphansDollarList1);
-                          }}
+                          onClick={() => {}}
                         >
                           USD
                         </button>
                         <button
-                          onClick={() => {
-                            //   orphanDollarHandler(orphansDollarList2);
-                          }}
+                          onClick={() => {}}
                           className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
                         >
                           GBP
                         </button>
                         <button
-                          onClick={() => {
-                            //   orphanDollarHandler(orphansDollarList3);
-                          }}
+                          onClick={() => {}}
                           className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400"
                         >
                           {" "}
@@ -327,89 +317,40 @@ const DonationSec: React.FC<DonationSecProps> = ({
                       )}
                     </div>
                   )}
-                  {/* <span
-                className={`flex justify-center gap-3 `}
-              >
-                <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
-                  USD
-                </button>
-                <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
-                  GBP
-                </button>
-                <button className="p-3 text-lg font-semibold text-gray-500 focus:text-gray-400">
-                  {" "}
-                  EUR
-                </button>
-              </span> */}
-
                   {orphanData && (
                     <div>
                       <div className={` "grid grid-cols-4 gap-2" `}>
-                        {orphanDonationDollarArray?.map(
-                          (title, index) => (
-                            <div key={index}>
-                              <div className="flex  border p-4 gap-16 justify-between">
-                                <span className="text-lg  font-semibold">
-                                  {title}
-                                </span>
-                                <div className="flex flex-col gap-3">
-                                  <div className="flex gap-8">
-                                    <p>Quantity</p>
-                                    <input
-                                      type="number"
-                                      className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
-                                    />
-                                  </div>
-                                  <div className="flex gap-8">
-                                    <p>SubTotal</p>
-                                    <input
-                                      type="number"
-                                      className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
-                                    />
-                                  </div>
+                        {orphanDonationDollarArray?.map((title, index) => (
+                          <div key={index}>
+                            <div className="flex  border p-4 gap-16 justify-between">
+                              <span className="text-lg  font-semibold">
+                                {title}
+                              </span>
+                              <div className="flex flex-col gap-3">
+                                <div className="flex gap-8">
+                                  <p>Quantity</p>
+                                  <input
+                                    type="number"
+                                    className="h-8 focus:ring-2  rounded  focus:outline-none focus:ring-[#19afaf]"
+                                  />
+                                </div>
+                                <div className="flex gap-8">
+                                  <p>SubTotal</p>
+                                  <input
+                                    type="number"
+                                    className="h-8 focus:ring-2 rounded bg-gray-200 focus:outline-none focus:ring-[#19afaf] focus:shadow-2xl shadow-[#19afaf]"
+                                  />
                                 </div>
                               </div>
                             </div>
-                          )
-                          //  : title === "others" ? (
-                          //   <button
-                          //     key={index}
-                          //     onClick={() => {}}
-                          //     className="uppercase text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white"
-                          //   >
-                          //     {title}
-                          //   </button>
-                          // ) : (
-                          //   <button
-                          //     key={index}
-                          //     onClick={() => {}}
-                          //     className={`text-3xl text-gray-500 focus:bg-[#19afaf] focus:text-white font-semibold py-3 px-5 bg-white hover:bg-[#19afaf] hover:text-white`}
-                          //   >
-                          //     {title}
-                          //   </button>
-                        )}
+                          </div>
+                        ))}
                       </div>
                       <p className="text-red-600 font-bold text-3xl pt-5">
                         Total: $0.00
                       </p>
                     </div>
                   )}
-
-                  {/* <input
-                type="text"
-                className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
-              />
-              <p className="text-red-600 font-bold text-3xl">Total: $0.00</p>
-              <div className="flex items-center flex-col">
-                <p className="text-gray-400 text-lg font-medium text-center">
-                  Making a donation of 40 will help save lives
-                </p>
-                
-                  <button className="max-w-[200px] rounded hover:bg-[#2dc2c2] uppercase py-2 px-5 mt-1 bg-[#19afaf] text-white font-bold text-xl">
-                    Add to cart
-                  </button>
-          
-              </div> */}
                 </div>
               </AnimatedComponentLeft>
             )}

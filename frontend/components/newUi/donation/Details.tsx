@@ -273,7 +273,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
           <h2 className="text-3xl font-bold py-4 text-[#19afaf] text-center">
             KEEP IN TOUCH
           </h2>
-          <div className="flex justify-center items-center mb-5">
+          {/* <div className="flex justify-center items-center mb-5">
             <input
               id="terms"
               type="checkbox"
@@ -287,7 +287,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
             >
               Yes, I would like to hear from IRW{" "}
             </label>
-          </div>
+          </div> */}
           <p className="text-gray-500 text-sm text-center ">
             We would like to keep in touch with you to share the latest info on
             our work as well as how your donations have helped, via email. We

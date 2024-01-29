@@ -11,10 +11,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import AnimationBottom from "./AnimationBtm";
-import AnimatedComponentLeft from "./AnimationLeft";
-import AnimatedComponentRight from "./AnimationRight";
+// import AnimatedComponentLeft from "./AnimationLeft";
+// import AnimatedComponentRight from "./AnimationRight";
 import AnimationTop from "./AnimationTop";
 import AnimatedNumberCounter from "./AnimationCounter";
+import AnimatedComponentLeft from "./galleryAnimation/AnimationLeft";
+import AnimatedComponentRight from "./galleryAnimation/AnimationRight";
 const Together = () => {
   // for cardBLood
   // const x = useMotionValue(0);
@@ -166,16 +168,16 @@ const Together = () => {
     <section>
       <div className=" h-[500px] relative " id="main">
         <div className="max-w-7xl mx-auto px-3 h-full">
-          <div className="w-full mx-auto flex flex-col justify-center gap-4  md:pt-5">
+          <div className="w-full mx-auto flex flex-col justify-center gap-4  md:pt-3">
             <div className="flex justify-center">
-              <h2 className="max-w-4xl text-center lg:text-5xl leading-none font-normal md:text-3xl text-2xl text-white py-0 pb-2">
+              <h2 className="max-w-4xl text-center lg:text-5xl font-normal md:text-3xl text-xl leading-6 text-white py-0 pb-2">
                 Hearts aligned, worlds redesigned. Together, we inspire change
                 with boundless hope.
               </h2>
             </div>
-            <div className="flex -ml-16 md:ml-0 justify-center pt-5">
-              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-24 lg:gap-36 xl:gap-24">
-                <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50">
+            <div className="flex -ml-16 md:-ml-20 lg:ml-0 justify-center pt-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-36 xl:gap-24">
+                <div className="relative flex gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50">
                   <AnimationTop>
                     <motion.div
                       onMouseMove={handleMouseMove}
@@ -186,7 +188,7 @@ const Together = () => {
                         transformStyle: "preserve-3d",
                         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.2)",
                       }}
-                      className="flex md:absolute  h-24 md:h-32 w-20 md:w-24  lg:w-32"
+                      className="flex h-24 md:h-32 w-24 md:w-32"
                     >
                       <Image
                         style={{
@@ -201,8 +203,8 @@ const Together = () => {
                     </motion.div>
                   </AnimationTop>
                   <AnimatedComponentLeft>
-                    <div className="absolute w-32 top-5 -right-24 md:-right-28  lg:top-6 xl:top-8 lg:-right-28 xl:-right-8 flex flex-col lg:gap-3">
-                      <span className="text-white font-semibold lg:text-4xl xl:text-5xl">
+                    <div className="w-32 flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold text-xl lg:text-4xl xl:text-5xl">
                         {/* <Counter1>
                           <motion.h1>{rounded2}</motion.h1>;
                         </Counter1> */}
@@ -219,14 +221,14 @@ const Together = () => {
                           {rounded}
                         </motion.div>
                       </span>
-                      <span className="text-white font-semibold lg:text-lg">
+                      <span className="text-white md:font-semibold lg:text-lg">
                         Blood Bags
                       </span>
                     </div>
                   </AnimatedComponentLeft>
                 </div>
 
-                <div className="relative h-32 w-32 lg:w-40 xl:w-60 z-50 ">
+                <div className="relative flex gap-6 items-center h-32 w-32 lg:w-40 xl:w-60 z-50 ">
                   <AnimationBottom>
                     <motion.div
                       onMouseMove={handleMouseMove1}
@@ -237,7 +239,7 @@ const Together = () => {
                         transformStyle: "preserve-3d",
                         boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.2)",
                       }}
-                      className="relative flex md:absolute h-24 md:h-32 w-20 md:w-24 lg:w-24"
+                      className="relative flex h-24 md:h-32 w-24 md:w-28"
                     >
                       <Image
                         style={{
@@ -253,8 +255,8 @@ const Together = () => {
                   </AnimationBottom>
 
                   <AnimatedComponentRight>
-                    <div className="absolute w-32 top-5 left-24 md:left-28  lg:top-6 xl:top-8  flex flex-col lg:gap-3">
-                      <span className="text-white font-semibold lg:text-4xl xl:text-5xl">
+                    <div className="w-32 flex flex-col lg:gap-3">
+                      <span className="text-white font-semibold text-xl lg:text-4xl xl:text-5xl">
                         <motion.div
                           ref={ref}
                           initial="hidden"
@@ -268,7 +270,7 @@ const Together = () => {
                           {rounded1}
                         </motion.div>
                       </span>
-                      <span className="text-white font-semibold lg:text-lg">
+                      <span className="text-white md:font-semibold lg:text-lg">
                         Planted Trees
                       </span>
                     </div>

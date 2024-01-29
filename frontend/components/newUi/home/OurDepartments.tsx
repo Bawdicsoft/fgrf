@@ -151,7 +151,7 @@ const OurDepartments = () => {
             >
               <h2
                 id=""
-                className="text-2xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
+                className="text-xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
               >
                 Our Department
               </h2>
@@ -181,7 +181,7 @@ const OurDepartments = () => {
             } as any
           }
         >
-          <SwiperSlide className="">
+          <SwiperSlide className="!bg-[#075985]">
             <div className="lg:px-10 bg-[#075985] py-1">
               <div className="grid lg:grid-cols-7 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
                 {/* <AnimatedComponentLeft> */}{" "}
@@ -284,7 +284,7 @@ const OurDepartments = () => {
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide className="">
+          <SwiperSlide className="!bg-[#075985]">
             <div className="lg:px-10 bg-[#075985] py-1">
               <div className="grid lg:grid-cols-7 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
                 {/* <AnimatedComponentLeft> */}{" "}

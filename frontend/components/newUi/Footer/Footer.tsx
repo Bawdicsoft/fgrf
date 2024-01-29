@@ -81,7 +81,7 @@ const Footer = () => {
           </div>
         </div> */}
         <div className="flex flex-col ">
-          <div className="flex justify-evenly gap-1 md:gap-4 flex-wrap items-center py-4">
+          <div className="grid grid-cols-1 md:flex md:justify-evenly gap-3 md:gap-4 flex-wrap items-center py-4">
             {/* <div className=""> */}
             {/* <span className="text-gray-400 font-medium text-3xl">penny</span> */}
             <span className="flex flex-col self-end items-center">
@@ -96,17 +96,19 @@ const Footer = () => {
               </span>
             </span>
             {/* </div> */}
-            <div className="text-center">
-              <h2 className="font-medium text-sm md:text-base text-gray-500 hover:text-gray-400">
-                ABOUT US
-              </h2>
+            <div className="flex gap-5 md:gap-12 justify-center">
+              <div className="text-center">
+                <h2 className="font-medium text-sm md:text-base text-gray-500 hover:text-gray-400">
+                  ABOUT US
+                </h2>
+              </div>
+              <div className="text-center">
+                <h2 className="font-medium text-sm md:text-base text-gray-500  hover:text-gray-400">
+                  CONTACT US
+                </h2>
+              </div>
             </div>
-            <div className="text-center">
-              <h2 className="font-medium text-sm md:text-base text-gray-500  hover:text-gray-400">
-                CONTACT US
-              </h2>
-            </div>
-            <div className="flex justify-evenly text-gray-500 gap-4 pt-5 md:pt-0">
+            <div className="flex justify-center md:justify-evenly text-gray-500 gap-4">
               <Link
                 href={"https://www.facebook.com/profile.php?id=61550763330971"}
               >
@@ -118,8 +120,8 @@ const Footer = () => {
               <FaYoutube />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <div className="col-span-2 flex flex-col gap-2 py-3">
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="col-span-2 flex flex-col gap-2 md:py-3">
               <p className="text-xs text-center">
                 Any leftover donation can be spent in any permissible, welfare,
                 well-wishing, water, food, agriculture, construction, reglious
@@ -165,7 +167,7 @@ const Footer = () => {
                 </a>
               </span>
             </div>
-            <div className="flex self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
+            <div className="flex md:self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
               <div className="group relative overflow-hidden bg-[#148698] flex items-center px-2 gap-3 py-4">
                 <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <div className="">

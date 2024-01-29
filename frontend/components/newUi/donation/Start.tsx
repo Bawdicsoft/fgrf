@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import AnimationTop from "../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimatedComponentLeft from "../home/AnimationLeft";
@@ -26,7 +26,24 @@ const oneOffList = [
   "Medical Camp Appeal",
   "Global warming Appeal",
 ];
+const orphansOthersList = ["150", "100", "50", "others"];
 const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
+  // const [otherBtnDollar, seOtherBtnDollar] = useState<any[]>();
+  const [btnDollar, setBtnDollar] = useState<Boolean>(false);
+  const [input, setInput] = useState<Boolean>(false);
+  const [dollar, setDollar] = useState<string>("100");
+  const [dollarDonate, setDollarDonate] = useState<string>("1");
+  const [titleDonate, setTitleDonate] = useState<string>("");
+  const [orphanData, setOrphanData] = useState<Boolean>(true);
+  const [donateAmountText, setDonateAmountText] = useState<Boolean>(false);
+  const [nextStep, setNextStep] = useState<Boolean>(false);
+  const [alertText, setAlertText] = useState<Boolean>(false);
+  const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
+  const [bgFundIndex, setbgFundIndex] = useState<number>();
+  const [nextDet, setNextDet] = useState(false);
+  const [check, setCheck] = useState(false);
+  const [check1, setCheck1] = useState(false);
+  const [showFormText, setShowFormText] = useState(false);
   return (
     <div className="flex flex-col items-center justify-center ">
       <AnimationTop>
@@ -47,7 +64,7 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
           </div>
         </motion.div>
       </AnimationTop>
-      <div>
+      {/* <div>
         <motion.div
           className="box"
           initial={{ opacity: 0, scale: 0.2 }}
@@ -58,14 +75,6 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          {/* <Image
-            src={"/donationNew.webp"}
-            alt="donationImg"
-            width={500}
-            height={400}
-          /> */}
-
-          {/* new images */}
           <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-2 lg:gap-1  mx-auto">
             <Image
               src={"/donationImg/1.jpeg"}
@@ -97,7 +106,55 @@ const StartSec: React.FC<StartSecProps> = ({ monthlyHandler }) => {
             />
           </div>
         </motion.div>
+      </div> */}
+
+      {/* new Code today 29-1-2024 */}
+      <div className="flex flex-col gap-4 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4">
+          {orphansOthersList?.map((title, index) =>
+            title === "others" ? (
+              <button
+                key={index}
+                onClick={() => {
+                  setInput(true);
+                  setBgBtnIndex(index);
+                }}
+                className={`relative group overflow-hidden text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-3 px-5  hover:text-white `}
+              >
+                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                <span className="relative ">{title}</span>
+              </button>
+            ) : (
+              <button
+                key={index}
+                onClick={() => {
+                  setDollar(title);
+                  setDollarDonate(title);
+                  setInput(false);
+                  setBgBtnIndex(index);
+                }}
+                className={`relative group overflow-hidden text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold py-3 px-5  hover:text-white ${
+                  bgBtnIndex === index ? "bg-[#19afaf] text-white" : "bg-white"
+                } `}
+              >
+                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                <span className="relative ">{title}</span>
+              </button>
+            )
+          )}
+        </div>
+        {input && (
+          <input
+            type="text"
+            className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+          />
+        )}
+        <p className="text-gray-400 text-lg font-medium text-center">
+          Making a donation of {dollar} will help save lives
+        </p>
       </div>
+
+      {/* monthly one-off */}
       <div className="py-10 flex">
         <AnimatedComponentLeft>
           <button

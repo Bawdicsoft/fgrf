@@ -110,7 +110,7 @@ export default function Navbar() {
         <button
           onMouseMove={() => setLogo(true)}
           onMouseLeave={() => setLogo(false)}
-          className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center"
+          className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center md:w-40 lg:w-full"
         >
           <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-80 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
 
@@ -124,48 +124,48 @@ export default function Navbar() {
             />
           </Link>
         </button>
-
-        {/* new yha */}
-        {/* <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
-          <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-          <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-            <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-            <span className="relative group-hover:text-white">Show more</span>
-          </span>
-        </div> */}
-        {/* yha tk */}
+        {/* md nvabar */}
         <div className="col-span-3 hidden lg:hidden md:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center ">
-          <span className="hover:text-light-blue rounded-md lg:text-xs xl:text-xs font-semibold text-white">
-            DONATE TO FUND
-          </span>
-          <div className="w-24 bg-green-600 shadow-inner  border-[#faf9f9] rounded-md flex justify-center items-center">
-            <span className="hover:text-light-blue px-3 rounded-md text-xs font-semibold text-black">
+          <Link
+            href={"/donation"}
+            className="relative group overflow-hidden bg-sky-900 text-white px-3 py-1 text-sm"
+          >
+            <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
+            <span className="relative"> DONATE TO FUND</span>
+          </Link>
+          <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
+            <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
               <strong>&#163;</strong>
             </span>
-            <div className="py-1 bg-green-600 shadow-inner  border-[#faf9f9] rounded-md flex justify-around items-center">
+            <div className="py-1 bg-[#eee] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
               <input
                 type="number"
                 id="small-input"
                 placeholder="Amount"
-                className="block w-full font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
+                className="block pl-2 w-full font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
                 required
               />
             </div>
           </div>
-
           <select
             id="countries"
-            className="bg-sky-600 p-1 text-white rounded-lg  font-semibold text-xs block  outline-none"
+            className="bg-gray-200 py-1 px-2 rounded-md xl:w-36  text-black font-medium text-xs block  outline-none"
             required
           >
             <option value="single">Single</option>
             <option value="monthly">Monthly</option>
+            <option value="Others">Others</option>
           </select>
-          <button className="cursor-pointer hover:text-light-blue px-3 py-2 rounded-md lg:text-xs xl:text-xs text-white font-extrabold">
-            DONATE NOW
-          </button>
+          <Link
+            href={"/donation"}
+            className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm"
+          >
+            <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
+            <span className="relative"> DONATE NOW</span>
+          </Link>
         </div>
+
+        {/* lg Navbar */}
         <div className="hidden md:col-span-5 lg:col-span-4 xl:col-span-5 md:flex flex-col bg-white">
           {/* containter-1 */}
           <div className="grid grid-col-1 md:grid-cols-4 lg:grid-cols-7">
@@ -366,7 +366,7 @@ export default function Navbar() {
           {/* containter-2 */}
           <div className="grid grid-cols-3 border-b-0 border-t border-black">
             <div className="md:col-span-2 grid grid-cols-3 place-content-center place-items-center lg:grid-cols-3 border-b-0 border-r border-black">
-              <a
+              {/* <a
                 href="#ourDepartment"
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
@@ -374,7 +374,7 @@ export default function Navbar() {
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
               >
                 Our Department
-              </a>
+              </a> */}
               <Link
                 href={"/appeal"}
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
@@ -469,8 +469,6 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        {/* onClick={() => setToggel(!toggel)} */}
-        {/* className="md:hidden self-center text-gray-200 ml-32" */}
         <button
           onClick={() => setToggel(!toggel)}
           type="button"
@@ -494,6 +492,7 @@ export default function Navbar() {
           </svg>
         </button>
       </div>
+
       {/* handle Toggel Container */}
       {toggel && (
         <div className="absolute top-12 z-50 w-full">

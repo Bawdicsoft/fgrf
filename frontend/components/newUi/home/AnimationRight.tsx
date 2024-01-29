@@ -42,13 +42,13 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
     // console.log("isLLarge--->", isLlarge);
 
     if (isExtraSmall) {
-      xValue = 40;
+      xValue = 30;
     } else if (isSmallM) {
-      xValue = 60;
+      xValue = 30;
     } else if (isSmallL) {
-      xValue = 70;
+      xValue = 30;
     } else if (isMedium) {
-      xValue = 125;
+      xValue = 30;
     } else if (isLarge) {
       xValue = 170;
     } else if (isLlarge) {
