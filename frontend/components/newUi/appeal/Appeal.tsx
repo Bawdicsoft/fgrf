@@ -142,11 +142,11 @@ const AppealSection = () => {
           >
             <div
               id="box3d"
-              className="border-4 border-[#85d0d0]  w-60 md:w-80 py-3 bg-[#6898b1]  flex justify-center group mx-auto rounded-full shadow-lg"
+              className="border-4 border-[#85d0d0]  w-44 md:w-80 py-1 md:py-3 bg-[#6898b1]  flex justify-center group mx-auto rounded-full shadow-lg"
             >
               <span
                 id=""
-                className="text-2xl md:text-3xl group-hover:text-sky-800 font-bold text-white "
+                className="text-xl md:text-3xl group-hover:text-sky-800 font-bold text-white "
               >
                 Our Appeals
               </span>

@@ -41,6 +41,10 @@ export default function SliderSectionHealth() {
           clickable: true,
         }}
         breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
           640: {
             slidesPerView: 2,
             spaceBetween: 20,

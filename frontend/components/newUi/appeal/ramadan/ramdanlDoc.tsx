@@ -79,7 +79,7 @@ const RamadanDocs = () => {
       </div> */}
       {/* <iframe className="w-full aspect-video" src="/Videonews/1.mp4"></iframe> */}
       <div className="flex flex-col items-center">
-        <div className="w-3/4 ">
+        <div className="md:w-3/4 ">
           <video className="h-full w-full rounded-2xl" controls>
             <source src="/Videonews/1.mp4" type="video/mp4" />
           </video>

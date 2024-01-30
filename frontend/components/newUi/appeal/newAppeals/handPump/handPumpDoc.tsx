@@ -38,13 +38,13 @@ const HandPumpDocs = () => {
             </button>
           </Link>
         </div>
-        <div className="flex gap-10 pt-10 pb-8 items-center">
-          <div className="w-3/4 ">
+        <div className="flex flex-wrap md:flex-nowrap gap-10 pt-10 pb-8 items-center">
+          <div className="md:w-3/4 ">
             <video className="h-full w-full rounded-2xl" controls>
               <source src="/Videonews/4.mp4" type="video/mp4" />
             </video>
           </div>
-          <div className="w-3/4 ">
+          <div className="md:w-3/4 ">
             <video className="h-full w-full rounded-2xl" controls>
               <source src="/Videonews/4.mp4" type="video/mp4" />
             </video>

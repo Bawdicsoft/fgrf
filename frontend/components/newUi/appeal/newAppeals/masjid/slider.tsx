@@ -32,6 +32,10 @@ export default function SliderSectionMasjid() {
           clickable: true,
         }}
         breakpoints={{
+          320: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
           640: {
             slidesPerView: 2,
             spaceBetween: 20,
@@ -46,11 +50,11 @@ export default function SliderSectionMasjid() {
           },
         }}
         modules={[Pagination, Navigation]}
-        // navigation={true}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
+        navigation={true}
+        // navigation={{
+        //   nextEl: ".swiper-button-next",
+        //   prevEl: ".swiper-button-prev",
+        // }}
         className=""
       >
         {imageList.map((img, index) => (
@@ -65,12 +69,12 @@ export default function SliderSectionMasjid() {
           </SwiperSlide>
         ))}
         {/* Add Navigation Buttons */}
-        <div className="swiper-button-next">
+        {/* <div className="swiper-button-next">
           <PiArrowFatRightFill className="w-32 h-10 text-white" />
         </div>
         <div className="swiper-button-prev">
           <PiArrowFatRightFill className="w-32 h-10 text-white" />
-        </div>
+        </div> */}
       </Swiper>
     </>
   );
