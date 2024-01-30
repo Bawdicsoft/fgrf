@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 // import { checkout } from "./checkOut";
-
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import CheckoutButton from "./checkOut";
 import MyPayPalButton from "./paypalBtn";
 import GooglePayBtn from "./googlePayBtn";
@@ -10,7 +11,9 @@ interface PaymentProps {
   dollarDonate: string;
   titleDonate: string;
 }
+const key: any = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
+  const stripePromise = loadStripe(key);
   // new Code
   const [loader, setLoader] = useState(true);
   // Clinet iD paypal
@@ -41,7 +44,9 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <GooglePayBtn amount={dollarDonate} />
-          {/* <MyApplePayBtn amount={dollarDonate} /> */}
+          <Elements stripe={stripePromise}>
+            <MyApplePayBtn amount={dollarDonate} />
+          </Elements>
         </div>
       </div>
     </div>
