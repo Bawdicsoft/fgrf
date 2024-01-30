@@ -20,7 +20,7 @@ const MyApplePayBtn = ({ amount }) => {
       requestPayerName: true,
       total: {
         label: "Demo payment",
-        amount: 3241,
+        amount: amount,
       },
     });
     pr.canMakePayment().then((result) => {
