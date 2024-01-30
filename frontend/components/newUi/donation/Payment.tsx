@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import CheckoutButton from "./checkOut";
 import MyPayPalButton from "./paypalBtn";
+import GooglePayBtn from "./googlePayBtn";
+import MyApplePayBtn from "./applePayBtn";
 interface PaymentProps {
   dollarDonate: string;
   titleDonate: string;
@@ -36,6 +38,10 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           <div className="md:col-span-2">
             <MyPayPalButton amount={dollarDonate} currency="USD" />
           </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          <GooglePayBtn amount={dollarDonate} />
+          <MyApplePayBtn amount={dollarDonate} />
         </div>
       </div>
     </div>

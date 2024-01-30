@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "components/newUi/donation/paypalBtn.js",
     "components/newUi/donation/checkOut.js",
-    "components/newUi/donation/checkOut.js"
+    "components/newUi/donation/checkOut.js",
+    "components/newUi/donation/googlePayBtn.js"
   ],
   "exclude": ["node_modules"]
 }
