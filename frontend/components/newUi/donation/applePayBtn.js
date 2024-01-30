@@ -6,11 +6,11 @@ import {
 import { useEffect, useState } from "react";
 const MyApplePayBtn = ({ amount }) => {
   const stripe = useStripe();
-  const element = useElements();
+  const elements = useElements();
   const [paymentRequest, setPaymentRequest] = useState(null);
 
   useEffect(() => {
-    if (!stripe || !element) {
+    if (!stripe || !elements) {
       return;
     }
     const pr = stripe.paymentRequest({
@@ -29,7 +29,7 @@ const MyApplePayBtn = ({ amount }) => {
       }
     });
     pr.on("paymentmethod", async (e) => {});
-  }, [stripe, element]);
+  }, [stripe, elements]);
   return (
     <div>
       {paymentRequest && (

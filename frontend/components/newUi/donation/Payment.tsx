@@ -41,7 +41,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <GooglePayBtn amount={dollarDonate} />
-          {/* <MyApplePayBtn amount={dollarDonate} /> */}
+          <MyApplePayBtn amount={dollarDonate} />
         </div>
       </div>
     </div>
