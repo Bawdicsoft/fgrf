@@ -167,109 +167,120 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               )}
             </div>
           </div>
-          <div className="mb-5">
-            <label
-              htmlFor="Address"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Address
-            </label>
-            <input
-              type="Address"
-              id="Address"
-              // ref={addressRef}
-              onChange={(e) => setAddress(e.target.value)}
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
-              placeholder="123 High Street"
-              required
-            />
-            {showFormText && (
-              <p className="text-red-500 text-xs">Please fill the blank</p>
+          {(titleDonate as any) !== "Zakat" &&
+            (titleDonate as any) !== "Iftar Appeal" && (
+              <div>
+                <div className="mb-5">
+                  <label
+                    htmlFor="Address"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Address
+                  </label>
+                  <input
+                    type="Address"
+                    id="Address"
+                    // ref={addressRef}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    placeholder="123 High Street"
+                    required
+                  />
+                  {showFormText && (
+                    <p className="text-red-500 text-xs">
+                      Please fill the blank
+                    </p>
+                  )}
+                </div>
+
+                <div className="mb-5">
+                  <label
+                    htmlFor="Address"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Address 2
+                  </label>
+                  <input
+                    type="Address"
+                    id="Address"
+                    // ref={address2Ref}
+                    onChange={(e) => setAddress2(e.target.value)}
+                    className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    placeholder="123 High Street"
+                    required
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="mb-5">
+                    <label
+                      htmlFor="Address"
+                      className="block mb-2 text-sm font-medium text-gray-900 "
+                    >
+                      Town City
+                    </label>
+                    <input
+                      type="Address"
+                      id="Address"
+                      // ref={cityRef}
+                      onChange={(e) => setCity(e.target.value)}
+                      className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                      placeholder="Enter City"
+                      required
+                    />
+                    {showFormText && (
+                      <p className="text-red-500 text-xs">
+                        Please fill the blank
+                      </p>
+                    )}
+                  </div>
+                  <div className="mb-5">
+                    <label
+                      htmlFor="countries"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      Country
+                    </label>
+                    <select
+                      id="countries"
+                      // ref={countryRef}
+                      onChange={(e) => setCountry(e.target.value)}
+                      className="bg-gray-50 outline-0 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
+                    >
+                      <option className="">Select Your Country</option>
+                      <option>Canada</option>
+                      <option>France</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                      <option>Germany</option>
+                    </select>
+                    {showFormText && (
+                      <p className="text-red-500 text-xs">
+                        Please Select Your Country
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
             )}
-          </div>
-          <div className="mb-5">
-            <label
-              htmlFor="Address"
-              className="block mb-2 text-sm font-medium text-gray-900 "
-            >
-              Address 2
-            </label>
-            <input
-              type="Address"
-              id="Address"
-              // ref={address2Ref}
-              onChange={(e) => setAddress2(e.target.value)}
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
-              placeholder="123 High Street"
-              required
-            />
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="mb-5">
-              <label
-                htmlFor="Address"
-                className="block mb-2 text-sm font-medium text-gray-900 "
-              >
-                Town City
-              </label>
-              <input
-                type="Address"
-                id="Address"
-                // ref={cityRef}
-                onChange={(e) => setCity(e.target.value)}
-                className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
-                placeholder="Enter City"
-                required
-              />
-              {showFormText && (
-                <p className="text-red-500 text-xs">Please fill the blank</p>
-              )}
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="countries"
-                className="block mb-2 text-sm font-medium text-gray-900"
-              >
-                Country
-              </label>
-              <select
-                id="countries"
-                // ref={countryRef}
-                onChange={(e) => setCountry(e.target.value)}
-                className="bg-gray-50 outline-0 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
-              >
-                <option className="">Select Your Country</option>
-                <option>Canada</option>
-                <option>France</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-                <option>Germany</option>
-              </select>
-              {showFormText && (
-                <p className="text-red-500 text-xs">
-                  Please Select Your Country
-                </p>
-              )}
-            </div>
-          </div>
           <h2 className="text-3xl font-bold py-4 text-[#19afaf] text-center">
             KEEP IN TOUCH
           </h2>

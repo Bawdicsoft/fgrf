@@ -9,9 +9,10 @@ interface StartSecProps {
 }
 const monthlyList = ["Sadaqah", "water", "food", "emergency"];
 const oneOffList = [
-  " Zakat ",
+  "Zakat",
   "Palestine appeal ",
   "Winter Appeal ",
+  "Iftar Appeal",
   "Sadaqah",
   "Food packs ",
   "Ration Distribution ",

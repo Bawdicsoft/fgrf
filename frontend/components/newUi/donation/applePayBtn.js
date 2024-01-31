@@ -1,16 +1,16 @@
 import {
   useStripe,
-  useElements,
+  // useElements,
   PaymentRequestButtonElement,
 } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 const MyApplePayBtn = ({ amount }) => {
   const stripe = useStripe();
-  const elements = useElements();
+  // const elements = useElements();
   const [paymentRequest, setPaymentRequest] = useState(null);
 
   useEffect(() => {
-    if (!stripe || !elements) {
+    if (!stripe) {
       return;
     }
     const pr = stripe.paymentRequest({
@@ -25,11 +25,11 @@ const MyApplePayBtn = ({ amount }) => {
     });
     pr.canMakePayment().then((result) => {
       if (result) {
+        pr.on("paymentmethod", async (e) => {});
         setPaymentRequest(pr);
       }
     });
-    pr.on("paymentmethod", async (e) => {});
-  }, [stripe, elements]);
+  }, [stripe]);
   return (
     <div>
       {paymentRequest && (
