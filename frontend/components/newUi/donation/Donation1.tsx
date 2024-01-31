@@ -61,36 +61,12 @@ const DonationSec: React.FC<DonationSecProps> = ({
     firstName: string,
     lastName: string,
     email: string,
-    contactNo: string,
-    address: string,
-    address2: string,
-    city: string,
-    country: string
+    contactNo: string
   ) => {
-    if (
-      title &&
-      firstName &&
-      lastName &&
-      email &&
-      contactNo &&
-      address &&
-      city &&
-      country
-    ) {
+    if (title && firstName && lastName && email && contactNo) {
       setCheck1(true);
       setCheck(true);
     } else {
-      console.log(
-        title,
-        firstName,
-        lastName,
-        email,
-        contactNo,
-        address,
-        address2,
-        city,
-        country
-      );
       setNextDet(false);
       setShowFormText(true);
     }

@@ -122,7 +122,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/iftar-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -159,7 +159,7 @@ const Appeals = () => {
                     Donate Now
                   </span>
                 </button> */}
-                <Link href={"/donation"}>
+                <Link href={"/donation/zakat-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -191,7 +191,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/food-box-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -223,7 +223,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/winter-emergency-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -255,7 +255,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/palestine-emergency-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -287,7 +287,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/orphan-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -319,7 +319,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/hand-pump-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -351,7 +351,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/water-well-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
@@ -383,7 +383,7 @@ const Appeals = () => {
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <Link href={"/donation"}>
+                <Link href={"/donation/masjid-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                     <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
