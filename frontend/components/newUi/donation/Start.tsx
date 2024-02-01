@@ -80,7 +80,7 @@ const StartSec: React.FC<StartSecProps> = ({
                   <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
                     Base Nisab on value of
                   </label>
-                  <select className="outline-none focus:ring-2 ring-teal-500 rounded-lg w-full p-2 font-medium text-teal-500">
+                  <select className="outline-none bg-white focus:ring-2 ring-teal-500 rounded-lg w-full p-2 font-medium text-teal-500">
                     <option>Silver</option>
                     <option>Gold</option>
                   </select>
@@ -90,11 +90,11 @@ const StartSec: React.FC<StartSecProps> = ({
                     Gold & Silver
                   </label>
                   <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                       &#163;
                     </span>
                     <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                       type="text"
                       placeholder="Value of silver and gold you possess"
                     />
@@ -106,41 +106,41 @@ const StartSec: React.FC<StartSecProps> = ({
                   </label>
                   <div className="flex flex-col w-full gap-2">
                     <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="In hand and  in bank accounts"
                       />
                     </div>
                     <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Saving for the future"
                       />
                     </div>
                     <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Money You have loaned"
                       />
                     </div>
                     <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className=" outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                        className=" outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Business investments"
                       />
@@ -152,11 +152,11 @@ const StartSec: React.FC<StartSecProps> = ({
                     Business Assests
                   </label>
                   <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                       &#163;
                     </span>
                     <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 text-teal-500 text-base w-full  md:px-4"
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
                       type="text"
                       placeholder="Stock Value"
                     />
@@ -168,31 +168,31 @@ const StartSec: React.FC<StartSecProps> = ({
                   </label>
                   <div className="flex flex-col w-full gap-2">
                     <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-2 text-red-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Money owed (borrowed or credit"
                       />
                     </div>
                     <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-2 text-red-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Employee salaries"
                       />
                     </div>
                     <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-2 text-red-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Other outgoings due (tax, rent, utilities)"
                       />
@@ -204,11 +204,11 @@ const StartSec: React.FC<StartSecProps> = ({
                     Total Assests
                   </label>
                   <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-4 py-2 rounded-l-lg">
+                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                       &#163;
                     </span>
                     <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-2 bg-gray-200 text-teal-500 text-base w-full  md:px-4"
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 bg-gray-200 text-teal-500 text-base w-full  md:px-4"
                       type="text"
                       placeholder="0"
                     />

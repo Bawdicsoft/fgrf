@@ -120,7 +120,7 @@ const Footer = () => {
               <FaYoutube />
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-1 lg:gap-0">
             <div className="col-span-2 flex flex-col gap-2 md:py-3">
               <p className="text-xs text-center">
                 Any leftover donation can be spent in any permissible, welfare,
@@ -142,7 +142,7 @@ const Footer = () => {
                 Registered Address: Penny Appeal Campus, Thornes Park,
                 Wakefield, England, WF2 8QZ
               </p> */}
-              <div className="text-center md:flex text-gray-500 text-xs md:text-sm justify-center">
+              <div className="text-center md:flex text-gray-500 text-xs lg:text-sm justify-center">
                 <Link href={"#"} className="text-[#19afaf]">
                   Terms and Conditions
                 </Link>
@@ -168,7 +168,10 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex md:self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
-              <div className="group relative overflow-hidden bg-[#148698] flex items-center px-2 gap-3 py-4">
+              <Link
+                href={"/donation/water-well-donation"}
+                className="group relative overflow-hidden bg-[#148698] flex items-center px-2 gap-3 md:gap-2 lg:gap-3 py-4 md:py-3 lg:py-4"
+              >
                 <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <div className="">
                   <div className="relative overflow-hidden rounded-full  bg-white border p-3">
@@ -193,12 +196,12 @@ const Footer = () => {
                     />
                   </div>
                 </div>
-                <div className="relative md:text-xl text-lg text-white uppercase font-bold">
+                <div className="relative md:text-xs lg:text-xl text-lg text-white uppercase font-bold">
                   <span className="relative ">Donate a</span>
                   <br /> water well
                   <span className="absolute h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 </div>
-                <div className="relative overflow-hidden border bg-white p-2 text-[#19afaf]  font-bold rounded-md">
+                <div className="relative overflow-hidden border bg-white p-2  md:p-1  lg:p-2 text-[#19afaf]  font-bold rounded-md">
                   <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                   <div className="flex items-center relative group-hover:text-white">
                     &#163; 175
@@ -208,7 +211,7 @@ const Footer = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="md:w-4 md:h-4 w-4 h-4 group-hover:text-white text-sky-500"
+                      className="md:w-3 md:h-3 lg:w-4 lg:h-4 w-4 h-4 group-hover:text-white text-sky-500"
                     >
                       <path
                         strokeLinecap="round"
@@ -218,7 +221,7 @@ const Footer = () => {
                     </svg>
                   </div>
                 </div>
-              </div>
+              </Link>
               {/* new */}
               {/* <div className="w-44 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
