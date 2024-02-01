@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <section className="bg-white">
       <div className="lg:max-w-[1000px] mx-auto px-3">
-        <div className="bg-[#19afaf] w-full h-1 rounded-full"></div>
+        <div className="bg-[#19afaf] w-full h-1 relative rounded-full"></div>
         {/* <div className="lg:flex lg:flex-row flex flex-col lg:items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
           <div className="lg:flex lg:flex-row flex flex-col items-center gap-x-3 lg:items-center">
             <img

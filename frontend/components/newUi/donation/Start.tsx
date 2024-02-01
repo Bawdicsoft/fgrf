@@ -7,6 +7,7 @@ import AnimatedComponentLeft from "../home/AnimationLeft";
 import AnimatedComponentRight from "../home/AnimationRight";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import { FiPhoneCall } from "react-icons/fi";
 import Link from "next/link";
 interface StartSecProps {
   // monthlyHandler: (data: string[]) => void;
@@ -66,35 +67,41 @@ const StartSec: React.FC<StartSecProps> = ({
       {/* Zakat calculator Form */}
       {zakatCalc ? (
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-5">
             <div>
-              <p className="text-base font-semibold text-gray-500 py-1 md:py-2">
+              <p className="rounded-r-lg px-2 font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full md:w-3/4  md:px-4">
                 Calculate and Pay Your Zakat Using the Latest Nisab Values.
               </p>
-              <p className="text-sm text-gray-600 py-1">
+              <p className="text-sm text-gray-600 pt-2">
                 Enter all assets that have been in your possession over a lunar
                 year in the boxes below
               </p>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 lg:pt-12">
                 <div className="flex flex-col w-full">
                   <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
                     Base Nisab on value of
                   </label>
-                  <select className="outline-none bg-white focus:ring-2 ring-teal-500 rounded-lg w-full p-2 font-medium text-teal-500">
-                    <option>Silver</option>
-                    <option>Gold</option>
-                  </select>
+                  <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 rounded-lg py-0">
+                    <select
+                      className="outline-none focus:ring-2 ring-teal-500
+                      rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white
+                      bg-teal-400 text-base w-full md:px-4"
+                    >
+                      <option>Silver</option>
+                      <option>Gold</option>
+                    </select>
+                  </div>
                 </div>
                 <div className="flex flex-col w-full">
                   <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
                     Gold & Silver
                   </label>
-                  <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                  <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                    <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                       &#163;
                     </span>
                     <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                       type="text"
                       placeholder="Value of silver and gold you possess"
                     />
@@ -105,42 +112,42 @@ const StartSec: React.FC<StartSecProps> = ({
                     Cash
                   </label>
                   <div className="flex flex-col w-full gap-2">
-                    <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                         type="text"
-                        placeholder="In hand and  in bank accounts"
+                        placeholder="In Hand and Bank Accounts"
                       />
                     </div>
-                    <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Saving for the future"
                       />
                     </div>
-                    <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Money You have loaned"
                       />
                     </div>
-                    <div className="flex">
-                      <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                         &#163;
                       </span>
                       <input
-                        className=" outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                         type="text"
                         placeholder="Business investments"
                       />
@@ -151,86 +158,27 @@ const StartSec: React.FC<StartSecProps> = ({
                   <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
                     Business Assests
                   </label>
-                  <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                  <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                    <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
                       &#163;
                     </span>
                     <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 text-teal-500 text-base w-full  md:px-4"
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                       type="text"
-                      placeholder="Stock Value"
+                      placeholder="Stock value"
                     />
-                  </div>
-                </div>
-                <div className="flex flex-col w-full">
-                  <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
-                    Liabilities
-                  </label>
-                  <div className="flex flex-col w-full gap-2">
-                    <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
-                        &#163;
-                      </span>
-                      <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
-                        type="text"
-                        placeholder="Money owed (borrowed or credit"
-                      />
-                    </div>
-                    <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
-                        &#163;
-                      </span>
-                      <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
-                        type="text"
-                        placeholder="Employee salaries"
-                      />
-                    </div>
-                    <div className="flex">
-                      <span className="bg-red-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
-                        &#163;
-                      </span>
-                      <input
-                        className="outline-none focus:ring-2 ring-red-500 rounded-r-lg px-2 py-1 md:py-2 text-red-500 text-base w-full  md:px-4"
-                        type="text"
-                        placeholder="Other outgoings due (tax, rent, utilities)"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col w-full">
-                  <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
-                    Total Assests
-                  </label>
-                  <div className="flex">
-                    <span className="bg-teal-500 text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
-                      &#163;
-                    </span>
-                    <input
-                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 py-1 md:py-2 bg-gray-200 text-teal-500 text-base w-full  md:px-4"
-                      type="text"
-                      placeholder="0"
-                    />
-                  </div>
-                </div>
-                <div className="flex justify-end pt-2">
-                  <div className="flex gap-2">
-                    <button className="bg-teal-500 hover:bg-teal-600 rounded-lg text-white font-medium px-5 py-2">
-                      Reset
-                    </button>
-                    <button className="bg-red-500 hover:bg-red-600 text-white font-medium rounded-lg px-5 py-2">
-                      Calculate
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
             <div className="mx-auto lg:px-8">
-              <p className="text-base font-semibold text-gray-500 py-1 md:py-2 uppercase">
-                Donation Hotlines
+              <p className="rounded-r-lg px-2 font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full md:w-3/4  md:px-4">
+                DONATION HOTLINES
               </p>
-              <p className="text-xl text-gray-600 py-1">+44 7300 559919</p>
+              <div className="flex gap-2  items-center">
+                <FiPhoneCall className="animate-ping w-3 h-3 md:w-4 md:h-4 font-semibold text-gray-600" />
+                <p className="text-xl text-gray-600 py-1">+44 7300 559919</p>
+              </div>
               <hr className="bg-teal-500 h-[1px] w-full my-2" />
               <hr className="bg-teal-500 h-[1px] w-full mt-4 mb-2" />
               <div className="flex flex-col">
@@ -264,9 +212,79 @@ const StartSec: React.FC<StartSecProps> = ({
                     </span>
                   </div>
                 </div>
-                <div className="flex justify-center items-center md:h-40 lg:h-60">
+                <div className="flex justify-center items-center md:h-10 lg:h-32">
                   <div className="text-lg text-center font-semibold text-gray-500 py-1 md:py-2">
                     You have no Zakat due, please support our Zakat appeal
+                  </div>
+                </div>
+                <div className="flex flex-col w-full">
+                  <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
+                    Liabilities
+                  </label>
+                  <div className="flex flex-col w-full gap-2">
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                        &#163;
+                      </span>
+                      <input
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
+                        type="text"
+                        placeholder="Money owned (borrowed or credit"
+                      />
+                    </div>
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                        &#163;
+                      </span>
+                      <input
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
+                        type="text"
+                        placeholder="Employee salaries"
+                      />
+                    </div>
+                    <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                      <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                        &#163;
+                      </span>
+                      <input
+                        className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
+                        type="text"
+                        placeholder="Other outgoings due (tax, rent, utilities)"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-col w-full">
+                  <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
+                    Total Assests
+                  </label>
+                  <div className="flex bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 pr-4 rounded-lg py-0">
+                    <span className="bg-gradient-to-t from-sky-800 via-green-200 to-sky-800  text-white font-bold px-2 py-1 md:px-4 md:py-2 rounded-l-lg">
+                      &#163;
+                    </span>
+                    <input
+                      className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
+                      type="number"
+                      placeholder="0"
+                    />
+                  </div>
+                </div>
+                <div className="flex justify-end pt-2">
+                  <div className="flex gap-2">
+                    <button className="bg-teal-500 relative group overflow-hidden  hover:bg-teal-600 rounded-md text-white font-medium px-5 py-2">
+                      <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45  -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                      <span className="relative group-hover:text-gray-500">
+                        Reset
+                      </span>
+                    </button>
+                    <button className="relative overflow-hidden group bg-sky-800  text-white font-medium rounded-lg px-5 py-2">
+                      <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45  -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                      <span className="relative group-hover:text-gray-500">
+                        Calculate
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -350,9 +368,12 @@ const StartSec: React.FC<StartSecProps> = ({
                       <div className="flex justify-center pt-2 md:pt-5 lg:pt-8">
                         <button
                           onClick={() => setZakatCalc(true)}
-                          className="bg-teal-500 rounded-lg text-white font-semibold text-lg md:text-xl lg:text-2xl py-2 px-4"
+                          className="bg-teal-500 relative group overflow-hidden rounded-lg  font-semibold text-lg md:text-xl lg:text-2xl py-2 px-4"
                         >
-                          Go to Zakat Calculator
+                          <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-white top-1/2 group-hover:h-80 group-hover:-translate-y-32 ease"></span>
+                          <span className="relative text-white group-hover:text-gray-500">
+                            Go to Zakat Calculator
+                          </span>
                         </button>
                       </div>
                     ) : (
@@ -407,9 +428,9 @@ const StartSec: React.FC<StartSecProps> = ({
                             className="h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
                           />
                         )}
-                        <p className="text-gray-400 text-sm md:text-md font-medium text-center">
+                        {/* <p className="text-gray-400 text-sm md:text-md font-medium text-center">
                           Making a donation of {dollar} will help save lives
-                        </p>
+                        </p> */}
                       </div>
                     )}
                   </div>
@@ -475,41 +496,55 @@ const StartSec: React.FC<StartSecProps> = ({
                       className=" h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
                     />
                   )}
-                  <p className="text-gray-400 text-sm md:text-md font-medium text-center">
+                  {/* <p className="text-gray-400 text-sm md:text-md font-medium text-center">
                     Making a donation of {dollar} will help save lives
-                  </p>
+                  </p> */}
                 </div>
               )}
             </motion.div>
           </div>
           {/* monthly one-off */}
           {!zakatCalcBtn || title !== "zakat" ? (
-            <div className="py-5 md:py-0 lg:py-10 flex">
-              <AnimatedComponentLeft>
-                <button
-                  onClick={() => monthlyHandler(donation)}
-                  className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-                >
-                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+            // <div className="py-5 md:py-0 lg:py-10 flex">
+            //   <AnimatedComponentLeft>
+            //     <button
+            //       onClick={() => monthlyHandler(donation)}
+            //       className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
+            //     >
+            //       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                  <span className="relative group-hover:text-white">
-                    MONTHLY
-                  </span>
-                </button>
-              </AnimatedComponentLeft>
-              <AnimatedComponentRight>
-                <button
-                  onClick={() => monthlyHandler(donation)}
-                  className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-                >
-                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+            //       <span className="relative group-hover:text-white">
+            //         MONTHLY
+            //       </span>
+            //     </button>
+            //   </AnimatedComponentLeft>
+            //   <AnimatedComponentRight>
+            //     <button
+            //       onClick={() => monthlyHandler(donation)}
+            //       className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
+            //     >
+            //       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                  <span className="relative group-hover:text-white">
-                    {" "}
-                    ONE-OFF
-                  </span>
-                </button>
-              </AnimatedComponentRight>
+            //       <span className="relative group-hover:text-white">
+            //         {" "}
+            //         ONE-OFF
+            //       </span>
+            //     </button>
+            //   </AnimatedComponentRight>
+            // </div>
+            <div className="flex self-end py-3 md:py-5">
+              <button
+                onClick={() => monthlyHandler(donation)}
+                className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
+              >
+                <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                <span className="relative group-hover:text-gray-400 text-white">
+                  {" "}
+                  Next{" "}
+                </span>
+                <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+              </button>
             </div>
           ) : null}
         </div>

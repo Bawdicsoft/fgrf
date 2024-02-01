@@ -381,8 +381,8 @@ const DonationSec: React.FC<DonationSecProps> = ({
       {nextStep && nextDet && (
         <div className="flex justify-center">
           <p className="text-gray-500 text-sm text-center max-w-3xl ">
-            your donation can be spent in any permissible, welfare,
-            well-wishing, water, food, agriculture, construction, religious and
+            Your donation can be spent in any Permissible, Welfare,
+            Well-wishing, Water, Food, Agriculture, Construction, Religious and
             good purpose.
           </p>
         </div>
