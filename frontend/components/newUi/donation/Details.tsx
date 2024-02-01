@@ -33,10 +33,10 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
   console.log(dollarDonate, titleDonate);
   return (
     <div>
-      <h2 className="text-3xl font-bold text-[#19afaf] text-center">
+      <h2 className="text-xl md:text-3xl font-bold text-[#19afaf] text-center">
         YOUR DETAILS
       </h2>
-      <p className="text-gray-700 text-base py-4 text-center">
+      <p className="text-gray-700 text-sm md:text-base py-4 text-center">
         Your Monthly Donation : &#163;{dollarDonate}.00
       </p>
       <p className="bg-gray-300 h-[2px] w-full"></p>
@@ -47,7 +47,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
       <p className="bg-gray-300 h-[2px]  w-full"></p>
 
       <div>
-        <form className="max-w-2xl mx-auto py-8">
+        <form className="max-w-4xl mx-auto py-8">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
             <div className="mb-5">
               <label
@@ -153,7 +153,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               )}
             </div>
           </div>
-          <h2 className="text-3xl font-bold py-4 text-[#19afaf] text-center">
+          <h2 className="text-xl md:text-3xl font-bold py-4 text-[#19afaf] text-center">
             KEEP IN TOUCH
           </h2>
           {/* <div className="flex justify-center items-center mb-5">

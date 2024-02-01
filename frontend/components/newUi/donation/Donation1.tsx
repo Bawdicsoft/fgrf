@@ -8,6 +8,8 @@ import AnimatedComponentLeft from "../home/AnimationLeft";
 interface DonationSecProps {
   donationTitleArray: any[] | undefined;
   monthlyHandler: (data: string[]) => void;
+  titleDonate: string;
+  dollarDonate: string;
 }
 const orphansDollarList1 = [
   "Higher Education Scholarship Fund - $30",
@@ -33,6 +35,8 @@ const onOffList = ["200", "150", "100", "others"];
 const DonationSec: React.FC<DonationSecProps> = ({
   donationTitleArray,
   monthlyHandler,
+  titleDonate,
+  dollarDonate,
 }) => {
   const [orphanDonationDollarArray, setOrphanDonationDollarArray] =
     useState<any[]>();
@@ -40,11 +44,11 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [btnDollar, setBtnDollar] = useState<Boolean>(false);
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<number>(100);
-  const [dollarDonate, setDollarDonate] = useState<string>("1");
-  const [titleDonate, setTitleDonate] = useState<string>("");
+  // const [dollarDonate, setDollarDonate] = useState<string>("1");
+  // const [titleDonate, setTitleDonate] = useState<string>("");
   const [orphanData, setOrphanData] = useState<Boolean>(true);
   const [donateAmountText, setDonateAmountText] = useState<Boolean>(false);
-  const [nextStep, setNextStep] = useState<Boolean>(false);
+  const [nextStep, setNextStep] = useState<Boolean>(true);
   const [alertText, setAlertText] = useState<Boolean>(false);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
   const [bgFundIndex, setbgFundIndex] = useState<number>();
@@ -80,7 +84,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
       setNextStep(true);
     } else {
       setAlertText(true);
-      setNextStep(false);
+      setNextStep(true);
     }
   };
   const backHandler = () => {
@@ -90,8 +94,9 @@ const DonationSec: React.FC<DonationSecProps> = ({
       setCheck(false);
       setCheck1(false);
     } else if (nextStep) {
-      setNextStep(false);
-      setNextDet(false);
+      // setNextStep(false);
+      // setNextDet(false);
+      monthlyHandler([]);
     } else {
       monthlyHandler([]);
     }
@@ -119,7 +124,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                       setOrphanData(true);
                       // setDonateAmountText(true);
                       setBtnDollar(false);
-                      setTitleDonate(title);
+                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -143,7 +148,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                       seOtherBtnDollar(orphansOthersList);
                       setBtnDollar(true);
                       setInput(false);
-                      setTitleDonate(title);
+                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -165,7 +170,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                       seOtherBtnDollar(onOffList);
                       setBtnDollar(true);
                       setInput(false);
-                      setTitleDonate(title);
+                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -260,7 +265,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                                   key={index}
                                   onClick={() => {
                                     setDollar(title);
-                                    setDollarDonate(title);
+                                    // setDollarDonate(title);
                                     setInput(false);
                                     setBgBtnIndex(index);
                                   }}
@@ -372,6 +377,16 @@ const DonationSec: React.FC<DonationSecProps> = ({
           <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
         </button>
       </div>
+
+      {nextStep && nextDet && (
+        <div className="flex justify-center">
+          <p className="text-gray-500 text-sm text-center max-w-3xl ">
+            your donation can be spent in any permissible, welfare,
+            well-wishing, water, food, agriculture, construction, religious and
+            good purpose.
+          </p>
+        </div>
+      )}
     </div>
   );
 };

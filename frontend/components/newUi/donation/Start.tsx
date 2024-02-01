@@ -45,8 +45,8 @@ const StartSec: React.FC<StartSecProps> = ({
   const [btnDollar, setBtnDollar] = useState<Boolean>(false);
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
-  const [dollarDonate, setDollarDonate] = useState<string>("1");
-  const [titleDonate, setTitleDonate] = useState<string>("");
+  const [dollarDonate, setDollarDonate] = useState<string>("100");
+  const [titleDonate, setTitleDonate] = useState<string>(title);
   const [orphanData, setOrphanData] = useState<Boolean>(true);
   const [donateAmountText, setDonateAmountText] = useState<Boolean>(false);
   const [nextStep, setNextStep] = useState<Boolean>(false);
@@ -58,7 +58,9 @@ const StartSec: React.FC<StartSecProps> = ({
   const [check1, setCheck1] = useState(false);
   const [showFormText, setShowFormText] = useState(false);
   const [zakatCalc, setZakatCalc] = useState<Boolean>(false);
-  const arr = [titleDonate, dollarDonate];
+  const [zakatCalcBtn, setZakatCalcBtn] = useState<Boolean>(true);
+  const [otherDollarVal, setOtherDollarVal] = useState<string>("");
+  const donation = [titleDonate || "Quick Donation", dollarDonate];
   return (
     <div>
       {/* Zakat calculator Form */}
@@ -275,6 +277,7 @@ const StartSec: React.FC<StartSecProps> = ({
               onClick={() => {
                 setZakatCalc(false);
                 // backHandler();
+                // setZakatCalcBtn(false);
               }}
               className="relative group overflow-hidden uppercase  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
             >
@@ -289,6 +292,7 @@ const StartSec: React.FC<StartSecProps> = ({
             <button
               onClick={() => {
                 setZakatCalc(false);
+                setZakatCalcBtn(false);
               }}
               className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
             >
@@ -332,112 +336,182 @@ const StartSec: React.FC<StartSecProps> = ({
                 ease: [0, 0.71, 0.2, 1.01],
               }}
             >
-              <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 md:gap-2 lg:gap-1 pt-2 md:py-8 mx-auto">
-                <div>
-                  <h2 className="text-center text-2xl md:text-3xl lg:text-7xl uppercase font-semibold md:font-bold lg:font-extrabold md:py-2 text-teal-500">
-                    {title}
-                  </h2>
-                  <p className="text-sm md:text-lg text-teal-500 text-center pb-2 md:py-3 ">
-                    {desc}
-                  </p>
-                  {title === "zakat" ? (
-                    <div className="flex justify-center pt-2 md:pt-5 lg:pt-8">
-                      <button
-                        onClick={() => setZakatCalc(true)}
-                        className="bg-teal-500 rounded-lg text-white font-semibold text-lg md:text-xl lg:text-2xl py-2 px-4"
-                      >
-                        Go to Zakat Calculator
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
-                      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                        {orphansOthersList?.map((data, index) =>
-                          data === "others" ? (
-                            <button
-                              key={index}
-                              onClick={() => {
-                                setInput(true);
-                                setBgBtnIndex(index);
-                              }}
-                              className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
-                            >
-                              <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                              <span className="relative ">{data}</span>
-                            </button>
-                          ) : (
-                            <button
-                              key={index}
-                              onClick={() => {
-                                setDollar(data);
-                                setDollarDonate(data);
-                                setInput(false);
-                                setBgBtnIndex(index);
-                                setTitleDonate(title);
-                                setDollarDonate(data);
-                              }}
-                              className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
-                                bgBtnIndex === index
-                                  ? "bg-[#19afaf] text-white"
-                                  : "bg-white"
-                              } `}
-                            >
-                              <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                              <span className="relative ">{data}</span>
-                            </button>
-                          )
-                        )}
+              {image && title && desc ? (
+                <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 md:gap-2 lg:gap-1 pt-2 md:py-8 mx-auto">
+                  <div>
+                    <h2 className="text-center text-2xl md:text-3xl lg:text-7xl uppercase font-semibold md:font-bold lg:font-extrabold md:py-2 text-teal-500">
+                      {title}
+                    </h2>
+                    <p className="text-sm md:text-lg text-teal-500 text-center pb-2 md:py-3 ">
+                      {desc}
+                    </p>
+
+                    {zakatCalcBtn && title === "zakat" ? (
+                      <div className="flex justify-center pt-2 md:pt-5 lg:pt-8">
+                        <button
+                          onClick={() => setZakatCalc(true)}
+                          className="bg-teal-500 rounded-lg text-white font-semibold text-lg md:text-xl lg:text-2xl py-2 px-4"
+                        >
+                          Go to Zakat Calculator
+                        </button>
                       </div>
-                      {input && (
-                        <input
-                          type="text"
-                          className="h-10 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
-                        />
-                      )}
-                      <p className="text-gray-400 text-sm md:text-md font-medium text-center">
-                        Making a donation of {dollar} will help save lives
-                      </p>
-                    </div>
+                    ) : (
+                      <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
+                          {orphansOthersList?.map((data, index) =>
+                            data === "others" ? (
+                              <button
+                                key={index}
+                                onClick={() => {
+                                  setInput(true);
+                                  setBgBtnIndex(index);
+                                }}
+                                className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
+                              >
+                                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                <span className="relative ">{data}</span>
+                              </button>
+                            ) : (
+                              <button
+                                key={index}
+                                onClick={() => {
+                                  setDollar(data);
+                                  setDollarDonate(data);
+                                  setInput(false);
+                                  setBgBtnIndex(index);
+                                  setTitleDonate(title);
+                                  setDollarDonate(data);
+                                }}
+                                className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
+                                  bgBtnIndex === index
+                                    ? "bg-[#19afaf] text-white"
+                                    : "bg-white"
+                                } `}
+                              >
+                                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                <span className="relative ">{data}</span>
+                              </button>
+                            )
+                          )}
+                        </div>
+                        {input && (
+                          <input
+                            type="number"
+                            value={otherDollarVal}
+                            onChange={(e) => {
+                              setOtherDollarVal(e.target.value);
+                              setDollarDonate(e.target.value);
+                              setDollar(e.target.value);
+                            }}
+                            autoFocus
+                            className="h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                          />
+                        )}
+                        <p className="text-gray-400 text-sm md:text-md font-medium text-center">
+                          Making a donation of {dollar} will help save lives
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  <div className="lg:pl-16">
+                    <Image
+                      src={image}
+                      alt="donation img"
+                      width={300}
+                      height={300}
+                      className="h-60 md:h-72 lg:h-96 w-full shadow-gray-400 shadow-2xl rounded-xl border-4 border-teal-500"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
+                    {orphansOthersList?.map((data, index) =>
+                      data === "others" ? (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setInput(true);
+                            setBgBtnIndex(index);
+                          }}
+                          className={`relative group overflow-hidden md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-4 md:px-4 hover:text-white `}
+                        >
+                          <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                          <span className="relative ">{data}</span>
+                        </button>
+                      ) : (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setDollar(data);
+                            setDollarDonate(data);
+                            setInput(false);
+                            setBgBtnIndex(index);
+                            setTitleDonate(title);
+                            setDollarDonate(data);
+                          }}
+                          className={`relative group overflow-hidden py-2 lg:py-4 md:px-4 md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
+                            bgBtnIndex === index
+                              ? "bg-[#19afaf] text-white"
+                              : "bg-white"
+                          } `}
+                        >
+                          <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                          <span className="relative ">{data}</span>
+                        </button>
+                      )
+                    )}
+                  </div>
+                  {input && (
+                    <input
+                      type="number"
+                      value={otherDollarVal}
+                      onChange={(e) => {
+                        setOtherDollarVal(e.target.value);
+                        setDollarDonate(e.target.value);
+                        setDollar(e.target.value);
+                      }}
+                      autoFocus
+                      className=" h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                    />
                   )}
+                  <p className="text-gray-400 text-sm md:text-md font-medium text-center">
+                    Making a donation of {dollar} will help save lives
+                  </p>
                 </div>
-                <div className="lg:pl-16">
-                  <Image
-                    src={image}
-                    alt="donation img"
-                    width={300}
-                    height={300}
-                    className="h-60 md:h-72 lg:h-96 w-full shadow-gray-400 shadow-2xl rounded-xl border-4 border-teal-500"
-                  />
-                </div>
-              </div>
+              )}
             </motion.div>
           </div>
           {/* monthly one-off */}
-          <div className="py-5 md:py-0 lg:py-10 flex">
-            <AnimatedComponentLeft>
-              <button
-                onClick={() => monthlyHandler(monthlyList)}
-                className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-              >
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+          {!zakatCalcBtn || title !== "zakat" ? (
+            <div className="py-5 md:py-0 lg:py-10 flex">
+              <AnimatedComponentLeft>
+                <button
+                  onClick={() => monthlyHandler(donation)}
+                  className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
+                >
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                <span className="relative group-hover:text-white">MONTHLY</span>
-              </button>
-            </AnimatedComponentLeft>
-            <AnimatedComponentRight>
-              <button
-                onClick={() => monthlyHandler(oneOffList)}
-                className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-              >
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                  <span className="relative group-hover:text-white">
+                    MONTHLY
+                  </span>
+                </button>
+              </AnimatedComponentLeft>
+              <AnimatedComponentRight>
+                <button
+                  onClick={() => monthlyHandler(donation)}
+                  className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
+                >
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                <span className="relative group-hover:text-white">
-                  {" "}
-                  ONE-OFF
-                </span>
-              </button>
-            </AnimatedComponentRight>
-          </div>
+                  <span className="relative group-hover:text-white">
+                    {" "}
+                    ONE-OFF
+                  </span>
+                </button>
+              </AnimatedComponentRight>
+            </div>
+          ) : null}
         </div>
       )}
     </div>

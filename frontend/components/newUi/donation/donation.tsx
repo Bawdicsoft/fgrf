@@ -27,9 +27,11 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
 }) => {
   // New Code
   const [donationTitleArray, setDonationTitleArray] = useState<any[]>();
-  const [donationDollarArray, setDonationDollarArray] = useState<any[]>();
+  const [donationDollarArray, setDonationDollarArray] = useState<any[]>([]);
 
   const [monthly, setMonthly] = useState(false);
+  const titleDonate = donationDollarArray[0];
+  const dollarDonate = donationDollarArray[1];
 
   const monthlyHandler = (data: any[]) => {
     console.log(data);
@@ -38,7 +40,7 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
     } else {
       setMonthly(true);
     }
-    setDonationTitleArray(data);
+    setDonationDollarArray(data);
   };
 
   return (
@@ -98,6 +100,8 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
           <DonationSec
             donationTitleArray={donationTitleArray}
             monthlyHandler={monthlyHandler}
+            titleDonate={titleDonate}
+            dollarDonate={dollarDonate}
           />
         ) : (
           <StartSec
