@@ -8,6 +8,7 @@ const MyPayPalButton = ({ amount, currency }) => {
     <PayPalScriptProvider
       options={{
         "client-id": process.env.NEXT_PUBLIC_PAY_PALL_CLIENT_KEY,
+        currency: currency,
       }}
     >
       <PayPalButtons
