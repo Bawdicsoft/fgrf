@@ -39,7 +39,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
             <CheckoutButton amount={dollarDonate} />
           </div>
           <div className="md:col-span-2">
-            <MyPayPalButton amount={dollarDonate} currency="USD" />
+            <MyPayPalButton amount={dollarDonate} currency="GBP" />
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2">
