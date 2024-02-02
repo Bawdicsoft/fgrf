@@ -1,28 +1,35 @@
 import Image from "next/image";
 import Link from "next/link";
-import SliderSectionWater from "./slider";
+import SliderSectionCovid19 from "./slider";
 
-const WaterDocs = () => {
+const Covid19Docs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF water projects are making a significant impact
+        FGRF Performance in COVID-19
       </h2>
 
-      <SliderSectionWater />
-      <p className="text-base text-center py-3 md:py-5">
-        FGRF water projects are making a significant impact in Thar,
-        Balochistan, Punjab, Pakistan, and various African countries. These
-        projects showcase a diverse range of solutions, programs, and costs,
-        highlighting our commitment to addressing water scarcity and providing
-        sustainable solutions. From innovative technologies to community-based
-        initiatives, each project is tailored to the specific needs and
-        challenges of the region. Together, these efforts contribute to
-        improving access to clean and safe water for communities in need,
-        promoting health, hygiene, and overall well-being.
+      <SliderSectionCovid19 />
+
+      <p className="text-base text-center pt-8 py-3">
+        In the face of the COVID-19 pandemic, the world faced unprecedented
+        challenges, but FGRF stood out with its unwavering commitment to support
+        those in need. We made a difference by providing essential food items,
+        cooked meals, and ration boxes to millions of people worldwide,
+        including over 25,000 in the UK alone.
       </p>
       <p className="text-base text-center py-3">
-        Unlocking Potential: Providing Clean Water, Transforming Lives Forever!
+        Additionally, we addressed a critical need by building temporary
+        mortuaries to support funeral services during this difficult time. Many
+        funeral services were hesitant to wash and shroud deceased individuals
+        who had died from COVID-19, causing significant worry in communities.
+        FGRF stepped in to provide solutions and alleviate concerns, ensuring
+        proper care for the deceased and peace of mind for their loved ones.
+      </p>
+      <p className="text-base text-center py-3">
+        Through these efforts, FGRF continues to demonstrate its dedication to
+        serving humanity and making a positive impact, even in the face of
+        unprecedented challenges.
       </p>
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
@@ -53,4 +60,4 @@ const WaterDocs = () => {
     </div>
   );
 };
-export default WaterDocs;
+export default Covid19Docs;

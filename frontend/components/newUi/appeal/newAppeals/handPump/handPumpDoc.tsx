@@ -6,23 +6,26 @@ const HandPumpDocs = () => {
     <div>
       <div className="py-10 md:py-16 px-5 ">
         <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
+          Sponsor Hand Pump with FGRG
         </h2>
 
         <SliderSectionHandPump />
 
         <p className="text-base text-center pt-8 py-3">
-          The violence in Gaza has claimed over 20,000 lives, leaving thousands
-          injured, according to the Palestinian Health Ministry - Inna Lillahi
-          Wa Inna Illahi Rajioon.
+          Thanks to your unwavering dedication and generosity, we have
+          accomplished extraordinary feats in our mission to provide clean,
+          life-giving water to those in need. Through sheer determination and
+          collective effort, we have triumphed in constructing an astounding
+          5000 wells and water systems across regions plagued by thirst and
+          hardship.
         </p>
 
         <p className="text-base text-center py-3">
-          With electricity, water, food, and medical supplies all obstructed,
-          the people of Palestine are relying on your generosity now more than
-          ever. Stand in solidarity with Palestine and help save lives during
-          this critical time. Please keep the people of Palestine in your duas -
-          Jazak’Allah Khair.
+          These wells are not just sources of water; they are beacons of hope,
+          symbols of resilience, and catalysts for change. They represent the
+          tireless spirit of humanity, transcending borders and barriers to
+          bring forth a wave of transformation that ripples through communities,
+          nourishing bodies, minds, and souls alike.
         </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>
