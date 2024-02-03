@@ -1,35 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
+import SliderSectionMedicalClinic from "./slider";
 
-import SliderSectionPakistanFlood from "./slider";
-
-const PakistanFloodDocs = () => {
+const MedicalClinicDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response to Pakistan Floods: From Rescue to Rebuilding
+        FGRF is proud to announce the opening of its first medical clinic in
+        Karachi
       </h2>
 
-      <SliderSectionPakistanFlood />
+      <SliderSectionMedicalClinic />
 
       <p className="text-base text-center pt-8 py-3">
-        When disaster struck in the form of floods across Pakistan, FGRF swiftly
-        mobilized its resources, reaching every affected area to provide
-        critical aid. From distributing tent houses and cooked meals to
-        delivering essential ration bags and setting up medical camps, our teams
-        worked tirelessly to alleviate suffering and provide immediate relief.
+        FGRF is proud to announce the opening of its first medical clinic in
+        Karachi, Pakistan. Our clinic offers doctor check-ups and essential
+        medicines for just Rs. 300, keeping costs low to accommodate the country
+        is inflationary challenges. With a mission to make healthcare accessible
+        to all, FGRF aims to establish 250+ healthcare centers and 14,000
+        clinics across Pakistan within the next five years. Stay tuned for
+        updates as we continue our efforts to provide affordable and quality
+        healthcare to communities in need.
       </p>
-      <p className="text-base text-center py-3">
-        But our commitment did not stop there. FGRF made a promise to the flood
-        victims: to rebuild their lives by constructing 15,000 houses. Today, we
-        are proud to report that we have already surpassed the halfway mark,
-        with over 6,000 houses completed and more underway.
-      </p>
-      <p className="text-base text-center py-3">
-        Join us on our journey to fulfill our promise and bring hope to those
-        who have lost everything. Together, we are making a difference—one
-        house, one family at a time.
-      </p>
+
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -59,4 +52,4 @@ const PakistanFloodDocs = () => {
     </div>
   );
 };
-export default PakistanFloodDocs;
+export default MedicalClinicDocs;

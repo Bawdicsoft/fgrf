@@ -6,7 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
 
-const PakistanFloodBannerSection = () => {
+const EyecampsBannerSection = () => {
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -177,7 +177,7 @@ const PakistanFloodBannerSection = () => {
             <div className="relative group overflow-hidden bg-sky-700 w-full md:w-96 font-semibold text-xl py-3 px-5 md:px-8 md:text-2xl rounded-2xl">
               <span className="absolute w-96 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-8 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-40 ease"></span>
               <span className="text-white group-hover:text-white relative ">
-                Pakistan Flood
+                Eye Camps
               </span>
             </div>
           </AnimationBottom>
@@ -214,4 +214,4 @@ const PakistanFloodBannerSection = () => {
     </div>
   );
 };
-export default PakistanFloodBannerSection;
+export default EyecampsBannerSection;

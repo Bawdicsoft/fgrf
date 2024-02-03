@@ -27,7 +27,7 @@ const imageList = [
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
 
-export default function SliderSectionPakistanFlood() {
+export default function SliderSectionPlantation() {
   return (
     <>
       <Swiper

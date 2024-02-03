@@ -1,35 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
+import SliderSectionEyeCamps from "./slider";
 
-import SliderSectionPakistanFlood from "./slider";
-
-const PakistanFloodDocs = () => {
+const EyecampsDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response to Pakistan Floods: From Rescue to Rebuilding
+        FGRF Addresses Eye Health in Rural Communities: Organizing Free Eye
+        Camps
       </h2>
 
-      <SliderSectionPakistanFlood />
+      <SliderSectionEyeCamps />
 
       <p className="text-base text-center pt-8 py-3">
-        When disaster struck in the form of floods across Pakistan, FGRF swiftly
-        mobilized its resources, reaching every affected area to provide
-        critical aid. From distributing tent houses and cooked meals to
-        delivering essential ration bags and setting up medical camps, our teams
-        worked tirelessly to alleviate suffering and provide immediate relief.
+        Understanding the pressing need for eye care in rural areas, FGRF has
+        initiated various eye camps to provide essential services to communities
+        in need. These camps offer free eye tests and medication, ensuring that
+        individuals receive the necessary care without any financial burden.
       </p>
       <p className="text-base text-center py-3">
-        But our commitment did not stop there. FGRF made a promise to the flood
-        victims: to rebuild their lives by constructing 15,000 houses. Today, we
-        are proud to report that we have already surpassed the halfway mark,
-        with over 6,000 houses completed and more underway.
+        Through these initiatives, FGRF aims to tackle eye issues prevalent in
+        rural communities and improve access to eye care services. By providing
+        free-of-cost screenings and treatment, we strive to alleviate suffering
+        and promote better eye health among those who need it most.
       </p>
-      <p className="text-base text-center py-3">
-        Join us on our journey to fulfill our promise and bring hope to those
-        who have lost everything. Together, we are making a difference—one
-        house, one family at a time.
-      </p>
+
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -59,4 +54,4 @@ const PakistanFloodDocs = () => {
     </div>
   );
 };
-export default PakistanFloodDocs;
+export default EyecampsDocs;

@@ -1,35 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SliderSectionPakistanFlood from "./slider";
+import SliderSectionBloodDonations from "./slider";
 
-const PakistanFloodDocs = () => {
+const BloodDonationsDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response to Pakistan Floods: From Rescue to Rebuilding
+        Thalassemia Patients During the COVID-19 Pandemic
       </h2>
 
-      <SliderSectionPakistanFlood />
+      <SliderSectionBloodDonations />
 
       <p className="text-base text-center pt-8 py-3">
-        When disaster struck in the form of floods across Pakistan, FGRF swiftly
-        mobilized its resources, reaching every affected area to provide
-        critical aid. From distributing tent houses and cooked meals to
-        delivering essential ration bags and setting up medical camps, our teams
-        worked tirelessly to alleviate suffering and provide immediate relief.
+        Recognizing the challenges faced by thalassemia patients during the
+        COVID-19 pandemic, FGRF took proactive steps to support this vulnerable
+        community. Understanding the critical need for blood donations, we
+        appealed to our followers to donate blood, urging them to make a
+        difference in the lives of thalassemia patients.
       </p>
       <p className="text-base text-center py-3">
-        But our commitment did not stop there. FGRF made a promise to the flood
-        victims: to rebuild their lives by constructing 15,000 houses. Today, we
-        are proud to report that we have already surpassed the halfway mark,
-        with over 6,000 houses completed and more underway.
+        Thanks to the generosity of our supporters and a collaborative effort
+        with Dawat-e-Islami and various health departments, FGRF has
+        successfully provided over 65,000 blood bags to thalassemia patients in
+        need. This initiative underscores our commitment to serving those
+        affected by thalassemia and ensuring they have access to life-saving
+        blood transfusions, especially during challenging times like the
+        COVID-19 pandemic.
       </p>
       <p className="text-base text-center py-3">
-        Join us on our journey to fulfill our promise and bring hope to those
-        who have lost everything. Together, we are making a difference—one
-        house, one family at a time.
+        FGRF remains dedicated to supporting thalassemia patients and will
+        continue to work tirelessly to provide them with the care and resources
+        they require to lead healthy and fulfilling lives.
       </p>
+
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -59,4 +63,4 @@ const PakistanFloodDocs = () => {
     </div>
   );
 };
-export default PakistanFloodDocs;
+export default BloodDonationsDocs;

@@ -1,35 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SliderSectionPakistanFlood from "./slider";
+import SliderSectionFaizanRehabilitationCenter from "./slider";
 
-const PakistanFloodDocs = () => {
+const FaizanRehabilitationCenterDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response to Pakistan Floods: From Rescue to Rebuilding
+        Faizan Rehabilitation Center (FRC) is dedicated to supporting children
       </h2>
 
-      <SliderSectionPakistanFlood />
+      <SliderSectionFaizanRehabilitationCenter />
 
       <p className="text-base text-center pt-8 py-3">
-        When disaster struck in the form of floods across Pakistan, FGRF swiftly
-        mobilized its resources, reaching every affected area to provide
-        critical aid. From distributing tent houses and cooked meals to
-        delivering essential ration bags and setting up medical camps, our teams
-        worked tirelessly to alleviate suffering and provide immediate relief.
+        Faizan Rehabilitation Center (FRC) is dedicated to supporting children
+        with developmental conditions such as autism, hearing disabilities, and
+        sensory issues. With four branches already established in Pakistan, FRC
+        is now looking forward to expanding its services to the UK in 2024. Our
+        mission is to provide comprehensive care and support to children with
+        special needs, empowering them to reach their full potential and lead
+        fulfilling lives. Stay tuned for updates on our upcoming launch in the
+        UK and join us in making a difference in the lives of children with
+        developmental challenges.
       </p>
-      <p className="text-base text-center py-3">
-        But our commitment did not stop there. FGRF made a promise to the flood
-        victims: to rebuild their lives by constructing 15,000 houses. Today, we
-        are proud to report that we have already surpassed the halfway mark,
-        with over 6,000 houses completed and more underway.
-      </p>
-      <p className="text-base text-center py-3">
-        Join us on our journey to fulfill our promise and bring hope to those
-        who have lost everything. Together, we are making a difference—one
-        house, one family at a time.
-      </p>
+
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -59,4 +53,4 @@ const PakistanFloodDocs = () => {
     </div>
   );
 };
-export default PakistanFloodDocs;
+export default FaizanRehabilitationCenterDocs;

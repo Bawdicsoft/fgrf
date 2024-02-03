@@ -6,36 +6,36 @@ import AnimationTop from "../../home/AnimationTop";
 import AnimatedComponentLeft from "../../home/galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "../../home/galleryAnimation/AnimationRight";
 
-const Disasters = () => {
-  const disastersList = [
+const HealthCares = () => {
+  const HealthCaresList = [
     {
-      link: "covid-19",
+      link: "eye-camps",
       img: "/GalleryNew1/11.jpg",
-      title: "COVID - 19",
+      title: "Eye camps",
       desc: "FGRF stood out with its unwavering commitment to support those in need",
     },
     {
-      link: "pakistan-flood",
+      link: "blood-donations",
       img: "/GalleryNew1/6.jpg",
-      title: "Pakistan flood ",
+      title: "Blood Donations",
       desc: "FGRF's Swift Response to Pakistan Floods: From Rescue to Rebuilding",
     },
     {
-      link: "turkey-syria-earthquake",
+      link: "medical-van",
       img: "/GalleryNew1/turkey.jpg",
-      title: "Turkey & Syria earthquake ",
+      title: "Medical van",
       desc: " FGRF swiftly mobilized to provide aid and support to those affected",
     },
     {
-      link: "morocco-earthquake",
+      link: "faizan-rehabilitation-center",
       img: "/GalleryNew1/morco1.jpg",
-      title: "Morocco earthquake ",
+      title: "Faizan Rehabilitation center",
       desc: "Supporting Morocco: FGRF's Relief Efforts in Response to the Earthquake",
     },
     {
-      link: "palestine-brothers-sisters",
+      link: "medical-clinic",
       img: "/AppealNew/palestine/18.jpg",
-      title: "Palestinian brother & sisters ",
+      title: "Medical clinic",
       desc: "FGRF's Swift Response in Palestine During Times of Crisis",
     },
   ];
@@ -56,7 +56,7 @@ const Disasters = () => {
                 id=""
                 className="text-xl md:text-3xl group-hover:text-sky-800 font-bold text-white "
               >
-                Our Disasters
+                Our Health Cares
               </span>
             </div>
           </motion.div>
@@ -65,14 +65,14 @@ const Disasters = () => {
 
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-8  px-5">
-          {disastersList.slice(0, 2).map((appeal, index) => (
+          {HealthCaresList.slice(0, 2).map((appeal, index) => (
             <AnimatedComponentLeft key={index}>
               <div
                 key={index}
                 className="p-2 w-72 rounded-md bg-[#19afaf] hover:shadow-lg"
               >
                 <Link
-                  href={`disaster-${appeal.link}`}
+                  href={`health-care-${appeal.link}`}
                   className="group flex flex-col gap-2 justify-start"
                 >
                   <div className="zoom-on-hover">
@@ -92,14 +92,14 @@ const Disasters = () => {
               </div>
             </AnimatedComponentLeft>
           ))}
-          {disastersList.slice(2, 4).map((appeal, index) => (
+          {HealthCaresList.slice(2, 4).map((appeal, index) => (
             <AnimatedComponentRight key={index}>
               <div
                 key={index}
                 className="p-2 w-72  rounded-md bg-[#19afaf] hover:shadow-lg"
               >
                 <Link
-                  href={`disaster-${appeal.link}`}
+                  href={`health-care-${appeal.link}`}
                   className="group flex flex-col gap-2 justify-start"
                 >
                   <div className="zoom-on-hover">
@@ -119,14 +119,14 @@ const Disasters = () => {
               </div>
             </AnimatedComponentRight>
           ))}
-          {disastersList.slice(4, 5).map((appeal, index) => (
+          {HealthCaresList.slice(4, 5).map((appeal, index) => (
             <AnimatedComponentLeft key={index}>
               <div
                 key={index}
                 className="p-2 w-72 rounded-md bg-[#19afaf] hover:shadow-lg "
               >
                 <Link
-                  href={`disaster-${appeal.link}`}
+                  href={`health-care-${appeal.link}`}
                   className="group flex flex-col gap-2 justify-start"
                 >
                   <div className="zoom-on-hover">
@@ -151,4 +151,4 @@ const Disasters = () => {
     </div>
   );
 };
-export default Disasters;
+export default HealthCares;

@@ -1,5 +1,6 @@
 "use client";
 import { motion, useAnimation } from "framer-motion";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
 import { BsStopwatch } from "react-icons/bs";
 import { CgFacebook } from "react-icons/cg";
@@ -366,15 +367,18 @@ export default function Navbar() {
           {/* containter-2 */}
           <div className="grid grid-cols-3 border-b-0 border-t border-black">
             <div className="md:col-span-2 grid grid-cols-3 place-content-center place-items-center lg:grid-cols-3 border-b-0 border-r border-black">
-              {/* <a
-                href="#ourDepartment"
-                className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+              <ScrollLink
+                to="ourDepartment" // This should match the ID of the element you want to scroll to
+                smooth={true}
+                duration={600}
+                offset={-100} // Adjust this offset based on your layout
+                className="text-xl cursor-pointer font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
               >
                 Our Department
-              </a> */}
+              </ScrollLink>
               <Link
                 href={"/appeal"}
                 className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 

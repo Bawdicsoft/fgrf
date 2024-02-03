@@ -138,7 +138,10 @@ const OurDepartments = () => {
     setShowBlob(true);
   };
   return (
-    <div className="max-w-7xl mx-auto py-6 relative bg-center bg-no-repeat bg-cover">
+    <div
+      id="ourDepartment"
+      className="max-w-7xl mx-auto py-6 relative bg-center bg-no-repeat bg-cover"
+    >
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
         <AnimationTop>
           <motion.div

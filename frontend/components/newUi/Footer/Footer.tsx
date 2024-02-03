@@ -121,7 +121,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-1 lg:gap-0">
-            <div className="col-span-2 flex flex-col gap-2 md:py-3">
+            <div className="col-span-2 flex flex-col gap-2 md:py-4">
               <p className="text-xs text-center">
                 Any leftover donation can be spent in any permissible, welfare,
                 well-wishing, water, food, agriculture, construction, reglious
@@ -156,7 +156,7 @@ const Footer = () => {
                 </Link>
                 © 2024 Fgrf.uk
               </div>
-              <span className="text-[12px] text-gray-500 text-center">
+              {/* <span className="text-[12px] text-gray-500 text-center">
                 Powered by{" "}
                 <a
                   href="https://BawdicSoft.com"
@@ -165,7 +165,7 @@ const Footer = () => {
                 >
                   BawdicSoft
                 </a>
-              </span>
+              </span> */}
             </div>
             <div className="flex md:self-center lg:flex-row flex-col lg:items-start mx-auto lg:gap-y-0 gap-y-4 md:my-0 my-4 gap-x-6 text-sm">
               <Link

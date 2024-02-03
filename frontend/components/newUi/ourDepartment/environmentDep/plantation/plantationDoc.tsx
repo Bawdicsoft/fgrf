@@ -1,35 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SliderSectionPakistanFlood from "./slider";
+import SliderSectionPlantation from "./slider";
 
-const PakistanFloodDocs = () => {
+const PlantationDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response to Pakistan Floods: From Rescue to Rebuilding
+        PLANT A SUPLING, GROW A TREE
       </h2>
 
-      <SliderSectionPakistanFlood />
+      <SliderSectionPlantation />
 
       <p className="text-base text-center pt-8 py-3">
-        When disaster struck in the form of floods across Pakistan, FGRF swiftly
-        mobilized its resources, reaching every affected area to provide
-        critical aid. From distributing tent houses and cooked meals to
-        delivering essential ration bags and setting up medical camps, our teams
-        worked tirelessly to alleviate suffering and provide immediate relief.
+        FGRF Plantation Department is a leader in environmental conservation,
+        having planted millions of trees. This effort is not just about planting
+        trees; it is about caring for our planet. With careful planning and
+        community involvement, FGRF is making a difference by addressing
+        deforestation and promoting a greener Earth. Every tree planted
+        contributes to cleaner air, more biodiversity, and stronger resilience
+        to climate change. FGRF is committed to creating a healthier, more
+        sustainable world for everyone.
       </p>
-      <p className="text-base text-center py-3">
-        But our commitment did not stop there. FGRF made a promise to the flood
-        victims: to rebuild their lives by constructing 15,000 houses. Today, we
-        are proud to report that we have already surpassed the halfway mark,
-        with over 6,000 houses completed and more underway.
-      </p>
-      <p className="text-base text-center py-3">
-        Join us on our journey to fulfill our promise and bring hope to those
-        who have lost everything. Together, we are making a difference—one
-        house, one family at a time.
-      </p>
+
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
           href={"/"}
@@ -59,4 +52,4 @@ const PakistanFloodDocs = () => {
     </div>
   );
 };
-export default PakistanFloodDocs;
+export default PlantationDocs;
