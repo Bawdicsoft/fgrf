@@ -170,9 +170,9 @@ const EducationBannerSection = () => {
             <source src="/Videonews/4.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="flex flex-col items-center ">
+        <div className="flex flex-col items-center">
           <AnimationBottom>
-            <div className="relative group overflow-hidden bg-sky-700 w-full md:w-96 font-semibold text-xl py-3 px-8 md:text-2xl rounded-2xl">
+            <div className="relative group overflow-hidden bg-sky-700 w-full xl:w-96 font-semibold text-xl py-3 px-8 md:text-2xl rounded-2xl">
               <span className="absolute w-96 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-8 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-40 ease"></span>
               <span className="text-white group-hover:text-white relative ">
                 Education & skills

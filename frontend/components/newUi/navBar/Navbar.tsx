@@ -107,11 +107,11 @@ export default function Navbar() {
   const [logo, setLogo] = useState(false);
   return (
     <>
-      <div className="max-w-screen-2xl bg-white md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
+      <div className="max-w-screen-2xl bg-white md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
         <button
           onMouseMove={() => setLogo(true)}
           onMouseLeave={() => setLogo(false)}
-          className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center md:w-40 lg:w-full"
+          className="flex relative group overflow-hidden items-center bg-white justify-start md:justify-center  lg:w-full"
         >
           <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-80 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
 
@@ -125,51 +125,11 @@ export default function Navbar() {
             />
           </Link>
         </button>
-        {/* md nvabar */}
-        <div className="col-span-3 hidden lg:hidden md:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center ">
-          <Link
-            href={"/donation"}
-            className="relative group overflow-hidden bg-sky-900 text-white px-3 py-1 text-sm"
-          >
-            <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
-            <span className="relative"> DONATE TO FUND</span>
-          </Link>
-          <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
-            <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
-              <strong>&#163;</strong>
-            </span>
-            <div className="py-1 bg-[#eee] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
-              <input
-                type="number"
-                id="small-input"
-                placeholder="Amount"
-                className="block pl-2 w-full font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
-                required
-              />
-            </div>
-          </div>
-          <select
-            id="countries"
-            className="bg-gray-200 py-1 px-2 rounded-md xl:w-36  text-black font-medium text-xs block  outline-none"
-            required
-          >
-            <option value="single">Single</option>
-            <option value="monthly">Monthly</option>
-            <option value="Others">Others</option>
-          </select>
-          <Link
-            href={"/donation"}
-            className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm"
-          >
-            <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
-            <span className="relative"> DONATE NOW</span>
-          </Link>
-        </div>
 
         {/* lg Navbar */}
-        <div className="hidden md:col-span-5 lg:col-span-4 xl:col-span-5 md:flex flex-col bg-white">
+        <div className="hidden md:col-span-4 lg:col-span-4 xl:col-span-5 md:flex flex-col bg-white">
           {/* containter-1 */}
-          <div className="grid grid-col-1 md:grid-cols-4 lg:grid-cols-7">
+          <div className="grid grid-col-1 md:grid-cols-5 lg:grid-cols-7">
             <div className="grid grid-cols-2 md:grid-cols-5 place-content-center place-items-center md:py-4  border-r border-black ">
               <div className="bg-black text-white  rounded-full w-5 h-5 flex justify-center items-center">
                 <motion.div
@@ -286,16 +246,16 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="lg:col-span-5  hidden lg:grid grid-cols-1 md:grid-cols-4 px-3 place-items-center  place-content-center border-r border-black">
+            <div className="lg:col-span-5 md:col-span-3  md:grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 px-1 lg:px-3 place-items-center  place-content-center border-r border-black">
               <Link
                 href={"/donation"}
-                className="relative group overflow-hidden bg-sky-900 text-white px-5 py-1 text-sm"
+                className="relative group lg:w-full xl:w-auto overflow-hidden bg-sky-900 text-white px-2 xl:px-5 py-1 text-[8px] lg:text-[13px] xl:text-sm"
               >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <span className="relative"> DONATE TO FUND</span>
               </Link>
-              <div className="w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
-                <span className="hover:text-light-blue px-3 rounded-sm text-s font-semibold text-sky-700">
+              <div className="w-20 lg:w-32 xl:w-full  bg-[#ddd] shadow-inner  border-[#faf9f9] rounded-sm flex justify-center items-center">
+                <span className="hover:text-light-blue px-1 lg:px-3 rounded-sm text-xs lg:text-base lg:font-semibold text-sky-700">
                   <strong>&#163;</strong>
                 </span>
                 <div className="py-1 bg-[#eee] shadow-inner  border-[#faf9f9] rounded-sm flex justify-around items-center">
@@ -303,15 +263,14 @@ export default function Navbar() {
                     type="number"
                     id="small-input"
                     placeholder="Amount"
-                    className="block pl-2 w-full font-semibold bg-transparent sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
+                    className="block pl-2 w-14 lg:w-full font-semibold bg-transparent text-[10px] lg:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
                     required
                   />
                 </div>
               </div>
-
               <select
                 id="countries"
-                className="bg-gray-200 py-1 px-2 rounded-md xl:w-36  text-black font-medium text-xs block  outline-none"
+                className="bg-gray-200 py-1 px-1 lg:px-2 rounded-md w-[70px] lg:w-[110px] xl:w-36  text-black font-medium text-[10px] lg:text-xs block  outline-none"
                 required
               >
                 <option value="single">Single</option>
@@ -320,7 +279,7 @@ export default function Navbar() {
               </select>
               <Link
                 href={"/donation"}
-                className="relative group overflow-hidden bg-sky-900 text-white py-1 px-3 text-sm"
+                className="relative group w-full text-center overflow-hidden bg-sky-900 text-white py-1 px-2 lg:px-3 text-[9px] lg:text-sm"
               >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
                 <span className="relative"> DONATE NOW</span>
@@ -331,7 +290,7 @@ export default function Navbar() {
                 {/* <BsStopwatch className="w-5 h-5 lg:w-3.5 lg:h-3.5" />
                  */}
                 {/* <AnalogWatch></AnalogWatch> */}
-                <p className="text-[14px] lg:text-[12px] pl-1 text-gray-700 font-semibold">
+                <p className="text-[10px] xl:text-[12px] pl-1 text-gray-700 font-semibold">
                   {/* {day} At {gethour < 10 ? `0${gethour}` : gethour}:
                   {mint < 10 ? "0" + mint : mint} {amPm} */}
                   {currentTime}
@@ -372,7 +331,7 @@ export default function Navbar() {
                 smooth={true}
                 duration={600}
                 offset={-100} // Adjust this offset based on your layout
-                className="text-xl cursor-pointer font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                className="lg:text-xl cursor-pointer font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
@@ -381,7 +340,7 @@ export default function Navbar() {
               </ScrollLink>
               <Link
                 href={"/appeal"}
-                className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                className="lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
@@ -390,7 +349,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href={"/donation"}
-                className="text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+                className="lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
@@ -399,7 +358,7 @@ export default function Navbar() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 place-content-center">
-              <div className="md:col-span-2 flex justify-center items-center px-3">
+              <div className="md:col-span-2 flex justify-center items-center lg:px-3">
                 {/* <h1
                   className={`
                   text-base font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
@@ -429,8 +388,10 @@ export default function Navbar() {
                     //   show3 ? "lg:ml-5" : ""
                     // }
                   >
-                    <FiPhoneCall className="w-4.5 h-4.5" />
-                    <span className="text-lg pl-1">+44 7300 559919</span>
+                    <FiPhoneCall className="w-3.5 h-3.5 xl:w-4.5 xl:h-4.5" />
+                    <span className="text-[12px] lg:text-[16px] xl:text-lg pl-1">
+                      +44 7300 559919
+                    </span>
                   </div>
                 </motion.div>
               </div>
@@ -450,7 +411,7 @@ export default function Navbar() {
 
               <Link
                 href={"/donation"}
-                className="bg-sky-800 p-2 text-white flex flex-col justify-center items-center px-3.5 py-2 overflow-hidden relative group cursor-pointer font-medium"
+                className="bg-sky-800 py-1 text-white flex flex-col justify-center items-center lg:px-2.5 xl:px-3.5 lg:py-2 overflow-hidden relative group cursor-pointer font-medium"
               >
                 {/* <motion.div
                   whileHover={{
@@ -464,8 +425,8 @@ export default function Navbar() {
                   }}
                 > */}{" "}
                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <LiaDonateSolid className="w-10 h-10 relative transition duration-300 group-hover:text-red-600 ease" />
-                <span className="relative text-xs font-semibold text-white text-center group-hover:text-red-600">
+                <LiaDonateSolid className="w-6 h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 relative transition duration-300 group-hover:text-red-600 ease" />
+                <span className="relative text-[9px] lg:text-[10px] xl:text-xs xl:font-semibold text-white text-center group-hover:text-red-600">
                   Donate Now
                 </span>
                 {/* </motion.div> */}

@@ -6,41 +6,28 @@ const HealthCareDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
+        FGRF Commitment to Health: Providing Medical Assistance in Disaster
+        Recovery and Rural Areas
       </h2>
 
       <SliderSectionHealth />
 
       <p className="text-base text-center pt-8 py-3">
-        The violence in Gaza has claimed over 20,000 lives, leaving thousands
-        injured, according to the Palestinian Health Ministry - Inna Lillahi Wa
-        Inna Illahi Rajioon.
+        As part of our comprehensive disaster recovery efforts and outreach to
+        rural communities, FGRF is dedicated to improving health outcomes for
+        those in need. We organize medical camps in affected areas, offering
+        free medical consultations and essential healthcare services.
       </p>
       <p className="text-base text-center py-3">
-        Gaza, under complete siege, faces unthinkable horrors. The pipes
-        supplying Gaza with water have been shut off, leaving over a million
-        children freezing, hungry, and thirsty. Diseases are spreading,
-        compounding the suffering. ‘Hungry, forsaken, dehumanised’ – the UNRWA
-        Chief explains that the civilians living through these conditions feel
-        betrayed by the world. A UN expert has issued a stark warning that
-        hunger is pervasive among every Palestinian in Gaza.
+        At these camps, individuals receive access to free medication, ensuring
+        they have the necessary treatment to address their health concerns.
+        Additionally, we arrange free clinical facilities, providing essential
+        healthcare services to those who may not have access otherwise.
       </p>
       <p className="text-base text-center py-3">
-        Relentless airstrikes have targeted homes, mosques, and hospitals,
-        escalating the death toll. With a ground offensive ongoing, safe places
-        are scarce for 1.8 million displaced people.
-      </p>
-      <p className="text-base text-center py-3">
-        Despite dangers, our teams are on the ground delivering crucial aid. We
-        urgently appeal for your support to provide essential aid to survivors
-        facing this deadly ordeal.
-      </p>
-      <p className="text-base text-center py-3">
-        With electricity, water, food, and medical supplies all obstructed, the
-        people of Palestine are relying on your generosity now more than ever.
-        Stand in solidarity with Palestine and help save lives during this
-        critical time. Please keep the people of Palestine in your duas -
-        Jazak’Allah Khair.
+        FGRF recognizes the importance of health in building resilient
+        communities, and we remain committed to supporting individuals and
+        families in their journey towards recovery and well-being.
       </p>
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link

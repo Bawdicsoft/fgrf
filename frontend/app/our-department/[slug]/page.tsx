@@ -5,7 +5,7 @@ import OrphanDocs from "@/components/newUi/ourDepartment/Orphan/orphanDoc";
 import Covid19BannerSection from "@/components/newUi/ourDepartment/disasterMange/covid19/covid19Banner";
 import Covid19Docs from "@/components/newUi/ourDepartment/disasterMange/covid19/covid19Doc";
 import DisasterBannerSection from "@/components/newUi/ourDepartment/disasterMange/disasterBanner";
-import DisasterDocs from "@/components/newUi/ourDepartment/disasterMange/disasterDoc";
+import DisasterDocs from "@/components/newUi/ourDepartment/disasterMange/disasterDocs";
 import Disasters from "@/components/newUi/ourDepartment/disasterMange/disasters";
 import MorroccoBannerSection from "@/components/newUi/ourDepartment/disasterMange/moroccoEarthquake/moroccoEarthquakeBanner";
 import MoroccoEarthquakeDocs from "@/components/newUi/ourDepartment/disasterMange/moroccoEarthquake/moroccoEarthquakeDoc";
@@ -51,16 +51,17 @@ export default function OurDepartmentAppeal({
       {/* Disaster department */}
       {myParams === "disaster" && (
         <div
-          className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          style={{
-            backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-            height: "100%",
-          }}
+          className="bg-gray-200"
+          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+          // style={{
+          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+          //   height: "100%",
+          // }}
         >
           <div className="max-w-7xl mx-auto ">
-            {/* <DisasterBannerSection />
-          <DisasterDocs /> */}
-            <Disasters />
+            <DisasterBannerSection />
+            <DisasterDocs />
+            {/* <Disasters /> */}
           </div>
         </div>
       )}
@@ -110,16 +111,17 @@ export default function OurDepartmentAppeal({
       {/* Health Care Department*/}
       {myParams === "health-care" && (
         <div
-          className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          style={{
-            backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-            height: "100%",
-          }}
+          className="bg-gray-200"
+          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+          // style={{
+          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+          //   height: "100%",
+          // }}
         >
           <div className="max-w-7xl mx-auto">
-            {/* <HealthCareBannerSection />
-          <HealthCareDocs /> */}
-            <HealthCares />
+            <HealthCareBannerSection />
+            <HealthCareDocs />
+            {/* <HealthCares /> */}
           </div>
         </div>
       )}
@@ -176,16 +178,17 @@ export default function OurDepartmentAppeal({
       {/* environment-department*/}
       {myParams === "environment-department" && (
         <div
-          className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          style={{
-            backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-            height: "100%",
-          }}
+          className="bg-gray-200"
+          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+          // style={{
+          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+          //   height: "100%",
+          // }}
         >
           <div className="max-w-7xl mx-auto">
-            {/* <EnvironmentDepBannerSection />
-          <EnvironmentDocs /> */}
-            <EnvironmentDepartments />
+            <EnvironmentDepBannerSection />
+            <EnvironmentDocs />
+            {/* <EnvironmentDepartments /> */}
           </div>
         </div>
       )}

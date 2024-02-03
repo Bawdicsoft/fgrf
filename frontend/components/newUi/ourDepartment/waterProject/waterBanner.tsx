@@ -86,7 +86,7 @@ const WaterBannerSection = () => {
           </motion.div>
         </AnimationTop>
       </div>
-      <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 md:grid-cols-2 lg:grid-cols-3 pt-16 px-5">
+      <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 lg:grid-cols-3 pt-16 px-5">
         {/* <div className="flex flex-col gap-2">
           <h3 className=" text-2xl md:text-3xl text-gray-800">
             {" "}
@@ -173,7 +173,7 @@ const WaterBannerSection = () => {
         </div>
         <div className="flex flex-col items-center justify-around">
           <AnimationBottom>
-            <div className="relative group overflow-hidden bg-sky-700 w-full md:w-96 font-semibold text-xl py-3 px-5 md:px-8 md:text-2xl rounded-2xl">
+            <div className="relative group overflow-hidden bg-sky-700 w-full xl:w-96 font-semibold text-xl py-3 px-5 md:px-8 md:text-2xl rounded-2xl">
               <span className="absolute w-96 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-8 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-40 ease"></span>
               <span className="text-white group-hover:text-white relative ">
                 Water Project

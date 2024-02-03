@@ -7,41 +7,34 @@ const DisasterDocs = () => {
   return (
     <div className="py-10 md:py-16 px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
+        FGRF Rapid Response Disaster Management Department
       </h2>
 
       <SliderSectionDisaster />
 
       <p className="text-base text-center pt-8 py-3">
-        The violence in Gaza has claimed over 20,000 lives, leaving thousands
-        injured, according to the Palestinian Health Ministry - Inna Lillahi Wa
-        Inna Illahi Rajioon.
+        FGRF global network, ready to swiftly respond to disasters around the
+        world. With our extensive reach and robust infrastructure, we ensure no
+        one is left behind in times of crisis.
       </p>
       <p className="text-base text-center py-3">
-        Gaza, under complete siege, faces unthinkable horrors. The pipes
-        supplying Gaza with water have been shut off, leaving over a million
-        children freezing, hungry, and thirsty. Diseases are spreading,
-        compounding the suffering. ‘Hungry, forsaken, dehumanised’ – the UNRWA
-        Chief explains that the civilians living through these conditions feel
-        betrayed by the world. A UN expert has issued a stark warning that
-        hunger is pervasive among every Palestinian in Gaza.
+        Our dedicated team stands ready to spring into action, leveraging the
+        power of Dawat-e-Islami vast follower base to provide immediate aid and
+        relief wherever it is needed most. From natural disasters to
+        humanitarian emergencies, we are equipped to handle any challenge with
+        efficiency and compassion.
       </p>
       <p className="text-base text-center py-3">
-        Relentless airstrikes have targeted homes, mosques, and hospitals,
-        escalating the death toll. With a ground offensive ongoing, safe places
-        are scarce for 1.8 million displaced people.
+        Through our website, you can stay updated on our latest relief efforts,
+        learn about our proactive approach to disaster management, and discover
+        how you can support our mission to make a difference in the lives of
+        those affected by adversity.
       </p>
       <p className="text-base text-center py-3">
-        Despite dangers, our teams are on the ground delivering crucial aid. We
-        urgently appeal for your support to provide essential aid to survivors
-        facing this deadly ordeal.
-      </p>
-      <p className="text-base text-center py-3">
-        With electricity, water, food, and medical supplies all obstructed, the
-        people of Palestine are relying on your generosity now more than ever.
-        Stand in solidarity with Palestine and help save lives during this
-        critical time. Please keep the people of Palestine in your duas -
-        Jazak’Allah Khair.
+        Join us in our journey to serve humanity and build a better world.
+        Together, we can make a meaningful impact and spread hope in times of
+        need. Explore FGRF today and be a part of our global movement for
+        change.
       </p>
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
