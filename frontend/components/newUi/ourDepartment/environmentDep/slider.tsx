@@ -2,6 +2,8 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 // Import Swiper styles
 import "swiper/css";
@@ -78,7 +80,11 @@ export default function SliderSectionEnvironment() {
           },
         }}
         modules={[Pagination, Navigation]}
-        navigation={true}
+        // navigation={true}
+        navigation={{
+          prevEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
+        }}
         className=""
       >
         {EnvironmentDepartmentsList.map((data, index) => (
@@ -100,28 +106,18 @@ export default function SliderSectionEnvironment() {
             </Link>
           </SwiperSlide>
         ))}
-        {/* {imageList1.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
+        {/* Navigation Arrows */}
+        <div className="absolute top-1/2 z-50 flex justify-between w-full px-3 md:px-5">
+          <div className="swiper-button-prev bg-white relative overflow-hidden rounded-full">
+            <BsArrowLeftCircleFill
+              className="text-teal-400 w-6 h-6 md:w-10 md:h-10 font-extrabold"
+              style={{ fontWeight: "bold" }}
             />
-          </SwiperSlide>
-        ))}
-        {imageList2.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
-            />
-          </SwiperSlide>
-        ))} */}
+          </div>
+          <div className="swiper-button-next bg-white relative overflow-hidden rounded-full">
+            <BsArrowRightCircleFill className="text-teal-400  w-6 h-6 md:w-10 md:h-10  font-extrabold" />
+          </div>
+        </div>
       </Swiper>
     </>
   );
