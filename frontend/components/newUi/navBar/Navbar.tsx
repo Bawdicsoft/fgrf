@@ -449,9 +449,9 @@ export default function Navbar() {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M1 1h15M1 7h15M1 13h15"
             />
           </svg>
@@ -557,7 +557,7 @@ export default function Navbar() {
             </li>
             <hr className="my-4 h-[2px] border-t-0 bg-transparent bg-gradient-to-r from-transparent via-green-200 to-transparent opacity-25" />
 
-            <li className="grid grid-cols-5 place-content-center py-2 place-items-center px-10  border-r border-black ">
+            <li className="grid grid-cols-5 place-content-center py-2 place-items-center px-10">
               <div className="bg-gray-100 text-black  rounded-full w-8 h-8 flex justify-center items-center">
                 <motion.div
                   whileHover={{

@@ -39,7 +39,7 @@ const Achievement = () => {
     setOpen(true);
   };
   return (
-    <section className="pt-2 pb-6">
+    <section className="pt-2 pb-6 max-w-7xl mx-auto">
       <div className="relative bg-center bg-no-repeat bg-cover">
         {/* <div className="max-w-7xl mx-auto flex flex-col items-center">
           <div

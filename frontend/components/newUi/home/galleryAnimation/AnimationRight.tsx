@@ -34,13 +34,6 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
   useEffect(() => {
     let xValue = 0;
 
-    console.log("isExtraSmall--->", isExtraSmall);
-    console.log("isSmallL--->", isSmallL);
-    console.log("isSmallM--->", isSmallM);
-    console.log("isMedium--->", isMedium);
-    console.log("isLarge--->", isLarge);
-    console.log("isLLarge--->", isLlarge);
-
     if (isExtraSmall) {
       xValue = 15;
     } else if (isSmallM) {

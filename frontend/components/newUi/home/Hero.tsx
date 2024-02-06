@@ -29,7 +29,7 @@ const Hero = () => {
   }, [currentIndex, heroImage]);
 
   return (
-    <div className="md:h-[370px] lg:h-[500px] h-[170px] w-full flex items-center text-white relative overflow-hidden">
+    <div className="md:h-[370px] lg:h-[500px] h-[170px] w-full max-w-screen-2xl mx-auto flex items-center text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div className="overflow-hidden w-full h-full flex flex-col justify-center">
           <div

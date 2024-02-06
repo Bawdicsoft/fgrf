@@ -186,7 +186,7 @@ const OurDepartments = () => {
         >
           <SwiperSlide className="!bg-[#075985]">
             <div className="lg:px-10 bg-[#075985] py-1">
-              <div className="grid lg:grid-cols-7 lg:grid-rows-none md:grid-cols-3 items-center md:grid-rows-2 grid-cols-2 grid-rows-3 gap-4">
+              <div className="grid lg:grid-cols-7 md:grid-cols-3 items-center grid-cols-2  gap-4">
                 {/* <AnimatedComponentLeft> */}{" "}
                 {data.slice(0, 3).map((data, index) => (
                   <AnimatedComponentRight key={index}>
