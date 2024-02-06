@@ -38,6 +38,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function SliderSectionDisaster() {
   return (
@@ -70,12 +71,13 @@ export default function SliderSectionDisaster() {
             spaceBetween: 50,
           },
         }}
+        // onSwiper={handleSwiperInit}
         modules={[Navigation]}
         navigation={{
-          prevEl: ".swiper-button-prev",
-          nextEl: ".swiper-button-next",
+          prevEl: "#swiper-button-prev",
+          nextEl: "#swiper-button-next",
         }}
-        className=""
+        className="!relative"
       >
         {disastersList.map((data, index) => (
           <SwiperSlide key={index} className="h-full w-full">
@@ -97,15 +99,22 @@ export default function SliderSectionDisaster() {
           </SwiperSlide>
         ))}
         {/* Navigation Arrows */}
-        <div className="absolute top-1/2 z-50 flex justify-between w-full px-3 md:px-5">
-          <div className="swiper-button-prev bg-white relative overflow-hidden rounded-full">
+
+        <div className="!absolute top-1/2 z-50 flex justify-between w-full px-3 md:px-5">
+          <div
+            id="swiper-button-prev"
+            className="s bg-white relative overflow-hidden rounded-full group hover:bg-teal-500 transition duration-500"
+          >
             <BsArrowLeftCircleFill
-              className="text-teal-400 w-6 h-6 md:w-10 md:h-10 font-extrabold"
+              className="text-teal-400 w-6 h-6 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500"
               style={{ fontWeight: "bold" }}
             />
           </div>
-          <div className="swiper-button-next bg-white relative overflow-hidden rounded-full">
-            <BsArrowRightCircleFill className="text-teal-400  w-6 h-6 md:w-10 md:h-10  font-extrabold" />
+          <div
+            id="swiper-button-next"
+            className=" bg-white relative overflow-hidden rounded-full group hover:bg-teal-500 transition duration-500"
+          >
+            <BsArrowRightCircleFill className="text-teal-400  w-6 h-6 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
           </div>
         </div>
       </Swiper>
