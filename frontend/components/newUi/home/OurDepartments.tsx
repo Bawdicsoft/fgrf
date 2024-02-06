@@ -17,6 +17,8 @@ import {
 import AnimationBottom from "./AnimationBtm";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 import Image from "next/image";
 import AnimationTop from "./AnimationTop";
 import Link from "next/link";
@@ -174,9 +176,12 @@ const OurDepartments = () => {
             disableOnInteraction: false,
           }}
           speed={1000}
-          navigation={true}
+          navigation={{
+            prevEl: "#swiper-button-prev",
+            nextEl: "#swiper-button-next",
+          }}
           modules={[Navigation]}
-          className=""
+          className="!relative"
           style={
             {
               "--swiper-navigation-color": "#fff",
@@ -383,6 +388,21 @@ const OurDepartments = () => {
               </div>
             </div>
           </SwiperSlide>
+          <div
+            id="swiper-button-prev"
+            className=" bg-white !absolute left-2 top-1/2 lg:top-10 z-10  rounded-full group hover:bg-teal-500 transition duration-500"
+          >
+            <BsArrowLeftCircleFill
+              className="text-teal-500  w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500"
+              style={{ fontWeight: "bold" }}
+            />
+          </div>
+          <div
+            id="swiper-button-next"
+            className=" bg-white !absolute top-1/2 lg:top-10 z-10 right-2 rounded-full group hover:bg-teal-500 transition duration-500"
+          >
+            <BsArrowRightCircleFill className="text-teal-500  w-8 h-8 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
+          </div>
         </Swiper>
         {/* <div className="swiper-button-next-custom">
           <img

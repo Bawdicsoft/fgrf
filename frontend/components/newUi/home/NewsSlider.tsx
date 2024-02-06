@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FaCirclePlay } from "react-icons/fa6";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { FaCirclePause } from "react-icons/fa6";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -47,7 +49,10 @@ export default function NewsSlider() {
         // pagination={{
         //   clickable: true,
         // }}
-        navigation={true}
+        navigation={{
+          prevEl: "#swiper-button-prev",
+          nextEl: "#swiper-button-next",
+        }}
         breakpoints={{
           "@0.00": {
             slidesPerView: 1,
@@ -113,6 +118,24 @@ export default function NewsSlider() {
             )}
           </SwiperSlide>
         ))}
+        {/* Navigation Arrows */}
+        {/* <div className="!absolute top-1/2 z-10 flex justify-between w-full px-2 md:px-5"> */}
+        <div
+          id="swiper-button-prev"
+          className=" bg-white !absolute left-2 top-1/2 z-10  rounded-full group hover:bg-teal-500 transition duration-500"
+        >
+          <BsArrowLeftCircleFill
+            className="text-teal-400  w-8 h-8 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500"
+            style={{ fontWeight: "bold" }}
+          />
+        </div>
+        <div
+          id="swiper-button-next"
+          className=" bg-white !absolute top-1/2 z-10 right-2 rounded-full group hover:bg-teal-500 transition duration-500"
+        >
+          <BsArrowRightCircleFill className="text-teal-400  w-8 h-8 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
+        </div>
+        {/* </div> */}
       </Swiper>
     </>
   );
