@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { PiArrowFatRightFill } from "react-icons/pi";
+import { BsArrowRightCircleFill } from "react-icons/bs";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -36,7 +37,7 @@ export default function SliderSectionWinter() {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 10,
           },
           640: {
@@ -44,7 +45,7 @@ export default function SliderSectionWinter() {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
           1024: {
@@ -53,12 +54,11 @@ export default function SliderSectionWinter() {
           },
         }}
         modules={[Pagination, Navigation]}
-        navigation={true}
-        // navigation={{
-        //   nextEl: ".swiper-button-next",
-        //   prevEl: ".swiper-button-prev",
-        // }}
-        className=""
+        navigation={{
+          prevEl: "#swiper-button-prev",
+          nextEl: "#swiper-button-next",
+        }}
+        className="!relative"
       >
         {imageList.map((img, index) => (
           <SwiperSlide key={index}>
@@ -100,6 +100,22 @@ export default function SliderSectionWinter() {
         <div className="swiper-button-prev">
           <PiArrowFatRightFill className="w-32 h-10 text-white" />
         </div> */}
+        {/* Navigation Arrows */}
+        <div
+          id="swiper-button-prev"
+          className=" bg-white !absolute left-2 top-1/2 z-10  rounded-full group hover:bg-teal-500 transition duration-500"
+        >
+          <BsArrowLeftCircleFill
+            className="text-teal-500  w-8 h-8 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500"
+            style={{ fontWeight: "bold" }}
+          />
+        </div>
+        <div
+          id="swiper-button-next"
+          className=" bg-white !absolute top-1/2 z-10 right-2 rounded-full group hover:bg-teal-500 transition duration-500"
+        >
+          <BsArrowRightCircleFill className="text-teal-500  w-8 h-8 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
+        </div>
       </Swiper>
     </>
   );

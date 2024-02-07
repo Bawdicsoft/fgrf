@@ -99,7 +99,6 @@ export default function SliderSectionDisaster() {
           </SwiperSlide>
         ))}
         {/* Navigation Arrows */}
-        {/* <div className="!absolute top-1/2 z-50 flex justify-between w-full px-2 md:px-5"> */}
         <div
           id="swiper-button-prev"
           className=" bg-white !absolute left-2 top-1/2 z-10  rounded-full group hover:bg-teal-500 transition duration-500"
@@ -115,7 +114,6 @@ export default function SliderSectionDisaster() {
         >
           <BsArrowRightCircleFill className="text-teal-500  w-8 h-8 md:w-10 md:h-10 font-extrabold cursor-pointer group-hover:text-white transition duration-500" />
         </div>
-        {/* </div> */}
       </Swiper>
     </>
   );
