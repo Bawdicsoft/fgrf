@@ -16,7 +16,7 @@ export default function DonationSlider3() {
     "/AppealNew/food/foodBox2.jpeg",
     "/AppealNew/food/foodBox3.jpeg",
     "/AppealNew/food/foodBox4.jpeg",
-    "/AppealNew/food/foodBox5.jpeg",
+    "/AppealNew/food/foodbox5.jpeg",
   ];
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
