@@ -98,14 +98,20 @@ const Footer = () => {
             {/* </div> */}
             <div className="flex gap-5 md:gap-12 justify-center">
               <div className="text-center">
-                <h2 className="font-medium text-sm md:text-base text-gray-500 hover:text-gray-400">
+                <Link
+                  href={"/about"}
+                  className="font-medium text-sm md:text-base text-gray-500 hover:text-gray-400"
+                >
                   ABOUT US
-                </h2>
+                </Link>
               </div>
               <div className="text-center">
-                <h2 className="font-medium text-sm md:text-base text-gray-500  hover:text-gray-400">
+                <Link
+                  href={"/contact-us"}
+                  className="font-medium text-sm md:text-base text-gray-500  hover:text-gray-400"
+                >
                   CONTACT US
-                </h2>
+                </Link>
               </div>
             </div>
             <div className="flex justify-center md:justify-evenly text-gray-500 gap-4">
@@ -143,15 +149,15 @@ const Footer = () => {
                 Wakefield, England, WF2 8QZ
               </p> */}
               <div className="text-center md:flex text-gray-500 text-xs lg:text-sm justify-center">
-                <Link href={"#"} className="text-[#19afaf]">
+                <Link href={"/terms-and-conditions"} className="text-[#19afaf]">
                   Terms and Conditions
                 </Link>
                 |
-                <Link href={"#"} className="text-[#19afaf]">
+                <Link href={"/privacy-policy"} className="text-[#19afaf]">
                   Privacy Policy
                 </Link>
                 |
-                <Link href={"#"} className="text-[#19afaf]">
+                <Link href={"/complaints-procedure"} className="text-[#19afaf]">
                   Complaints Procedure
                 </Link>
                 © 2024 Fgrf.uk
