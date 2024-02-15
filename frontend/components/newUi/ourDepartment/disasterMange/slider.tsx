@@ -3,31 +3,31 @@
 const disastersList = [
   {
     link: "covid-19",
-    img: "/GalleryNew1/11.jpg",
+    img: "/ourDepartment/frames/covid.png",
     title: "COVID - 19",
     desc: "FGRF stood out with its unwavering commitment to support those in need",
   },
   {
     link: "pakistan-flood",
-    img: "/GalleryNew1/6.jpg",
+    img: "/ourDepartment/frames/pakistanflood.png",
     title: "Pakistan flood ",
     desc: "FGRF's Swift Response to Pakistan Floods: From Rescue to Rebuilding",
   },
   {
     link: "turkey-syria-earthquake",
-    img: "/GalleryNew1/turkey.jpg",
+    img: "/ourDepartment/frames/turkeysyriaEarthquake.png",
     title: "Turkey & Syria earthquake ",
     desc: " FGRF swiftly mobilized to provide aid and support to those affected",
   },
   {
     link: "morocco-earthquake",
-    img: "/GalleryNew1/morco1.jpg",
+    img: "/ourDepartment/frames/morocco.png",
     title: "Morocco earthquake ",
     desc: "Supporting Morocco: FGRF's Relief Efforts in Response to the Earthquake",
   },
   {
     link: "palestine-brothers-sisters",
-    img: "/AppealNew/palestine/18.jpg",
+    img: "/ourDepartment/frames/palestinian.png",
     title: "Palestinian brother & sisters ",
     desc: "FGRF's Swift Response in Palestine During Times of Crisis",
   },
@@ -92,9 +92,9 @@ export default function SliderSectionDisaster() {
                 height={400}
                 className="h-full w-full"
               />
-              <span className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold">
+              {/* <span className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold">
                 {data.title}
-              </span>
+              </span> */}
             </Link>
           </SwiperSlide>
         ))}

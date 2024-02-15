@@ -5,7 +5,7 @@ import SliderSectionpalestinianBrotherSister from "./slider";
 
 const PalestinianBrotherSistersDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         FGRF Swift Response in Palestine During Times of Crisis
       </h2>
@@ -14,9 +14,11 @@ const PalestinianBrotherSistersDocs = () => {
 
       <p className="text-base text-center pt-8 py-3">
         In the face of adversity, FGRF wasted no time in extending a helping
-        hand to Palestine. With urgency and compassion, we provided over 100,000
-        cooked meals, along with container mattresses and blankets, to those in
-        need.
+        hand to Palestine.
+      </p>
+      <p className="text-base text-center py-3">
+        With urgency and compassion, we provided over 100,000 cooked meals,
+        along with container mattresses and blankets, to those in need.
       </p>
       <p className="text-base text-center py-3">
         Additionally, we distributed thousands of food packs and ration boxes,

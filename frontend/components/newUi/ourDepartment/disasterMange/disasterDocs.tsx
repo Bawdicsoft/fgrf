@@ -5,22 +5,25 @@ import SliderSectionDisaster from "./slider";
 
 const DisasterDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Rapid Response Disaster Management Department
+    <div className="md:py-16 px-4 xl:px-0">
+      <h2 className="text-teal-500 font-bold text-xl md:text-2xl  lg:text-3xl text-center py-8">
+        FGRF’s Rapid Response Disaster Management Department
       </h2>
 
       <SliderSectionDisaster />
 
-      <p className="text-base text-center pt-8 py-3">
-        FGRF global network, ready to swiftly respond to disasters around the
-        world. With our extensive reach and robust infrastructure, we ensure no
-        one is left behind in times of crisis.
+      <p className="text-base text-center md:pt-8 py-3">
+        FGRF’s global network, ready to swiftly respond to disasters around the
+        world.
+      </p>
+      <p className="text-base text-center py-3">
+        our extensive reach and robust infrastructure, we ensure no one is left
+        behind in times of crisis.
       </p>
       <p className="text-base text-center py-3">
         Our dedicated team stands ready to spring into action, leveraging the
-        power of Dawat-e-Islami vast follower base to provide immediate aid and
-        relief wherever it is needed most. From natural disasters to
+        power of Dawat-e-Islami&#39;s vast follower base to provide immediate
+        aid and relief wherever it&#39;s needed most. From natural disasters to
         humanitarian emergencies, we are equipped to handle any challenge with
         efficiency and compassion.
       </p>
@@ -34,33 +37,15 @@ const DisasterDocs = () => {
         Join us in our journey to serve humanity and build a better world.
         Together, we can make a meaningful impact and spread hope in times of
         need. Explore FGRF today and be a part of our global movement for
-        change.
+        change.&quot;
       </p>
-      <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
+      {/* <div className="flex flex-col justify-center items-center pt-4 md:pt-10 pb-8">
         <Link
           href={"/"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
         >
           DONATE NOW
         </Link>
-        {/* <Image src={"/donation/palestinEmergency/button.jpg"} alt="" width={700} height={900} /> */}
-      </div>
-
-      {/* Second Video Container */}
-      {/* <div className="flex flex-col items-center">
-        <div className="w-3/4 ">
-          <video className="h-full w-full rounded-2xl" controls>
-            <source src="/Videonews/6.mp4" type="video/mp4" />
-          </video>
-          <div className="flex justify-center items-center py-8">
-            <Link
-              href={"/"}
-              className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
-            >
-              DONATE NOW
-            </Link>
-          </div>
-        </div>
       </div> */}
     </div>
   );

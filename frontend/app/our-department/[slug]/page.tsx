@@ -4,15 +4,21 @@ import OrphanBannerSection from "@/components/newUi/ourDepartment/Orphan/orphanB
 import OrphanDocs from "@/components/newUi/ourDepartment/Orphan/orphanDoc";
 import Covid19BannerSection from "@/components/newUi/ourDepartment/disasterMange/covid19/covid19Banner";
 import Covid19Docs from "@/components/newUi/ourDepartment/disasterMange/covid19/covid19Doc";
+import DonationSectionCovid from "@/components/newUi/ourDepartment/disasterMange/covid19/donationSection";
 import DisasterBannerSection from "@/components/newUi/ourDepartment/disasterMange/disasterBanner";
 import DisasterDocs from "@/components/newUi/ourDepartment/disasterMange/disasterDocs";
 import Disasters from "@/components/newUi/ourDepartment/disasterMange/disasters";
+import DonationSectionDisaster from "@/components/newUi/ourDepartment/disasterMange/donationSection";
+import DonationSectionMorrocoEarthQuake from "@/components/newUi/ourDepartment/disasterMange/moroccoEarthquake/donationSection";
 import MorroccoBannerSection from "@/components/newUi/ourDepartment/disasterMange/moroccoEarthquake/moroccoEarthquakeBanner";
 import MoroccoEarthquakeDocs from "@/components/newUi/ourDepartment/disasterMange/moroccoEarthquake/moroccoEarthquakeDoc";
+import DonationSectionPakistanFlood from "@/components/newUi/ourDepartment/disasterMange/pakistanFlood/donationSection";
 import PakistanFloodBannerSection from "@/components/newUi/ourDepartment/disasterMange/pakistanFlood/pakistanFloodBanner";
 import PakistanFloodDocs from "@/components/newUi/ourDepartment/disasterMange/pakistanFlood/pakistanFloodDoc";
+import DonationSectionPalestine from "@/components/newUi/ourDepartment/disasterMange/palestinianBrotherSisters/donationSection";
 import PalestinianBrotherSistersBanner from "@/components/newUi/ourDepartment/disasterMange/palestinianBrotherSisters/palestinianBrotherSistersBanner";
 import PalestinianBrotherSistersDocs from "@/components/newUi/ourDepartment/disasterMange/palestinianBrotherSisters/palestinianBrotherSistersDoc";
+import DonationSectionTurkeySyriaEarthQuake from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/donationSection";
 import TurkeySyriaEarthQuackBannerSection from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/turkeySyriaEarthQuackBanner";
 import TurkeySyriaEarthQuackDocs from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/turkeySyriaEarthQuackDoc";
 import EducationBannerSection from "@/components/newUi/ourDepartment/educationSkill/educationBanner";
@@ -39,6 +45,7 @@ import MasjidBannerSection from "@/components/newUi/ourDepartment/masjid/masjidB
 import MasjidDocs from "@/components/newUi/ourDepartment/masjid/masjidDoc";
 import WaterBannerSection from "@/components/newUi/ourDepartment/waterProject/waterBanner";
 import WaterDocs from "@/components/newUi/ourDepartment/waterProject/waterDoc";
+import Image from "next/image";
 
 export default function OurDepartmentAppeal({
   params,
@@ -58,8 +65,18 @@ export default function OurDepartmentAppeal({
           //   height: "100%",
           // }}
         >
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/banner.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto ">
             <DisasterBannerSection />
+            <DonationSectionDisaster />
             <DisasterDocs />
             {/* <Disasters /> */}
           </div>
@@ -69,40 +86,91 @@ export default function OurDepartmentAppeal({
 
       {myParams === "disaster-covid-19" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/covid/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto ">
             <Covid19BannerSection />
+            <DonationSectionCovid />
             <Covid19Docs />
           </div>
         </div>
       )}
       {myParams === "disaster-morocco-earthquake" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/morroco/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto ">
             <MorroccoBannerSection />
+            <DonationSectionMorrocoEarthQuake />
             <MoroccoEarthquakeDocs />
           </div>
         </div>
       )}
       {myParams === "disaster-pakistan-flood" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/pakistanFlood/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <PakistanFloodBannerSection />
+            <DonationSectionPakistanFlood />
             <PakistanFloodDocs />
           </div>
         </div>
       )}
       {myParams === "disaster-turkey-syria-earthquake" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/turkeySyriaEarthquake/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <TurkeySyriaEarthQuackBannerSection />
+            <DonationSectionTurkeySyriaEarthQuake />
             <TurkeySyriaEarthQuackDocs />
           </div>
         </div>
       )}
       {myParams === "disaster-palestine-brothers-sisters" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/palestine/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <PalestinianBrotherSistersBanner />
+            <DonationSectionPalestine />
+
             <PalestinianBrotherSistersDocs />
           </div>
         </div>

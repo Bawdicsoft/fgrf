@@ -6,17 +6,21 @@ import SliderSectionMoroccoEarthquake from "./slider";
 
 const MoroccoEarthquakeDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-5 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        Supporting Morocco: FGRF Relief Efforts in Response to the Earthquake
+        Supporting Morocco: FGRF&#39;s Relief Efforts in Response to the
+        Earthquake
       </h2>
 
       <SliderSectionMoroccoEarthquake />
 
       <p className="text-base text-center pt-8 py-3">
         FGRF swiftly responded to the earthquake in Morocco, delivering
-        essential aid to those affected. Our teams provided first aid, essential
-        supplies, and cooked food ration bags to alleviate immediate needs.
+        essential aid to those affected.
+      </p>
+      <p className="text-base text-center py-3">
+        Our teams provided first aid, essential supplies, and cooked food ration
+        bags to alleviate immediate needs.
       </p>
       <p className="text-base text-center py-3">
         Recognizing the challenges faced during the winter months, FGRF took
