@@ -23,6 +23,7 @@ import TurkeySyriaEarthQuackBannerSection from "@/components/newUi/ourDepartment
 import TurkeySyriaEarthQuackDocs from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/turkeySyriaEarthQuackDoc";
 import EducationBannerSection from "@/components/newUi/ourDepartment/educationSkill/educationBanner";
 import EducationDocs from "@/components/newUi/ourDepartment/educationSkill/educationDoc";
+import DonationSectionEnvironmentDepartment from "@/components/newUi/ourDepartment/environmentDep/donationSection";
 import EnvironmentDepBannerSection from "@/components/newUi/ourDepartment/environmentDep/envDepBanner";
 import EnvironmentDocs from "@/components/newUi/ourDepartment/environmentDep/envDepDoc";
 import EnvironmentDepartments from "@/components/newUi/ourDepartment/environmentDep/environmentDeps";
@@ -30,19 +31,26 @@ import PlantationBanner from "@/components/newUi/ourDepartment/environmentDep/pl
 import PlantationDocs from "@/components/newUi/ourDepartment/environmentDep/plantation/plantationDoc";
 import BloodDonationsBanner from "@/components/newUi/ourDepartment/healthCare/bloodDonations/bloodDonationsBanner";
 import BloodDonationsDocs from "@/components/newUi/ourDepartment/healthCare/bloodDonations/bloodDonationsDoc";
+import DonationSectionBloodDonation from "@/components/newUi/ourDepartment/healthCare/bloodDonations/donationSection";
 import HealthCareDocs from "@/components/newUi/ourDepartment/healthCare/disasterDoc";
+import DonationSectionHealthCare from "@/components/newUi/ourDepartment/healthCare/donationSection";
+import DonationSectionEyeCamps from "@/components/newUi/ourDepartment/healthCare/eyecamps/donationSection";
 import EyecampsBannerSection from "@/components/newUi/ourDepartment/healthCare/eyecamps/eyecampsBanner";
 import EyecampsDocs from "@/components/newUi/ourDepartment/healthCare/eyecamps/eyecampsDoc";
+import DonationSectionFaizanRehabilitationCenter from "@/components/newUi/ourDepartment/healthCare/faizanRehabilitationCenter/donationSection";
 import FaizanRehabilitationCenterBanner from "@/components/newUi/ourDepartment/healthCare/faizanRehabilitationCenter/faizanRehabilitationCenterBanner";
 import FaizanRehabilitationCenterDocs from "@/components/newUi/ourDepartment/healthCare/faizanRehabilitationCenter/faizanRehabilitationCenterDoc";
 import HealthCareBannerSection from "@/components/newUi/ourDepartment/healthCare/healthBanner";
 import HealthCares from "@/components/newUi/ourDepartment/healthCare/healthCars";
+import DonationSectionMedicalClinic from "@/components/newUi/ourDepartment/healthCare/medicalClinic/donationSection";
 import MedicalClinicBanner from "@/components/newUi/ourDepartment/healthCare/medicalClinic/medicalClinicBanner";
 import MedicalClinicDocs from "@/components/newUi/ourDepartment/healthCare/medicalClinic/medicalClinicDoc";
+import DonationSectionMedicalVan from "@/components/newUi/ourDepartment/healthCare/medicalVan/donationSection";
 import MedicalVanBanner from "@/components/newUi/ourDepartment/healthCare/medicalVan/medicalVanBanner";
 import MedicalVanDocs from "@/components/newUi/ourDepartment/healthCare/medicalVan/medicalVanDoc";
 import MasjidBannerSection from "@/components/newUi/ourDepartment/masjid/masjidBanner";
 import MasjidDocs from "@/components/newUi/ourDepartment/masjid/masjidDoc";
+import DonationSectionWaterProject from "@/components/newUi/ourDepartment/waterProject/donationSection";
 import WaterBannerSection from "@/components/newUi/ourDepartment/waterProject/waterBanner";
 import WaterDocs from "@/components/newUi/ourDepartment/waterProject/waterDoc";
 import Image from "next/image";
@@ -178,16 +186,19 @@ export default function OurDepartmentAppeal({
 
       {/* Health Care Department*/}
       {myParams === "health-care" && (
-        <div
-          className="bg-gray-200"
-          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          // style={{
-          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-          //   height: "100%",
-          // }}
-        >
-          <div className="max-w-7xl mx-auto">
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/disaster/palestine/banner.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <HealthCareBannerSection />
+            <DonationSectionHealthCare />
             <HealthCareDocs />
             {/* <HealthCares /> */}
           </div>
@@ -195,40 +206,94 @@ export default function OurDepartmentAppeal({
       )}
       {myParams === "health-care-eye-camps" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/healthCare/banners/EyeCamps.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <EyecampsBannerSection />
+            <DonationSectionEyeCamps />
             <EyecampsDocs />
           </div>
         </div>
       )}
       {myParams === "health-care-blood-donations" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/healthCare/banners/BloodDonations.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <BloodDonationsBanner />
+            <DonationSectionBloodDonation />
             <BloodDonationsDocs />
           </div>
         </div>
       )}
       {myParams === "health-care-medical-van" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          {" "}
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/healthCare/banners/MedicalVan.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <MedicalVanBanner />
+            <DonationSectionMedicalVan />
             <MedicalVanDocs />
           </div>
         </div>
       )}
       {myParams === "health-care-faizan-rehabilitation-center" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={
+                "/ourDepartment/healthCare/banners/FaizanRehabilitionCenter.jpg"
+              }
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+
+          <div className="max-w-screen-lg mx-auto">
             <FaizanRehabilitationCenterBanner />
+            <DonationSectionFaizanRehabilitationCenter />
             <FaizanRehabilitationCenterDocs />
           </div>
         </div>
       )}
       {myParams === "health-care-medical-clinic" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/healthCare/banners/MedicalClinic.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <MedicalClinicBanner />
+            <DonationSectionMedicalClinic />
             <MedicalClinicDocs />
           </div>
         </div>
@@ -237,8 +302,18 @@ export default function OurDepartmentAppeal({
       {/* water-project*/}
       {myParams === "water-project" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/handPump/handPump (15).jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <WaterBannerSection />
+            <DonationSectionWaterProject />
             <WaterDocs />
           </div>
         </div>
@@ -253,8 +328,20 @@ export default function OurDepartmentAppeal({
           //   height: "100%",
           // }}
         >
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={
+                "/ourDepartment/EnvironmentDepartment/environmentDepartment (2).jpg"
+              }
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <EnvironmentDepBannerSection />
+            <DonationSectionEnvironmentDepartment />
             <EnvironmentDocs />
             {/* <EnvironmentDepartments /> */}
           </div>

@@ -5,7 +5,7 @@ import SliderSectionFaizanRehabilitationCenter from "./slider";
 
 const FaizanRehabilitationCenterDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         Faizan Rehabilitation Center (FRC) is dedicated to supporting children
       </h2>
@@ -13,15 +13,17 @@ const FaizanRehabilitationCenterDocs = () => {
       <SliderSectionFaizanRehabilitationCenter />
 
       <p className="text-base text-center pt-8 py-3">
-        Faizan Rehabilitation Center (FRC) is dedicated to supporting children
-        with developmental conditions such as autism, hearing disabilities, and
-        sensory issues. With four branches already established in Pakistan, FRC
-        is now looking forward to expanding its services to the UK in 2024. Our
-        mission is to provide comprehensive care and support to children with
-        special needs, empowering them to reach their full potential and lead
-        fulfilling lives. Stay tuned for updates on our upcoming launch in the
-        UK and join us in making a difference in the lives of children with
-        developmental challenges.
+        developmental conditions such as autism, hearing disabilities, and
+        sensory issues.
+      </p>
+      <p className="text-base text-center py-3">
+        With four branches already established in Pakistan, FRC is now looking
+        forward to expanding its services to the UK in 2024. Our mission is to
+        provide comprehensive care and support to children with special needs,
+        empowering them to reach their full potential and lead fulfilling lives.
+        Stay tuned for updates on our upcoming launch in the UK and join us in
+        making a difference in the lives of children with developmental
+        challenges.
       </p>
 
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">

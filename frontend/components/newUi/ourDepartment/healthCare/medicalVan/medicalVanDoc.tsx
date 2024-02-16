@@ -5,7 +5,7 @@ import SliderSectionMedicalVan from "./slider";
 
 const MedicalVanDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         FGRF Medical Van Initiative: Bringing Healthcare to Rural Areas
       </h2>
@@ -13,11 +13,13 @@ const MedicalVanDocs = () => {
       <SliderSectionMedicalVan />
 
       <p className="text-base text-center pt-8 py-3">
-        FGRF is proud to introduce our medical van initiative, equipped with
-        doctors and paramedical staff, dedicated to reaching rural areas with
-        serious health issues. Our mission is to provide essential healthcare
-        services to communities in need, ensuring access to medical care where
-        it is needed most.
+        FGRF is proud to introduce our medical van initiative,
+      </p>
+      <p className="text-base text-center py-3">
+        equipped with doctors and paramedical staff, dedicated to reaching rural
+        areas with serious health issues. Our mission is to provide essential
+        healthcare services to communities in need, ensuring access to medical
+        care where it&#39;s needed most.
       </p>
       <p className="text-base text-center py-3">
         To expand our reach and impact, we are seeking your generous donations
@@ -30,7 +32,7 @@ const MedicalVanDocs = () => {
         donation can make a real difference in the lives of those who need it
         most.
       </p>
-      <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
+      <div className="flex flex-col justify-center items-center py-10 gap-10">
         <Link
           href={"/"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"

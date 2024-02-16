@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 const EnvironmentDepartmentsList = [
   {
     link: "plantation",
-    img: "/GalleryNew1/11.jpg",
+    img: "/ourDepartment/EnvironmentDepartment/plant/plant (20).jpg",
     title: "Plantation",
     desc: "FGRF stood out with its unwavering commitment to support those in need",
   },
@@ -63,11 +63,11 @@ export default function SliderSectionEnvironment() {
         }}
         breakpoints={{
           320: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -100,9 +100,6 @@ export default function SliderSectionEnvironment() {
                 height={400}
                 className="h-full w-full"
               />
-              <span className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 text-white font-bold ">
-                {data.title}
-              </span>
             </Link>
           </SwiperSlide>
         ))}

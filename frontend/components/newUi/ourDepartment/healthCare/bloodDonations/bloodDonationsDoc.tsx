@@ -5,7 +5,7 @@ import SliderSectionBloodDonations from "./slider";
 
 const BloodDonationsDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         Thalassemia Patients During the COVID-19 Pandemic
       </h2>
@@ -14,10 +14,13 @@ const BloodDonationsDocs = () => {
 
       <p className="text-base text-center pt-8 py-3">
         Recognizing the challenges faced by thalassemia patients during the
-        COVID-19 pandemic, FGRF took proactive steps to support this vulnerable
-        community. Understanding the critical need for blood donations, we
-        appealed to our followers to donate blood, urging them to make a
-        difference in the lives of thalassemia patients.
+        COVID-19 pandemic,
+      </p>
+      <p className="text-base text-center py-3">
+        FGRF took proactive steps to support this vulnerable community.
+        Understanding the critical need for blood donations, we appealed to our
+        followers to donate blood, urging them to make a difference in the lives
+        of thalassemia patients.
       </p>
       <p className="text-base text-center py-3">
         Thanks to the generosity of our supporters and a collaborative effort

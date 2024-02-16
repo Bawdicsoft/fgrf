@@ -11,18 +11,47 @@ import "swiper/css/pagination";
 
 // import "./styles.css";
 const imageList = [
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
+  "/ourDepartment/handPump/handPump (1).jpg",
+  "/ourDepartment/handPump/handPump (2).jpg",
+  "/ourDepartment/handPump/handPump (3).jpg",
+  "/ourDepartment/handPump/handPump (4).jpg",
+  "/ourDepartment/handPump/handPump (5).jpg",
+  "/ourDepartment/handPump/handPump (6).jpg",
+  "/ourDepartment/handPump/handPump (7).jpg",
+  "/ourDepartment/handPump/handPump (8).jpg",
+  "/ourDepartment/handPump/handPump (8).jpg",
+  "/ourDepartment/handPump/handPump (20).jpg",
+  "/ourDepartment/handPump/handPump (11).jpg",
+  "/ourDepartment/handPump/handPump (12).jpg",
+  "/ourDepartment/handPump/handPump (13).jpg",
+  "/ourDepartment/handPump/handPump (14).jpg",
+  "/ourDepartment/handPump/handPump (15).jpg",
+  "/ourDepartment/handPump/handPump (16).jpg",
+  "/ourDepartment/handPump/handPump (17).jpg",
+  "/ourDepartment/handPump/handPump (18).jpg",
+  "/ourDepartment/handPump/handPump (19).jpg",
+  "/ourDepartment/handPump/handPump (20).jpg",
+  "/ourDepartment/handPump/handPump (21).jpg",
+  "/ourDepartment/handPump/handPump (23).jpg",
+  "/ourDepartment/handPump/handPump (24).jpg",
+  "/ourDepartment/handPump/handPump (25).jpg",
+  "/ourDepartment/handPump/handPump (26).jpg",
+  "/ourDepartment/handPump/handPump (27).jpg",
+  "/ourDepartment/handPump/handPump (28).jpg",
+  "/ourDepartment/handPump/handPump (29).jpg",
+  "/ourDepartment/handPump/handPump (30).jpg",
+  "/ourDepartment/handPump/handPump (31).jpg",
+  "/ourDepartment/handPump/handPump (32).jpg",
+  "/ourDepartment/handPump/handPump (33).jpg",
+  "/ourDepartment/handPump/handPump (34).jpg",
+  "/ourDepartment/handPump/handPump (35).jpg",
+  "/ourDepartment/handPump/handPump (36).jpg",
+  "/ourDepartment/handPump/handPump (37).jpg",
+  "/ourDepartment/handPump/handPump (38).jpg",
+  "/ourDepartment/handPump/handPump (39).jpg",
+  "/ourDepartment/handPump/handPump (40).jpg",
+  "/ourDepartment/handPump/handPump (41).jpg",
+  "/ourDepartment/handPump/handPump (42).jpg",
 ];
 
 // import required modules
@@ -48,7 +77,7 @@ export default function SliderSectionWater() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -60,7 +89,7 @@ export default function SliderSectionWater() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -68,38 +97,18 @@ export default function SliderSectionWater() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index} className="">
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
-        {/* {imageList1.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
-            />
-          </SwiperSlide>
-        ))}
-        {imageList2.map((img, index) => (
-          <SwiperSlide>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className="w-40"
-            />
-          </SwiperSlide>
-        ))} */}
         {/* Navigation Arrows */}
         <div
           id="swiper-button-prev"

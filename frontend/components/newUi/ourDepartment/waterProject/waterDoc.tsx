@@ -4,27 +4,33 @@ import SliderSectionWater from "./slider";
 
 const WaterDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         FGRF water projects are making a significant impact
       </h2>
 
       <SliderSectionWater />
       <p className="text-base text-center py-3 md:py-5">
-        FGRF water projects are making a significant impact in Thar,
-        Balochistan, Punjab, Pakistan, and various African countries. These
-        projects showcase a diverse range of solutions, programs, and costs,
-        highlighting our commitment to addressing water scarcity and providing
-        sustainable solutions. From innovative technologies to community-based
-        initiatives, each project is tailored to the specific needs and
-        challenges of the region. Together, these efforts contribute to
-        improving access to clean and safe water for communities in need,
-        promoting health, hygiene, and overall well-being.
+        Thar, Balochistan, Punjab, Pakistan, and various African countries.
       </p>
       <p className="text-base text-center py-3">
-        Unlocking Potential: Providing Clean Water, Transforming Lives Forever!
+        These projects showcase a diverse range of solutions, programs, and
+        costs, highlighting our commitment to addressing water scarcity and
+        providing sustainable solutions. From innovative technologies to
+        community-based initiatives, each project is tailored to the specific
+        needs and challenges of the region. Together, these efforts contribute
+        to improving access to clean and
       </p>
-      <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
+      <p className="text-base text-center py-3">
+        safe water for communities in need, promoting health, hygiene, and
+        overall well-being.
+      </p>
+
+      <p className="text-base text-center py-3">
+        &quot;Unlocking Potential: Providing Clean Water, Transforming Lives
+        Forever!&quot;
+      </p>
+      <div className="flex flex-col justify-center items-center py-10 gap-10">
         <Link
           href={"/"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
