@@ -65,7 +65,7 @@ const MasjidBannerSection = () => {
   const [bgBtn, setbgBtn] = useState(0);
 
   return (
-    <div className="pt-10 lg:pt-20">
+    <div className="pt-5 lg:pt-10 px-4 xl:px-0">
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
         <AnimationTop>
           <motion.div
@@ -74,95 +74,20 @@ const MasjidBannerSection = () => {
           >
             <div
               id="box3d"
-              className="border-4 border-[#85d0d0]  w-60 md:w-80 py-1 md:py-2 bg-[#6898b1] mx-auto rounded-full shadow-lg px-5"
+              className="border-4 border-[#85d0d0]  w-full py-1 md:py-2 bg-[#6898b1] mx-auto rounded-full shadow-lg px-5"
             >
               <h2
                 id=""
                 className="text-xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
               >
-                Our Department
+                Masjid
               </h2>
             </div>
           </motion.div>
         </AnimationTop>
       </div>
-      <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 lg:grid-cols-3 pt-16 px-5">
-        {/* <div className="flex flex-col gap-2">
-          <h3 className=" text-2xl md:text-3xl text-gray-800"> Masjid </h3>
-          <span className="w-full h-[2px] bg-teal-500"></span>
-          <div className="grid grid-cols-2">
-            <button
-              className={
-                bgColor
-                  ? `p-2 lg:p-3 bg-teal-500 text-white text-lg`
-                  : `bg-gray-100`
-              }
-              onClick={() => {
-                setPackeges(oneOffBtnList);
-                setDocs(0);
-                setbgBtn(0);
-                setBgColor(true);
-              }}
-            >
-              One Off
-            </button>
-            <button
-              className={
-                !bgColor
-                  ? `p-2 lg:p-3 bg-teal-500 text-white text-lg`
-                  : `bg-gray-100`
-              }
-              onClick={() => {
-                setPackeges(monthBtnList);
-                setDocs(0);
-                setbgBtn(0);
-                setBgColor(false);
-              }}
-            >
-              Monthly
-            </button>
-          </div>
-          <div className="flex flex-col shadow-2xl py-4 px-3 lg:px-5">
-            <select className="focus:outline-none border-2 border-gray-400 rounded-xl px-2 py-2">
-              Masjid
-              <option className="text-md" value={"Palestine"}>
-                Masjid
-              </option>
-            </select>
-            <p className="text-base lg:text-lg py-4">{packeges[docs].doc}</p>
-            <div className="grid grid-cols-3 gap-5 md:gap-1 lg:gap-5 pr-5 md:pr-0 lg:pr-8 pb-5">
-              {packeges.map((btn, index) => (
-                <button
-                  key={index}
-                  className={
-                    index === bgBtn
-                      ? `border-2 border-gray-300  text-white bg-teal-500 p-2 rounded-xl`
-                      : `border-2 border-gray-300 hover:bg-gray-300 p-2 rounded-xl`
-                  }
-                  onClick={() => {
-                    setDocs(index);
-                    setbgBtn(index);
-                  }}
-                >
-                  £{btn.title}
-                </button>
-              ))}
-            </div>
-            <input
-              type="number"
-              placeholder="Other Amount"
-              className="focus:outline-none border-2 border-gray-400 rounded-xl p-4 py-2 "
-            />
-            <p className="text-base">
-              Your donations will go to this appeals general fund, so your
-              generosity can help where its needed most!
-            </p>
-            <button className="bg-teal-500 hover:opacity-90 text-white font-medium p-3 rounded-lg mt-4 mb-2">
-              Add to Basket
-            </button>
-          </div>
-        </div> */}
-        {/* video */}
+      {/* <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-8 lg:grid-cols-3 pt-16 px-5">
+      
         <div className="border-4 border-sky-600 rounded-xl lg:col-span-2">
           <video className="h-full w-full rounded-lg" controls>
             <source src="/Videonews/4.mp4" type="video/mp4" />
@@ -179,7 +104,7 @@ const MasjidBannerSection = () => {
             </div>
           </AnimationBottom>
           <motion.div
-            // className="box"
+          
             initial={{ opacity: 0, scale: 0.2 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -205,8 +130,17 @@ const MasjidBannerSection = () => {
               />
             </motion.div>
           </motion.div>
-          {/* </motion.div> */}
+  
         </div>
+      </div> */}
+         <div className="py-5">
+        <Image
+          src={"/ourDepartment/masjid/masjid/masjid (5).png"}
+          alt="about image"
+          width={2000}
+          height={2000}
+          className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
+        />
       </div>
     </div>
   );

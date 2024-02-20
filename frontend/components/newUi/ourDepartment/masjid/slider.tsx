@@ -11,18 +11,44 @@ import "swiper/css/pagination";
 
 // import "./styles.css";
 const imageList = [
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
+  "/ourDepartment/masjid/masjid/masjid (1).png",
+  "/ourDepartment/masjid/masjid/masjid (2).png",
+  "/ourDepartment/masjid/masjid/masjid (3).png",
+  "/ourDepartment/masjid/masjid/masjid (4).png",
+  "/ourDepartment/masjid/masjid/masjid (5).png",
+  "/ourDepartment/masjid/masjid/masjid (6).png",
+  "/ourDepartment/masjid/masjid/masjid (7).png",
+  "/ourDepartment/masjid/masjid/masjid (8).png",
+  "/ourDepartment/masjid/masjid/masjid (9).png",
+  "/ourDepartment/masjid/masjid/masjid (10).png",
+  "/ourDepartment/masjid/masjid/masjid (11).png",
+  "/ourDepartment/masjid/masjid/masjid (12).png",
+  "/ourDepartment/masjid/masjid/masjid (13).png",
+  "/ourDepartment/masjid/masjid/masjid (14).png",
+  "/ourDepartment/masjid/masjid/masjid (15).png",
+  "/ourDepartment/masjid/masjid/masjid (16).png",
+  "/ourDepartment/masjid/masjid/masjid (17).png",
+  "/ourDepartment/masjid/masjid/masjid (18).png",
+  "/ourDepartment/masjid/masjid/masjid (19).png",
+  "/ourDepartment/masjid/masjid/masjid (20).png",
+  "/ourDepartment/masjid/masjid/masjid (21).png",
+  "/ourDepartment/masjid/masjid/masjid (22).png",
+  "/ourDepartment/masjid/masjid/masjid (23).png",
+  "/ourDepartment/masjid/masjid/masjid (24).png",
+  "/ourDepartment/masjid/masjid/masjid (25).png",
+  "/ourDepartment/masjid/masjid/masjid (26).png",
+  "/ourDepartment/masjid/masjid/masjid (27).png",
+  "/ourDepartment/masjid/masjid/masjid (28).png",
+  "/ourDepartment/masjid/masjid/masjid (29).png",
+  "/ourDepartment/masjid/masjid/masjid (30).png",
+  "/ourDepartment/masjid/masjid/masjid (31).png",
+  "/ourDepartment/masjid/masjid/masjid (32).png",
+  "/ourDepartment/masjid/masjid/masjid (33).png",
+  "/ourDepartment/masjid/masjid/masjid (34).png",
+  "/ourDepartment/masjid/masjid/masjid (35).png",
+  "/ourDepartment/masjid/masjid/masjid (36).png",
+  "/ourDepartment/masjid/masjid/masjid (37).png",
+  "/ourDepartment/masjid/masjid/masjid (38).png",
 ];
 
 // import required modules
@@ -48,7 +74,7 @@ export default function SliderSectionMasjid() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -60,7 +86,7 @@ export default function SliderSectionMasjid() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[ Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -68,14 +94,16 @@ export default function SliderSectionMasjid() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index} className="">
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+                  <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
         {/* {imageList1.map((img, index) => (

@@ -6,7 +6,7 @@ import SliderSectionMasjid from "./slider";
 
 const MasjidDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         Sponsor a Masjid and Madrasa with FGRF
       </h2>
@@ -23,7 +23,7 @@ const MasjidDocs = () => {
       </p>
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link
-          href={"/"}
+          href={"/donation"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
         >
           DONATE NOW

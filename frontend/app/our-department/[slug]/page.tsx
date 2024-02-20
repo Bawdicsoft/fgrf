@@ -52,9 +52,11 @@ import MedicalVanDocs from "@/components/newUi/ourDepartment/healthCare/medicalV
 import MasjidBannerSection from "@/components/newUi/ourDepartment/masjid/masjidBanner";
 import MasjidDocs from "@/components/newUi/ourDepartment/masjid/masjidDoc";
 import DonationSectionWaterProject from "@/components/newUi/ourDepartment/waterProject/donationSection";
+import DonationSectionMasjid from "@/components/newUi/ourDepartment/masjid/donationSection";
 import WaterBannerSection from "@/components/newUi/ourDepartment/waterProject/waterBanner";
 import WaterDocs from "@/components/newUi/ourDepartment/waterProject/waterDoc";
 import Image from "next/image";
+import DonationSectionOrphan from "@/components/newUi/ourDepartment/Orphan/donationSection";
 
 export default function OurDepartmentAppeal({
   params,
@@ -350,6 +352,15 @@ export default function OurDepartmentAppeal({
       )}
       {myParams === "environment-department-plantation" && (
         <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/EnvironmentDepartment/Plantation.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
           <div className="max-w-screen-lg mx-auto ">
             <PlantationBanner />
             <PlantationDocs />
@@ -371,7 +382,7 @@ export default function OurDepartmentAppeal({
           </div>
           <div className="max-w-screen-lg mx-auto">
             <EducationBannerSection />
-            <DonationSectionEductionSkills/>
+            <DonationSectionEductionSkills />
             <EducationDocs />
           </div>
         </div>
@@ -379,8 +390,18 @@ export default function OurDepartmentAppeal({
       {/* orphan*/}
       {myParams === "orphan" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/orphan/banner.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <OrphanBannerSection />
+            <DonationSectionOrphan />
             <OrphanDocs />
           </div>
         </div>
@@ -388,8 +409,18 @@ export default function OurDepartmentAppeal({
       {/* masjid*/}
       {myParams === "masjid" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/masjid/banner.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <MasjidBannerSection />
+            <DonationSectionMasjid />
             <MasjidDocs />
           </div>
         </div>
