@@ -21,6 +21,7 @@ import PalestinianBrotherSistersDocs from "@/components/newUi/ourDepartment/disa
 import DonationSectionTurkeySyriaEarthQuake from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/donationSection";
 import TurkeySyriaEarthQuackBannerSection from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/turkeySyriaEarthQuackBanner";
 import TurkeySyriaEarthQuackDocs from "@/components/newUi/ourDepartment/disasterMange/turkeySyriaEarthquake/turkeySyriaEarthQuackDoc";
+import DonationSectionEductionSkills from "@/components/newUi/ourDepartment/educationSkill/donationSection";
 import EducationBannerSection from "@/components/newUi/ourDepartment/educationSkill/educationBanner";
 import EducationDocs from "@/components/newUi/ourDepartment/educationSkill/educationDoc";
 import DonationSectionEnvironmentDepartment from "@/components/newUi/ourDepartment/environmentDep/donationSection";
@@ -67,11 +68,11 @@ export default function OurDepartmentAppeal({
       {myParams === "disaster" && (
         <div
           className="bg-gray-200"
-          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          // style={{
-          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-          //   height: "100%",
-          // }}
+        // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+        // style={{
+        //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+        //   height: "100%",
+        // }}
         >
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -322,11 +323,11 @@ export default function OurDepartmentAppeal({
       {myParams === "environment-department" && (
         <div
           className="bg-gray-200"
-          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          // style={{
-          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-          //   height: "100%",
-          // }}
+        // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+        // style={{
+        //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+        //   height: "100%",
+        // }}
         >
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -349,7 +350,7 @@ export default function OurDepartmentAppeal({
       )}
       {myParams === "environment-department-plantation" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto ">
+          <div className="max-w-screen-lg mx-auto ">
             <PlantationBanner />
             <PlantationDocs />
           </div>
@@ -359,8 +360,18 @@ export default function OurDepartmentAppeal({
       {/* education*/}
       {myParams === "education" && (
         <div className="bg-gray-200">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/educationSkills/banner.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
             <EducationBannerSection />
+            <DonationSectionEductionSkills/>
             <EducationDocs />
           </div>
         </div>
