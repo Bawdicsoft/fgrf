@@ -48,7 +48,10 @@ export default function DonationSectionMasjid() {
 
         <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
           <video className="h-full w-full rounded-lg object-cover" controls>
-            {/* <source src="/ourDepartment/masjid/video/02/masjid.mp4" type="video/mp4" /> */}
+            <source
+              // src="/ourDepartment/masjid/masjid/masjid.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
       </div>

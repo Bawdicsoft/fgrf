@@ -59,7 +59,7 @@ const StartSec: React.FC<StartSecProps> = ({
   const [check1, setCheck1] = useState(false);
   const [showFormText, setShowFormText] = useState(false);
   const [zakatCalc, setZakatCalc] = useState<Boolean>(false);
-  const [zakatCalcBtn, setZakatCalcBtn] = useState<Boolean>(true);
+  // const [zakatCalcBtn, setZakatCalcBtn] = useState<Boolean>(true);
   const [otherDollarVal, setOtherDollarVal] = useState<string>("");
   const donation = [titleDonate || "Quick Donation", dollarDonate];
   return (
@@ -310,7 +310,7 @@ const StartSec: React.FC<StartSecProps> = ({
             <button
               onClick={() => {
                 setZakatCalc(false);
-                setZakatCalcBtn(false);
+                monthlyHandler(donation);
               }}
               className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
             >
@@ -364,7 +364,7 @@ const StartSec: React.FC<StartSecProps> = ({
                       {desc}
                     </p>
 
-                    {zakatCalcBtn && title === "zakat" ? (
+                    {title === "zakat" && (
                       <div className="flex justify-center pt-2 md:pt-5 lg:pt-8">
                         <button
                           onClick={() => setZakatCalc(true)}
@@ -376,63 +376,62 @@ const StartSec: React.FC<StartSecProps> = ({
                           </span>
                         </button>
                       </div>
-                    ) : (
-                      <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                          {orphansOthersList?.map((data, index) =>
-                            data === "others" ? (
-                              <button
-                                key={index}
-                                onClick={() => {
-                                  setInput(true);
-                                  setBgBtnIndex(index);
-                                }}
-                                className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
-                              >
-                                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                <span className="relative w-full">{data}</span>
-                              </button>
-                            ) : (
-                              <button
-                                key={index}
-                                onClick={() => {
-                                  setDollar(data);
-                                  setDollarDonate(data);
-                                  setInput(false);
-                                  setBgBtnIndex(index);
-                                  setTitleDonate(title);
-                                  setDollarDonate(data);
-                                }}
-                                className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
-                                  bgBtnIndex === index
-                                    ? "bg-[#19afaf] text-white"
-                                    : "bg-white"
-                                } `}
-                              >
-                                <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                <span className="relative ">{data}</span>
-                              </button>
-                            )
-                          )}
-                        </div>
-                        {input && (
-                          <input
-                            type="number"
-                            value={otherDollarVal}
-                            onChange={(e) => {
-                              setOtherDollarVal(e.target.value);
-                              setDollarDonate(e.target.value);
-                              setDollar(e.target.value);
-                            }}
-                            autoFocus
-                            className="h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
-                          />
+                    )}
+                    <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
+                        {orphansOthersList?.map((data, index) =>
+                          data === "others" ? (
+                            <button
+                              key={index}
+                              onClick={() => {
+                                setInput(true);
+                                setBgBtnIndex(index);
+                              }}
+                              className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
+                            >
+                              <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                              <span className="relative w-full">{data}</span>
+                            </button>
+                          ) : (
+                            <button
+                              key={index}
+                              onClick={() => {
+                                setDollar(data);
+                                setDollarDonate(data);
+                                setInput(false);
+                                setBgBtnIndex(index);
+                                setTitleDonate(title);
+                                setDollarDonate(data);
+                              }}
+                              className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
+                                bgBtnIndex === index
+                                  ? "bg-[#19afaf] text-white"
+                                  : "bg-white"
+                              } `}
+                            >
+                              <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                              <span className="relative ">{data}</span>
+                            </button>
+                          )
                         )}
-                        {/* <p className="text-gray-400 text-sm md:text-md font-medium text-center">
+                      </div>
+                      {input && (
+                        <input
+                          type="number"
+                          value={otherDollarVal}
+                          onChange={(e) => {
+                            setOtherDollarVal(e.target.value);
+                            setDollarDonate(e.target.value);
+                            setDollar(e.target.value);
+                          }}
+                          autoFocus
+                          className="h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                        />
+                      )}
+                      {/* <p className="text-gray-400 text-sm md:text-md font-medium text-center">
                           Making a donation of {dollar} will help save lives
                         </p> */}
-                      </div>
-                    )}
+                    </div>
                   </div>
                   <div className="lg:pl-16">
                     <Image
@@ -503,50 +502,23 @@ const StartSec: React.FC<StartSecProps> = ({
               )}
             </motion.div>
           </div>
-          {/* monthly one-off */}
-          {!zakatCalcBtn || title !== "zakat" ? (
-            // <div className="py-5 md:py-0 lg:py-10 flex">
-            //   <AnimatedComponentLeft>
-            //     <button
-            //       onClick={() => monthlyHandler(donation)}
-            //       className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-            //     >
-            //       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-            //       <span className="relative group-hover:text-white">
-            //         MONTHLY
-            //       </span>
-            //     </button>
-            //   </AnimatedComponentLeft>
-            //   <AnimatedComponentRight>
-            //     <button
-            //       onClick={() => monthlyHandler(donation)}
-            //       className={`border-2 hover:bg-gray-200 relative group overflow-hidden border-[#19afaf] py-2 px-4 md:text-xl lg:text-2xl font-bold text-gray-400 bg-white `}
-            //     >
-            //       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+          {/* {!zakatCalcBtn || title !== "zakat" ? ( */}
+          <div className="flex self-end py-3 md:py-5">
+            <button
+              onClick={() => monthlyHandler(donation)}
+              className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
+            >
+              <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-            //       <span className="relative group-hover:text-white">
-            //         {" "}
-            //         ONE-OFF
-            //       </span>
-            //     </button>
-            //   </AnimatedComponentRight>
-            // </div>
-            <div className="flex self-end py-3 md:py-5">
-              <button
-                onClick={() => monthlyHandler(donation)}
-                className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
-              >
-                <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                <span className="relative group-hover:text-gray-400 text-white">
-                  {" "}
-                  Next{" "}
-                </span>
-                <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
-              </button>
-            </div>
-          ) : null}
+              <span className="relative group-hover:text-gray-400 text-white">
+                {" "}
+                Next{" "}
+              </span>
+              <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+            </button>
+          </div>
+          {/* ) : null} */}
         </div>
       )}
     </div>

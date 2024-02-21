@@ -77,7 +77,10 @@ const DonationSec: React.FC<DonationSecProps> = ({
   };
 
   const nextHandler = () => {
-    if (titleDonate && check1 && check) {
+    if (titleDonate === "Quick Donation") {
+      setNextDet(true);
+      setNextStep(true);
+    } else if (titleDonate && check1 && check) {
       setNextStep(true);
       setNextDet(true);
     } else if (titleDonate) {

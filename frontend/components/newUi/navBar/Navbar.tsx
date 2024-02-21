@@ -326,36 +326,299 @@ export default function Navbar() {
           {/* containter-2 */}
           <div className="grid grid-cols-3 border-b-0 border-t border-black">
             <div className="md:col-span-2 grid grid-cols-3 place-content-center place-items-center lg:grid-cols-3 border-b-0 border-r border-black">
-              <ScrollLink
-                to="ourDepartment" // This should match the ID of the element you want to scroll to
-                smooth={true}
-                duration={600}
-                offset={-100} // Adjust this offset based on your layout
-                className="lg:text-xl cursor-pointer font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+              <div className="group relative cursor-pointer">
+                <div className="pb-1">
+                  <ScrollLink
+                    to="ourDepartment" // This should match the ID of the element you want to scroll to
+                    smooth={true}
+                    duration={600}
+                    offset={-100} // Adjust this offset based on your layout
+                    className="pb-2 menu-hover lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
-              before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
-              >
-                Our Department
-              </ScrollLink>
-              <Link
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:mx-4"
+                  >
+                    Our Department
+                  </ScrollLink>
+                </div>
+                <div className="py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
+                  <Link
+                    href={"/our-department/disaster"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Disaster Management
+                  </Link>
+
+                  <Link
+                    href={"/our-department/health-care"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Health Care
+                  </Link>
+                  <Link
+                    href={"/our-department/water-project"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Water Project
+                  </Link>
+                  <Link
+                    href={"/our-department/environment-department"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Environment Department
+                  </Link>
+                  <Link
+                    href={"/our-department/education"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Education & Skills
+                  </Link>
+                  <Link
+                    href={"/our-department/orphan"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Orphan
+                  </Link>
+                  <Link
+                    href={"/our-department/masjid"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Masjid
+                  </Link>
+                </div>
+              </div>
+              {/* <Link
                 href={"/appeal"}
                 className="lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
-              >
-                Appeal
-              </Link>
-              <Link
-                href={"/donation"}
-                className="lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+              > */}
+              <div className="group relative cursor-pointer">
+                <div className="pb-1">
+                  <Link
+                    href={"/appeal"}
+                    className="pb-2 menu-hover lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
-              before:transition before:ease-in-out before:duration-300 hover:text-sky-400"
-              >
-                Donation
-              </Link>
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:mx-4"
+                  >
+                    Appeal
+                  </Link>
+                </div>
+                <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-1 px-3 text-gray-800 shadow-xl group-hover:visible">
+                  <Link
+                    href={"/appeal/ramadan"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Ramadan 2024
+                  </Link>
+
+                  <Link
+                    href={"/appeal/zakat"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Zakat
+                  </Link>
+                  <Link
+                    href={"/appeal/sadaqah"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Sadaqah
+                  </Link>
+                  <Link
+                    href={"/appeal/palestine-emergency"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Paletine Emergency
+                  </Link>
+                  <Link
+                    href={"/appeal/winter-emergency"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Winter Emergency
+                  </Link>
+                  <Link
+                    href={"/appeal/food-box"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Food Box
+                  </Link>
+                  <Link
+                    href={"/appeal/hand-pump-project"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Hand Pump Projects
+                  </Link>
+                  <Link
+                    href={"/appeal/water-well-project"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Water-well Projects
+                  </Link>
+                  <Link
+                    href={"/appeal/orphan"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Orphan Kind
+                  </Link>
+                  <Link
+                    href={"/appeal/masjid"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Masjid Project
+                  </Link>
+                </div>
+              </div>
+              <div className="group relative cursor-pointer">
+                <div className="pb-1">
+                  <Link
+                    href={"/donation"}
+                    className="pb-2 menu-hover lg:text-xl font-bold relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:mx-4"
+                  >
+                    Donation
+                  </Link>
+                </div>
+                <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-1 px-3 text-gray-800 shadow-xl group-hover:visible">
+                  <Link
+                    href={"/donation/iftar-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Iftar
+                  </Link>
+
+                  <Link
+                    href={"/donation/zakat-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Zakat
+                  </Link>
+                  <Link
+                    href={"/donation/food-box-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Food Box
+                  </Link>
+                  <Link
+                    href={"/donation/winter-emergency-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Winter Emergency
+                  </Link>
+                  <Link
+                    href={"/donation/palestine-emergency-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Palestine Emergency
+                  </Link>
+                  <Link
+                    href={"/donation/orphan-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Orphan
+                  </Link>
+                  <Link
+                    href={"/donation/hand-pump-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Hand Pump
+                  </Link>
+                  <Link
+                    href={"/donation/water-well-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Water-well
+                  </Link>
+
+                  <Link
+                    href={"/donation/masjid-donation"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Masjid
+                  </Link>
+                </div>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 place-content-center">
               <div className="md:col-span-2 flex justify-center items-center lg:px-3">
