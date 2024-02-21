@@ -57,6 +57,7 @@ import WaterBannerSection from "@/components/newUi/ourDepartment/waterProject/wa
 import WaterDocs from "@/components/newUi/ourDepartment/waterProject/waterDoc";
 import Image from "next/image";
 import DonationSectionOrphan from "@/components/newUi/ourDepartment/Orphan/donationSection";
+import DonationSectionPlantation from "@/components/newUi/ourDepartment/environmentDep/plantation/donationSection";
 
 export default function OurDepartmentAppeal({
   params,
@@ -70,11 +71,11 @@ export default function OurDepartmentAppeal({
       {myParams === "disaster" && (
         <div
           className="bg-gray-200"
-        // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-        // style={{
-        //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-        //   height: "100%",
-        // }}
+          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+          // style={{
+          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+          //   height: "100%",
+          // }}
         >
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -325,17 +326,15 @@ export default function OurDepartmentAppeal({
       {myParams === "environment-department" && (
         <div
           className="bg-gray-200"
-        // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-        // style={{
-        //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-        //   height: "100%",
-        // }}
+          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
+          // style={{
+          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
+          //   height: "100%",
+          // }}
         >
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={
-                "/ourDepartment/EnvironmentDepartment/environmentDepartment (2).jpg"
-              }
+              src={"/ourDepartment/EnvironmentDepartment/banner.png"}
               alt="about image"
               width={2000}
               height={2000}
@@ -363,6 +362,7 @@ export default function OurDepartmentAppeal({
           </div>
           <div className="max-w-screen-lg mx-auto ">
             <PlantationBanner />
+            <DonationSectionPlantation />
             <PlantationDocs />
           </div>
         </div>

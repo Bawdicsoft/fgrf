@@ -11,7 +11,6 @@ import "swiper/css/pagination";
 
 // import "./styles.css";
 const imageList = [
-  "/AppealNew/waterWell/1.jpg",
   "/ourDepartment/disaster/pakistanFlood/1.jpg",
   "/ourDepartment/disaster/pakistanFlood/2.jpg",
   "/ourDepartment/disaster/pakistanFlood/3.jpg",

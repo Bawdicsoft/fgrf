@@ -88,7 +88,7 @@ const PlantationBanner = () => {
           </motion.div>
         </AnimationTop>
       </div>
-      <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 pt-16 px-5">
+      {/* <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 pt-16 px-5">
         <div className="border-4 border-sky-600 rounded-xl lg:col-span-2">
           <video className="h-full w-full rounded-lg" controls>
             <source src="/Videonews/4.mp4" type="video/mp4" />
@@ -130,6 +130,17 @@ const PlantationBanner = () => {
             </motion.div>
           </motion.div>
         </div>
+      </div> */}
+      <div className="py-5">
+        <Image
+          src={
+            "/ourDepartment/EnvironmentDepartment/plantation/plantation (18).jpg"
+          }
+          alt="about image"
+          width={2000}
+          height={2000}
+          className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
+        />
       </div>
     </div>
   );

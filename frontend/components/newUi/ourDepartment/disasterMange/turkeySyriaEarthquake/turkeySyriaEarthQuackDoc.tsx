@@ -38,7 +38,7 @@ const TurkeySyriaEarthQuackDocs = () => {
       </p>
       <div className="flex flex-col justify-center items-center pt-5 gap-10">
         <Link
-          href={"/"}
+          href={"/donation"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
         >
           DONATE NOW
