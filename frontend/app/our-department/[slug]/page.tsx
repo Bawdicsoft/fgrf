@@ -308,7 +308,7 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/handPump/handPump (15).jpg"}
+              src={"/ourDepartment/handPump/banner.png"}
               alt="about image"
               width={2000}
               height={2000}

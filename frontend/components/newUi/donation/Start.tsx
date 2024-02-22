@@ -359,7 +359,7 @@ const StartSec: React.FC<StartSecProps> = ({
         </div>
       ) : (
         <div>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl">
             <AnimationTop>
               <motion.div
                 whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
@@ -492,7 +492,7 @@ const StartSec: React.FC<StartSecProps> = ({
                           </div>
                         </div>
                       ) : (
-                        <div className="flex  w-60 md:w-full flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
+                        <div className="flex max-w-2xl mx-auto flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
                           <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
                             {orphansOthersList?.map((data, index) =>
                               data === "others" ? (
@@ -600,6 +600,15 @@ const StartSec: React.FC<StartSecProps> = ({
               <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
             </button>
           </div>
+          {showPayment && (
+            <div className="flex justify-center">
+              <p className="text-gray-500 text-sm text-center max-w-3xl ">
+                Your donation can be spent in any Permissible, Welfare,
+                Well-wishing, Water, Food, Agriculture, Construction, Religious
+                and good purpose.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>
