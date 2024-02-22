@@ -5,9 +5,7 @@ import DetailsSec from "./Details";
 import PaymentSec from "./Payment";
 import AnimatedComponentRight from "../home/AnimationRight";
 import AnimatedComponentLeft from "../home/AnimationLeft";
-interface DonationSecProps {
-  donationTitleArray: any[] | undefined;
-  monthlyHandler: (data: string[]) => void;
+interface DonationFormProps {
   titleDonate: string;
   dollarDonate: string;
 }
@@ -32,9 +30,7 @@ const orphansDollarList3 = [
 const orphansOthersList = ["150", "100", "50", "others"];
 const onOffList = ["200", "150", "100", "others"];
 
-const DonationSec: React.FC<DonationSecProps> = ({
-  donationTitleArray,
-  monthlyHandler,
+const DonationForm: React.FC<DonationFormProps> = ({
   titleDonate,
   dollarDonate,
 }) => {
@@ -44,8 +40,6 @@ const DonationSec: React.FC<DonationSecProps> = ({
   const [btnDollar, setBtnDollar] = useState<Boolean>(false);
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<number>(100);
-  // const [dollarDonate, setDollarDonate] = useState<string>("1");
-  // const [titleDonate, setTitleDonate] = useState<string>("");
   const [orphanData, setOrphanData] = useState<Boolean>(true);
   const [donateAmountText, setDonateAmountText] = useState<Boolean>(false);
   const [nextStep, setNextStep] = useState<Boolean>(true);
@@ -97,11 +91,9 @@ const DonationSec: React.FC<DonationSecProps> = ({
       setCheck(false);
       setCheck1(false);
     } else if (nextStep) {
-      // setNextStep(false);
-      // setNextDet(false);
-      monthlyHandler([]);
+      // monthlyHandler([]);
     } else {
-      monthlyHandler([]);
+      // monthlyHandler([]);
     }
   };
   return (
@@ -117,7 +109,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                 You must select a fund and specify an amount.
               </p>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {donationTitleArray?.map((title, index) =>
                 title === "Sadaqah" && index === 0 ? (
                   <button
@@ -125,9 +117,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     onClick={() => {
                       orphanDollarHandler(orphansDollarList1);
                       setOrphanData(true);
-                      // setDonateAmountText(true);
                       setBtnDollar(false);
-                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -147,11 +137,9 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     key={index}
                     onClick={() => {
                       setOrphanData(false);
-                      // setDonateAmountText(true);
                       seOtherBtnDollar(orphansOthersList);
                       setBtnDollar(true);
                       setInput(false);
-                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -169,11 +157,9 @@ const DonationSec: React.FC<DonationSecProps> = ({
                     key={index}
                     onClick={() => {
                       setOrphanData(false);
-                      // setDonateAmountText(true);
                       seOtherBtnDollar(onOffList);
                       setBtnDollar(true);
                       setInput(false);
-                      // setTitleDonate(title);
                       setAlertText(false);
                       setbgFundIndex(index);
                     }}
@@ -188,7 +174,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
                   </button>
                 )
               )}
-            </div>
+            </div> */}
 
             {donateAmountText && (
               <AnimatedComponentLeft>
@@ -268,7 +254,6 @@ const DonationSec: React.FC<DonationSecProps> = ({
                                   key={index}
                                   onClick={() => {
                                     setDollar(title);
-                                    // setDollarDonate(title);
                                     setInput(false);
                                     setBgBtnIndex(index);
                                   }}
@@ -350,7 +335,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
           )}
         </div>
       )}
-      <div className="py-10 flex justify-between">
+      {/* <div className="py-10 flex justify-between">
         <button
           onClick={() => {
             backHandler();
@@ -379,7 +364,7 @@ const DonationSec: React.FC<DonationSecProps> = ({
           </span>
           <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
         </button>
-      </div>
+      </div> */}
 
       {nextStep && nextDet && (
         <div className="flex justify-center">
@@ -394,4 +379,4 @@ const DonationSec: React.FC<DonationSecProps> = ({
   );
 };
 
-export default DonationSec;
+export default DonationForm;

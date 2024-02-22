@@ -24,10 +24,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
   const [email, setEmail] = useState("");
   const [title, setTitle] = useState("");
   const [contactNo, setContactNo] = useState("");
-  const [address, setAddress] = useState("");
-  const [address2, setAddress2] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
 
   submitHandler(title, firstName, lastName, email, contactNo);
   console.log(dollarDonate, titleDonate);
@@ -58,7 +54,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               </label>
               <select
                 id="countries"
-                // ref={titleRef}
                 onChange={(e) => setTitle(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
               >
@@ -82,7 +77,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="FirstName"
                 id="FirstName"
-                // ref={firstNameRef}
                 onChange={(e) => setFirstName(e.target.value)}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="First Name"
@@ -100,7 +94,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="LastName"
                 id="LastName"
-                // ref={lastNameRef}
                 onChange={(e) => setLastName(e.target.value)}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="Last Name"
@@ -122,7 +115,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="email"
                 id="email"
-                // ref={emailRef}
                 onChange={(e) => setEmail(e.target.value)}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="your@email.com"
@@ -142,7 +134,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
               <input
                 type="ContactNumber"
                 id="ContactNumber"
-                // ref={contactNoRef}
                 onChange={(e) => setContactNo(e.target.value)}
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#19afaf] focus:border-none focus:ring-2 focus:outline-none block w-full p-2.5 "
                 placeholder="0237278327"
@@ -156,21 +147,6 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
           <h2 className="text-xl md:text-3xl font-bold py-4 text-[#19afaf] text-center">
             KEEP IN TOUCH
           </h2>
-          {/* <div className="flex justify-center items-center mb-5">
-            <input
-              id="terms"
-              type="checkbox"
-              value=""
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-[#19afaf] focus:border-0 "
-              required
-            />
-            <label
-              htmlFor="terms"
-              className="ms-2 text-lg font-medium text-gray-600"
-            >
-              Yes, I would like to hear from IRW{" "}
-            </label>
-          </div> */}
           <p className="text-gray-500 text-sm text-center ">
             We would like to keep in touch with you to share the latest info on
             our work as well as how your donations have helped, via email. We

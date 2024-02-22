@@ -1,31 +1,21 @@
 "use client";
-
 import Image from "next/image";
 import { useState } from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
 import StartSec from "./Start";
-import DonationSec from "./Donation1";
+import DonationSec from "./donationForm";
 interface DonationProps {
   image: string;
   title: string;
   desc: string;
 }
-// New Code
-const orphansOthersList = ["150", "100", "50", "others"];
-const onOffList = ["200", "150", "100", "others"];
-const plestinDollarList = ["210", "180", "95", "others"];
-const winterDollarList = ["195", "140", "100", "others"];
-const whereDollarList = ["150", "100", "50", "others"];
-const TukSyriaDollarList = ["195", "100", "65", "others"];
-const ribaDollarList = ["50", "20", "10", "others"];
 
 export const DonationSectionPage: React.FC<DonationProps> = ({
   image,
   title,
   desc,
 }) => {
-  // New Code
   const [donationTitleArray, setDonationTitleArray] = useState<any[]>();
   const [donationDollarArray, setDonationDollarArray] = useState<any[]>([]);
 
@@ -121,21 +111,23 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
           </div>
         </div>
         <div className="bg-gray-100 p-8">
-          {monthly ? (
-            <DonationSec
-              donationTitleArray={donationTitleArray}
-              monthlyHandler={monthlyHandler}
-              titleDonate={titleDonate}
-              dollarDonate={dollarDonate}
-            />
-          ) : (
+          {
+            // monthly ? (
+            //   <DonationSec
+            //     donationTitleArray={donationTitleArray}
+            //     monthlyHandler={monthlyHandler}
+            //     titleDonate={titleDonate}
+            //     dollarDonate={dollarDonate}
+            //   />
+            // ) : (
             <StartSec
               monthlyHandler={monthlyHandler}
               image={image}
               title={title}
               desc={desc}
             />
-          )}
+            // )
+          }
         </div>
       </div>
       {title === "zakat" && (
