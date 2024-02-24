@@ -5,7 +5,7 @@ import SliderSectionOrphan from "./slider";
 
 const OrphanDocs = () => {
   return (
-    <div className="py-10 md:py-16 px-5 ">
+    <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         FGRF is set to inaugurate its first Orphan House in Different Countries
       </h2>
@@ -30,10 +30,7 @@ const OrphanDocs = () => {
         >
           DONATE NOW
         </Link>
-
       </div>
-
-
     </div>
   );
 };

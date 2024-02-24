@@ -4,7 +4,7 @@ import SliderSectionturkeySyriaEarthQuack from "./slider";
 
 const TurkeySyriaEarthQuackDocs = () => {
   return (
-    <div className="pb-10 px-4 ">
+    <div className="pb-10 px-4 xl:px-0">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         FGRF Response to Turkey and Syria Earthquakes
       </h2>

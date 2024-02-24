@@ -86,7 +86,7 @@ const FoodBoxBannerSection = () => {
             <source src="/Videonews/4.mp4" type="video/mp4" />
           </video> */}
           <Image
-            src={"/AppealNew/food/foodBox5.jpeg"}
+            src={"/AppealNew/food/foodbox5.jpeg"}
             alt="winter img1"
             className="w-full h-full rounded-lg"
             width={600}

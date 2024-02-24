@@ -6,7 +6,7 @@ import SliderSectionMoroccoEarthquake from "./slider";
 
 const MoroccoEarthquakeDocs = () => {
   return (
-    <div className="px-5 ">
+    <div className="px-4  xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         Supporting Morocco: FGRF&#39;s Relief Efforts in Response to the
         Earthquake

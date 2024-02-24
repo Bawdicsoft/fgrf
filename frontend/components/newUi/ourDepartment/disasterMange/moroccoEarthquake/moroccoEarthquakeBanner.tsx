@@ -8,7 +8,7 @@ import AnimationBottom from "@/components/newUi/home/AnimationBtm";
 
 const MorroccoBannerSection = () => {
   return (
-    <div className="pt-10 px-4">
+    <div className="pt-5 lg:pt-10 px-4 xl:px-0">
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
         <AnimationTop>
           <motion.div

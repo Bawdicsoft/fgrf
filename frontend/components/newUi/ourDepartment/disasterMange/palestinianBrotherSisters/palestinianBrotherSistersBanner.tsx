@@ -63,7 +63,7 @@ const PalestinianBrotherSistersBanner = () => {
   ];
 
   return (
-    <div className="px-4 pt-5 md:pt-10">
+    <div className="px-4 xl:px-0 pt-5 md:pt-10">
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
         <AnimationTop>
           <motion.div
