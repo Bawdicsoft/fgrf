@@ -10,10 +10,7 @@ const FoodBoxBannerSection = () => {
       title: "100",
       doc: "Could help provide a range of medical consumables to support the injured.",
     },
-    {
-      title: "100",
-      doc: "Could provide 15 Palestinians with 2 life-saving nutritious food packs each.",
-    },
+
     {
       title: "200",
       doc: "Could provide critical medical supplies to aid the injured.",

@@ -30,8 +30,8 @@ import YemanCrisisBannerSection from "@/components/newUi/appeal/yemenCrisis/yeme
 // import WaterWellDocs from "@/components/newUi/appeal/waterWell/waterWellDoc";
 // import ZakatBannerSection from "@/components/newUi/appeal/zakat/zakatBanner";
 // import ZakatDocs from "@/components/newUi/appeal/zakat/zakatlDoc";
-import RamadanBannerSection from "@/components/newUi/appeal/ramadan/ramdanBanner";
-import RamadanDocs from "@/components/newUi/appeal/ramadan/ramdanlDoc";
+// import RamadanBannerSection from "@/components/newUi/appeal/ramadan/ramdanBanner";
+// import RamadanDocs from "@/components/newUi/appeal/ramadan/ramdanlDoc";
 import WinterBannerSection from "@/components/newUi/appeal/newAppeals/winterEmergency/winterBannerSec";
 import WinterDocs from "@/components/newUi/appeal/newAppeals/winterEmergency/winterDoc";
 import PalestineBannerSection from "@/components/newUi/appeal/newAppeals/palestine/plestineBannerSec";
@@ -50,6 +50,8 @@ import OrphanBannerSection from "@/components/newUi/appeal/newAppeals/orphan/orp
 import OrphanDocs from "@/components/newUi/appeal/newAppeals/orphan/orphanDoc";
 import MasjidBannerSection from "@/components/newUi/appeal/newAppeals/masjid/masjidBannerSec";
 import MasjidDocs from "@/components/newUi/appeal/newAppeals/masjid/masjidDoc";
+import RamadanBannerSection from "@/components/newUi/appeal/newAppeals/ramadan/ramadanBannerSec";
+import RamadanDocs from "@/components/newUi/appeal/newAppeals/ramadan/ramadanDoc";
 
 export default function donationAppeal({
   params,

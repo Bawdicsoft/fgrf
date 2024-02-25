@@ -8,20 +8,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const imageList = [
-  "/AppealNew/palestine/1.png",
-  "/AppealNew/palestine/4.png",
-  "/AppealNew/palestine/5.png",
-  "/AppealNew/palestine/6.png",
-  "/AppealNew/palestine/7.png",
-  "/AppealNew/palestine/2.png",
-  "/AppealNew/palestine/3.png",
-  "/AppealNew/palestine/12.png",
-  "/AppealNew/palestine/8.png",
-  "/AppealNew/palestine/16.png",
-  "/AppealNew/palestine/17.png",
-  "/AppealNew/palestine/9.png",
-  "/AppealNew/palestine/19.png",
-  "/AppealNew/palestine/23.png",
+  "/AppealNew/palestine/palestine (1).png",
+  "/AppealNew/palestine/palestine (2).png",
+  "/AppealNew/palestine/palestine (3).png",
+  "/AppealNew/palestine/palestine (4).png",
+  "/AppealNew/palestine/palestine (5).png",
+  "/AppealNew/palestine/palestine (6).png",
+  "/AppealNew/palestine/palestine (7).png",
+  "/AppealNew/palestine/palestine (8).png",
+  "/AppealNew/palestine/palestine (9).png",
+  "/AppealNew/palestine/palestine (10).png",
+  "/AppealNew/palestine/palestine (11).png",
+  "/AppealNew/palestine/palestine (12).png",
+  "/AppealNew/palestine/palestine (13).png",
+  "/AppealNew/palestine/palestine (14).png",
+  "/AppealNew/palestine/palestine (15).png",
+  "/AppealNew/palestine/palestine (16).png",
+  "/AppealNew/palestine/palestine (17).png",
+  "/AppealNew/palestine/palestine (18).png",
+  "/AppealNew/palestine/palestine (19).png",
+  "/AppealNew/palestine/palestine (20).png",
 ];
 
 // import required modules
@@ -47,7 +53,7 @@ export default function SliderSectionPalestine() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -59,7 +65,7 @@ export default function SliderSectionPalestine() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -67,14 +73,16 @@ export default function SliderSectionPalestine() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
         {/* {imageList1.map((img, index) => (

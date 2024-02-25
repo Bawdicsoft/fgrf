@@ -6,7 +6,8 @@ const SadaqahDocs = () => {
     <div>
       <div className="py-10 md:py-16 px-5 ">
         <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
+          The holy prophet صلی اللہ علیہ وآلہ وسلم said: Sadaqah does not cause
+          reduction in wealth. (Sahih Muslim, pp. 1397, Hadees 2588/69)
         </h2>
 
         <SliderSectionSadaqah />

@@ -6,23 +6,48 @@ const ZakatDocs = () => {
     <div>
       <div className="py-10 md:py-16 px-5 ">
         <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
+          Zakat is one of the five pillars of Islam and it is an obligatory act.
         </h2>
 
         <SliderSectionZakat />
-
-        <p className="text-base text-center pt-8 py-3">
-          The violence in Gaza has claimed over 20,000 lives, leaving thousands
-          injured, according to the Palestinian Health Ministry - Inna Lillahi
-          Wa Inna Illahi Rajioon.
-        </p>
-
+        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center pt-8 py-3">
+          What is Zakat?
+        </h2>
         <p className="text-base text-center py-3">
-          With electricity, water, food, and medical supplies all obstructed,
-          the people of Palestine are relying on your generosity now more than
-          ever. Stand in solidarity with Palestine and help save lives during
-          this critical time. Please keep the people of Palestine in your duas -
-          Jazak’Allah Khair.
+          Zakat is one of the five pillars of Islam and it is an obligatory act.
+          The meaning of Zakat is “to purify”. In essence, Zakat is purity or to
+          purify. To purify our own wealth all Muslims are obliged to pay a
+          portion of their wealth. Zakat is an obligation upon any Muslim who
+          has reached puberty, is sane and has had more than the minimum
+          required amount of wealth (Nisaab) for one year. Please use our Zakat
+          Calculator below to work out your Zakat.
+        </p>
+        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center pt-8 py-3">
+          What is Nisaab?
+        </h2>
+        <p className="text-base text-center py-3">
+          87.48 grams of pure Gold One Tola is equal to 11 grams 665 milligrams.
+          7.5 Tolas of Gold is approximately 87.48 grams 612.36 grams of pure
+          Silver One Tola is equal to 11 grams 665 milligrams. 52.5 Tolas of
+          silver is approximately 612.36 gram
+        </p>
+        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center pt-8 py-3">
+          Dawat-e-Islami is serving in over 82 departments worldwide. Please see
+          below for an introduction to four of our Departments.
+        </h2>
+        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center pt-8 py-3">
+          What is Fitrana?
+        </h2>
+        <p className="text-base text-center py-3">
+          Fitrana, also known as Sadqa tul Fitr, is an obligatory act that all
+          Muslim’s partake in during the Holy month of Ramadan. It purifies our
+          fasts, helps at the time of death and protects us in the grave from
+          punishment. Fitrana is given before Eid prayers begin at the end of
+          Ramadan. (Min Fitrana Amount = 5 POUNDS)
+        </p>
+        <p className="text-base text-center py-3">
+          Your donation can be spent in any permissible, religious, reformative,
+          spiritual and welfare cause, and, acts of kindness and goodness.
         </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>

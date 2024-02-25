@@ -8,10 +8,45 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const imageList = [
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
+  "/AppealNew/waterWell/waterwell (1).jpg",
+  "/AppealNew/waterWell/waterwell (2).jpg",
+  "/AppealNew/waterWell/waterwell (3).jpg",
+  "/AppealNew/waterWell/waterwell (4).jpg",
+  "/AppealNew/waterWell/waterwell (5).jpg",
+  "/AppealNew/waterWell/waterwell (6).jpg",
+  "/AppealNew/waterWell/waterwell (7).jpg",
+  "/AppealNew/waterWell/waterwell (8).jpg",
+  "/AppealNew/waterWell/waterwell (9).jpg",
+  "/AppealNew/waterWell/waterwell (10).jpg",
+  "/AppealNew/waterWell/waterwell (11).jpg",
+  "/AppealNew/waterWell/waterwell (12).jpg",
+  "/AppealNew/waterWell/waterwell (13).jpg",
+  "/AppealNew/waterWell/waterwell (14).jpg",
+  "/AppealNew/waterWell/waterwell (15).jpg",
+  "/AppealNew/waterWell/waterwell (16).jpg",
+  "/AppealNew/waterWell/waterwell (17).jpg",
+  "/AppealNew/waterWell/waterwell (18).jpg",
+  "/AppealNew/waterWell/waterwell (19).jpg",
+  "/AppealNew/waterWell/waterwell (20).jpg",
+  "/AppealNew/waterWell/waterwell (21).jpg",
+  "/AppealNew/waterWell/waterwell (22).jpg",
+  "/AppealNew/waterWell/waterwell (23).jpg",
+  "/AppealNew/waterWell/waterwell (24).jpg",
+  "/AppealNew/waterWell/waterwell (25).jpg",
+  "/AppealNew/waterWell/waterwell (26).jpg",
+  "/AppealNew/waterWell/waterwell (27).jpg",
+  "/AppealNew/waterWell/waterwell (28).jpg",
+  "/AppealNew/waterWell/waterwell (29).jpg",
+  "/AppealNew/waterWell/waterwell (30).jpg",
+  "/AppealNew/waterWell/waterwell (31).jpg",
+  "/AppealNew/waterWell/waterwell (32).jpg",
+  "/AppealNew/waterWell/waterwell (33).jpg",
+  "/AppealNew/waterWell/waterwell (34).jpg",
+  "/AppealNew/waterWell/waterwell (35).jpg",
+  "/AppealNew/waterWell/waterwell (36).jpg",
+  "/AppealNew/waterWell/waterwell (37).jpg",
+  "/AppealNew/waterWell/waterwell (38).jpg",
+  "/AppealNew/waterWell/waterwell (39).jpg",
 ];
 
 // import required modules
@@ -37,7 +72,7 @@ export default function SliderSectionWaterWell() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -49,7 +84,7 @@ export default function SliderSectionWaterWell() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -57,14 +92,16 @@ export default function SliderSectionWaterWell() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
         {/* Navigation Arrows */}

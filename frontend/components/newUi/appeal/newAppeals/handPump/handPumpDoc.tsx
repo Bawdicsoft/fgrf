@@ -6,24 +6,25 @@ const HandPumpDocs = () => {
     <div>
       <div className="py-10 md:py-16 px-5 ">
         <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          Sponsor Hand Pump with FGRG
+          Thanks to your unwavering dedication and generosity,
         </h2>
 
         <SliderSectionHandPump />
 
         <p className="text-base text-center pt-8 py-3">
-          Thanks to your unwavering dedication and generosity, we have
-          accomplished extraordinary feats in our mission to provide clean,
-          life-giving water to those in need. Through sheer determination and
-          collective effort, we have triumphed in constructing an astounding
-          5000 wells and water systems across regions plagued by thirst and
-          hardship.
+          We&#39;ve accomplished extraordinary feats in our mission to provide
+          clean, life-giving water to those in need.
         </p>
 
         <p className="text-base text-center py-3">
-          These wells are not just sources of water; they are beacons of hope,
-          symbols of resilience, and catalysts for change. They represent the
-          tireless spirit of humanity, transcending borders and barriers to
+          Through sheer determination and collective effort, we&#39;ve triumphed
+          in constructing an astounding 5000 wells and water systems across
+          regions plagued by thirst and hardship.
+        </p>
+        <p className="text-base text-center py-3">
+          These wells aren&#39;t just sources of water; they&#39;re beacons of
+          hope, symbols of resilience, and catalysts for change. They represent
+          the tireless spirit of humanity, transcending borders and barriers to
           bring forth a wave of transformation that ripples through communities,
           nourishing bodies, minds, and souls alike.
         </p>

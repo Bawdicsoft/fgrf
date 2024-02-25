@@ -8,11 +8,44 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const imageList = [
-  "/AppealNew/handPump/1.jpg",
-  "/AppealNew/handPump/2.png",
-  "/AppealNew/handPump/3.jpg",
-  "/AppealNew/handPump/4.png",
-  "/AppealNew/handPump/5.png",
+  "/AppealNew/handPump/handpump (1).jpg",
+  "/AppealNew/handPump/handpump (2).jpg",
+  "/AppealNew/handPump/handpump (3).jpg",
+  "/AppealNew/handPump/handpump (4).jpg",
+  "/AppealNew/handPump/handpump (6).jpg",
+  "/AppealNew/handPump/handpump (7).jpg",
+  "/AppealNew/handPump/handpump (8).jpg",
+  "/AppealNew/handPump/handpump (9).jpg",
+  "/AppealNew/handPump/handpump (10).jpg",
+  "/AppealNew/handPump/handpump (11).jpg",
+  "/AppealNew/handPump/handpump (12).jpg",
+  "/AppealNew/handPump/handpump (13).jpg",
+  "/AppealNew/handPump/handpump (14).jpg",
+  "/AppealNew/handPump/handpump (15).jpg",
+  "/AppealNew/handPump/handpump (16).jpg",
+  "/AppealNew/handPump/handpump (17).jpg",
+  "/AppealNew/handPump/handpump (18).jpg",
+  "/AppealNew/handPump/handpump (19).jpg",
+  "/AppealNew/handPump/handpump (20).jpg",
+  "/AppealNew/handPump/handpump (21).jpg",
+  "/AppealNew/handPump/handpump (22).jpg",
+  "/AppealNew/handPump/handpump (23).jpg",
+  "/AppealNew/handPump/handpump (24).jpg",
+  "/AppealNew/handPump/handpump (25).jpg",
+  "/AppealNew/handPump/handpump (26).jpg",
+  "/AppealNew/handPump/handpump (27).jpg",
+  "/AppealNew/handPump/handpump (38).jpg",
+  "/AppealNew/handPump/handpump (29).jpg",
+  "/AppealNew/handPump/handpump (30).jpg",
+  "/AppealNew/handPump/handpump (31).jpg",
+  "/AppealNew/handPump/handpump (32).jpg",
+  "/AppealNew/handPump/handpump (33).jpg",
+  "/AppealNew/handPump/handpump (34).jpg",
+  "/AppealNew/handPump/handpump (35).jpg",
+  "/AppealNew/handPump/handpump (36).jpg",
+  "/AppealNew/handPump/handpump (37).jpg",
+  "/AppealNew/handPump/handpump (38).jpg",
+  "/AppealNew/handPump/handpump (39).jpg",
 ];
 
 // import required modules
@@ -38,7 +71,7 @@ export default function SliderSectionHandPump() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -50,7 +83,7 @@ export default function SliderSectionHandPump() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -58,14 +91,16 @@ export default function SliderSectionHandPump() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
         {/* Navigation Arrows */}

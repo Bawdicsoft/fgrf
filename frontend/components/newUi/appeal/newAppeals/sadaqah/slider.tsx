@@ -39,7 +39,7 @@ export default function SliderSectionSadaqah() {
             spaceBetween: 10,
           },
           640: {
-            slidesPerView: 2,
+            slidesPerView: 1,
             spaceBetween: 20,
           },
           768: {
@@ -51,7 +51,7 @@ export default function SliderSectionSadaqah() {
             spaceBetween: 50,
           },
         }}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -59,14 +59,16 @@ export default function SliderSectionSadaqah() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={img}
-              alt="imagSLider"
-              width={400}
-              height={400}
-              className=""
-            />
+          <SwiperSlide key={index} className="w-full h-full">
+            <div className=" h-40 lg:h-56 ">
+              <Image
+                src={img}
+                alt="imagSLider"
+                width={400}
+                height={400}
+                className="h-full w-full "
+              />
+            </div>
           </SwiperSlide>
         ))}
         {/* Navigation Arrows */}
