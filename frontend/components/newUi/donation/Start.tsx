@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AnimationTop from "../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimatedComponentLeft from "../home/AnimationLeft";
@@ -67,7 +67,7 @@ const StartSec: React.FC<StartSecProps> = ({
       setShowPayment(true);
       setShowFormDonation(false);
       setShowBackBtn(true);
-    } else if (titleDonate) {
+    } else if (titleDonate && !showPayment) {
       setShowPayment(false);
       setShowFormDonation(true);
       setShowBackBtn(true);
@@ -97,10 +97,134 @@ const StartSec: React.FC<StartSecProps> = ({
     }
   };
 
+  const paymentHandler = () => {
+    setZakatCalc(false);
+    setShowPayment(true);
+    setShowBackBtn(true);
+    setShowFormDonation(false);
+  };
+  const detailHandler = () => {
+    setZakatCalc(false);
+    setShowPayment(false);
+    setShowFormDonation(true);
+    setShowBackBtn(true);
+  };
+  const donationHandler = () => {
+    setZakatCalc(false);
+    setShowPayment(false);
+    setShowFormDonation(false);
+    setShowBackBtn(false);
+  };
+
   return (
     <div>
+      {/* navbar */}
+      <div className="flex h-40 justify-center ml-10 md:ml-40">
+        <div className="w-40 md:w-60 relative flex items-center">
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              onClick={donationHandler}
+              className="cursor-pointer relative group overflow-hidden border-2 group-hover:border-4  group-hover:border-gray-100 border-[#19afaf] p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500"
+            >
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span className="relative text-gray-500 group-hover:text-white  ">
+                1
+              </span>
+            </span>
+            <span
+              className={`text-sm md:text-base ${
+                title === "zakat" ? "text-gray-200" : "text-gray-500"
+              }`}
+            >
+              Start
+            </span>
+          </div>
+          <span className={`bg-gray-100 h-[6px] w-full`}></span>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <span className="relative bg-gray-100 h-[6px] w-full"></span>
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              onClick={donationHandler}
+              className={`cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 ${
+                !showFormDonation && !showPayment ? "bg-teal-500" : ""
+              }`}
+            >
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span
+                className={`relative text-gray-500 group-hover:text-white ${
+                  !showFormDonation && !showPayment ? "text-white" : ""
+                }`}
+              >
+                2
+              </span>
+            </span>
+            <span
+              className={`text-sm md:text-base ${
+                title === "zakat" ? "text-gray-200" : "text-gray-500"
+              }`}
+            >
+              Donation
+            </span>
+          </div>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <span className="relative bg-gray-100 h-[6px] w-full"></span>
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              onClick={detailHandler}
+              className={`cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 ${
+                showFormDonation ? "bg-teal-500" : ""
+              }`}
+            >
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span
+                className={`relative text-gray-500 group-hover:text-white ${
+                  showFormDonation ? "text-white" : ""
+                }`}
+              >
+                3
+              </span>
+            </span>
+            <span
+              className={`text-sm md:text-base ${
+                title === "zakat" ? "text-gray-200" : "text-gray-500"
+              }`}
+            >
+              Details
+            </span>
+          </div>
+        </div>
+        <div className="w-40 md:w-60 relative flex items-center">
+          <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
+            <span
+              onClick={paymentHandler}
+              className={`cursor-pointer relative group overflow-hidden border-4 border-gray-100 p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 ${
+                showPayment ? "bg-teal-500" : ""
+              }`}
+            >
+              <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-20 group-hover:-translate-y-16 ease"></span>
+              <span
+                className={`relative text-gray-500 group-hover:text-white ${
+                  showPayment ? "text-white" : ""
+                }`}
+              >
+                4
+              </span>
+            </span>
+            <span
+              className={`text-sm md:text-base ${
+                title === "zakat" ? "text-gray-200" : "text-gray-500"
+              }`}
+            >
+              Payment
+            </span>
+          </div>
+        </div>
+      </div>
+      {/* Zakat calculator */}
       {zakatCalc ? (
-        <div>
+        <div className="bg-gray-100 p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-5">
             <div>
               <p className="rounded-r-lg px-2 font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full md:w-3/4  md:px-4">
@@ -358,7 +482,7 @@ const StartSec: React.FC<StartSecProps> = ({
           </div>
         </div>
       ) : (
-        <div>
+        <div className="bg-gray-100 p-8">
           <div className="mx-auto max-w-4xl">
             <AnimationTop>
               <motion.div

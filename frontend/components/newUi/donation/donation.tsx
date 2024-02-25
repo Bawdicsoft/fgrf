@@ -37,7 +37,7 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
     <section className={`relative ${title === "zakat" ? "bg-sky-800" : ""} `}>
       <div className="max-w-5xl mx-auto z-10 relative pb-40">
         {/* container-01 */}
-        <div className="flex h-40 justify-center ml-10 md:ml-40">
+        {/* <div className="flex h-40 justify-center ml-10 md:ml-40">
           <div className="w-40 md:w-60 relative flex items-center">
             <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
               <span className="cursor-pointer relative group overflow-hidden border-2 group-hover:border-4  group-hover:border-gray-100 border-[#19afaf] p-5 w-8 h-8 flex justify-center items-center text-lg rounded-full bg-gray-100 text-gray-500">
@@ -109,25 +109,14 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
               </span>
             </div>
           </div>
-        </div>
-        <div className="bg-gray-100 p-8">
-          {
-            // monthly ? (
-            //   <DonationSec
-            //     donationTitleArray={donationTitleArray}
-            //     monthlyHandler={monthlyHandler}
-            //     titleDonate={titleDonate}
-            //     dollarDonate={dollarDonate}
-            //   />
-            // ) : (
-            <StartSec
-              monthlyHandler={monthlyHandler}
-              image={image}
-              title={title}
-              desc={desc}
-            />
-            // )
-          }
+        </div> */}
+        <div className="">
+          <StartSec
+            monthlyHandler={monthlyHandler}
+            image={image}
+            title={title}
+            desc={desc}
+          />
         </div>
       </div>
       {title === "zakat" && (
