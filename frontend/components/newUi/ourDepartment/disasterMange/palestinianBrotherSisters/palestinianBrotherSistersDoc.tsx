@@ -6,32 +6,23 @@ import SliderSectionpalestinianBrotherSister from "./slider";
 const PalestinianBrotherSistersDocs = () => {
   return (
     <div className="px-4 xl:px-0 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Swift Response in Palestine During Times of Crisis
-      </h2>
-
       <SliderSectionpalestinianBrotherSister />
-
-      <p className="text-base text-center pt-8 py-3">
-        In the face of adversity, FGRF wasted no time in extending a helping
-        hand to Palestine.
-      </p>
-      <p className="text-base text-center py-3">
+      <p className="ttext-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
         With urgency and compassion, we provided over 100,000 cooked meals,
         along with container mattresses and blankets, to those in need.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Additionally, we distributed thousands of food packs and ration boxes,
         ensuring that no one went hungry during this difficult time. Multiple
         aid containers were dispatched via Egypt, delivering essential supplies
         to affected communities.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         FGRF remains committed to standing by the people of Palestine, offering
         support and relief to help them overcome the challenges they face.
         Together, we strive to bring comfort and hope to those in need.
       </p>
-      <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
+      <div className="flex flex-col justify-center items-center py-10 gap-10">
         <Link
           href={"/donation"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"

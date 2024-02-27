@@ -7,19 +7,14 @@ import SliderSectionMasjid from "./slider";
 const MasjidDocs = () => {
   return (
     <div className="px-4 xl:px-0 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        Sponsor a Masjid and Madrasa with FGRF
-      </h2>
-
       <SliderSectionMasjid />
-      <p className="text-base text-center py-3 md:py-5">
-        Sponsor a Masjid and Madrasa with FGRF: Join us in our mission to build
-        more than 600 masajid and Madrassa every year. Your contribution will
-        help create sacred spaces for worship and education, providing spiritual
-        guidance and knowledge. Together, we can make a lasting impact on the
-        lives of countless individuals and uphold the values of unity, faith,
-        and compassion. Join us in this noble endeavor and leave a legacy of
-        faith and generosity for generations to come.
+      <p className="text-center py-3 md:py-5 font-semibold text-gray-900 text-sm md:text-lg">
+        Your contribution will help create sacred spaces for worship and
+        education, providing spiritual guidance and knowledge. Together, we can
+        make a lasting impact on the lives of countless individuals and uphold
+        the values of unity, faith, and compassion. Join us in this noble
+        endeavor and leave a legacy of faith and generosity for generations to
+        come.
       </p>
       <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
         <Link

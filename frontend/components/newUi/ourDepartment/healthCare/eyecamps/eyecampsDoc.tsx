@@ -4,31 +4,23 @@ import SliderSectionEyeCamps from "./slider";
 
 const EyecampsDocs = () => {
   return (
-    <div className="px-4 xl:px-0 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Addresses Eye Health in Rural Communities: Organizing Free Eye
-        Camps
-      </h2>
-
+    <div className="py-5 px-4 xl:px-0">
       <SliderSectionEyeCamps />
 
-      <p className="text-base text-center pt-8 py-3">
-        Understanding the pressing need for eye care in rural areas,
-      </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
         FGRF has initiated various eye camps to provide essential services to
         communities in need. These camps offer free eye tests and medication,
         ensuring that individuals receive the necessary care without any
         financial burden.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         TThrough these initiatives, FGRF aims to tackle eye issues prevalent in
         rural communities and improve access to eye care services. By providing
         free-of-cost screenings and treatment, we strive to alleviate suffering
         and promote better eye health among those who need it most.
       </p>
 
-      <div className="flex flex-col justify-center items-center pt-10 pb-20 gap-10">
+      <div className="flex flex-col justify-center items-center py-10 gap-10">
         <Link
           href={"/donation"}
           className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"

@@ -5,29 +5,21 @@ import SliderSectionMedicalVan from "./slider";
 
 const MedicalVanDocs = () => {
   return (
-    <div className="px-4 xl:px-0 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        FGRF Medical Van Initiative: Bringing Healthcare to Rural Areas
-      </h2>
-
+    <div className="py-5 px-4 xl:px-0">
       <SliderSectionMedicalVan />
-
-      <p className="text-base text-center pt-8 py-3">
-        FGRF is proud to introduce our medical van initiative,
-      </p>
-      <p className="text-base text-center py-3">
-        equipped with doctors and paramedical staff, dedicated to reaching rural
+      <p className="text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
+        Equipped with doctors and paramedical staff, dedicated to reaching rural
         areas with serious health issues. Our mission is to provide essential
         healthcare services to communities in need, ensuring access to medical
         care where it&#39;s needed most.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         To expand our reach and impact, we are seeking your generous donations
         to create more medical vans for these underserved areas. With your
         support, we can extend our healthcare services to even more rural
         communities, improving health outcomes and transforming lives.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         Join us in our mission to make healthcare accessible to all. Your
         donation can make a real difference in the lives of those who need it
         most.

@@ -12,7 +12,7 @@ export default function DonationSectionHealthCare() {
     <div className="max-w-screen-lg mx-auto px-4 md:px-4 xl:px-0">
       <div className="">
         <h2 className="text-center text-xl md:text-3xl lg:text-4xl text-teal-500 font-bold pb-4 md:py-6">
-          In the face of COVID-19 pandemic,
+          FGRF&#39;s Commitment to Health
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {cardArray.map((data, index) => (
@@ -40,9 +40,10 @@ export default function DonationSectionHealthCare() {
             </div>
           ))}
         </div>
-        <h2 className="text-center text-xl  md:text-3xl lg:text-4xl text-teal-500 font-bold pt-5 md:py-6">
+        <h2 className="text-center text-xl  md:text-3xl text-teal-500 font-bold pt-5 md:py-6">
           {" "}
-          the world faced unprecedented challenges,
+          Providing Medical Assistance in Disaster Recovery and Rural Areas.
+          FGRF is dedicated to improving health outcomes for those in need.
         </h2>
 
         <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">

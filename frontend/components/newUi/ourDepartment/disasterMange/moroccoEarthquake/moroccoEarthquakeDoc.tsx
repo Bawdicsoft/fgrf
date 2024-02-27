@@ -6,35 +6,25 @@ import SliderSectionMoroccoEarthquake from "./slider";
 
 const MoroccoEarthquakeDocs = () => {
   return (
-    <div className="px-4  xl:px-0 ">
-      <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-        Supporting Morocco: FGRF&#39;s Relief Efforts in Response to the
-        Earthquake
-      </h2>
-
+    <div className="py-10 px-4 xl:px-0 ">
       <SliderSectionMoroccoEarthquake />
-
-      <p className="text-base text-center pt-8 py-3">
-        FGRF swiftly responded to the earthquake in Morocco, delivering
-        essential aid to those affected.
-      </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
         Our teams provided first aid, essential supplies, and cooked food ration
         bags to alleviate immediate needs.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Recognizing the challenges faced during the winter months, FGRF took
         proactive steps to address the issue of gas shortages. We pledged to
         distribute over 20,000 gas cylinders to ensure families have access to
         heating and cooking facilities during the cold season.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Our dedicated team remained on the ground, working tirelessly alongside
         the affected communities. In addition to gas cylinders, we distributed
         more than 5,000 ration bags, further supporting families in their time
         of need.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Join us in our efforts to make a meaningful difference in the lives of
         those impacted by the earthquake in Morocco. Together, we can provide
         comfort, support, and hope for a brighter tomorrow.
