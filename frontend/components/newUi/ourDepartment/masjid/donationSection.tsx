@@ -1,6 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import { motion, useAnimation } from "framer-motion";
 export default function DonationSectionMasjid() {
   const cardArray = [
     { amount: "25", title: "Food box" },
@@ -17,28 +18,44 @@ export default function DonationSectionMasjid() {
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {cardArray.map((data, index) => (
-            <div key={index} className="rounded-xl bg-white">
-              <h2 className="md:text-2xl lg:text-3xl rounded-t-xl font-bold text-white bg-teal-500 text-center py-1">
-                £{"   "} {data.amount}
-              </h2>
-              <div className="flex flex-col justify-between gap-4 py-4 px-4">
-                {data.title !== "clean drinking & Food Box" ? (
-                  <h2 className="md:text-2xl lg:text-3xl font-extrabold text-gray-500 text-center py-3">
-                    {data.title}
+            <motion.div
+              key={index}
+              whileHover={{
+                scale: 1.2,
+                zIndex: 50,
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div className="rounded-xl lg:h-48 bg-white relative group overflow-hidden">
+                <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
+
+                <div className="bg-[#19afaf] relative group overflow-hidden">
+                  <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#fff] top-1/2 group-hover:h-80 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
+
+                  <h2 className="relative group-hover:animate-bounce md:text-2xl lg:text-3xl group-hover:text-[#19afaf] rounded-t-xl font-bold text-white  text-center py-1">
+                    £{"   "} {data.amount}
                   </h2>
-                ) : (
-                  <h2 className="text-sm md:text-lg lg:text-xl font-extrabold text-gray-500 text-center">
-                    {data.title}
-                  </h2>
-                )}
-                <Link
-                  href={"/donation"}
-                  className="bg-teal-500 text-xs   uppercase text-center font-semibold text-white py-1 md:text-sm lg:text-base lg:py-2 lg:px-5 rounded-full"
-                >
-                  Donate now
-                </Link>
+                </div>
+                <div className="flex flex-col justify-between gap-4 py-4 px-4">
+                  {data.title !== "clean drinking & Food Box" ? (
+                    <h2 className="group-hover:text-white relative md:text-2xl lg:text-3xl font-extrabold text-gray-500 text-center py-3">
+                      {data.title}
+                    </h2>
+                  ) : (
+                    <h2 className="group-hover:text-white relative text-sm md:text-lg lg:text-xl font-extrabold text-gray-500 text-center">
+                      {data.title}
+                    </h2>
+                  )}
+                  <Link
+                    href={"/donation"}
+                    className="bg-[#19afaf] text-xs relative group overflow-hidden uppercase text-center font-semibold group-hover:text-[#19afaf] text-white py-1 md:text-sm lg:text-base lg:py-2 lg:px-5 rounded-full "
+                  >
+                    <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#fff] top-1/2 group-hover:h-80 group-hover:w-96 group-hover:-translate-y-40 ease"></span>
+                    <span className="relative "> Donate now</span>
+                  </Link>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
         <h2 className="text-center text-xl  md:text-3xl text-teal-500 font-bold pt-5 md:py-6">
