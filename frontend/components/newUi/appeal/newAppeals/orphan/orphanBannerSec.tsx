@@ -62,7 +62,8 @@ const OrphanBannerSection = () => {
   const [packeges, setPackeges] = useState(oneOffBtnList);
   const [donationForm, setDonationForm] = useState(true);
   const [bgBtn, setbgBtn] = useState(0);
-  const [dollarDonate, setDollarDonate] = useState(50);
+  const [dollarDonate, setDollarDonate] = useState("50");
+  const [amount, setAmount] = useState();
 
   return (
     <div className="pt-10 lg:pt-16">
@@ -94,40 +95,6 @@ const OrphanBannerSection = () => {
         </div>
       </div>
       <div className="bg-gray-300 md:h-80 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
-        {/* <div className="flex justify-center gap-5">
-          <button
-            className={
-              bgColor
-                ? `py-2 px-5 bg-teal-500 text-white text-lg rounded-b-3xl relative overflow-hidden group`
-                : `bg-sky-800 text-white rounded-b-3xl py-2 text-lg px-5  relative overflow-hidden group`
-            }
-            onClick={() => {
-              setPackeges(oneOffBtnList);
-              setDocs(0);
-              setbgBtn(0);
-              setBgColor(true);
-            }}
-          >
-            <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-100 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-            <span className="relative group-hover:text-teal-500">One Off</span>
-          </button>
-          <button
-            className={
-              !bgColor
-                ? `py-2 px-5 bg-teal-500 text-white text-lg rounded-b-3xl relative overflow-hidden group`
-                : `bg-sky-800 text-white py-2 px-5 rounded-b-3xl text-lg relative overflow-hidden group`
-            }
-            onClick={() => {
-              setPackeges(monthBtnList);
-              setDocs(0);
-              setbgBtn(0);
-              setBgColor(false);
-            }}
-          >
-            <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-100 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-            <span className="relative group-hover:text-teal-500">Monthly</span>
-          </button>
-        </div> */}
         {/* form Container */}
         {donationForm ? (
           <div className="flex flex-col gap-2 ">
@@ -153,6 +120,7 @@ const OrphanBannerSection = () => {
                           : `border-2 border-white hover:border-teal-500 text-teal-500  py-1 px-2 rounded-xl font-semibold text-xl relative overflow-hidden group`
                       }
                       onClick={() => {
+                        setDollarDonate(btn.title);
                         setDocs(index);
                         setbgBtn(index);
                       }}
@@ -168,33 +136,33 @@ const OrphanBannerSection = () => {
               <input
                 type="number"
                 placeholder="Other Amount"
+                value={amount}
+                onChange={(e: any) => {
+                  setAmount(e.target.value), setDollarDonate(e.target.value);
+                }}
                 className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
               />
-
-              {/* <p className=" self-center text-sm text-center pt-4">
-            Your donations will go to this appeals general fund, so your
-            generosity can help where its needed most!
-          </p>
-          <div className="flex justify-center">
-            <Link href={"/donation"}>
-              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl">
-                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                  <span className="relative group-hover:text-white">
-                    Add to Basket
-                  </span>
-                </span>
-              </button>
-            </Link>
-          </div> */}
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 py-20">
-            <CheckoutButton amount={dollarDonate} />
-            <MyPayPalButton amount={dollarDonate} currency="GBP" />
+          <div className="py-4">
+            <h2 className="text-3xl font-bold text-[#19afaf] text-center uppercase">
+              payment
+            </h2>
+            <p className="text-gray-700 text-base py-3 text-center">
+              Your Monthly Donation : &#163;{dollarDonate}.00
+            </p>
+            <p className="bg-white h-[1px] w-full"></p>
+            <div className="py-2 flex justify-between">
+              <p className="text-gray-700 text-base">Quick Donation</p>
+              <p className="text-gray-700 text-base">{dollarDonate}</p>
+            </div>
+            <p className="bg-white h-[1px] w-full"></p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 py-3">
+              <CheckoutButton amount={dollarDonate} />
+              <MyPayPalButton amount={dollarDonate} currency="GBP" />
+            </div>
           </div>
         )}
         {/* button Container */}
