@@ -6,7 +6,7 @@ const MedicalClinicDocs = () => {
   return (
     <div className="py-5 px-4 xl:px-0 ">
       <SliderSectionMedicalClinic />
-      <p className="text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
         keeping costs low to accommodate the country&#39;s inflationary
         challenges. With a mission to make healthcare accessible to all, FGRF
         aims to establish 250+ healthcare centers and 14,000 clinics across

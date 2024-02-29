@@ -5,25 +5,15 @@ const MasjidDocs = () => {
     // new Code
     <div>
       <div className="py-10 md:py-16 px-5 ">
-        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
-        </h2>
-
         <SliderSectionMasjid />
 
-        <p className="text-base text-center pt-8 py-3">
-          The violence in Gaza has claimed over 20,000 lives, leaving thousands
-          injured, according to the Palestinian Health Ministry - Inna Lillahi
-          Wa Inna Illahi Rajioon.
+        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
+          voluptate doloremque ipsam itaque neque dicta adipisci, placeat vitae
+          veniam alias voluptatum culpa et exercitationem deserunt nisi iste!
+          Neque, ratione nisi.
         </p>
 
-        <p className="text-base text-center py-3">
-          With electricity, water, food, and medical supplies all obstructed,
-          the people of Palestine are relying on your generosity now more than
-          ever. Stand in solidarity with Palestine and help save lives during
-          this critical time. Please keep the people of Palestine in your duas -
-          Jazak’Allah Khair.
-        </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>
             <button className="relative shadow-2xl group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">

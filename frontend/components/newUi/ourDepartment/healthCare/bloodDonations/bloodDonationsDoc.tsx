@@ -8,13 +8,13 @@ const BloodDonationsDocs = () => {
     <div className="py-5 px-4 xl:px-0">
       <SliderSectionBloodDonations />
 
-      <p className="text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
         FGRF took proactive steps to support this vulnerable community.
         Understanding the critical need for blood donations, we appealed to our
         followers to donate blood, urging them to make a difference in the lives
         of thalassemia patients.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         Thanks to the generosity of our supporters and a collaborative effort
         with Dawat-e-Islami and various health departments, FGRF has
         successfully provided over 65,000 blood bags to thalassemia patients in
@@ -23,7 +23,7 @@ const BloodDonationsDocs = () => {
         blood transfusions, especially during challenging times like the
         COVID-19 pandemic.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         FGRF remains dedicated to supporting thalassemia patients and will
         continue to work tirelessly to provide them with the care and resources
         they require to lead healthy and fulfilling lives.

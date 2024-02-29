@@ -9,7 +9,7 @@ const OrphanDocs = () => {
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8"></h2>
 
       <SliderSectionOrphan />
-      <p className="text-center py-3 md:py-5 font-semibold text-gray-800 text-sm md:text-lg">
+      <p className="capitalize text-center py-3 md:py-5 font-semibold text-gray-800 text-sm md:text-lg">
         This initiative underscores FGRF commitment to nurturing and empowering
         orphaned youth, offering them a safe and nurturing environment where
         they can thrive. Through holistic care, education, and emotional

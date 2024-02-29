@@ -8,7 +8,7 @@ const MasjidDocs = () => {
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionMasjid />
-      <p className="text-center py-3 md:py-5 font-semibold text-gray-900 text-sm md:text-lg">
+      <p className="capitalize text-center py-3 md:py-5 font-semibold text-gray-900 text-sm md:text-lg">
         Your contribution will help create sacred spaces for worship and
         education, providing spiritual guidance and knowledge. Together, we can
         make a lasting impact on the lives of countless individuals and uphold

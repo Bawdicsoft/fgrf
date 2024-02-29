@@ -78,9 +78,6 @@ const SadaqahBannerSection = () => {
           />
         </div>
         <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl ">
-          {/* <video className="h-full w-full rounded-lg" controls>
-            <source src="/Videonews/4.mp4" type="video/mp4" />
-          </video> */}
           <Image
             src={"/AppealNew/Sadaqah/4.jpg"}
             alt="winter img1"
@@ -91,11 +88,7 @@ const SadaqahBannerSection = () => {
         </div>
       </div>
       <div className="bg-gray-300 shadow-2xl mt-10 flex flex-col gap-2 max-w-3xl mx-auto rounded-lg">
-        {/* <h3 className=" text-2xl md:text-3xl text-gray-800">
-          Winter Emergency
-        </h3> */}
-        {/* <span className="w-full h-[2px] bg-teal-500"></span> */}
-        <div className="flex justify-center gap-5">
+        {/* <div className="flex justify-center gap-5">
           <button
             className={
               bgColor
@@ -128,8 +121,11 @@ const SadaqahBannerSection = () => {
             <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-100 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
             <span className="relative group-hover:text-teal-500">Monthly</span>
           </button>
-        </div>
-        <div className="flex flex-col  py-4 px-3 lg:px-5">
+        </div> */}
+        <h2 className="text-teal-500 text-2xl lg:text-3xl font-bold text-center py-2">
+          Sadaqah
+        </h2>
+        <div className="flex flex-col  pb-4 px-3 lg:px-5">
           <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
             Sadaqah
             <option className="text-md " value={"Palestine"}>
@@ -165,7 +161,7 @@ const SadaqahBannerSection = () => {
             placeholder="Other Amount"
             className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
           />
-          <p className=" self-center text-sm text-center pt-4">
+          {/* <p className=" self-center text-sm text-center pt-4">
             Your donations will go to this appeals general fund, so your
             generosity can help where its needed most!
           </p>
@@ -182,7 +178,7 @@ const SadaqahBannerSection = () => {
                 </span>
               </button>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -7,12 +7,12 @@ const Covid19Docs = () => {
     <div className="px-4 xl:px-0">
       <SliderSectionCovid19 />
 
-      <p className="text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
         We made a difference by providing essential food items, cooked meals,
         and ration boxes to millions of people worldwide, including over 25,000
         in the UK alone.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         Additionally, we addressed a critical need by building temporary
         mortuaries to support funeral services during this difficult time. Many
         funeral services were hesitant to wash and shroud deceased individuals
@@ -20,7 +20,7 @@ const Covid19Docs = () => {
         FGRF stepped in to provide solutions and alleviate concerns, ensuring
         proper care for the deceased and peace of mind for their loved ones.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         Through these efforts, FGRF continues to demonstrate its dedication to
         serving humanity and making a positive impact, even in the face of
         unprecedented challenges.

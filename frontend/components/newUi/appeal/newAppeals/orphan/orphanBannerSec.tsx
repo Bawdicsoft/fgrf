@@ -1,7 +1,12 @@
 "use client";
 import Image, { StaticImageData } from "next/image";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+
 import Link from "next/link";
 import { use, useState } from "react";
+import CheckoutButton from "@/components/newUi/donation/checkOut";
+import MyPayPalButton from "@/components/newUi/donation/paypalBtn";
 const OrphanBannerSection = () => {
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
@@ -55,8 +60,9 @@ const OrphanBannerSection = () => {
   ];
 
   const [packeges, setPackeges] = useState(oneOffBtnList);
-  const [bgColor, setBgColor] = useState(true);
+  const [donationForm, setDonationForm] = useState(true);
   const [bgBtn, setbgBtn] = useState(0);
+  const [dollarDonate, setDollarDonate] = useState(50);
 
   return (
     <div className="pt-10 lg:pt-16">
@@ -78,9 +84,6 @@ const OrphanBannerSection = () => {
           />
         </div>
         <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl ">
-          {/* <video className="h-full w-full rounded-lg" controls>
-            <source src="/Videonews/4.mp4" type="video/mp4" />
-          </video> */}
           <Image
             src={"/AppealNew/Orphan/3.jpeg"}
             alt="winter img1"
@@ -90,12 +93,8 @@ const OrphanBannerSection = () => {
           />
         </div>
       </div>
-      <div className="bg-gray-300 shadow-2xl mt-10 flex flex-col gap-2 max-w-3xl mx-auto rounded-lg">
-        {/* <h3 className=" text-2xl md:text-3xl text-gray-800">
-          Winter Emergency
-        </h3> */}
-        {/* <span className="w-full h-[2px] bg-teal-500"></span> */}
-        <div className="flex justify-center gap-5">
+      <div className="bg-gray-300 md:h-80 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
+        {/* <div className="flex justify-center gap-5">
           <button
             className={
               bgColor
@@ -128,44 +127,51 @@ const OrphanBannerSection = () => {
             <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-gray-100 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
             <span className="relative group-hover:text-teal-500">Monthly</span>
           </button>
-        </div>
-        <div className="flex flex-col  py-4 px-3 lg:px-5">
-          <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
-            Orphan
-            <option className="text-md " value={"Palestine"}>
+        </div> */}
+        {/* form Container */}
+        {donationForm ? (
+          <div className="flex flex-col gap-2 ">
+            <h2 className="text-teal-500 text-2xl lg:text-3xl font-bold text-center py-2">
               Orphan
-            </option>
-          </select>
-          {/* <p className="text-base lg:text-lg py-4">{packeges[docs].doc}</p> */}
-          <div className="md:mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-7 gap-2  md:pr-0 pt-4 lg:pr-8 pb-3">
-              {packeges.map((btn, index) => (
-                <button
-                  key={index}
-                  className={
-                    index === bgBtn
-                      ? `border-0 border-white  text-white shadow-2xl bg-teal-500 py-1 px-2 rounded-xl text-xl font-semibold relative overflow-hidden group`
-                      : `border-2 border-white hover:border-teal-500 text-teal-500  py-1 px-2 rounded-xl font-semibold text-xl relative overflow-hidden group`
-                  }
-                  onClick={() => {
-                    setDocs(index);
-                    setbgBtn(index);
-                  }}
-                >
-                  <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-16 bg-white top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                  <span className="relative group-hover:text-teal-500">
-                    £{btn.title}
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <input
-            type="number"
-            placeholder="Other Amount"
-            className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
-          />
-          <p className=" self-center text-sm text-center pt-4">
+            </h2>
+            <div className="flex flex-col  pb-4 px-3 lg:px-5">
+              <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
+                Orphan
+                <option className="text-md " value={"Palestine"}>
+                  Orphan
+                </option>
+              </select>
+
+              <div className="md:mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-7 gap-2  md:pr-0 pt-4 lg:pr-8 pb-3">
+                  {packeges.map((btn, index) => (
+                    <button
+                      key={index}
+                      className={
+                        index === bgBtn
+                          ? `border-0 border-white  text-white shadow-2xl bg-teal-500 py-1 px-2 rounded-xl text-xl font-semibold relative overflow-hidden group`
+                          : `border-2 border-white hover:border-teal-500 text-teal-500  py-1 px-2 rounded-xl font-semibold text-xl relative overflow-hidden group`
+                      }
+                      onClick={() => {
+                        setDocs(index);
+                        setbgBtn(index);
+                      }}
+                    >
+                      <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-16 bg-white top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group-hover:text-teal-500">
+                        £{btn.title}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <input
+                type="number"
+                placeholder="Other Amount"
+                className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
+              />
+
+              {/* <p className=" self-center text-sm text-center pt-4">
             Your donations will go to this appeals general fund, so your
             generosity can help where its needed most!
           </p>
@@ -182,7 +188,51 @@ const OrphanBannerSection = () => {
                 </span>
               </button>
             </Link>
+          </div> */}
+            </div>
           </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 py-20">
+            <CheckoutButton amount={dollarDonate} />
+            <MyPayPalButton amount={dollarDonate} currency="GBP" />
+          </div>
+        )}
+        {/* button Container */}
+        <div className="flex justify-between">
+          {donationForm ? (
+            <div className="visible"></div>
+          ) : (
+            <button
+              onClick={() => {
+                // backHandler();
+                setDonationForm(true);
+              }}
+              className="relative visible group overflow-hidden uppercase  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
+            >
+              <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+              <FaRegArrowAltCircleLeft className="w-6 h-6 relative group-hover:text-white text-gray-400" />
+              <span className="relative group-hover:text-white text-gray-400">
+                {" "}
+                Back
+              </span>
+            </button>
+          )}
+          <button
+            onClick={() => {
+              // nextHandler();
+              setDonationForm(false);
+            }}
+            className="relative  group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
+          >
+            <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+            <span className="relative group-hover:text-gray-400 text-white">
+              {" "}
+              Next{" "}
+            </span>
+            <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+          </button>
         </div>
       </div>
     </div>

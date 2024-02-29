@@ -12,11 +12,11 @@ const PlantationDocs = () => {
 
       <SliderSectionPlantation />
 
-      <p className="text-base text-center pt-8 py-3">
+      <p className="capitalize text-sm md:text-lg text-center pt-8 py-3 font-semibold text-gray-900">
         FGRF&#39;s Plantation Department is a leader in environmental
         conservation, having planted millions of trees.
       </p>
-      <p className="text-base text-center py-3">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         This effort isn&#39;t just about planting trees; it&#39;s about caring
         for our planet. With careful planning and community involvement, FGRF is
         making a difference by addressing deforestation and promoting a greener

@@ -533,7 +533,7 @@ const StartSec: React.FC<StartSecProps> = ({
                             <h2 className="text-center text-2xl md:text-3xl lg:text-7xl uppercase font-semibold md:font-bold lg:font-extrabold md:py-2 text-teal-500">
                               {title}
                             </h2>
-                            <p className="text-sm md:text-lg text-teal-500 text-center pb-2 md:py-3 ">
+                            <p className="text-sm text-justify md:text-lg text-teal-500 font-semibold capitalize pb-2 md:py-3 ">
                               {desc}
                             </p>
 

@@ -6,7 +6,7 @@ const WaterDocs = () => {
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionWater />
-      <p className="text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
         These projects showcase a diverse range of solutions, programs, and
         costs, highlighting our commitment to addressing water scarcity and
         providing sustainable solutions. From innovative technologies to
@@ -14,12 +14,12 @@ const WaterDocs = () => {
         needs and challenges of the region. Together, these efforts contribute
         to improving access to clean and
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         safe water for communities in need, promoting health, hygiene, and
         overall well-being.
       </p>
 
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         &quot;Unlocking Potential: Providing Clean Water, Transforming Lives
         Forever!&quot;
       </p>

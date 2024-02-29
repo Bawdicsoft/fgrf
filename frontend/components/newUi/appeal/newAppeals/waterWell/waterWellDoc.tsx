@@ -5,14 +5,13 @@ const WaterWellDocs = () => {
     // new Code
     <div>
       <div className="py-10 md:py-16 px-5 ">
-        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          Our solar panel system harnesses the sun energy to pump water into a
-          tank
-        </h2>
-
         <SliderSectionWaterWell />
 
-        <p className="text-base text-center py-3 md:py-5">
+        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-3 md:py-5">
+          Our solar panel system harnesses the sun energy to pump water into a
+          tank
+        </p>
+        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-3">
           In the deserts of Pakistan, water lies deep underground, rendering
           traditional methods ineffective. Our solar panel system harnesses the
           sun energy to pump water into a tank. Clean water is then distributed

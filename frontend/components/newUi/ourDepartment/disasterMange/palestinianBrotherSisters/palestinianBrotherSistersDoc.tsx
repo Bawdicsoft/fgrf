@@ -7,17 +7,17 @@ const PalestinianBrotherSistersDocs = () => {
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionpalestinianBrotherSister />
-      <p className="ttext-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
         With urgency and compassion, we provided over 100,000 cooked meals,
         along with container mattresses and blankets, to those in need.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Additionally, we distributed thousands of food packs and ration boxes,
         ensuring that no one went hungry during this difficult time. Multiple
         aid containers were dispatched via Egypt, delivering essential supplies
         to affected communities.
       </p>
-      <p className="text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         FGRF remains committed to standing by the people of Palestine, offering
         support and relief to help them overcome the challenges they face.
         Together, we strive to bring comfort and hope to those in need.

@@ -5,19 +5,15 @@ const PalestineDocs = () => {
     // new Code
     <div>
       <div className="py-10 md:py-16 px-5 ">
-        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          GAZA UNDER ATTACK AND UNDER COMPLETE SIEGE!
-        </h2>
-
         <SliderSectionPalestine />
 
-        <p className="text-base text-center pt-8 py-3">
+        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
           The violence in Gaza has claimed over 20,000 lives, leaving thousands
           injured, according to the Palestinian Health Ministry - Inna Lillahi
           Wa Inna Illahi Rajioon.
         </p>
 
-        <p className="text-base text-center py-3">
+        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-3">
           With electricity, water, food, and medical supplies all obstructed,
           the people of Palestine are relying on your generosity now more than
           ever. Stand in solidarity with Palestine and help save lives during

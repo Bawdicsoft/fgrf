@@ -18,7 +18,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center  font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center  font-semibold text-gray-900 text-sm md:text-lg ">
         SEP is offering different language programmes, i.e., Arabic, English,
         Urdu, French, Russian and Chinese, Thousands of students are improving
         their communication skills with us.
@@ -35,7 +35,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP is offering Arabic and English language programmes for overseas
         students. They are getting trained to be Muballigheen of Dawat-e-Islami
         to work overseas.
@@ -52,7 +52,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP is now offering a teachers training programme for Islamic scholars
         of Jamia-tul-Madinah. After attending the training, the participants
         will be able to teach Islamiyat in O and A Level schools.
@@ -69,7 +69,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP is offering IT Foundation for new learners. The course aims at
         equipping the students with all the necessary skills and competencies
         they require to start their journey in IT industry.
@@ -139,7 +139,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Some glimpses of our recent workshop where students learned the scope of
         cyber security, digital marketing, UI UX design and IT foundation, etc.
       </p>
@@ -155,7 +155,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         After successfully completing our programmes and workshops, students
         receive their certificate of completion and appreciation.
       </p>
@@ -183,7 +183,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP has been working to produce its own English trainers.  Some students
         of SEP have become English trainers. They are all Islamic scholars from
         Jamia-tul-Madinah.
@@ -200,7 +200,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Some of SEP students are working in different countries, i.e., UAE,
         Oman, Australia, etc. Not only are they doing their jobs overseas, they
         are also spreading the message of Dawat-e-Islami.
@@ -217,7 +217,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Some of SEP students are now working at SEP branches as Admin Officers.
         They are representing SEP very well.
       </p>
@@ -245,7 +245,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Some of SEP students are working for different departments of
         Dawat-e-Islami such as Faizan Online Academy (FOA), Madani Channel
         English, etc.
@@ -262,7 +262,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Ibrahim Anwar, a teacher in Jamia-tul-Madinah, Bahar-e-Madinah, student
         of SEP has been selected teach Dars-e-Nizami in English in Mauritius.
       </p>
@@ -278,7 +278,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Muti-ur-Rasool, a student of SEP level V has been selected as an English
         Muballigh at Madani Channel English.
       </p>
@@ -294,7 +294,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         Some of SEP students are now teaching Quran in English. They have passed
         English tests of FOA and are now getting the allowances.
       </p>
@@ -310,7 +310,7 @@ const EducationDocs = () => {
           className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
         />
       </div>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         The Skills Enhancement Programme (SEP) and the Skill Development Council
         (SDC) have formalized their collaboration through the signing of a
         Memorandum of Understanding (MOU).
@@ -333,7 +333,7 @@ const EducationDocs = () => {
       <h2 className="text-teal-500 font-bold text-lg md:text-2xl text-center py-8">
         SEP Online
       </h2>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP will start offering online language programmes by Feb 2024.
       </p>
 
@@ -352,7 +352,7 @@ const EducationDocs = () => {
       <h2 className="text-teal-500 font-bold text-lg md:text-2xl text-center py-8">
         SEP Expansion
       </h2>
-      <p className=" text-center font-semibold text-gray-900 text-sm md:text-lg ">
+      <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg ">
         SEP is now affiliated with Kanzul Madaris Board. In a joint venture, SEP
         is starting 100+ branches in different Jamia-tul-Madinah across
         Pakistan. More than 5000 students will be studying English, Arabic and

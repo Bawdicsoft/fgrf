@@ -7,7 +7,7 @@ const FaizanRehabilitationCenterDocs = () => {
   return (
     <div className="py-5 px-4 xl:px-0">
       <SliderSectionFaizanRehabilitationCenter />
-      <p className="text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
+      <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
         With four branches already established in Pakistan, FRC is now looking
         forward to expanding its services to the UK in 2024. Our mission is to
         provide comprehensive care and support to children with special needs,

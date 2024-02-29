@@ -5,17 +5,18 @@ const RamadanDocs = () => {
     // new Code
     <div>
       <div className="py-10 md:py-16 px-5 ">
-        <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
-          The Holy Prophet ﷺ has said, ‘On the first night of Ramadan,
-        </h2>
-
         <SliderSectionRamadan />
 
-        <p className="text-base text-center pt-8 py-3">
-          the portals of the skies and Paradise are opened which remain open
-          until the last night (of the month). (Shu’ab-ul-Īmān, pp. 314, vol. 3,
-          Ḥadīš 3635)
-        </p>
+        <div className="">
+          <h2 className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-2">
+            The Holy Prophet ﷺ has said, ‘On the first night of Ramadan, the
+            portals of the skies and Paradise are opened which remain open until
+            the last night (of the month).{" "}
+          </h2>
+          <p className="text-xs md:text-sm text-center">
+            (Shu’ab-ul-Īmān, pp. 314, vol. 3, Ḥadīš 3635)
+          </p>
+        </div>
         <div className="flex justify-center">
           <Link href={"/donation"}>
             <button className="relative shadow-2xl group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
