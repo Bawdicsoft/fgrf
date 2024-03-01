@@ -6,6 +6,11 @@ import Link from "next/link";
 import { use, useState } from "react";
 import CheckoutButton from "@/components/newUi/donation/checkOut";
 import MyPayPalButton from "@/components/newUi/donation/paypalBtn";
+import AppealBannerAnimationLeft from "../animations/bannerAnimationLeft";
+import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
+import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
+import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
+import AnimationTop from "@/components/newUi/home/AnimationTop";
 const SadaqahBannerSection = () => {
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
@@ -64,106 +69,136 @@ const SadaqahBannerSection = () => {
   const [dollarDonate, setDollarDonate] = useState("50");
   const [amount, setAmount] = useState();
   const [donationForm, setDonationForm] = useState(true);
-
+  const [borderColor, setBorderColor] = useState(false);
   return (
     <div className="pt-10 lg:pt-16">
       <div className="max-w-3xl mx-auto">
-        <div className="flex justify-center rounded-t-xl border-t-2 border-l-2 border-r-2 border-b-0 border-sky-600 pb-8 ">
-          <p className="text-center bg-sky-700 rounded-b-2xl  text-xl lg:text-2xl text-white font-semibold py-2 px-8">
-            Sadaqah
-          </p>
+        <div
+          className={`flex justify-center rounded-t-xl border-t-2 border-l-2 border-r-2 border-b-0  pb-8  ${
+            borderColor ? "border-teal-500" : "border-sky-600"
+          } `}
+        >
+          <div
+            onMouseEnter={() => setBorderColor(true)}
+            onMouseLeave={() => setBorderColor(false)}
+            className="text-center relative group overflow-hidden bg-sky-700 rounded-b-2xl  text-xl lg:text-2xl text-white font-semibold py-2 px-8"
+          >
+            <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+            <p className="relative">Sadaqah</p>
+          </div>
         </div>
       </div>
       <div className="grid grid-cols-1 gap-8 md:gap-3 lg:gap-14 md:grid-cols-2 px-5">
-        <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl">
-          <Image
-            src={"/AppealNew/Sadaqah/1.jpg"}
-            alt="winter img1"
-            className="w-full h-full rounded-lg"
-            width={600}
-            height={600}
-          />
-        </div>
-        <div className="border-4 border-sky-600 rounded-xl shadow-gray-700 shadow-2xl ">
-          <Image
-            src={"/AppealNew/Sadaqah/4.jpg"}
-            alt="winter img1"
-            className="w-full h-full rounded-lg"
-            width={600}
-            height={600}
-          />
-        </div>
+        <AnimationTop>
+          <AppealBannerAnimationLeft>
+            <div
+              className={`border-4 rounded-xl shadow-gray-700 shadow-2xl ${
+                borderColor ? "border-teal-500" : "border-sky-600"
+              }`}
+            >
+              <Image
+                src={"/AppealNew/Sadaqah/1.jpg"}
+                alt="winter img1"
+                className="w-full h-full rounded-lg"
+                width={600}
+                height={600}
+              />
+            </div>
+          </AppealBannerAnimationLeft>
+        </AnimationTop>
+        <AnimationTop>
+          <AppealBannerAnimationRight>
+            <div
+              className={`border-4 rounded-xl shadow-gray-700 shadow-2xl ${
+                borderColor ? "border-teal-500" : "border-sky-600"
+              }`}
+            >
+              <Image
+                src={"/AppealNew/Sadaqah/4.jpg"}
+                alt="winter img1"
+                className="w-full h-full rounded-lg"
+                width={600}
+                height={600}
+              />
+            </div>
+          </AppealBannerAnimationRight>
+        </AnimationTop>
       </div>
       <div className="bg-gray-300 md:h-80 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
         {/* form Container */}
         {donationForm ? (
-          <div className="flex flex-col gap-2 ">
-            <h2 className="text-teal-500 text-2xl lg:text-3xl font-bold text-center py-2">
-              Sadaqah
-            </h2>
-            <div className="flex flex-col  pb-4 px-3 lg:px-5">
-              <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
+          <AnimatedComponentLeft>
+            <div className="flex flex-col gap-2 ">
+              <h2 className="text-teal-500 text-2xl lg:text-3xl font-bold text-center py-2">
                 Sadaqah
-                <option className="text-md " value={"Palestine"}>
+              </h2>
+              <div className="flex flex-col  pb-4 px-3 lg:px-5">
+                <select className="w-60 md:w-96 self-center text-teal-500 font-bold outline-none focus:outline-none border-2 border-teal-500 rounded-xl px-2 py-2">
                   Sadaqah
-                </option>
-              </select>
+                  <option className="text-md " value={"Palestine"}>
+                    Sadaqah
+                  </option>
+                </select>
 
-              <div className="md:mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-7 gap-2  md:pr-0 pt-4 lg:pr-8 pb-3">
-                  {packeges.map((btn, index) => (
-                    <button
-                      key={index}
-                      className={
-                        index === bgBtn
-                          ? `border-0 border-white  text-white shadow-2xl bg-teal-500 py-1 px-2 rounded-xl text-xl font-semibold relative overflow-hidden group`
-                          : `border-2 border-white hover:border-teal-500 text-teal-500  py-1 px-2 rounded-xl font-semibold text-xl relative overflow-hidden group`
-                      }
-                      onClick={() => {
-                        setDollarDonate(btn.title);
-                        setDocs(index);
-                        setbgBtn(index);
-                      }}
-                    >
-                      <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-16 bg-white top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                      <span className="relative group-hover:text-teal-500">
-                        £{btn.title}
-                      </span>
-                    </button>
-                  ))}
+                <div className="md:mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-7 gap-2  md:pr-0 pt-4 lg:pr-8 pb-3">
+                    {packeges.map((btn, index) => (
+                      <button
+                        key={index}
+                        className={
+                          index === bgBtn
+                            ? `border-0 border-white  text-white shadow-2xl bg-teal-500 py-1 px-2 rounded-xl text-xl font-semibold relative overflow-hidden group`
+                            : `border-2 border-white hover:border-teal-500 text-teal-500  py-1 px-2 rounded-xl font-semibold text-xl relative overflow-hidden group`
+                        }
+                        onClick={() => {
+                          setDollarDonate(btn.title);
+                          setDocs(index);
+                          setbgBtn(index);
+                        }}
+                      >
+                        <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-16 bg-white top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                        <span className="relative group-hover:text-teal-500">
+                          £{btn.title}
+                        </span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
+                <input
+                  type="number"
+                  placeholder="Other Amount"
+                  value={amount}
+                  onChange={(e: any) => {
+                    setAmount(e.target.value), setDollarDonate(e.target.value);
+                  }}
+                  className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
+                />
               </div>
-              <input
-                type="number"
-                placeholder="Other Amount"
-                value={amount}
-                onChange={(e: any) => {
-                  setAmount(e.target.value), setDollarDonate(e.target.value);
-                }}
-                className=" md:w-96 self-center text-teal-500 font-bold outline-none border-2 border-teal-500 rounded-xl p-4 py-2 "
-              />
             </div>
-          </div>
+          </AnimatedComponentLeft>
         ) : (
-          <div className="py-4">
-            <h2 className="text-3xl font-bold text-[#19afaf] text-center uppercase">
-              payment
-            </h2>
-            <p className="text-gray-700 text-base py-3 text-center">
-              Your Monthly Donation : &#163;{dollarDonate}.00
-            </p>
-            <p className="bg-white h-[1px] w-full"></p>
-            <div className="py-2 flex justify-between">
-              <p className="text-gray-700 text-base">Quick Donation</p>
-              <p className="text-gray-700 text-base">{dollarDonate}</p>
-            </div>
-            <p className="bg-white h-[1px] w-full"></p>
+          <AnimatedComponentRight>
+            <div className="py-4">
+              <h2 className="text-3xl font-bold text-[#19afaf] text-center uppercase">
+                payment
+              </h2>
+              <p className="text-gray-700 text-base py-3 text-center">
+                Your Monthly Donation : &#163;{dollarDonate}.00
+              </p>
+              <p className="bg-white h-[1px] w-full"></p>
+              <div className="py-2 flex justify-between">
+                <p className="text-gray-700 text-base">Quick Donation</p>
+                <p className="text-gray-700 text-base">{dollarDonate}</p>
+              </div>
+              <p className="bg-white h-[1px] w-full"></p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 py-3">
-              <CheckoutButton amount={dollarDonate} />
-              <MyPayPalButton amount={dollarDonate} currency="GBP" />
+              <div className="grid grid-cols-1 md:grid-cols-2 py-3">
+                <CheckoutButton amount={dollarDonate} />
+                <MyPayPalButton amount={dollarDonate} currency="GBP" />
+              </div>
             </div>
-          </div>
+          </AnimatedComponentRight>
         )}
         {/* button Container */}
         <div className="flex justify-between">

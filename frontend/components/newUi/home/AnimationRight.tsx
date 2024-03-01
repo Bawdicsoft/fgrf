@@ -1,6 +1,5 @@
 "use client";
 
-// New Code
 import { motion, useAnimation, Variants } from "framer-motion";
 import { useMedia } from "react-use";
 import { useEffect } from "react";
@@ -24,7 +23,6 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
   const isMedium = useMedia("(min-width: 768px) and (max-width: 992px)");
   const isLarge = useMedia("(min-width: 993px) and (max-width: 1200px)");
   const isLlarge = useMedia("(min-width: 1201px) and (max-width: 1440px)");
-  // const isXLarge = useMedia("(min-width: 1200px)");
 
   const xVariants = (xValue: number): Variants => ({
     hidden: { opacity: 0, x: xValue },
@@ -33,14 +31,6 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
 
   useEffect(() => {
     let xValue = 0;
-
-    // console.log("isExtraSmall--->", isExtraSmall);
-    // console.log("isSmallL--->", isSmallL);
-    // console.log("isSmallM--->", isSmallM);
-    // console.log("isMedium--->", isMedium);
-    // console.log("isLarge--->", isLarge);
-    // console.log("isLLarge--->", isLlarge);
-
     if (isExtraSmall) {
       xValue = 20;
     } else if (isSmallM) {
@@ -67,7 +57,6 @@ const AnimatedComponentRight: React.FC<MyAnimatedComponentProps> = ({
   return (
     <motion.div
       ref={ref}
-      // drag="x"
       initial="hidden"
       animate={controls}
       variants={{
