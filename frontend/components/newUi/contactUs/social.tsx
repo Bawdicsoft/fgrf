@@ -28,7 +28,7 @@ const ContactUsSocial = () => {
             <div className="flex flex-col py-3">
               <span className=" flex gap-4 justify-center items-center text-lg md:text-xl lg:text-2xl font-extrabold text-teal-500 py-1 text-center">
                 {" "}
-                <FiPhoneCall /> <span>03000 11 11 11</span>
+                <FiPhoneCall /> <span>+44 7300 559919</span>
               </span>
               <p className="text-gray-500 text-sm text-center">
                 Free from mobiles as part of inclusive minutes package.
@@ -40,7 +40,7 @@ const ContactUsSocial = () => {
               </p>
               <span className=" flex gap-4 justify-center items-center text-lg md:text-xl lg:text-2xl font-extrabold text-teal-500 py-1 text-center">
                 {" "}
-                <FiPhoneCall /> <span>03000 11 11 11</span>
+                <FiPhoneCall /> <span>+44 7300 559919</span>
               </span>
             </div>
             <div className="flex flex-col py-3">
@@ -53,11 +53,11 @@ const ContactUsSocial = () => {
               </h3>
               <h3 className="text-md font-bold text-teal-500 py-1 text-center">
                 {" "}
-                Call: 03000 11 11 11
+                Call: +44 7300 559919
               </h3>
               <h3 className="text-md font-bold text-teal-500 py-1 text-center">
                 {" "}
-                Text: STOP to +447800005598
+                Text: STOP to ++44 7300 559919
               </h3>
             </div>
             <div className="flex flex-col py-3">
@@ -66,7 +66,7 @@ const ContactUsSocial = () => {
               </p>
               <h2 className="text-center text-md font-semibold text-teal-500 py-1">
                 {" "}
-                +44 1924 979 895
+                +44 7300 559919
               </h2>
             </div>
           </div>
@@ -77,7 +77,8 @@ const ContactUsSocial = () => {
             <hr className="bg-gray-400 h-[2px] w-full" />
             <div className="flex justify-center items-center pt-6  md:pt-16">
               <p className="text-gray-500 text-lg text-center">
-                FGRF Campus FREEPOST Thornes Park Wakefield WF2 8QZ
+                Faizan Global Relief Foundation UK 284 WITTON ROAD,BIRMINGHAM B6
+                6NX, Birmingham, United Kingdom
               </p>
             </div>
           </div>
