@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import { motion, useAnimation } from "framer-motion";
 import SliderSectionMedicalVan from "./slider";
+import AnimationTop from "@/components/newUi/home/AnimationTop";
 
 const MedicalVanDocs = () => {
   return (
@@ -24,14 +26,26 @@ const MedicalVanDocs = () => {
         donation can make a real difference in the lives of those who need it
         most.
       </p>
-      <div className="flex flex-col justify-center items-center py-10 gap-10">
-        <Link
-          href={"/donation"}
-          className="px-10 md:px-16 lg:px-24 py-3 bg-teal-500 font-bold lg:text-lg text-white rounded-lg"
-        >
-          DONATE NOW
-        </Link>
-        {/* <Image src={"/donation/palestinEmergency/button.jpg"} alt="" width={700} height={900} /> */}
+      <div className="flex justify-center pb-5">
+        <AnimationTop>
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <Link href={"/donation"}>
+              <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                  <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                  <span className="relative group-hover:text-white">
+                    Donate Now
+                  </span>
+                </span>
+              </button>
+            </Link>
+          </motion.div>
+        </AnimationTop>
       </div>
 
       {/* Second Video Container */}

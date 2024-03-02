@@ -1,5 +1,8 @@
 import Link from "next/link";
 import SliderSectionMasjid from "./slider";
+import AnimatedVideoRight from "../animations/videoAnimationRight";
+import AnimatedVideoLeft from "../animations/videoAnimationLeft";
+
 const MasjidDocs = () => {
   return (
     // new Code
@@ -30,14 +33,18 @@ const MasjidDocs = () => {
         </div>
         <div className="flex flex-wrap md:flex-nowrap gap-10 pt-10 pb-8 items-center">
           <div className="md:w-3/4 ">
-            <video className="h-full w-full rounded-2xl" controls>
-              <source src="/Videonews/4.mp4" type="video/mp4" />
-            </video>
+            <AnimatedVideoLeft>
+              <video className="h-full w-full rounded-2xl" controls>
+                <source src="/Videonews/4.mp4" type="video/mp4" />
+              </video>
+            </AnimatedVideoLeft>
           </div>
           <div className="md:w-3/4 ">
-            <video className="h-full w-full rounded-2xl" controls>
-              <source src="/Videonews/4.mp4" type="video/mp4" />
-            </video>
+            <AnimatedVideoRight>
+              <video className="h-full w-full rounded-2xl" controls>
+                <source src="/Videonews/4.mp4" type="video/mp4" />
+              </video>
+            </AnimatedVideoRight>
           </div>
         </div>
         <div className="flex justify-center">

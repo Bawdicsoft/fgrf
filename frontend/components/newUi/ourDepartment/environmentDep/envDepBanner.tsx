@@ -129,15 +129,17 @@ const EnvironmentDepBannerSection = () => {
           </motion.div>
         </div>
       </div> */}
-      <div className="py-5">
-        <Image
-          src={"/ourDepartment/EnvironmentDepartment/plant/plant (6).jpg"}
-          alt="about image"
-          width={2000}
-          height={2000}
-          className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
-        />
-      </div>
+      <AnimationBottom>
+        <div className="py-5">
+          <Image
+            src={"/ourDepartment/EnvironmentDepartment/plant/plant (6).jpg"}
+            alt="about image"
+            width={2000}
+            height={2000}
+            className="h-[200px] md:h-[400px] lg:h-[580px] w-full mx-auto"
+          />
+        </div>
+      </AnimationBottom>
     </div>
   );
 };

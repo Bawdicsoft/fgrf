@@ -427,7 +427,7 @@ export default function Navbar() {
                     Appeal
                   </Link>
                 </div>
-                <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-1 px-3 text-gray-800 shadow-xl group-hover:visible">
+                <div className="-ml-2 py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
                   <Link
                     href={"/appeal/ramadan"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
@@ -533,7 +533,7 @@ export default function Navbar() {
                     Donation
                   </Link>
                 </div>
-                <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-1 px-3 text-gray-800 shadow-xl group-hover:visible">
+                <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-3 px-3 text-gray-800 shadow-xl group-hover:visible">
                   <Link
                     href={"/donation/iftar-donation"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
