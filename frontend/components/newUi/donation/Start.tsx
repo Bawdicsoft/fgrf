@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AnimationTop from "../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimatedComponentLeft from "../home/AnimationLeft";
@@ -116,6 +116,42 @@ const StartSec: React.FC<StartSecProps> = ({
     setShowBackBtn(false);
   };
 
+  // All Data related to Calculator
+  const goldAandSilverRef = useRef<any>();
+  const cash1Ref = useRef<any>();
+  const cash2Ref = useRef<any>();
+  const cash3Ref = useRef<any>();
+  const cash4Ref = useRef<any>();
+  const businessRef = useRef<any>();
+  const [labilities1, setLabilities1] = useState<any>();
+  const [labilities2, setLabilities2] = useState<any>();
+  const [labilities3, setLabilities3] = useState<any>();
+  const [total, setTotal] = useState<any>();
+  const [zakat, setZakat] = useState<any>();
+  // Calculator function
+  const calculateHandler = () => {
+    let goldAandSilver = goldAandSilverRef?.current?.value;
+    let cash1 = cash1Ref?.current?.value;
+    let cash2 = cash2Ref?.current?.value;
+    let cash3 = cash3Ref?.current?.value;
+    let business = businessRef?.current?.value;
+    setZakat(
+      (+goldAandSilver + +cash1 + +cash2 + +cash3 + +business - +total) / 40
+    );
+  };
+  const resetHandler = () => {
+    goldAandSilverRef.current.value = null;
+    cash1Ref.current.value = "";
+    cash2Ref.current.value = "";
+    cash3Ref.current.value = "";
+    cash4Ref.current.value = "";
+    businessRef.current.value = "";
+    setLabilities1("");
+    setLabilities2("");
+    setLabilities3("");
+    setTotal("");
+    setZakat("");
+  };
   return (
     <div>
       {/* navbar */}
@@ -260,7 +296,8 @@ const StartSec: React.FC<StartSecProps> = ({
                     </span>
                     <input
                       className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                      type="text"
+                      type="number"
+                      ref={goldAandSilverRef}
                       placeholder="Value of silver and gold you possess"
                     />
                   </div>
@@ -276,7 +313,8 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        ref={cash1Ref}
                         placeholder="In Hand and Bank Accounts"
                       />
                     </div>
@@ -286,7 +324,8 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        ref={cash2Ref}
                         placeholder="Saving for the future"
                       />
                     </div>
@@ -296,7 +335,8 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        ref={cash3Ref}
                         placeholder="Money You have loaned"
                       />
                     </div>
@@ -306,7 +346,8 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        ref={cash4Ref}
                         placeholder="Business investments"
                       />
                     </div>
@@ -322,7 +363,8 @@ const StartSec: React.FC<StartSecProps> = ({
                     </span>
                     <input
                       className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                      type="text"
+                      type="number"
+                      ref={businessRef}
                       placeholder="Stock value"
                     />
                   </div>
@@ -371,10 +413,35 @@ const StartSec: React.FC<StartSecProps> = ({
                   </div>
                 </div>
                 <div className="flex justify-center items-center md:h-10 lg:h-32">
-                  <div className="text-lg text-center font-semibold text-gray-500 py-1 md:py-2">
+                  <div className="text-lg text-center font-semibold text-gray-500 py-1 md:py-5">
                     You have no Zakat due, please support our Zakat appeal
                   </div>
                 </div>
+                {zakat ? (
+                  <div className="border border-teal-500 flex flex-col rounded-xl px-4">
+                    <hr className="bg-teal-500 h-[2px] w-full my-2" />
+                    <div className="flex justify-between bg-green-400 py-2 px-4 rounded-xl">
+                      <p className="text-base font-bold">Your Zakat :</p>
+                      <p className="text-base font-bold">
+                        {zakat.toString().split(".")[0] > 0
+                          ? zakat.toString().split(".")[0]
+                          : 0}
+                      </p>
+                    </div>
+                    <hr className="bg-teal-500 h-[2px] w-full  my-2" />
+                    {/* <div className="flex justify-between">
+                      <p className="text-base font-normal">
+                        Your Transaction Fee :
+                      </p>
+                      <p className="text-base font-bold">
+                        {zakat.toString().split(".")[1] || 0}
+                      </p>
+                    </div>
+                    <hr className="bg-teal-500 h-[1px] w-full mt-4 mb-2" /> */}
+                  </div>
+                ) : (
+                  <div className="visible"></div>
+                )}
                 <div className="flex flex-col w-full">
                   <label className="text-base font-semibold text-gray-500 py-1 md:py-2">
                     Liabilities
@@ -386,7 +453,14 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        value={labilities1}
+                        onChange={(e) => {
+                          setLabilities1(e.target.value);
+                          setTotal(
+                            +e.target.value + +(+labilities2 + +labilities3)
+                          );
+                        }}
                         placeholder="Money owned (borrowed or credit"
                       />
                     </div>
@@ -396,7 +470,14 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        value={labilities2}
+                        onChange={(e) => {
+                          setLabilities2(e.target.value);
+                          setTotal(
+                            +e.target.value + +(+labilities1 + +labilities3)
+                          );
+                        }}
                         placeholder="Employee salaries"
                       />
                     </div>
@@ -406,7 +487,14 @@ const StartSec: React.FC<StartSecProps> = ({
                       </span>
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
-                        type="text"
+                        type="number"
+                        value={labilities3}
+                        onChange={(e) => {
+                          setLabilities3(e.target.value);
+                          setTotal(
+                            +e.target.value + +(+labilities2 + +labilities1)
+                          );
+                        }}
                         placeholder="Other outgoings due (tax, rent, utilities)"
                       />
                     </div>
@@ -423,20 +511,27 @@ const StartSec: React.FC<StartSecProps> = ({
                     <input
                       className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                       type="number"
+                      value={total}
                       placeholder="0"
                     />
                   </div>
                 </div>
                 <div className="flex justify-end pt-2">
                   <div className="flex gap-2">
-                    <button className="bg-teal-500 relative group overflow-hidden  hover:bg-teal-600 rounded-md text-white font-medium px-5 py-2">
+                    <button
+                      onClick={resetHandler}
+                      className="bg-teal-500 relative group overflow-hidden  hover:bg-teal-600 rounded-md text-white font-medium px-5 py-2"
+                    >
                       <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45  -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                       <span className="relative group-hover:text-gray-500">
                         Reset
                       </span>
                     </button>
-                    <button className="relative overflow-hidden group bg-sky-800  text-white font-medium rounded-lg px-5 py-2">
+                    <button
+                      onClick={calculateHandler}
+                      className="relative overflow-hidden group bg-sky-800  text-white font-medium rounded-lg px-5 py-2"
+                    >
                       <span className="absolute w-full h-0 transition-all duration-500 origin-center rotate-45  -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
                       <span className="relative group-hover:text-gray-500">
@@ -452,6 +547,11 @@ const StartSec: React.FC<StartSecProps> = ({
             <button
               onClick={() => {
                 setZakatCalc(false);
+                setLabilities1(null);
+                setLabilities2(null);
+                setLabilities3(null);
+                setTotal(null);
+                setZakat(null);
               }}
               className="relative group overflow-hidden uppercase  py-2 px-4 text-2xl font-bold text-gray-400 bg-white flex gap-2 items-center justify-center"
             >
@@ -467,6 +567,11 @@ const StartSec: React.FC<StartSecProps> = ({
               onClick={() => {
                 setZakatCalc(false);
                 nextHandler();
+                setDollarDonate(
+                  zakat.toString().split(".")[0] > 0
+                    ? zakat.toString().split(".")[0]
+                    : 0
+                );
                 // monthlyHandler(donation);
               }}
               className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
@@ -538,7 +643,7 @@ const StartSec: React.FC<StartSecProps> = ({
                             </p>
 
                             {title === "zakat" && (
-                              <div className="flex justify-center pt-2 md:pt-5 lg:pt-8">
+                              <div className="flex justify-center pt-2 md:pb-5 lg:pb-0 lg:pt-8">
                                 <button
                                   onClick={() => setZakatCalc(true)}
                                   className="bg-teal-500 relative group overflow-hidden rounded-lg  font-semibold text-lg md:text-xl lg:text-2xl py-2 px-4"
