@@ -28,7 +28,9 @@ const StartSec: React.FC<StartSecProps> = ({
 }) => {
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
-  const [dollarDonate, setDollarDonate] = useState<string>("100");
+  const [dollarDonate, setDollarDonate] = useState<string>(
+    title === "water well" ? "1000" : "100"
+  );
   const [titleDonate, setTitleDonate] = useState<string>(title);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
 
@@ -663,45 +665,49 @@ const StartSec: React.FC<StartSecProps> = ({
                               </div>
                             )}
                             <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
-                              <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                                {orphansOthersList?.map((data, index) =>
-                                  data === "others" ? (
-                                    <button
-                                      key={index}
-                                      onClick={() => {
-                                        setInput(true);
-                                        setBgBtnIndex(index);
-                                      }}
-                                      className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
-                                    >
-                                      <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                      <span className="relative w-full">
-                                        {data}
-                                      </span>
-                                    </button>
-                                  ) : (
-                                    <button
-                                      key={index}
-                                      onClick={() => {
-                                        setDollar(data);
-                                        setDollarDonate(data);
-                                        setInput(false);
-                                        setBgBtnIndex(index);
-                                        setTitleDonate(title);
-                                        setDollarDonate(data);
-                                      }}
-                                      className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
-                                        bgBtnIndex === index
-                                          ? "bg-[#19afaf] text-white"
-                                          : "bg-white"
-                                      } `}
-                                    >
-                                      <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                      <span className="relative ">{data}</span>
-                                    </button>
-                                  )
-                                )}
-                              </div>
+                              {!(title === "water well") && (
+                                <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
+                                  {orphansOthersList?.map((data, index) =>
+                                    data === "others" ? (
+                                      <button
+                                        key={index}
+                                        onClick={() => {
+                                          setInput(true);
+                                          setBgBtnIndex(index);
+                                        }}
+                                        className={`relative group overflow-hidden md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-3  hover:text-white `}
+                                      >
+                                        <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                        <span className="relative w-full">
+                                          {data}
+                                        </span>
+                                      </button>
+                                    ) : (
+                                      <button
+                                        key={index}
+                                        onClick={() => {
+                                          setDollar(data);
+                                          setDollarDonate(data);
+                                          setInput(false);
+                                          setBgBtnIndex(index);
+                                          setTitleDonate(title);
+                                          setDollarDonate(data);
+                                        }}
+                                        className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
+                                          bgBtnIndex === index
+                                            ? "bg-[#19afaf] text-white"
+                                            : "bg-white"
+                                        } `}
+                                      >
+                                        <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                        <span className="relative ">
+                                          {data}
+                                        </span>
+                                      </button>
+                                    )
+                                  )}
+                                </div>
+                              )}
                               {input && (
                                 <input
                                   type="number"
