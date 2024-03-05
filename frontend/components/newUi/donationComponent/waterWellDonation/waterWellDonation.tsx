@@ -3,8 +3,11 @@ import { DonationSectionPage } from "../../donation/donation";
 export default function WaterWellDonation() {
   const img = "/AppealNew/waterWell/1.jpg";
   const title = "water well";
-  const desc =
-    "Lorem et expedita similique maxime doloribus inventore quam incidunt saepe voluptatem quos quae reprehenderit quisquam reiciendis esse quod fugiat consectetur. Atque voluptates hic corrupti. Beatae debitis laudantium, libero eos dolorem maxime nulla quisquam iure officia.";
+  const desc = `Hadrat Sayyidunā Sa'd bin 'Ubadah رضی اللہ عنہ asked, "Ya Rasūlullah َصَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم ! My mother has passed away (I want to give some Şadaqah (charity) on behalf of
+her), which Şadaqah would be the best for her?" The Holy Prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم 
+replied, 'Water.' So, Sayyiduna Sa'd رضى الله عنه got a well dug and said, "This is for Sa'd's
+mother." (Sunan Abū Davod Sharif, V2, P53, Hadis 1681, Dar-ul-Fikr Beirut)
+ `;
   return (
     <div>
       <DonationSectionPage image={img} title={title} desc={desc} />

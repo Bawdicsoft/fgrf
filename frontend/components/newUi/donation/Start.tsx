@@ -19,7 +19,10 @@ interface StartSecProps {
   title: string;
   desc: string;
 }
-const orphansOthersList = ["150", "100", "50", "others"];
+const defaultDonationList = ["150", "100", "50", "others"];
+const winterDonationList = ["50", "100", "200", "others"];
+const palestineDonationList = ["100", "200", "300", "others"];
+const masjidDonationList = ["1000", "5000", "10000", "others"];
 const StartSec: React.FC<StartSecProps> = ({
   monthlyHandler,
   image,
@@ -29,7 +32,15 @@ const StartSec: React.FC<StartSecProps> = ({
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
   const [dollarDonate, setDollarDonate] = useState<string>(
-    title === "water well" ? "1000" : title === "hand pump" ? "175" : "100"
+    title === "water well"
+      ? "1000"
+      : title === "hand pump"
+      ? "175"
+      : title === "masjid"
+      ? "5000"
+      : title === "orphan" || title === "palestine"
+      ? "200"
+      : "100"
   );
   const [titleDonate, setTitleDonate] = useState<string>(title);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
@@ -43,6 +54,15 @@ const StartSec: React.FC<StartSecProps> = ({
   const [showBackBtn, setShowBackBtn] = useState(false);
   const [check, setCheck] = useState(false);
   const [check1, setCheck1] = useState(false);
+  const [donationBtns, setDonationBtns] = useState(
+    title === "masjid"
+      ? masjidDonationList
+      : title === "orphan" || title === "palestine"
+      ? palestineDonationList
+      : title === "Winter"
+      ? winterDonationList
+      : defaultDonationList
+  );
   const nextDetHandler = (
     title: string,
     firstName: string,
@@ -669,7 +689,7 @@ const StartSec: React.FC<StartSecProps> = ({
                                 title === "water well" || title === "hand pump"
                               ) && (
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                                  {orphansOthersList?.map((data, index) =>
+                                  {donationBtns?.map((data, index) =>
                                     data === "others" ? (
                                       <button
                                         key={index}
@@ -738,7 +758,7 @@ const StartSec: React.FC<StartSecProps> = ({
                       ) : (
                         <div className="flex max-w-2xl mx-auto flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
                           <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                            {orphansOthersList?.map((data, index) =>
+                            {donationBtns?.map((data, index) =>
                               data === "others" ? (
                                 <button
                                   key={index}

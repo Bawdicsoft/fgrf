@@ -22,7 +22,7 @@ const AboutDocs = () => {
         </p>
         <div className="py-5 md:py-8">
           <Image
-            src={"/GalleryNew/101.jpg"}
+            src={"/GalleryNew/41.jpg"}
             alt="about image"
             width={2000}
             height={2000}

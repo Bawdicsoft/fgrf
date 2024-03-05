@@ -3,8 +3,12 @@ import { DonationSectionPage } from "../../donation/donation";
 export default function PalestineDonation() {
   const img = "/AppealNew/palestine/6.png";
   const title = "palestine";
-  const desc =
-    "Lorem et expedita similique maxime doloribus inventore quam incidunt saepe voluptatem quos quae reprehenderit quisquam reiciendis esse quod fugiat consectetur. Atque voluptates hic corrupti. Beatae debitis laudantium, libero eos dolorem maxime nulla quisquam iure officia.";
+  const desc = `Allah will remove trouble
+,said has صلی اللہ علیہ وآلہ وسلم Rasool beloved
+‘He who relieves the
+worldly suffering of any Muslim, Allah will remove the trouble of the Day of Judgement from
+him.’
+(Sunan-ut-Tirmizi, Kitab-ul-Hudood, vol. 3, pp. 115)`;
   return (
     <div>
       <DonationSectionPage image={img} title={title} desc={desc} />

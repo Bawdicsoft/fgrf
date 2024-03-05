@@ -20,21 +20,21 @@ const ContactUsSocial = () => {
           />
         </div>
         <div className="px-5 h-full grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-8 py-8">
-          <div className="bg-white rounded-lg px-2 lg:px-5">
+          <div className="bg-white rounded-lg px-2 pb-3 lg:pb-0 lg:px-5">
             <h2 className="text-xl md:2xl lg:text-3xl font-extrabold text-teal-500 py-5 text-center">
-              Phone#
+              Contact Us
             </h2>
             <hr className="bg-gray-400 h-[2px] w-full" />
-            <div className="flex flex-col py-3">
-              <span className=" flex gap-4 justify-center items-center text-lg md:text-xl lg:text-2xl font-extrabold text-teal-500 py-1 text-center">
+            <div className="pt-3 md:pt-16">
+              <span className="flex gap-4 justify-center items-center text-lg md:text-xl lg:text-2xl font-extrabold text-teal-500 py-1 text-center">
                 {" "}
                 <FiPhoneCall /> <span>+44 7300 559919</span>
               </span>
-              <p className="text-gray-500 text-sm text-center">
+              {/* <p className="text-gray-500 text-sm text-center">
                 Free from mobiles as part of inclusive minutes package.
-              </p>
+              </p> */}
             </div>
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <p className="text-xl md:2xl font-medium text-gray-400 py-1 text-center">
                 The Press:
               </p>
@@ -68,26 +68,26 @@ const ContactUsSocial = () => {
                 {" "}
                 +44 7300 559919
               </h2>
-            </div>
+            </div> */}
           </div>
-          <div className="bg-white rounded-lg px-2 lg:px-5 md:h-3/6 lg:h-4/6 pb-3 md:pb-0">
+          <div className="bg-white rounded-lg px-2 lg:px-5 pb-3 md:pb-0">
             <h2 className="text-xl md:2xl lg:text-3xl font-extrabold text-teal-500 py-5 text-center">
               Postal Address
             </h2>
             <hr className="bg-gray-400 h-[2px] w-full" />
             <div className="flex justify-center items-center pt-6  md:pt-16">
-              <p className="text-gray-500 text-lg text-center">
+              <p className="text-gray-500 text-lg text-center font-bold">
                 Faizan Global Relief Foundation UK 284 WITTON ROAD,BIRMINGHAM B6
                 6NX, Birmingham, United Kingdom
               </p>
             </div>
           </div>
-          <div className="bg-white rounded-lg px-2 lg:px-5 md:h-4/6 lg:h-5/6 pb-3 md:pb-0">
+          <div className="bg-white rounded-lg px-2 lg:px-5 pb-3 md:pb-8">
             <h2 className="text-xl md:2xl lg:text-3xl font-extrabold text-teal-500 py-5 text-center">
               Social Media
             </h2>
             <hr className="bg-gray-400 h-[2px] w-full" />
-            <p className="text-gray-500 text-lg text-center pt-8">
+            <p className="text-gray-500 text-lg text-center pt-5 font-bold">
               Keep updated with your donations in action, follow us on:
             </p>
             <div className="w-full h-full">

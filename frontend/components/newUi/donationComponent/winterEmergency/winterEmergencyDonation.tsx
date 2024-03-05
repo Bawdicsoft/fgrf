@@ -3,8 +3,10 @@ import { DonationSectionPage } from "../../donation/donation";
 export default function WinterDonation() {
   const img = "/AppealNew/winter/8.png";
   const title = "Winter";
-  const desc =
-    "Lorem et expedita similique maxime doloribus inventore quam incidunt saepe voluptatem quos quae reprehenderit quisquam reiciendis esse quod fugiat consectetur. Atque voluptates hic corrupti. Beatae debitis laudantium, libero eos dolorem maxime nulla quisquam iure officia.";
+  const desc = `Allah will fulfil the needs
+Our beloved Rasool صلی اللہ علیہ وسلم  has said, ‘He who fulfils the need of any
+person, Allah will fulfil his needs in the religion and the
+world.’ (Sahih Muslim, Kitab-uz-Zikr wad-Du’a, pp. 1447, Hadees 2699)`;
   return (
     <div>
       <DonationSectionPage image={img} title={title} desc={desc} />
