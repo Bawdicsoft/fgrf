@@ -22,7 +22,7 @@ interface StartSecProps {
 const defaultDonationList = ["150", "100", "50", "others"];
 const winterDonationList = ["50", "100", "200", "others"];
 const palestineDonationList = ["100", "200", "300", "others"];
-const masjidDonationList = ["1000", "5000", "10000", "others"];
+const masjidDonationList = ["1000", "5,000", "10,000", "others"];
 const StartSec: React.FC<StartSecProps> = ({
   monthlyHandler,
   image,
@@ -709,11 +709,17 @@ const StartSec: React.FC<StartSecProps> = ({
                                         key={index}
                                         onClick={() => {
                                           setDollar(data);
-                                          setDollarDonate(data);
+                                          {
+                                            data === "10,000" ||
+                                            data === "5,000"
+                                              ? setDollarDonate(
+                                                  data.split(",").join("")
+                                                )
+                                              : setDollarDonate(data);
+                                          }
                                           setInput(false);
                                           setBgBtnIndex(index);
                                           setTitleDonate(title);
-                                          setDollarDonate(data);
                                         }}
                                         className={`relative group overflow-hidden py-2 lg:py-3 md:text-xl lg:text-2xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
                                           bgBtnIndex === index
@@ -868,8 +874,8 @@ const StartSec: React.FC<StartSecProps> = ({
           !(String(title) === "orphan") &&
           !(String(title) === "zakat") &&
           title ? (
-            <div className="flex justify-center">
-              <p className="text-gray-900 text-base text-center max-w-3xl ">
+            <div className="">
+              <p className="text-black font-bold text-[13px] text-center ">
                 Any leftover donation can be spent in any permissible, welfare,
                 well-wishing, water, food, agriculture, construction, reglious
                 and good purpose.
@@ -878,8 +884,8 @@ const StartSec: React.FC<StartSecProps> = ({
           ) : (
             <>
               {title && !(title === "zakat") ? (
-                <div className="flex justify-center">
-                  <p className="text-gray-900 text-base text-center max-w-3xl ">
+                <div className="">
+                  <p className="text-black font-bold text-[13px] text-center ">
                     Your donations can be used for any welfare, well-wishing,
                     permissible, religious, reformatory, spiritual and good
                     purpose
@@ -888,7 +894,7 @@ const StartSec: React.FC<StartSecProps> = ({
               ) : null}
             </>
           )}
-          {showPayment && (
+          {/* {showPayment && (
             <div className="flex justify-center">
               <p className="text-gray-500 text-sm text-center max-w-3xl ">
                 Your donation can be spent in any Permissible, Welfare,
@@ -896,7 +902,7 @@ const StartSec: React.FC<StartSecProps> = ({
                 and good purpose.
               </p>
             </div>
-          )}
+          )} */}
         </div>
       )}
     </div>

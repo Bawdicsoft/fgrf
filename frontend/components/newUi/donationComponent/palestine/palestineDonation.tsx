@@ -4,7 +4,7 @@ export default function PalestineDonation() {
   const img = "/AppealNew/palestine/6.png";
   const title = "palestine";
   const desc = `Allah will remove trouble
-,said has صلی اللہ علیہ وآلہ وسلم Rasool beloved
+ beloved Rasool صلی اللہ علیہ وآلہ وسلم has said ,
 ‘He who relieves the
 worldly suffering of any Muslim, Allah will remove the trouble of the Day of Judgement from
 him.’
