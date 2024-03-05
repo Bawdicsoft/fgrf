@@ -864,6 +864,30 @@ const StartSec: React.FC<StartSecProps> = ({
               <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
             </button>
           </div>
+          {!(String(title) === "palestine") &&
+          !(String(title) === "orphan") &&
+          !(String(title) === "zakat") &&
+          title ? (
+            <div className="flex justify-center">
+              <p className="text-gray-900 text-base text-center max-w-3xl ">
+                Any leftover donation can be spent in any permissible, welfare,
+                well-wishing, water, food, agriculture, construction, reglious
+                and good purpose.
+              </p>
+            </div>
+          ) : (
+            <>
+              {title && !(title === "zakat") ? (
+                <div className="flex justify-center">
+                  <p className="text-gray-900 text-base text-center max-w-3xl ">
+                    Your donations can be used for any welfare, well-wishing,
+                    permissible, religious, reformatory, spiritual and good
+                    purpose
+                  </p>
+                </div>
+              ) : null}
+            </>
+          )}
           {showPayment && (
             <div className="flex justify-center">
               <p className="text-gray-500 text-sm text-center max-w-3xl ">
