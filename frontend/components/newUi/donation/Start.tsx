@@ -883,7 +883,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </div>
           ) : (
             <>
-              {title && !(title === "zakat") ? (
+              {!(title === "zakat") ? (
                 <div className="">
                   <p className="text-black font-bold text-[13px] text-center ">
                     Your donations can be used for any welfare, well-wishing,
