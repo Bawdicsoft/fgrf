@@ -135,7 +135,7 @@ const OrphanBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/orphan/orphan/orphan (5).png"}
+            src={"/ourDepartment/orphan/orphan/orphan (85).png"}
             alt="about image"
             width={2000}
             height={2000}
