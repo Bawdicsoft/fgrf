@@ -29,7 +29,7 @@ const StartSec: React.FC<StartSecProps> = ({
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
   const [dollarDonate, setDollarDonate] = useState<string>(
-    title === "water well" ? "1000" : title === "Food Pack" ? "175" : "100"
+    title === "water well" ? "1000" : title === "hand pump" ? "175" : "100"
   );
   const [titleDonate, setTitleDonate] = useState<string>(title);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
@@ -666,7 +666,7 @@ const StartSec: React.FC<StartSecProps> = ({
                             )}
                             <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
                               {!(
-                                title === "water well" || title === "Food Pack"
+                                title === "water well" || title === "hand pump"
                               ) && (
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
                                   {orphansOthersList?.map((data, index) =>
