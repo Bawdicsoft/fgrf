@@ -76,7 +76,7 @@ const DonationModal: React.FC<DonationModalProps> = ({}) => {
                         </h2>
                         <div
                           onClick={() => setModal(!modal)}
-                          className="bg-teal-700 p-2 rounded-lg cursor-pointer"
+                          className="bg-teal-700 p-2 rounded-lg cursor-pointer h-[35px]"
                         >
                           <RxCross1 className="w-5 h-5 text-white" />
                         </div>
@@ -225,11 +225,10 @@ CVC"
                         <div>
                           <p className="py-4">
                             Add 25% more to your donation at no cost to you. A
-                            Gift Aid declaration allows Dawateislami Midlands UK
-                            to claim tax back on eligible donations. It means
-                            that for every £1 you donate to Dawateislami
-                            Midlands UK we can claim back 25p, at no extra cost
-                            to you.
+                            Gift Aid declaration allows FGRF UK to claim tax
+                            back on eligible donations. It means that for every
+                            £1 you donate to FGRF UK we can claim back 25p, at
+                            no extra cost to you.
                           </p>
                         </div>
                         <div>
@@ -243,15 +242,15 @@ CVC"
                             </span>
                             <p className="text-sm py-3">
                               By ticking the &#34;Yes&#34; box, I agree I would
-                              like Dawateislami Midlands UK to reclaim the tax
-                              on all qualifying donations I have made, as well
-                              as any future donations, until I notify them
-                              otherwise. I understand that if I pay less Income
-                              Tax and/or Capital Gains Tax than the amount of
-                              Gift Aid claimed on all my donations in that tax
-                              year I may be asked to pay any difference. I
-                              understand that Dawateislami Midlands UK will
-                              reclaim 25p of tax on every £1 that I give.
+                              like FGRF UK to reclaim the tax on all qualifying
+                              donations I have made, as well as any future
+                              donations, until I notify them otherwise. I
+                              understand that if I pay less Income Tax and/or
+                              Capital Gains Tax than the amount of Gift Aid
+                              claimed on all my donations in that tax year I may
+                              be asked to pay any difference. I understand that
+                              FGRF UK will reclaim 25p of tax on every £1 that I
+                              give.
                             </p>
                           </div>
                           <div className="grid grid-cols-1 md:grid-cols-2 py-3">
