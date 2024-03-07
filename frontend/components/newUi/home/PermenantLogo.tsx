@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
+import { useDonationContext } from "../contextApi/donationContext";
 
 const Fgrflogo = () => {
+  const amountDonation = useDonationContext();
+  const modal = amountDonation.donationModal;
+  const setModal = amountDonation.setDonationModalHandler;
   return (
     <div className="relative z-50 ">
       <div className="flex flex-col gap-1 w-24 fixed bottom-5 right-5">
@@ -20,6 +25,7 @@ const Fgrflogo = () => {
         </div> */}
         <Link
           href={"/donation"}
+          onClick={() => setModal(!modal)}
           className="w-24 mx-auto relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-2"
         >
           <span className="absolute w-40 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>

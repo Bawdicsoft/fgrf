@@ -289,6 +289,7 @@ export default function Navbar() {
               </select>
               <Link
                 href={"/donation"}
+                onClick={() => setModal(!modal)}
                 className="relative group w-full text-center overflow-hidden bg-sky-900 text-white py-1 px-2 lg:px-3 text-[9px] lg:text-sm"
               >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
@@ -684,6 +685,7 @@ export default function Navbar() {
 
               <Link
                 href={"/donation"}
+                onClick={() => setModal(!modal)}
                 className="bg-sky-800 py-1 text-white flex flex-col justify-center items-center lg:px-2.5 xl:px-3.5 lg:py-2 overflow-hidden relative group cursor-pointer font-medium"
               >
                 {/* <motion.div
