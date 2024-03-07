@@ -10,10 +10,9 @@ const OrphanDocs = () => {
         <SliderSectionOrphan />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque nam
-          maxime libero, quas, nobis ea deserunt, quos sequi assumenda officiis
-          reiciendis laborum aut! Odio dolorem earum, aliquam laborum debitis
-          voluptatum!
+          This golden teaching of treating orphans with kindness is a definite
+          way of &#39;improving human life&#39; and making every individual an
+          honourable person of a society.
         </p>
 
         <div className="flex justify-center">

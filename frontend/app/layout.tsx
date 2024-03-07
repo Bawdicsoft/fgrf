@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/newUi/navBar/Navbar";
 import Footer from "@/components/newUi/Footer/Footer";
 import Fgrflogo from "@/components/newUi/home/PermenantLogo";
+import DonationProvider from "@/components/newUi/contextApi/donationProvider";
 // import Navbar from "@/components/navigation/Navbar";
 
 export const metadata: Metadata = {
@@ -20,14 +21,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Navbar />
-        {/* myCode */}
-        {/* <Navbar /> */}
-        <div>
-          <Fgrflogo />
-        </div>
-        {children}
-        <Footer />
+        <DonationProvider>
+          <Navbar />
+          {/* myCode */}
+          {/* <Navbar /> */}
+          <div>
+            <Fgrflogo />
+          </div>
+          {children}
+          <Footer />
+        </DonationProvider>
       </body>
     </html>
   );

@@ -125,7 +125,7 @@ const SadaqahBannerSection = () => {
           </AppealBannerAnimationRight>
         </AnimationTop>
       </div>
-      <div className="bg-gray-300 md:h-80 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
+      <div className="bg-gray-300 md:h-96 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
         {/* form Container */}
         {donationForm ? (
           <AnimatedComponentLeft>
@@ -236,6 +236,13 @@ const SadaqahBannerSection = () => {
             </span>
             <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
           </button>
+        </div>
+        {/* text line */}
+        <div className="pt-3">
+          <p className="text-black font-bold text-[13px] text-center ">
+            Your donations can be used for any welfare, well-wishing,
+            permissible, religious, reformatory, spiritual and good purpose
+          </p>
         </div>
       </div>
     </div>

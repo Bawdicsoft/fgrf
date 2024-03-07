@@ -1,3 +1,4 @@
+"use client";
 import { GrFacebook } from "react-icons/gr";
 import { BsLinkedin } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
@@ -12,10 +13,13 @@ import { PiTrademarkRegisteredLight } from "react-icons/pi";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { useDonationContext } from "../contextApi/donationContext";
 const Footer = () => {
+  const amountDonation = useDonationContext();
+  const titleDonationDollar = amountDonation.donationTitle;
   return (
     <section className="bg-white">
-      <div className="lg:max-w-[1000px] mx-auto px-3">
+      <div className="lg:max-w-[1000px] mx-auto px-3 pb-3">
         <div className="bg-[#19afaf] w-full h-1 relative rounded-full"></div>
         {/* <div className="lg:flex lg:flex-row flex flex-col lg:items-start lg:gap-y-0 gap-y-3 lg:justify-between lg:py-10 py-6">
           <div className="lg:flex lg:flex-row flex flex-col items-center gap-x-3 lg:items-center">
@@ -128,11 +132,13 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 md:gap-1 lg:gap-0">
             <div className="col-span-2 flex flex-col gap-2 md:py-4">
-              <p className="text-xs text-center">
-                Any leftover donation can be spent in any permissible, welfare,
-                well-wishing, water, food, agriculture, construction, reglious
-                and good purpose.
-              </p>
+              {!(titleDonationDollar === "zakat") && (
+                <p className="text-xs text-center">
+                  Any leftover donation can be spent in any permissible,
+                  welfare, well-wishing, water, food, agriculture, construction,
+                  reglious and good purpose.
+                </p>
+              )}
               <p className="text-xs text-center lg:w-[650px]">
                 Faizan Global Relief Foundation UK 284 WITTON ROAD,BIRMINGHAM B6
                 6NX,Birmingham,United Kingdom

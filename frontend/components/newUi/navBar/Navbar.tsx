@@ -15,6 +15,7 @@ import Image from "next/image";
 import { LiaDonateSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
 import AnalogWatch from "./AnalogWatch";
+import { useDonationContext } from "../contextApi/donationContext";
 export default function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
   const days = [
@@ -105,6 +106,9 @@ export default function Navbar() {
 
   const [toggel, setToggel] = useState<boolean>(false);
   const [logo, setLogo] = useState(false);
+
+  const amountDonation = useDonationContext();
+  const setAmountForDonation = amountDonation.setDonationAmountHandler;
   return (
     <>
       <div className="max-w-screen-2xl bg-white md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
@@ -262,6 +266,9 @@ export default function Navbar() {
                   <input
                     type="number"
                     id="small-input"
+                    onChange={(e) => {
+                      setAmountForDonation(e.target.value);
+                    }}
                     placeholder="Amount"
                     className="block pl-2 w-14 lg:w-full font-semibold bg-transparent text-[10px] lg:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
                     required
@@ -803,6 +810,9 @@ export default function Navbar() {
                   <input
                     type="number"
                     id="small-input"
+                    onChange={(e) => {
+                      setAmountForDonation(e.target.value);
+                    }}
                     placeholder="Amount"
                     className="block w-full bg-gray-200 font-semibold  sm:text-xs outline-none focus:border-transparent focus:ring-0 focus:outline-none"
                     required

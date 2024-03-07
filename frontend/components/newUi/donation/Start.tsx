@@ -13,12 +13,14 @@ import DonationForm from "./donationForm";
 import PaymentSec from "./Payment";
 import DetailsSec from "./Details";
 import AnimationBottom from "../home/AnimationBtm";
+import { useDonationContext } from "../contextApi/donationContext";
 interface StartSecProps {
   monthlyHandler: (data: string[]) => void;
   image: string;
   title: string;
   desc: string;
 }
+
 const defaultDonationList = ["150", "100", "50", "others"];
 const winterDonationList = ["50", "100", "200", "others"];
 const palestineDonationList = ["100", "200", "300", "others"];
@@ -29,6 +31,9 @@ const StartSec: React.FC<StartSecProps> = ({
   title,
   desc,
 }) => {
+  const amountDonation = useDonationContext();
+  const donationDollar = amountDonation.donationAmount;
+  const setTitleForDonation = amountDonation.setDonationTitleHandler;
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
   const [dollarDonate, setDollarDonate] = useState<string>(
@@ -40,8 +45,16 @@ const StartSec: React.FC<StartSecProps> = ({
       ? "5000"
       : title === "orphan" || title === "palestine"
       ? "200"
+      : title === "zakat"
+      ? setTitleForDonation("zakat")
+      : donationDollar
+      ? donationDollar
       : "100"
   );
+  if (title !== "zakat") {
+    setTitleForDonation("QuickDonation");
+  }
+  console.log("donationDollar----->", donationDollar);
   const [titleDonate, setTitleDonate] = useState<string>(title);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
 
@@ -175,6 +188,7 @@ const StartSec: React.FC<StartSecProps> = ({
     setTotal("");
     setZakat("");
   };
+
   return (
     <div>
       {/* navbar */}
@@ -762,58 +776,62 @@ const StartSec: React.FC<StartSecProps> = ({
                           </div>
                         </div>
                       ) : (
-                        <div className="flex max-w-2xl mx-auto flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
-                          <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
-                            {donationBtns?.map((data, index) =>
-                              data === "others" ? (
-                                <button
-                                  key={index}
-                                  onClick={() => {
-                                    setInput(true);
-                                    setBgBtnIndex(index);
+                        <>
+                          {!donationDollar && (
+                            <div className="flex max-w-2xl mx-auto flex-col gap-4 lg:pt-8 md:px-3 py-5 lg:py-0 lg:px-0">
+                              <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
+                                {donationBtns?.map((data, index) =>
+                                  data === "others" ? (
+                                    <button
+                                      key={index}
+                                      onClick={() => {
+                                        setInput(true);
+                                        setBgBtnIndex(index);
+                                      }}
+                                      className={`relative group overflow-hidden md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-4 md:px-4 hover:text-white `}
+                                    >
+                                      <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                      <span className="relative ">{data}</span>
+                                    </button>
+                                  ) : (
+                                    <button
+                                      key={index}
+                                      onClick={() => {
+                                        setDollar(data);
+                                        setDollarDonate(data);
+                                        setInput(false);
+                                        setBgBtnIndex(index);
+                                        setTitleDonate(title);
+                                        setDollarDonate(data);
+                                      }}
+                                      className={`relative group overflow-hidden py-2 lg:py-4 md:px-4 md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
+                                        bgBtnIndex === index
+                                          ? "bg-[#19afaf] text-white"
+                                          : "bg-white"
+                                      } `}
+                                    >
+                                      <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
+                                      <span className="relative ">{data}</span>
+                                    </button>
+                                  )
+                                )}
+                              </div>
+                              {input && (
+                                <input
+                                  type="number"
+                                  value={otherDollarVal}
+                                  onChange={(e) => {
+                                    setOtherDollarVal(e.target.value);
+                                    setDollarDonate(e.target.value);
+                                    setDollar(e.target.value);
                                   }}
-                                  className={`relative group overflow-hidden md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-4 md:px-4 hover:text-white `}
-                                >
-                                  <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                  <span className="relative ">{data}</span>
-                                </button>
-                              ) : (
-                                <button
-                                  key={index}
-                                  onClick={() => {
-                                    setDollar(data);
-                                    setDollarDonate(data);
-                                    setInput(false);
-                                    setBgBtnIndex(index);
-                                    setTitleDonate(title);
-                                    setDollarDonate(data);
-                                  }}
-                                  className={`relative group overflow-hidden py-2 lg:py-4 md:px-4 md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf]  focus:text-white font-semibold  hover:text-white ${
-                                    bgBtnIndex === index
-                                      ? "bg-[#19afaf] text-white"
-                                      : "bg-white"
-                                  } `}
-                                >
-                                  <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                  <span className="relative ">{data}</span>
-                                </button>
-                              )
-                            )}
-                          </div>
-                          {input && (
-                            <input
-                              type="number"
-                              value={otherDollarVal}
-                              onChange={(e) => {
-                                setOtherDollarVal(e.target.value);
-                                setDollarDonate(e.target.value);
-                                setDollar(e.target.value);
-                              }}
-                              autoFocus
-                              className=" h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
-                            />
+                                  autoFocus
+                                  className=" h-8 md:h-10 px-2 focus:ring-2  rounded  focus:outline-none ring-[#19afaf] focus:ring-[#19afaf]"
+                                />
+                              )}
+                            </div>
                           )}
-                        </div>
+                        </>
                       )}
                     </motion.div>
                   </div>

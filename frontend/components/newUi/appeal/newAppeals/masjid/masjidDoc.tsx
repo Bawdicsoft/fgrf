@@ -11,10 +11,13 @@ const MasjidDocs = () => {
         <SliderSectionMasjid />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-          voluptate doloremque ipsam itaque neque dicta adipisci, placeat vitae
-          veniam alias voluptatum culpa et exercitationem deserunt nisi iste!
-          Neque, ratione nisi.
+          The holy prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم has said :
+          The one who builds a Masjid for the pleasure of Allah Almighty; Allah
+          Almighty would build a house for him in paradise. (Sahih Muslim) The
+          holy prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم has said:
+          “whoever builds a masjid for the sake of Allah Almighty ‘whether it is
+          small or large’ Allah Almighty builds a house for him in paradise.
+          (Sunan Tirmizi)
         </p>
 
         <div className="flex justify-center">

@@ -10,10 +10,8 @@ const FoodBoxDocs = () => {
         <SliderSectionFoodBox />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-          soluta dicta officia delectus nemo aliquid nobis eos, modi, inventore
-          repellat officiis? Eaque maiores numquam quidem illo consequatur
-          molestiae molestias hic.
+          It was asked from the final Messenger of Allah صلی اللہ علیہ وسلم
+          which aspect of Islam is better? He replied: that you provide food
         </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>

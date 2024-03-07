@@ -130,6 +130,19 @@ const ContactUs: React.FC = () => {
             </div>
           </div>
         </div>
+        <AnimationTop>
+          <motion.div
+            // className="box"
+            whileHover={{ scale: 1.2, filter: "brightness(1.2)" }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 my-3">
+              <span className="bg-white px-2 text-sky-900 font-extrabold p-0.5 text-2xl">
+                Send
+              </span>
+            </div>
+          </motion.div>
+        </AnimationTop>
       </div>
     </section>
   );

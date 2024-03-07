@@ -10,10 +10,10 @@ const WinterDocs = () => {
         <SliderSectionWinter />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae
-          reprehenderit libero sapiente minima odit doloribus quaerat asperiores
-          voluptatum velit mollitia? Corrupti ad esse consequatur laboriosam qui
-          quasi, ratione odit sunt.
+          Allah will fulfil the needs Our beloved Rasool صلی اللہ علیہ وسلم has
+          said, ‘He who fulfils the need of any person, Allah will fulfil his
+          needs in the religion and the world.’ (Sahih Muslim, Kitab-uz-Zikr
+          wad-Du’a, pp. 1447, Hadees 2699)
         </p>
 
         <div className="flex justify-center">
