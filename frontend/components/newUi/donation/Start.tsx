@@ -173,10 +173,50 @@ const StartSec: React.FC<StartSecProps> = ({
     let cash3 = cash3Ref?.current?.value;
     let cash4 = cash4Ref?.current?.value;
     let business = businessRef?.current?.value;
-    let allAmount =
-      +goldAandSilver + +cash1 + +cash2 + +cash3 + +cash4 + +business + +total;
+    let allAmount;
+    +goldAandSilver + +cash1 + +cash2 + +cash3 + +cash4 + +business + +total;
+    if (
+      goldAandSilver &&
+      cash1 &&
+      cash2 &&
+      cash3 &&
+      cash4 &&
+      business &&
+      total
+    ) {
+      allAmount =
+        +goldAandSilver +
+        +cash1 +
+        +cash2 +
+        +cash3 +
+        +cash4 +
+        +business +
+        +total;
+    } else if (goldAandSilver) {
+      allAmount = goldAandSilver;
+    } else if (cash1) {
+      allAmount = cash1;
+    } else if (cash2) {
+      allAmount = cash2;
+    } else if (cash3) {
+      allAmount = cash3;
+    } else if (cash4) {
+      allAmount = cash4;
+    } else if (business) {
+      allAmount = business;
+    } else if (total) {
+      allAmount = total;
+    } else if (labilities1) {
+      allAmount = labilities1;
+    } else if (labilities2) {
+      allAmount = labilities2;
+    } else if (labilities3) {
+      allAmount = labilities3;
+    }
+
     let calCulateAmount = +allAmount * 0.0143 + 0.2 + +allAmount;
     setZakat(calCulateAmount);
+    console.log("allAmount----->", allAmount);
   };
   const resetHandler = () => {
     goldAandSilverRef.current.value = null;
@@ -189,7 +229,7 @@ const StartSec: React.FC<StartSecProps> = ({
     setLabilities2("");
     setLabilities3("");
     setTotal("");
-    setZakat("");
+    setZakat("0");
   };
 
   return (
@@ -467,9 +507,7 @@ const StartSec: React.FC<StartSecProps> = ({
                         <div className="flex justify-between bg-green-400 py-2 px-4 rounded-xl">
                           <p className="text-base font-bold">Your Zakat :</p>
                           <p className="text-base font-bold">
-                            {zakat.toString().split(".")[0] > 0
-                              ? zakat.toString().split(".")[0]
-                              : 0}
+                            {zakat > 0 ? zakat : 0}
                           </p>
                         </div>
                         <hr className="bg-teal-500 h-[2px] w-full  my-2" />
@@ -613,11 +651,7 @@ const StartSec: React.FC<StartSecProps> = ({
               onClick={() => {
                 setZakatCalc(false);
                 nextHandler();
-                setDollarDonate(
-                  zakat.toString().split(".")[0] > 0
-                    ? zakat.toString().split(".")[0]
-                    : 0
-                );
+                setDollarDonate(zakat > 0 ? zakat : 0);
                 // monthlyHandler(donation);
               }}
               className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
