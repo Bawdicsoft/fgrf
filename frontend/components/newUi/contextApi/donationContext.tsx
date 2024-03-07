@@ -12,6 +12,8 @@ interface DonationContextProps {
   setDonationAmountHandler: Dispatch<SetStateAction<string>>;
   donationTitle: any;
   setDonationTitleHandler: Dispatch<SetStateAction<string>>;
+  donationModal: boolean;
+  setDonationModalHandler: Dispatch<any>;
 }
 
 export const DonationContext = createContext<DonationContextProps | undefined>(

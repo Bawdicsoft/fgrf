@@ -55,6 +55,7 @@ export default function Home() {
       <AnimatePresence mode="wait" initial={false}>
         <div className="relative">
           {isModelLoading && <FullPageLoader />}
+          {/* donation Modal */}
 
           <Hero />
           <OurDepartments />

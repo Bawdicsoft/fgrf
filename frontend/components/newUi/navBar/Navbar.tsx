@@ -109,6 +109,8 @@ export default function Navbar() {
 
   const amountDonation = useDonationContext();
   const setAmountForDonation = amountDonation.setDonationAmountHandler;
+  const modal = amountDonation.donationModal;
+  const setModal = amountDonation.setDonationModalHandler;
   return (
     <>
       <div className="max-w-screen-2xl bg-white md:grid flex justify-between py-2 md:py-0  px-3 md:px-0  md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-6 mx-auto">
@@ -253,6 +255,7 @@ export default function Navbar() {
             <div className="lg:col-span-5 md:col-span-3  md:grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 px-1 lg:px-3 place-items-center  place-content-center border-r border-black">
               <Link
                 href={"/donation"}
+                onClick={() => setModal(!modal)}
                 className="relative group lg:w-full xl:w-auto overflow-hidden bg-sky-900 text-white px-2 xl:px-5 py-1 text-[8px] lg:text-[13px] xl:text-sm"
               >
                 <span className="absolute w-32 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-14 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:w-96 group-hover:-translate-y-32 ease"></span>
