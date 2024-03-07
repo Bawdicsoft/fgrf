@@ -24,7 +24,7 @@ export default function RootLayout({
       <body>
         <DonationProvider>
           <Navbar />
-          <DonationModal />
+          {/* <DonationModal /> */}
           {/* myCode */}
           {/* <Navbar /> */}
           <div>

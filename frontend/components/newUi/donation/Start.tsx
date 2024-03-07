@@ -164,16 +164,19 @@ const StartSec: React.FC<StartSecProps> = ({
   const [labilities3, setLabilities3] = useState<any>();
   const [total, setTotal] = useState<any>();
   const [zakat, setZakat] = useState<any>();
+  const [detailForm, setDetailForm] = useState(false);
   // Calculator function
   const calculateHandler = () => {
     let goldAandSilver = goldAandSilverRef?.current?.value;
     let cash1 = cash1Ref?.current?.value;
     let cash2 = cash2Ref?.current?.value;
     let cash3 = cash3Ref?.current?.value;
+    let cash4 = cash4Ref?.current?.value;
     let business = businessRef?.current?.value;
-    setZakat(
-      (+goldAandSilver + +cash1 + +cash2 + +cash3 + +business - +total) / 40
-    );
+    let allAmount =
+      +goldAandSilver + +cash1 + +cash2 + +cash3 + +cash4 + +business + +total;
+    let calCulateAmount = +allAmount * 0.0143 + 0.2 + +allAmount;
+    setZakat(calCulateAmount);
   };
   const resetHandler = () => {
     goldAandSilverRef.current.value = null;
@@ -921,6 +924,152 @@ const StartSec: React.FC<StartSecProps> = ({
               </p>
             </div>
           )} */}
+          <div className="max-w-3xl mx-auto pt-4">
+            <p className="text-gray-900 font-bold lg:font-extrabold text-lg lg:text-xl">
+              Reclaim Gift Aid
+            </p>
+            <hr className="h-[2px] bg-teal-500 w-full" />
+            <div>
+              <p className="py-4">
+                Add 25% more to your donation at no cost to you. A Gift Aid
+                declaration allows FGRF UK to claim tax back on eligible
+                donations. It means that for every £1 you donate to FGRF UK we
+                can claim back 25p, at no extra cost to you.
+              </p>
+            </div>
+
+            <p className="text-base text-gray-900 py-3    ">Tell me more »</p>
+            <div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4"
+                  onChange={() => setDetailForm(!detailForm)}
+                />
+                <span className="text-base pl-2">
+                  Yes, I would like to claim Gift Aid
+                </span>
+              </div>
+              <p className="text-sm py-3">
+                By ticking the &#34;Yes&#34; box, I agree I would like FGRF UK
+                to reclaim the tax on all qualifying donations I have made, as
+                well as any future donations, until I notify them otherwise. I
+                understand that if I pay less Income Tax and/or Capital Gains
+                Tax than the amount of Gift Aid claimed on all my donations in
+                that tax year I may be asked to pay any difference. I understand
+                that FGRF UK will reclaim 25p of tax on every £1 that I give.
+              </p>
+            </div>
+            {detailForm && (
+              <form>
+                <div className="grid gap-6 mb-6 grid-cols-1">
+                  <div>
+                    <label
+                      htmlFor="address1"
+                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                    >
+                      Country *
+                    </label>
+                    <select className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5">
+                      <option>United kingdom</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="address1"
+                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                    >
+                      Address 1 *
+                    </label>
+                    <input
+                      type="text"
+                      id="address1"
+                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                      placeholder="Address line 1"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="address2"
+                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                    >
+                      Address 2
+                    </label>
+                    <input
+                      type="text"
+                      id="address2"
+                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                      placeholder="Address line 2"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="city"
+                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                    >
+                      City *
+                    </label>
+                    <input
+                      type="text"
+                      id="city"
+                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                      placeholder="City"
+                      required
+                    />
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <label
+                        htmlFor="country"
+                        className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                      >
+                        Country *
+                      </label>
+                      <input
+                        type="text"
+                        id="country"
+                        className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                        placeholder="Country"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="PostalCode "
+                        className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                      >
+                        Postal Code *
+                      </label>
+                      <input
+                        type="text"
+                        id="PostalCode "
+                        className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                        placeholder="Postal Code "
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <div className="visible"></div>
+                  <button
+                    onClick={() => {}}
+                    className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
+                  >
+                    <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+
+                    <span className="relative group-hover:text-gray-400 text-white">
+                      {" "}
+                      Next{" "}
+                    </span>
+                    <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       )}
     </div>
