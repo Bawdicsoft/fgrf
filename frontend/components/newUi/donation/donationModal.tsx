@@ -12,7 +12,7 @@ import { useDonationContext } from "../contextApi/donationContext";
 interface DonationModalProps {}
 
 const DonationModal: React.FC<DonationModalProps> = ({}) => {
-  const [open, setOpen] = useState(true);
+  const [detailForm, setDetailForm] = useState(false);
   const cancelButtonRef = useRef(null);
   const emailRef = useRef<any>();
   const lastNameRef = useRef<any>();
@@ -150,14 +150,14 @@ const DonationModal: React.FC<DonationModalProps> = ({}) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-5">
                           <div>
                             <label
-                              htmlFor="first_name"
+                              htmlFor=" CardNumber"
                               className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Card Number *
                             </label>
                             <input
                               type="text"
-                              id="first_name"
+                              id=" CardNumber"
                               ref={fistNameRef}
                               autoComplete="FistName"
                               placeholder="Card Number"
@@ -167,14 +167,14 @@ const DonationModal: React.FC<DonationModalProps> = ({}) => {
                           </div>
                           <div>
                             <label
-                              htmlFor="last_name"
+                              htmlFor="CVC"
                               className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               CVC *
                             </label>
                             <input
                               type="text"
-                              id="last_name"
+                              id="CVC"
                               ref={lastNameRef}
                               autoComplete="LastName"
                               placeholder="
@@ -185,14 +185,14 @@ CVC"
                           </div>
                           <div>
                             <label
-                              htmlFor="last_name"
+                              htmlFor="CardholderName"
                               className="block mb-2 text-sm font-medium text-gray-900"
                             >
                               Cardholder Name *
                             </label>
                             <input
                               type="text"
-                              id="last_name"
+                              id="CardholderName"
                               ref={emailRef}
                               className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                               autoComplete="email"
@@ -218,7 +218,7 @@ CVC"
                             />
                           </div>
                         </div>
-                        <p className="text-gray-900 font-bold text-lg">
+                        <p className="text-gray-900 font-bold lg:font-extrabold text-lg lg:text-xl">
                           Reclaim Gift Aid
                         </p>
                         <hr className="h-[2px] bg-teal-500 w-full" />
@@ -236,10 +236,16 @@ CVC"
                             Tell me more »
                           </p>
                           <div>
-                            <input type="checkbox" />
-                            <span className="text-base pl-2">
-                              Yes, I would like to claim Gift Aid
-                            </span>
+                            <div className="flex items-center">
+                              <input
+                                type="checkbox"
+                                className="w-4 h-4"
+                                onChange={() => setDetailForm(!detailForm)}
+                              />
+                              <span className="text-base pl-2">
+                                Yes, I would like to claim Gift Aid
+                              </span>
+                            </div>
                             <p className="text-sm py-3">
                               By ticking the &#34;Yes&#34; box, I agree I would
                               like FGRF UK to reclaim the tax on all qualifying
@@ -253,6 +259,100 @@ CVC"
                               give.
                             </p>
                           </div>
+                          {detailForm && (
+                            <form>
+                              <div className="grid gap-6 mb-6 grid-cols-1">
+                                <div>
+                                  <label
+                                    htmlFor="address1"
+                                    className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                  >
+                                    Country *
+                                  </label>
+                                  <select className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5">
+                                    <option>United kingdom</option>
+                                  </select>
+                                </div>
+                                <div>
+                                  <label
+                                    htmlFor="address1"
+                                    className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                  >
+                                    Address 1 *
+                                  </label>
+                                  <input
+                                    type="text"
+                                    id="address1"
+                                    className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                                    placeholder="Address line 1"
+                                    required
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    htmlFor="address2"
+                                    className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                  >
+                                    Address 2
+                                  </label>
+                                  <input
+                                    type="text"
+                                    id="address2"
+                                    className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                                    placeholder="Address line 2"
+                                    required
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    htmlFor="city"
+                                    className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                  >
+                                    City *
+                                  </label>
+                                  <input
+                                    type="text"
+                                    id="city"
+                                    className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                                    placeholder="City"
+                                    required
+                                  />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                  <div>
+                                    <label
+                                      htmlFor="country"
+                                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                    >
+                                      Country *
+                                    </label>
+                                    <input
+                                      type="text"
+                                      id="country"
+                                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                                      placeholder="Country"
+                                      required
+                                    />
+                                  </div>
+                                  <div>
+                                    <label
+                                      htmlFor="PostalCode "
+                                      className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
+                                    >
+                                      Postal Code *
+                                    </label>
+                                    <input
+                                      type="text"
+                                      id="PostalCode "
+                                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                                      placeholder="Postal Code "
+                                      required
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          )}
                           <div className="grid grid-cols-1 md:grid-cols-2 py-3">
                             <h2 className="bg-teal-500 p-2 rounded-l-lg text-center font-semibold text-lg text-white">
                               Donation Total :
