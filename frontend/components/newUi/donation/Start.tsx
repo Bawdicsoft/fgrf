@@ -173,46 +173,17 @@ const StartSec: React.FC<StartSecProps> = ({
     let cash3 = cash3Ref?.current?.value;
     let cash4 = cash4Ref?.current?.value;
     let business = businessRef?.current?.value;
-    let allAmount;
-    +goldAandSilver + +cash1 + +cash2 + +cash3 + +cash4 + +business + +total;
-    if (
-      goldAandSilver &&
-      cash1 &&
-      cash2 &&
-      cash3 &&
-      cash4 &&
-      business &&
-      total
-    ) {
-      allAmount =
-        +goldAandSilver +
-        +cash1 +
-        +cash2 +
-        +cash3 +
-        +cash4 +
-        +business +
-        +total;
-    } else if (goldAandSilver) {
-      allAmount = goldAandSilver;
-    } else if (cash1) {
-      allAmount = cash1;
-    } else if (cash2) {
-      allAmount = cash2;
-    } else if (cash3) {
-      allAmount = cash3;
-    } else if (cash4) {
-      allAmount = cash4;
-    } else if (business) {
-      allAmount = business;
-    } else if (total) {
-      allAmount = total;
-    } else if (labilities1) {
-      allAmount = labilities1;
-    } else if (labilities2) {
-      allAmount = labilities2;
-    } else if (labilities3) {
-      allAmount = labilities3;
-    }
+    let allAmount =
+      (goldAandSilver ? +goldAandSilver : 0) +
+      (cash1 ? +cash1 : 0) +
+      (cash2 ? +cash2 : 0) +
+      (cash3 ? +cash3 : 0) +
+      (cash4 ? +cash4 : 0) +
+      (business ? +business : 0) +
+      (labilities1 ? +labilities1 : 0) +
+      (labilities2 ? +labilities2 : 0) +
+      (labilities3 ? +labilities3 : 0) +
+      (total ? +total : 0);
 
     let calCulateAmount = +allAmount * 0.0143 + 0.2 + +allAmount;
     setZakat(calCulateAmount);
@@ -540,9 +511,9 @@ const StartSec: React.FC<StartSecProps> = ({
                           value={labilities1}
                           onChange={(e) => {
                             setLabilities1(e.target.value);
-                            setTotal(
-                              +e.target.value + +(+labilities2 + +labilities3)
-                            );
+                            // setTotal(
+                            //   +e.target.value + +(+labilities2 + +labilities3)
+                            // );
                           }}
                           placeholder="Money owned (borrowed or credit"
                         />
@@ -557,9 +528,9 @@ const StartSec: React.FC<StartSecProps> = ({
                           value={labilities2}
                           onChange={(e) => {
                             setLabilities2(e.target.value);
-                            setTotal(
-                              +e.target.value + +(+labilities1 + +labilities3)
-                            );
+                            // setTotal(
+                            //   +e.target.value + +(+labilities1 + +labilities3)
+                            // );
                           }}
                           placeholder="Employee salaries"
                         />
@@ -574,9 +545,9 @@ const StartSec: React.FC<StartSecProps> = ({
                           value={labilities3}
                           onChange={(e) => {
                             setLabilities3(e.target.value);
-                            setTotal(
-                              +e.target.value + +(+labilities2 + +labilities1)
-                            );
+                            // setTotal(
+                            //   +e.target.value + +(+labilities2 + +labilities1)
+                            // );
                           }}
                           placeholder="Other outgoings due (tax, rent, utilities)"
                         />
@@ -594,6 +565,7 @@ const StartSec: React.FC<StartSecProps> = ({
                       <input
                         className="outline-none focus:ring-2 ring-teal-500 rounded-r-lg px-2 md:font-semibold py-1 md:py-2 text-white bg-teal-400 text-base w-full  md:px-4"
                         type="number"
+                        onChange={(e) => setTotal(e.target.value)}
                         value={total}
                         placeholder="0"
                       />
