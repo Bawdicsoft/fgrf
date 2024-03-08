@@ -134,9 +134,10 @@ const Footer = () => {
             <div className="col-span-2 flex flex-col gap-2 md:py-4">
               {!(titleDonationDollar === "zakat") && (
                 <p className="text-xs text-center">
-                  Any leftover donation can be spent in any permissible,
-                  welfare, well-wishing, water, food, agriculture, construction,
-                  reglious and good purpose.
+                  Support FGRF to help affected community around the world.
+                  Please note: Your donations can be used for any welfare,
+                  well-wishing, permissible, religious, reformatory, spiritual
+                  and good purpose.
                 </p>
               )}
               <p className="text-xs text-center lg:w-[650px]">

@@ -43,6 +43,8 @@ const StartSec: React.FC<StartSecProps> = ({
       ? "175"
       : title === "masjid"
       ? "5000"
+      : title === "Food Pack"
+      ? "40"
       : title === "orphan" || title === "palestine"
       ? "200"
       : title === "zakat"
@@ -709,7 +711,9 @@ const StartSec: React.FC<StartSecProps> = ({
                             )}
                             <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
                               {!(
-                                title === "water well" || title === "hand pump"
+                                title === "water well" ||
+                                title === "hand pump" ||
+                                title === "Food Pack"
                               ) && (
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
                                   {donationBtns?.map((data, index) =>
@@ -898,19 +902,18 @@ const StartSec: React.FC<StartSecProps> = ({
             </button>
           </div>
           {!(String(title) === "palestine") &&
-          !(String(title) === "orphan") &&
           !(String(title) === "zakat") &&
           title ? (
             <div className="">
               <p className="text-black font-bold text-[13px] text-center ">
-                Any leftover donation can be spent in any permissible, welfare,
-                well-wishing, water, food, agriculture, construction, reglious
-                and good purpose.
+                Any leftover donations can be used for any permissible,
+                religious, reformatory, welfare, spiritual, benevolent and good
+                purpose.
               </p>
             </div>
           ) : (
             <>
-              {!(title === "zakat") ? (
+              {!(title === "zakat") && !(title === "palestine") ? (
                 <div className="">
                   <p className="text-black font-bold text-[13px] text-center ">
                     Your donations can be used for any welfare, well-wishing,
@@ -920,6 +923,15 @@ const StartSec: React.FC<StartSecProps> = ({
                 </div>
               ) : null}
             </>
+          )}
+          {title === "palestine" && (
+            <div className="">
+              <p className="text-black font-bold text-[13px] text-center ">
+                Support FGRF to help affected Palestinian Muslims. Please note:
+                Your donations can be used for any welfare, well-wishing,
+                permissible, religious, reformatory, spiritual and good purpose.
+              </p>
+            </div>
           )}
           {/* {showPayment && (
             <div className="flex justify-center">

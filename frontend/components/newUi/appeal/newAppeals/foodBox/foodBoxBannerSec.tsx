@@ -99,7 +99,7 @@ const FoodBoxBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/food/foodBox3.jpeg"}
+                src={"/AppealNew/food/left.jpeg"}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -116,7 +116,7 @@ const FoodBoxBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/food/foodbox5.jpeg"}
+                src={"/AppealNew/food/right.jpeg"}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -126,7 +126,7 @@ const FoodBoxBannerSection = () => {
           </AppealBannerAnimationRight>
         </AnimationTop>
       </div>
-      <div className="bg-gray-300 md:h-80 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
+      <div className="bg-gray-300 md:h-96 shadow-2xl mt-10 px-3 lg:px-5 pb-5 max-w-3xl mx-auto rounded-lg">
         {/* form Container */}
         {donationForm ? (
           <AnimatedComponentLeft>
@@ -237,6 +237,12 @@ const FoodBoxBannerSection = () => {
             </span>
             <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
           </button>
+        </div>
+        <div className="pt-3">
+          <p className="text-black font-bold text-[13px] text-center ">
+            Any leftover donations can be used for any permissible, religious,
+            reformatory, welfare, spiritual, benevolent and good purpose.
+          </p>
         </div>
       </div>
     </div>
