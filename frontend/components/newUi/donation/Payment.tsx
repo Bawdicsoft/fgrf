@@ -30,7 +30,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
         <p className="bg-gray-300 h-[2px] w-full"></p>
         <div className="py-2 flex justify-between">
           <p className="text-gray-700 text-base">{titleDonate}</p>
-          <p className="text-gray-700 text-base">{dollarDonate}</p>
+          <p className="text-gray-700 text-base">£ {dollarDonate}</p>
         </div>
         <p className="bg-gray-300 h-[2px]  w-full"></p>
         <div className="grid grid-cols-1 md:grid-cols-3  gap-5 md:gap-0 pt-8">

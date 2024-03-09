@@ -158,7 +158,7 @@ const OurDepartments = () => {
                 id=""
                 className="text-xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
               >
-                Our Department
+                Our Departments
               </h2>
             </div>
           </motion.div>

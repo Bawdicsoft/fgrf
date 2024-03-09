@@ -349,7 +349,7 @@ export default function Navbar() {
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:mx-4"
                   >
-                    Our Department
+                    Our Departments
                   </ScrollLink>
                 </div>
                 <div className="py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
@@ -435,7 +435,7 @@ export default function Navbar() {
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 lg:mx-4"
                   >
-                    Appeal
+                    Appeals
                   </Link>
                 </div>
                 <div className="-ml-2 py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
@@ -762,7 +762,7 @@ export default function Navbar() {
                 className="block py-2 px-3 text-white font-semibold "
                 aria-current="page"
               >
-                Our Department
+                Our Departments
               </Link>
             </li>
             <li>
@@ -771,7 +771,7 @@ export default function Navbar() {
                 href="/appeal"
                 className="block py-2 px-3 text-white font-semibold "
               >
-                Appeal
+                Our Appeals
               </Link>
             </li>
             <li>

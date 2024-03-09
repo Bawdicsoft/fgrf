@@ -38,7 +38,7 @@ const DetailsSec: React.FC<DetailsSecProps> = ({
       <p className="bg-gray-300 h-[2px] w-full"></p>
       <div className="py-2 flex justify-between">
         <p className="text-gray-700 text-base">{titleDonate}</p>
-        <p className="text-gray-700 text-base">{dollarDonate}</p>
+        <p className="text-gray-700 text-base">£ {dollarDonate}</p>
       </div>
       <p className="bg-gray-300 h-[2px]  w-full"></p>
 

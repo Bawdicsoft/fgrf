@@ -728,7 +728,7 @@ const StartSec: React.FC<StartSecProps> = ({
                                       >
                                         <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
                                         <span className="relative w-full">
-                                          {data}
+                                          £ {data}
                                         </span>
                                       </button>
                                     ) : (
@@ -756,7 +756,7 @@ const StartSec: React.FC<StartSecProps> = ({
                                       >
                                         <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
                                         <span className="relative ">
-                                          {data}
+                                          £ {data}
                                         </span>
                                       </button>
                                     )
@@ -804,7 +804,9 @@ const StartSec: React.FC<StartSecProps> = ({
                                       className={`relative group overflow-hidden md:text-xl lg:text-3xl text-gray-500 focus:bg-[#19afaf] bg-white focus:text-white font-semibold py-2 lg:py-4 md:px-4 hover:text-white `}
                                     >
                                       <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                      <span className="relative ">{data}</span>
+                                      <span className="relative ">
+                                        £ {data}
+                                      </span>
                                     </button>
                                   ) : (
                                     <button
@@ -824,7 +826,9 @@ const StartSec: React.FC<StartSecProps> = ({
                                       } `}
                                     >
                                       <span className="absolute w-80 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-36 bg-[#19afaf] top-1/2 group-hover:h-96 group-hover:-translate-y-36 ease"></span>
-                                      <span className="relative ">{data}</span>
+                                      <span className="relative ">
+                                        £ {data}
+                                      </span>
                                     </button>
                                   )
                                 )}

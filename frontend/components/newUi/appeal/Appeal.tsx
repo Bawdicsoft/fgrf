@@ -56,20 +56,20 @@ const AppealSection = () => {
     {
       link: "water-well-project",
       img: "/Final/waterwell.png",
-      title: "Waterwell Project",
+      title: "Water well Project",
       para: "“Feed for the love of Allah” – Qur’an 76:8",
       desc: "Show your love and compassion by helping to feed our world!",
     },
     {
       link: "orphan",
       img: "/Final/Orphan.png",
-      title: "OrphanKind",
+      title: "Orphan Kind",
       desc: "Muhammad (pbuh) was an orphan. Help us to honour and care for orphans around the world.",
     },
     {
       link: "masjid-project",
       img: "/Final/masjid.png",
-      title: "The Mosque Project",
+      title: "Masjid Project",
       desc: "Build a mosque in this world and build your place in Jannah.",
     },
 

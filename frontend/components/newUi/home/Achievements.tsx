@@ -72,7 +72,7 @@ const Achievement = () => {
                   id=""
                   className="text-xl md:text-3xl hover:text-sky-800 font-bold text-white text-center"
                 >
-                  Achievement
+                  Achievements
                 </h2>
               </div>
             </motion.div>
