@@ -700,7 +700,51 @@ export default function Navbar() {
                   }}
                 > */}{" "}
                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <LiaDonateSolid className="w-6 h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 relative transition duration-300 group-hover:text-red-600 ease" />
+                {/* <LiaDonateSolid className="w-6 h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 relative transition duration-300 group-hover:text-red-600 ease" /> */}
+                {/* <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 48 48"
+                  className="w-10 h-10"
+                >
+                  <g id="Layer_2" data-name="Layer 2">
+                    <g id="layer_1-2" data-name="layer 1">
+                      <path
+                        className="cls-1"
+                        d="M24 48a24 24 0 1 1 24-24 24 24 0 0 1-24 24zm0-46a22 22 0 1 0 22 22A22 22 0 0 0 24 2z"
+                        fill="white"
+                      />
+                      <path
+                        className="cls-1"
+                        d="M24 40a16 16 0 1 1 16-16 16 16 0 0 1-16 16zm0-30a14 14 0 1 0 14 14 14 14 0 0 0-14-14zM4 23h2v2H4zM42 23h2v2h-2zM33 7h2v2h-2z"
+                        fill="white"
+                      />
+                      <path
+                        className="cls-1"
+                        d="M23 4h2v2h-2zM23 42h2v2h-2zM13 7h2v2h-2zM33 39h2v2h-2zM13 39h2v2h-2zM6 14h2v2H6zM6 32h2v2H6zM40 14h2v2h-2zM40 32h2v2h-2zM21 32h-2V20a6 6 0 0 1 12 0h-2a4 4 0 0 0-8 0z"
+                        fill="white"
+                      />
+                      <path
+                        className="cls-1"
+                        d="M17 31h14v2H17zM17 25h8v2h-8z"
+                        fill="white"
+                      />
+                    </g>
+                  </g>
+                </svg> */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 64 64"
+                  className="w-6 h-6 lg:w-8 lg:h-8 xl:w-10 xl:h-10 relative transition duration-300 group-hover:text-red-600 ease"
+                >
+                  <path
+                    d="M32 1a31 31 0 1 0 31 31A31.036 31.036 0 0 0 32 1zm0 58a27 27 0 1 1 27-27 27.03 27.03 0 0 1-27 27z"
+                    fill="white"
+                  />
+                  <path
+                    d="M32 7a25 25 0 1 0 25 25A25.028 25.028 0 0 0 32 7zm11.891 35.054A5.4 5.4 0 0 1 39.045 45h-1.007a13.438 13.438 0 0 1-4.938-.934 11.6 11.6 0 0 0-7.323-.368l-4.507 1.265a1 1 0 0 1-.844-1.782A14.933 14.933 0 0 0 26.661 33H24a1 1 0 0 1 0-2h2.8a14.632 14.632 0 0 0-.286-2.922l-.067-.328a7.208 7.208 0 0 1 1.493-6.02A7.44 7.44 0 0 1 33.729 19h.182a7.578 7.578 0 0 1 7.645 7.49 1 1 0 0 1-2 0A5.576 5.576 0 0 0 33.911 21h-.182a5.449 5.449 0 0 0-4.24 2 5.211 5.211 0 0 0-1.083 4.353l.067.328A16.6 16.6 0 0 1 28.8 31H32a1 1 0 0 1 0 2h-3.319a16.873 16.873 0 0 1-3.9 8.9l.457-.129a13.6 13.6 0 0 1 8.593.433 11.481 11.481 0 0 0 4.208.8h1.007a3.411 3.411 0 0 0 3.064-1.854 1 1 0 0 1 1.782.908z"
+                    fill="white"
+                  />
+                </svg>
                 <span className="relative text-[9px] lg:text-[10px] xl:text-xs xl:font-semibold text-white text-center group-hover:text-red-600">
                   Donate Now
                 </span>
