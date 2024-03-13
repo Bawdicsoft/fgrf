@@ -44,14 +44,20 @@ const HandPumpDocs = () => {
           <div className="md:w-3/4 ">
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src="/AppealNew/videos/hand pump/handpump (1).mp4"
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoLeft>
           </div>
           <div className="md:w-3/4 ">
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src="/AppealNew/videos/hand pump/handpump (2).mp4"
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoRight>
           </div>
