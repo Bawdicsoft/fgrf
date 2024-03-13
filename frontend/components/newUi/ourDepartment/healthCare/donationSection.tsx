@@ -71,8 +71,11 @@ export default function DonationSectionHealthCare() {
         </h2>
         <AnimationBottom>
           <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
-            <video className="h-full w-full rounded-lg object-cover" controls>
-              <source src="/Videonews/4.mp4" type="video/mp4" />
+            <video className="h-full w-full rounded-lg object-fill" controls>
+              <source
+                src="/ourDepartment/videos/Health Care/Blood Donations/donation.mp4"
+                type="video/mp4"
+              />
             </video>
           </div>
         </AnimationBottom>

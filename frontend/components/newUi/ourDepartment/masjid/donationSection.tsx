@@ -67,15 +67,14 @@ export default function DonationSectionMasjid() {
           every year
         </h2>
         <AnimationBottom>
-
-        <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
-          <video className="h-full w-full rounded-lg object-cover" controls>
-            <source
-              // src="/ourDepartment/masjid/masjid/masjid.mp4"
-              type="video/mp4"
-            />
-          </video>
-        </div>
+          <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
+            <video className="h-full w-full rounded-lg object-fill" controls>
+              <source
+                src="/ourDepartment/videos/Masjid/masjid (1).mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
         </AnimationBottom>
       </div>
     </div>

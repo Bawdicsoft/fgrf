@@ -69,9 +69,9 @@ export default function DonationSectionPalestine() {
         </h2>
         <AnimationBottom>
           <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
-            <video className="h-full w-full rounded-lg object-cover" controls>
+            <video className="h-full w-full rounded-lg object-fill" controls>
               <source
-                src="/ourDepartment/disaster/palestine/Video/video1.mp4"
+                src="/ourDepartment/videos/Disaster Management/Palestinian Brother & Sisters/palestin (2).mp4"
                 type="video/mp4"
               />
             </video>
