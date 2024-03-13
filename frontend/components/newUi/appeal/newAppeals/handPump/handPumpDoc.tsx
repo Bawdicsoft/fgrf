@@ -55,7 +55,7 @@ const HandPumpDocs = () => {
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/hand pump/handpump (2).mp4"
+                  src="/AppealNew/videos/hand pump/handpump (3).mp4"
                   type="video/mp4"
                 />
               </video>
