@@ -12,6 +12,7 @@ import Image from "next/image";
 export default function DonationSlider5() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
+    "/newImage/ramdan (4).jpeg",
     "/AppealNew/handPump/1.jpg",
     "/AppealNew/handPump/2.png",
     "/AppealNew/handPump/3.jpg",

@@ -12,11 +12,15 @@ import Image from "next/image";
 export default function DonationSlider3() {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/AppealNew/food/foodBox1.jpeg",
-    "/AppealNew/food/foodBox2.jpeg",
-    "/AppealNew/food/foodBox3.jpeg",
-    "/AppealNew/food/foodBox4.jpeg",
-    "/AppealNew/food/foodbox5.jpeg",
+    "/newImage/ramdan (1).jpeg",
+    "/newImage/food1.jpeg",
+    "/newImage/food2.jpeg",
+    "/newImage/food3.jpeg",
+    "/newImage/food4.jpeg",
+    // "/AppealNew/food/foodBox2.jpeg",
+    // "/AppealNew/food/foodBox3.jpeg",
+    // "/AppealNew/food/foodBox4.jpeg",
+    // "/AppealNew/food/foodbox5.jpeg",
   ];
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
