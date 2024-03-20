@@ -12,6 +12,7 @@ const Hero = () => {
     "/img/slidersImage/slider2.jpg",
     "/newImage/distribution.jpeg",
     "/newImage/foodbanner.jpeg",
+    "/newImage/foodPack.jpeg",
     "/img/slidersImage/slider1.jpg",
   ];
   const handleUpdate = (newIndex: any) => {
