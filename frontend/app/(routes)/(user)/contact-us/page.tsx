@@ -1,5 +1,5 @@
+import ContactUsForm from "@/components/newUi/contactUs/form";
 import ContactUsSocial from "@/components/newUi/contactUs/social";
-import ContactUsForm from "../../components/newUi/contactUs/form";
 
 const ContactUs = () => {
   return (

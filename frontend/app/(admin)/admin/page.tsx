@@ -2,8 +2,8 @@ import ECommerce from "@/components/newUi/dashboard/components/Dashboard/E-comme
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TailAdmin | Next.js E-commerce Dashboard Template",
-  description: "This is Home Blog page for TailAdmin Next.js",
+  title: "Fazain Global Relief Foundation UK",
+  description: "This is Admin Dashboard Page",
   // other metadata
 };
 

@@ -2,7 +2,9 @@
 import { ApexOptions } from "apexcharts";
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
-const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
+const ReactApexChart = dynamic(() => import("react-apexcharts"), {
+  ssr: false,
+});
 
 interface ChartThreeState {
   series: number[];
@@ -56,10 +58,10 @@ const ChartThree: React.FC = () => {
   });
 
   return (
-    <div className="col-span-12 rounded-sm border border-stroke bg-white px-5 pt-7.5 pb-5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:col-span-5">
+    <div className="col-span-12 rounded-sm border border-stroke bg-white px-6 pt-6 pb-6 shadow-default sm:px-6 xl:col-span-5">
       <div className="mb-3 justify-between gap-4 sm:flex">
         <div>
-          <h5 className="text-xl font-semibold text-black dark:text-white">
+          <h5 className="text-xl font-semibold text-black">
             Visitors Analytics
           </h5>
         </div>
@@ -110,8 +112,8 @@ const ChartThree: React.FC = () => {
       <div className="-mx-8 flex flex-wrap items-center justify-center gap-y-3">
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-primary"></span>
-            <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+            <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-indigo-500"></span>
+            <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Desktop </span>
               <span> 65% </span>
             </p>
@@ -119,8 +121,8 @@ const ChartThree: React.FC = () => {
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#6577F3]"></span>
-            <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+            <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#6577F3]"></span>
+            <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Tablet </span>
               <span> 34% </span>
             </p>
@@ -128,8 +130,8 @@ const ChartThree: React.FC = () => {
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#8FD0EF]"></span>
-            <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+            <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#8FD0EF]"></span>
+            <p className="flex w-full justify-between text-sm font-medium text-black ">
               <span> Mobile </span>
               <span> 45% </span>
             </p>
@@ -137,8 +139,8 @@ const ChartThree: React.FC = () => {
         </div>
         <div className="w-full px-8 sm:w-1/2">
           <div className="flex w-full items-center">
-            <span className="mr-2 block h-3 w-full max-w-3 rounded-full bg-[#0FADCF]"></span>
-            <p className="flex w-full justify-between text-sm font-medium text-black dark:text-white">
+            <span className="mr-2 block h-3 w-full max-w-[13px] rounded-full bg-[#0FADCF]"></span>
+            <p className="flex w-full justify-between text-sm font-medium text-black">
               <span> Unknown </span>
               <span> 12% </span>
             </p>

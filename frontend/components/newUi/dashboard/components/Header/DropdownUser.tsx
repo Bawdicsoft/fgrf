@@ -43,13 +43,13 @@ const DropdownUser = () => {
         href="#"
       >
         <span className="hidden text-right lg:block">
-          <span className="block text-sm font-medium text-black dark:text-white">
+          <span className="block text-sm font-medium text-white">
             Thomas Anree
           </span>
-          <span className="block text-xs">UX Designer</span>
+          <span className="block text-xs text-white">UX Designer</span>
         </span>
 
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-12 w-12 rounded-full border">
           <Image
             width={112}
             height={112}
@@ -60,11 +60,11 @@ const DropdownUser = () => {
         </span>
 
         <svg
-          className="hidden fill-current sm:block"
+          className="hidden  sm:block"
           width="12"
           height="8"
           viewBox="0 0 12 8"
-          fill="none"
+          fill="#fff"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -81,11 +81,11 @@ const DropdownUser = () => {
         ref={dropdown}
         onFocus={() => setDropdownOpen(true)}
         onBlur={() => setDropdownOpen(false)}
-        className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ${
+        className={`absolute right-0 mt-4 flex w-62.5 flex-col rounded-sm  bg-white shadow-default border-2 border-teal-400 ${
           dropdownOpen === true ? "block" : "hidden"
         }`}
       >
-        <ul className="flex flex-col gap-5 border-b border-stroke px-6 py-7.5 dark:border-strokedark">
+        <ul className="flex flex-col gap-5 border-b border-stroke px-5 py-6  ">
           <li>
             <Link
               href="/profile"

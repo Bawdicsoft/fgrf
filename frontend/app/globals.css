@@ -376,3 +376,26 @@ body {
 .card1:hover > .back {
   transform: perspective(600px) rotateY(0deg);
 }
+
+/* map code */
+.map-btn .jvm-zoom-btn {
+  @apply flex items-center justify-center;
+}
+.mapOne .jvm-zoom-btn {
+  @apply left-auto top-auto bottom-0;
+}
+.mapOne .jvm-zoom-btn.jvm-zoomin {
+  @apply right-10;
+}
+.mapOne .jvm-zoom-btn.jvm-zoomout {
+  @apply right-0;
+}
+.mapTwo .jvm-zoom-btn {
+  @apply top-auto bottom-0;
+}
+.mapTwo .jvm-zoom-btn.jvm-zoomin {
+  @apply left-0;
+}
+.mapTwo .jvm-zoom-btn.jvm-zoomout {
+  @apply left-10;
+}
