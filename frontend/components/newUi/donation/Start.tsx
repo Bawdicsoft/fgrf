@@ -14,6 +14,9 @@ import PaymentSec from "./Payment";
 import DetailsSec from "./Details";
 import AnimationBottom from "../home/AnimationBtm";
 import { useDonationContext } from "../contextApi/donationContext";
+import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
+
 interface StartSecProps {
   monthlyHandler: (data: string[]) => void;
   image: string;
@@ -62,11 +65,14 @@ const StartSec: React.FC<StartSecProps> = ({
 
   const [zakatCalc, setZakatCalc] = useState<Boolean>(false);
   const [otherDollarVal, setOtherDollarVal] = useState<string>("");
+  const [userDetails, setUserDetails] = useState<any>("");
+  const [country, setCountry] = useState<string>("");
   const donation = [titleDonate || "Quick Donation", dollarDonate];
   const [showPayment, setShowPayment] = useState(false);
   const [showFormDonation, setShowFormDonation] = useState(false);
   const [showFormText, setShowFormText] = useState(false);
   const [showBackBtn, setShowBackBtn] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [check, setCheck] = useState(false);
   const [check1, setCheck1] = useState(false);
   const [donationBtns, setDonationBtns] = useState(
@@ -78,6 +84,7 @@ const StartSec: React.FC<StartSecProps> = ({
       ? winterDonationList
       : defaultDonationList
   );
+  let a: any;
   const nextDetHandler = (
     title: string,
     firstName: string,
@@ -89,6 +96,11 @@ const StartSec: React.FC<StartSecProps> = ({
       setShowFormDonation(true);
       setCheck1(true);
       setCheck(true);
+      a = { title, firstName, lastName, email, contactNo };
+      // setUserDetails(userDet);
+      console.log("a---->", a);
+      // userDonation(userDet);
+      // return { title, firstName, lastName, email, contactNo };
     } else {
       setShowFormText(true);
       setShowFormDonation(true);
@@ -105,6 +117,7 @@ const StartSec: React.FC<StartSecProps> = ({
       setShowPayment(true);
       setShowFormDonation(false);
       setShowBackBtn(true);
+      userDonation(a);
     } else if (titleDonate && !showPayment) {
       setShowPayment(false);
       setShowFormDonation(true);
@@ -112,6 +125,44 @@ const StartSec: React.FC<StartSecProps> = ({
     } else {
       //  setAlertText(true);
       //  setNextStep(true);
+    }
+  };
+
+  const userDonation = async ({
+    title,
+    firstName,
+    lastName,
+    email,
+    contactNo,
+  }: {
+    title: any;
+    firstName: any;
+    lastName: any;
+    email: any;
+    contactNo: any;
+  }) => {
+    try {
+      const newCollectionRef = collection(db, "userDonation");
+      const newDocRef = doc(newCollectionRef);
+      const userDetails = {
+        userData: {
+          title,
+          firstName,
+          lastName,
+          email,
+          contactNo,
+          donationTitle: titleDonate,
+          donation: dollarDonate,
+        },
+      };
+
+      await setDoc(newDocRef, userDetails, { merge: true });
+      if (userDetails !== undefined) {
+        setLoader(false);
+        setDetailForm(!detailForm);
+      }
+    } catch (error) {
+      console.error("submit reclaim gift handler--->", error);
     }
   };
   const backHandler = () => {
@@ -164,6 +215,7 @@ const StartSec: React.FC<StartSecProps> = ({
   const [labilities1, setLabilities1] = useState<any>();
   const [labilities2, setLabilities2] = useState<any>();
   const [labilities3, setLabilities3] = useState<any>();
+  const [formData, setFormData] = useState({});
   const [total, setTotal] = useState<any>();
   const [zakat, setZakat] = useState<any>();
   const [detailForm, setDetailForm] = useState(false);
@@ -189,7 +241,6 @@ const StartSec: React.FC<StartSecProps> = ({
 
     let calCulateAmount = +allAmount * 0.0143 + 0.2 + +allAmount;
     setZakat(calCulateAmount);
-    console.log("allAmount----->", allAmount);
   };
   const resetHandler = () => {
     goldAandSilverRef.current.value = null;
@@ -204,7 +255,33 @@ const StartSec: React.FC<StartSecProps> = ({
     setTotal("");
     setZakat("0");
   };
+  const reclaimGiftChangeHandler = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value.trim(),
+      country: country,
+    });
+  };
 
+  const submitHandler = async (e: any) => {
+    setLoader(true);
+    e.preventDefault();
+    try {
+      const newCollectionRef = collection(db, "userReclaimGifts");
+      const newDocRef = doc(newCollectionRef);
+      const userDetails = {
+        userData: formData,
+      };
+
+      await setDoc(newDocRef, userDetails, { merge: true });
+      if (userDetails !== undefined) {
+        setLoader(false);
+        setDetailForm(!detailForm);
+      }
+    } catch (error) {
+      console.error("submit reclaim gift handler--->", error);
+    }
+  };
   return (
     <div>
       {/* navbar */}
@@ -960,7 +1037,7 @@ const StartSec: React.FC<StartSecProps> = ({
               </p>
             </div>
 
-            <p className="text-base text-gray-900 py-3    ">Tell me more »</p>
+            <p className="text-base text-gray-900 py-3">Tell me more »</p>
             <div>
               <div className="flex items-center">
                 <input
@@ -983,7 +1060,7 @@ const StartSec: React.FC<StartSecProps> = ({
               </p>
             </div>
             {detailForm && (
-              <form>
+              <form onSubmit={submitHandler}>
                 <div className="grid gap-6 mb-6 grid-cols-1">
                   <div>
                     <label
@@ -992,8 +1069,14 @@ const StartSec: React.FC<StartSecProps> = ({
                     >
                       Country *
                     </label>
-                    <select className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5">
-                      <option>United kingdom</option>
+                    <select
+                      onChange={(e: any) => {
+                        setCountry(e.target.value), console.log(country);
+                      }}
+                      className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
+                    >
+                      <option value="United kingdom">United kingdom</option>
+                      <option value="United kingdom">United kingdom</option>
                     </select>
                   </div>
                   <div>
@@ -1006,6 +1089,7 @@ const StartSec: React.FC<StartSecProps> = ({
                     <input
                       type="text"
                       id="address1"
+                      onChange={reclaimGiftChangeHandler}
                       className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                       placeholder="Address line 1"
                       required
@@ -1021,6 +1105,7 @@ const StartSec: React.FC<StartSecProps> = ({
                     <input
                       type="text"
                       id="address2"
+                      onChange={reclaimGiftChangeHandler}
                       className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                       placeholder="Address line 2"
                       required
@@ -1036,6 +1121,7 @@ const StartSec: React.FC<StartSecProps> = ({
                     <input
                       type="text"
                       id="city"
+                      onChange={reclaimGiftChangeHandler}
                       className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                       placeholder="City"
                       required
@@ -1044,16 +1130,17 @@ const StartSec: React.FC<StartSecProps> = ({
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label
-                        htmlFor="country"
+                        htmlFor="email"
                         className="block mb-2 text-sm md:text-lg font-medium text-gray-900"
                       >
-                        Country *
+                        Email *
                       </label>
                       <input
                         type="text"
-                        id="country"
+                        id="email"
+                        onChange={reclaimGiftChangeHandler}
                         className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
-                        placeholder="Country"
+                        placeholder="abc@gmail.com"
                         required
                       />
                     </div>
@@ -1066,7 +1153,8 @@ const StartSec: React.FC<StartSecProps> = ({
                       </label>
                       <input
                         type="text"
-                        id="PostalCode "
+                        id="postalCode"
+                        onChange={reclaimGiftChangeHandler}
                         className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                         placeholder="Postal Code "
                         required
@@ -1077,16 +1165,29 @@ const StartSec: React.FC<StartSecProps> = ({
                 <div className="flex justify-between">
                   <div className="visible"></div>
                   <button
-                    onClick={() => {}}
+                    disabled={loader}
                     className="relative group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
                   >
                     <span className="absolute w-40 h-0 transition-all duration-500 origin-center rotate-45 -translate-x-5 bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                    <span className="relative group-hover:text-gray-400 text-white">
-                      {" "}
-                      Next{" "}
-                    </span>
-                    <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+                    {loader ? (
+                      <div className="flex gap-2">
+                        <div
+                          className="inline-block h-6 w-6 relative animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] text-white"
+                          role="status"
+                        ></div>
+                        <span className="text-white !text-xm relative">
+                          Loading...
+                        </span>
+                      </div>
+                    ) : (
+                      <>
+                        <span className="relative group-hover:text-gray-400 text-white">
+                          {" "}
+                          Next{" "}
+                        </span>
+                        <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
+                      </>
+                    )}
                   </button>
                 </div>
               </form>
