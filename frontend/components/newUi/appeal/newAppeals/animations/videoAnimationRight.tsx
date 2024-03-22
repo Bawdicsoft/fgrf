@@ -32,9 +32,9 @@ const AnimatedVideoRight: React.FC<MyAnimatedComponentProps> = ({
   useEffect(() => {
     let xValue = 0;
     if (isExtraSmall) {
-      xValue = 20;
+      xValue = 10;
     } else if (isSmallM) {
-      xValue = 30;
+      xValue = 20;
     } else if (isSmallL) {
       xValue = 30;
     } else if (isMedium) {
