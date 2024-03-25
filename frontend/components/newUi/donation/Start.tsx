@@ -66,7 +66,7 @@ const StartSec: React.FC<StartSecProps> = ({
   const [zakatCalc, setZakatCalc] = useState<Boolean>(false);
   const [otherDollarVal, setOtherDollarVal] = useState<string>("");
   const [userDetails, setUserDetails] = useState<any>("");
-  const [country, setCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>("United kingdom");
   const donation = [titleDonate || "Quick Donation", dollarDonate];
   const [showPayment, setShowPayment] = useState(false);
   const [showFormDonation, setShowFormDonation] = useState(false);
@@ -1075,7 +1075,6 @@ const StartSec: React.FC<StartSecProps> = ({
                       }}
                       className="bg-gray-50 border text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:ring-2 focus:outline-none block w-full p-2.5"
                     >
-                      <option value="United kingdom">United kingdom</option>
                       <option value="United kingdom">United kingdom</option>
                     </select>
                   </div>
