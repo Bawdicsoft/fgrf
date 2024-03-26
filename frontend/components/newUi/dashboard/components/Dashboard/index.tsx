@@ -11,14 +11,16 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
+import Breadcrumb from "../Breadcrumbs/Breadcrumb";
+import UpdateForm from "../forms";
 const MapOne = dynamic(() => import("../Maps/MapOne"), {
   ssr: false,
 });
 
-const ECommerce: React.FC = () => {
+const DashBoard: React.FC = () => {
   return (
     <div className="">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
         <CardDataStats title="Total views" total="$3.456K" rate="0.43%" levelUp>
           <svg
             className="fill-teal-500 "
@@ -90,7 +92,7 @@ const ECommerce: React.FC = () => {
         </CardDataStats>
       </div>
 
-      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
+      <div className="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6">
         <ChartOne />
         <ChartTwo />
         <ChartThree />
@@ -104,4 +106,4 @@ const ECommerce: React.FC = () => {
   );
 };
 
-export default ECommerce;
+export default DashBoard;

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Loader from "@/components/newUi/dashboard/components/common/Loader";
 import Header from "@/components/newUi/dashboard/components/Header";
 import Sidebar from "@/components/newUi/dashboard/components/Sidebar";
+import DashboardProvider from "@/components/newUi/contextApi/dashboardProvider";
 
 export default function RootLayout({
   children,
@@ -28,25 +29,27 @@ export default function RootLayout({
           {loading ? (
             <Loader />
           ) : (
-            <div className="flex h-screen overflow-hidden">
-              <Sidebar
-                sidebarOpen={sidebarOpen}
-                setSidebarOpen={setSidebarOpen}
-              />
-
-              <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-                <Header
+            <DashboardProvider>
+              <div className="flex h-screen overflow-hidden">
+                <Sidebar
                   sidebarOpen={sidebarOpen}
                   setSidebarOpen={setSidebarOpen}
                 />
 
-                <main>
-                  <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-                    {children}
-                  </div>
-                </main>
+                <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+                  <Header
+                    sidebarOpen={sidebarOpen}
+                    setSidebarOpen={setSidebarOpen}
+                  />
+
+                  <main>
+                    <div className="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                      {children}
+                    </div>
+                  </main>
+                </div>
               </div>
-            </div>
+            </DashboardProvider>
           )}
         </div>
       </body>

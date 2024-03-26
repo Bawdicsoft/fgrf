@@ -5,8 +5,8 @@ function FileEditor() {
   return (
     <div>
       <FilePond
-        allowMultiple={true}
-        acceptedFileTypes={["image/*", "application/pdf", "text/*"]}
+      // allowMultiple={true}
+      // acceptedFileTypes={["image/*", "application/pdf", "text/*"]}
       />
     </div>
   );
