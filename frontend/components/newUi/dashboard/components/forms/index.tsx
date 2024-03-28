@@ -2,7 +2,14 @@
 import { useDashboardContext } from "@/components/newUi/contextApi/dashboardContext";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 import { db, storage } from "@/components/newUi/config/firebase";
 import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
 export default function UpdateForm() {
@@ -12,8 +19,10 @@ export default function UpdateForm() {
   const childSection = dataContext.childSection;
   const [sec, setSec] = useState("");
   const [text, setText] = useState("");
-  const [photo, setPhoto] = useState<any>(null);
-  const [video, setVideo] = useState<any>(null);
+  const [photo1, setPhoto1] = useState<any>(null);
+  const [photo2, setPhoto2] = useState<any>(null);
+  const [video1, setVideo1] = useState<any>(null);
+  const [video2, setVideo2] = useState<any>(null);
 
   const disasterManagementLst = [
     "Covid-19",
@@ -34,22 +43,57 @@ export default function UpdateForm() {
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    console.log("data--->", video, photo, text, sec);
+    // update code
+    // const usersRef = collection(db, "contents");
+    // const querySnapshot = await getDocs(usersRef);
+    // querySnapshot.forEach(async (docs) => {
+    //   const docsData = docs.data();
+    //   const chooseSec = docsData.content.sec;
+    //   if (chooseSec === sec) {
+    //     const storageRef = ref(storage, "images/" + photo?.name);
+    //     const titleSnapshot = await uploadBytes(storageRef, photo);
+    //     const titleImageUrl = await getDownloadURL(titleSnapshot.ref);
+    //     const videosRef = ref(storage, "videos/" + video?.name);
+    //     const titleVideos = await uploadBytes(videosRef, video);
+    //     const videoUrl = await getDownloadURL(titleVideos.ref);
+    //     const docsId = docs.id;
+    //     const docRef = doc(db, "contents", docsId);
+    //     await updateDoc(docRef, {
+    //       content: {
+    //         photo: titleImageUrl,
+    //         sec: sec,
+    //         text: text,
+    //         video: videoUrl,
+    //       },
+    //     });
+    //   }
+    // });
+    // };
+    //Values you want to update
+    // });
+
+    // create code
     try {
       const newCollectionRef = collection(db, "contents");
       const newDocRef = doc(newCollectionRef);
-      const storageRef = ref(storage, "images/" + photo?.name);
-      const titleSnapshot = await uploadBytes(storageRef, photo);
-      const titleImageUrl = await getDownloadURL(titleSnapshot.ref);
-      const videosRef = ref(storage, "videos/" + video?.name);
-      const titleVideos = await uploadBytes(videosRef, video);
-      const videoUrl = await getDownloadURL(titleVideos.ref);
+      const storageRef1 = ref(storage, "images/" + photo1?.name);
+      const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+      const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+      const storageRef2 = ref(storage, "images/" + photo2?.name);
+      const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+      const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+      const videosRef1 = ref(storage, "videos/" + video1?.name);
+      const titleVideos1 = await uploadBytes(videosRef1, video1);
+      const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+      const videosRef2 = ref(storage, "videos/" + video2?.name);
+      const titleVideos2 = await uploadBytes(videosRef2, video2);
+      const videoUrl2 = await getDownloadURL(titleVideos2.ref);
       const mainSection = {
         content: {
           sec,
           text,
-          photo: titleImageUrl,
-          video: videoUrl,
+          photo: [titleImageUrl1, titleImageUrl2],
+          video: [videoUrl1, videoUrl2],
         },
       };
 
@@ -60,8 +104,22 @@ export default function UpdateForm() {
     } catch (error) {
       console.error("Roko bahi firebaser error arha hai--->", error);
     }
+    console.log("photo---->", photo1);
   };
-
+  const photoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setPhoto1(file1);
+    const file2 = e.target.files[1];
+    setPhoto2(file2);
+    console.log("file1,file2", file1, file2);
+  };
+  const videoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setVideo1(file1);
+    const file2 = e.target.files[1];
+    setVideo2(file2);
+    console.log("file1,file2", file1, file2);
+  };
   return (
     <form onSubmit={submitHandler}>
       <div className="space-y-12">
@@ -128,7 +186,10 @@ export default function UpdateForm() {
                       <option key={index}>{i}</option>
                     ))
                   ) : (
-                    <option>{midSection}</option>
+                    <>
+                      <option>Select Section</option>
+                      <option>{midSection || childSection}</option>
+                    </>
                   )}
                 </select>
               </div>
@@ -201,7 +262,7 @@ export default function UpdateForm() {
                         type="file"
                         multiple
                         required
-                        onChange={(e: any) => setPhoto(e.target.files[0])}
+                        onChange={photoHandler}
                         className="sr-only"
                       />
                     </label>
@@ -239,7 +300,7 @@ export default function UpdateForm() {
                         multiple
                         accept="video/*"
                         required
-                        onChange={(e: any) => setVideo(e.target.files[0])}
+                        onChange={videoHandler}
                         className="sr-only"
                       />
                     </label>

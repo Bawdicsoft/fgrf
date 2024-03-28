@@ -52,6 +52,7 @@ import MasjidBannerSection from "@/components/newUi/appeal/newAppeals/masjid/mas
 import MasjidDocs from "@/components/newUi/appeal/newAppeals/masjid/masjidDoc";
 import RamadanBannerSection from "@/components/newUi/appeal/newAppeals/ramadan/ramadanBannerSec";
 import RamadanDocs from "@/components/newUi/appeal/newAppeals/ramadan/ramadanDoc";
+import ContentProvider from "@/components/newUi/contextApi/contentProvider";
 
 export default function donationAppeal({
   params,
@@ -61,81 +62,83 @@ export default function donationAppeal({
   const myParams = params.slug;
   return (
     <div className=" bg-gray-200">
-      {/* Palestine Emergency */}
-      {myParams === "palestine-emergency" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <PalestinBannerSection />
+      <ContentProvider>
+        {/* Palestine Emergency */}
+        {myParams === "palestine-emergency" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <PalestinBannerSection />
           <GhazaUnderTakDocs /> */}
-          <PalestineBannerSection />
-          <PalestineDocs />
-        </div>
-      )}
-      {/* food-box */}
-      {myParams === "food-box" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <DonateSection /> */}
-          <FoodBoxBannerSection />
-          <FoodBoxDocs />
-        </div>
-      )}
+            <PalestineBannerSection />
+            <PalestineDocs />
+          </div>
+        )}
+        {/* food-box */}
+        {myParams === "food-box" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <DonateSection /> */}
+            <FoodBoxBannerSection />
+            <FoodBoxDocs />
+          </div>
+        )}
 
-      {/* winter-emergency */}
-      {myParams === "winter-emergency" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <WinterEmergency /> */}
-          <WinterBannerSection />
-          <WinterDocs />
-        </div>
-      )}
-      {/* Masjid Build */}
-      {myParams === "masjid-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <MasjidBannerSection />
-          <MasjidDocs />
-        </div>
-      )}
-      {/* Hand Pump Project */}
-      {myParams === "hand-pump-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <HandPumpBannerSection />
-          <HandPumpDocs />
-        </div>
-      )}
-      {/* Orphan */}
-      {myParams === "orphan" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <OrphanBannerSection />
-          <OrphanDocs />
-        </div>
-      )}
-      {/* Sadaqah */}
-      {myParams === "sadaqah" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <SadaqahBannerSection />
-          <SadaqahDocs />
-        </div>
-      )}
-      {/* water-well-project */}
-      {myParams === "water-well-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <WaterWellBannerSection />
-          <WaterWellDocs />
-        </div>
-      )}
-      {/* Zakat */}
-      {myParams === "zakat" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <ZakatBannerSection />
-          <ZakatDocs />
-        </div>
-      )}
-      {/* ramadan */}
-      {myParams === "ramadan" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <RamadanBannerSection />
-          <RamadanDocs />
-        </div>
-      )}
+        {/* winter-emergency */}
+        {myParams === "winter-emergency" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <WinterEmergency /> */}
+            <WinterBannerSection />
+            <WinterDocs />
+          </div>
+        )}
+        {/* Masjid Build */}
+        {myParams === "masjid-project" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <MasjidBannerSection />
+            <MasjidDocs />
+          </div>
+        )}
+        {/* Hand Pump Project */}
+        {myParams === "hand-pump-project" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <HandPumpBannerSection />
+            <HandPumpDocs />
+          </div>
+        )}
+        {/* Orphan */}
+        {myParams === "orphan" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <OrphanBannerSection />
+            <OrphanDocs />
+          </div>
+        )}
+        {/* Sadaqah */}
+        {myParams === "sadaqah" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <SadaqahBannerSection />
+            <SadaqahDocs />
+          </div>
+        )}
+        {/* water-well-project */}
+        {myParams === "water-well-project" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <WaterWellBannerSection />
+            <WaterWellDocs />
+          </div>
+        )}
+        {/* Zakat */}
+        {myParams === "zakat" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <ZakatBannerSection />
+            <ZakatDocs />
+          </div>
+        )}
+        {/* ramadan */}
+        {myParams === "ramadan" && (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <RamadanBannerSection />
+            <RamadanDocs />
+          </div>
+        )}
+      </ContentProvider>
     </div>
   );
 }

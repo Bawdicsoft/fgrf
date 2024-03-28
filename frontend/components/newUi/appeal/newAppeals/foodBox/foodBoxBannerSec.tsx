@@ -11,7 +11,11 @@ import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const FoodBoxBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  console.log("data---->", data);
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
