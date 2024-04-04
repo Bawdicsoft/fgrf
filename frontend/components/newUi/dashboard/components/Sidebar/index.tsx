@@ -91,15 +91,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
     "Masjid Project",
   ];
   const donationLst = [
-    "Iftar",
-    "Zakat",
-    "Food Box",
-    "Winter Emergency",
-    "Palestine Emergency",
-    "Orphan",
-    "Hand Pump",
-    "Water Well",
-    "Masjid",
+    "Iftar Donation",
+    "Zakat Donation",
+    "Food Box Donation",
+    "Winter Emergency Donation",
+    "Palestine Emergency Donation",
+    "Orphan Donation",
+    "Hand Pump Donation",
+    "Water Well Donation",
+    "Masjid Donation",
   ];
   const ourDepartmentList = [
     "Disaster Management",
@@ -284,13 +284,13 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                                 );
                                               })
                                               .map((elem: any, index: any) => (
-                                                <li
+                                                <div
                                                   key={index}
                                                   className="mt-2 mb-2 flex flex-col pl-4 gap-2"
                                                 >
                                                   {elem.data.map(
                                                     (elem: any, index: any) => (
-                                                      <li key={index}>
+                                                      <div key={index}>
                                                         <Link
                                                           href="/admin/form"
                                                           onClick={() =>
@@ -306,10 +306,10 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                                                         >
                                                           {elem}
                                                         </Link>
-                                                      </li>
+                                                      </div>
                                                     )
                                                   )}
-                                                </li>
+                                                </div>
                                               ))}
                                           </ul>
                                         </div>

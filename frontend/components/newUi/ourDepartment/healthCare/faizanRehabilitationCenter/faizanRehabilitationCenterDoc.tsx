@@ -4,19 +4,27 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import SliderSectionFaizanRehabilitationCenter from "./slider";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const FaizanRehabilitationCenterDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Faizan Rehabilitation Center" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="py-5 px-4 xl:px-0">
       <SliderSectionFaizanRehabilitationCenter />
       <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
-        With four branches already established in Pakistan, FRC is now looking
+        {(text && text) ||
+          `   With four branches already established in Pakistan, FRC is now looking
         forward to expanding its services to the UK in 2024. Our mission is to
         provide comprehensive care and support to children with special needs,
         empowering them to reach their full potential and lead fulfilling lives.
         Stay tuned for updates on our upcoming launch in the UK and join us in
         making a difference in the lives of children with developmental
-        challenges.
+        challenges.`}
       </p>
 
       <div className="flex justify-center pb-5">

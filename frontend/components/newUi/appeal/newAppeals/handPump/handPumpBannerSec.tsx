@@ -11,7 +11,14 @@ import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const HandPumpBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Hand Pump Project" === title.content.sec
+  );
+  const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
   const [dollarDonate, setDollarDonate] = useState("50");
   const [amount, setAmount] = useState();
@@ -98,7 +105,7 @@ const HandPumpBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/handPump/1.jpg"}
+                src={`${(photos && photos[0]) || "/AppealNew/handPump/1.jpg"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -115,7 +122,7 @@ const HandPumpBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/handPump/3.jpg"}
+                src={`${(photos && photos[1]) || "/AppealNew/handPump/3.jpg"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

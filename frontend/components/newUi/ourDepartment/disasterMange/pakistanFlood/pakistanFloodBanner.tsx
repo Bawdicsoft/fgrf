@@ -5,8 +5,15 @@ import { use, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const PakistanFloodBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Pakistan" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   return (
     <div className="pt-10 px-4 xl:px-0">
       <div className="flex flex-col items-center">
@@ -75,7 +82,9 @@ const PakistanFloodBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/disaster/pakistanFlood/4.jpg"}
+            src={`${
+              (photo && photo) || "/ourDepartment/disaster/pakistanFlood/4.jpg"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

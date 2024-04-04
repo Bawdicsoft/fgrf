@@ -11,7 +11,14 @@ import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const WinterBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Winter Emergency" === title.content.sec
+  );
+  const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -98,7 +105,7 @@ const WinterBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/winter/12.png"}
+                src={`${(photos && photos[0]) || "/AppealNew/winter/12.png"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -115,7 +122,7 @@ const WinterBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/winter/11.png"}
+                src={`${(photos && photos[1]) || "/AppealNew/winter/11.png"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

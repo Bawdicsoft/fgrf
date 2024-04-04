@@ -9,19 +9,26 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/healthCare/eyeCamps/eyeCamps (1).png",
-  "/ourDepartment/healthCare/eyeCamps/eyeCamps (2).png",
-  "/ourDepartment/healthCare/eyeCamps/eyeCamps (3).png",
-  "/ourDepartment/healthCare/eyeCamps/eyeCamps (4).png",
-  "/ourDepartment/healthCare/eyeCamps/eyeCamps (5).png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionEyeCamps() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Eye Camps" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/healthCare/eyeCamps/eyeCamps (1).png",
+    "/ourDepartment/healthCare/eyeCamps/eyeCamps (2).png",
+    "/ourDepartment/healthCare/eyeCamps/eyeCamps (3).png",
+    "/ourDepartment/healthCare/eyeCamps/eyeCamps (4).png",
+    "/ourDepartment/healthCare/eyeCamps/eyeCamps (5).png",
+  ];
   return (
     <>
       <Swiper
@@ -59,7 +66,7 @@ export default function SliderSectionEyeCamps() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

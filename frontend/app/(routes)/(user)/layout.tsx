@@ -7,6 +7,7 @@ import Footer from "@/components/newUi/Footer/Footer";
 import Fgrflogo from "@/components/newUi/home/PermenantLogo";
 import DonationProvider from "@/components/newUi/contextApi/donationProvider";
 import DonationModal from "@/components/newUi/donation/donationModal";
+import ContentProvider from "@/components/newUi/contextApi/contentProvider";
 // import Navbar from "@/components/navigation/Navbar";
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ export default function RootLayout({
           <div>
             <Fgrflogo />
           </div>
-          {children}
+          <ContentProvider>{children}</ContentProvider>
           <Footer />
         </DonationProvider>
       </body>

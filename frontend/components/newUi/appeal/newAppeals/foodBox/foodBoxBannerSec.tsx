@@ -15,7 +15,10 @@ import { useContentContext } from "@/components/newUi/contextApi/contentContext"
 const FoodBoxBannerSection = () => {
   const contentContext = useContentContext();
   const data = contentContext.content;
-  console.log("data---->", data);
+  const foodBoxData = data.filter(
+    (title: any) => "Food Box" === title.content.sec
+  );
+  const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -103,7 +106,7 @@ const FoodBoxBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/food/left.jpeg"}
+                src={`${(photos && photos[0]) || "/AppealNew/food/left.jpeg"} `}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -120,7 +123,9 @@ const FoodBoxBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/food/right.jpeg"}
+                src={`${
+                  (photos && photos[1]) || "/AppealNew/food/right.jpeg"
+                } `}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

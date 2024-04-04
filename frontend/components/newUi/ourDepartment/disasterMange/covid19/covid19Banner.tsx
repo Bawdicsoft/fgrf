@@ -5,67 +5,15 @@ import { use, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const Covid19BannerSection = () => {
-  const [docs, setDocs] = useState(0);
-  const oneOffBtnList = [
-    { title: "50", doc: "Could provide food supplies for Palestinians." },
-    {
-      title: "100",
-      doc: "Could help provide a range of medical consumables to support the injured.",
-    },
-    {
-      title: "100",
-      doc: "Could provide 15 Palestinians with 2 life-saving nutritious food packs each.",
-    },
-    {
-      title: "200",
-      doc: "Could provide critical medical supplies to aid the injured.",
-    },
-    {
-      title: "300",
-      doc: "Could provide 50 Palestinians with 6 nutritious food packs each.",
-    },
-    {
-      title: "900",
-      doc: "Could provide 9 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians.",
-    },
-    {
-      title: "1500",
-      doc: "Could provide 15 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians.",
-    },
-    {
-      title: "3000",
-      doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians.",
-    },
-  ];
-  const monthBtnList = [
-    {
-      title: "9",
-      doc: "Could provide 2 x life-saving Food Packs of nutritious meals to over 15 Palestinians.",
-    },
-    {
-      title: "25",
-      doc: "Could provide 6 x life-saving Food Packs of nutritious meals to over 50 Palestinians.",
-    },
-    {
-      title: "75",
-      doc: "Could provide 9 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians.",
-    },
-    {
-      title: "125",
-      doc: "Could provide 15 x Medical Consumables Packs of life-critical medicine to over 100 Palestinians.",
-    },
-    {
-      title: "250",
-      doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians.",
-    },
-  ];
-
-  const [packeges, setPackeges] = useState(oneOffBtnList);
-  const [bgColor, setBgColor] = useState(true);
-  const [bgBtn, setbgBtn] = useState(0);
-
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Covid-19" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   return (
     <div className="pt-5 lg:pt-10 px-4  xl:px-0">
       <div className="flex flex-col items-center mx-auto px-3">
@@ -134,7 +82,9 @@ const Covid19BannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/disaster/covid/covid2.png"}
+            src={`${
+              (photo && photo) || "/ourDepartment/disaster/covid/covid2.png"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

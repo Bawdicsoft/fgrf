@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionWaterWell from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const WaterWellDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Water Well Project" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
+  const text = foodBoxData[0]?.content?.text;
   return (
     // new Code
     <div>
@@ -10,15 +19,13 @@ const WaterWellDocs = () => {
         <SliderSectionWaterWell />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-3 md:py-5">
-          Our solar panel system harnesses the sun energy to pump water into a
-          tank
-        </p>
-        <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-3">
-          In the deserts of Pakistan, water lies deep underground, rendering
-          traditional methods ineffective. Our solar panel system harnesses the
-          sun energy to pump water into a tank. Clean water is then distributed
-          to homes based on household size, while farmers can also access the
-          tank for irrigating crops and feeding animals
+          {(text && text) ||
+            `Our solar panel system harnesses the sun energy to pump water into a
+          tank.In the deserts of Pakistan, water lies deep underground,
+          rendering traditional methods ineffective. Our solar panel system
+          harnesses the sun energy to pump water into a tank. Clean water is
+          then distributed to homes based on household size, while farmers can
+          also access the tank for irrigating crops and feeding animals`}
         </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>
@@ -39,7 +46,10 @@ const WaterWellDocs = () => {
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/WaterWell/waterwell (1).mp4"
+                  src={`${
+                    (videos && videos[0]) ||
+                    "/AppealNew/videos/WaterWell/waterwell (1).mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>
@@ -49,7 +59,10 @@ const WaterWellDocs = () => {
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/WaterWell/waterwell (2).mp4"
+                  src={`${
+                    (videos && videos[1]) ||
+                    "/AppealNew/videos/WaterWell/waterwell (2).mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>

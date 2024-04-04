@@ -5,8 +5,15 @@ import { use, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const MorroccoBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Morocco Earthquake" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   return (
     <div className="pt-5 lg:pt-10 px-4 xl:px-0">
       <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
@@ -75,7 +82,10 @@ const MorroccoBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/disaster/morroco/morroco (37).JPG"}
+            src={`${
+              (photo && photo) ||
+              "/ourDepartment/disaster/morroco/morroco (37).JPG"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

@@ -1,15 +1,24 @@
+"use client";
 import Link from "next/link";
 import SliderSectionZakat from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const ZakatDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Zakat" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
+  const text = foodBoxData[0]?.content?.text;
   return (
     // new Code
     <div>
       <div className="py-10 md:py-16 px-5 ">
         <SliderSectionZakat />
         <h2 className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg py-8">
-          Zakat is one of the five pillars of Islam and it is an obligatory act.
+          {text}
         </h2>
         <h2 className="text-teal-500 font-bold text-xl md:text-2xl lg:text-3xl text-center pt-8 py-3">
           What is Zakat?
@@ -68,14 +77,20 @@ const ZakatDocs = () => {
           <div className="md:w-3/4 ">
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[0]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoLeft>
           </div>
           <div className="md:w-3/4 ">
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[1]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoRight>
           </div>

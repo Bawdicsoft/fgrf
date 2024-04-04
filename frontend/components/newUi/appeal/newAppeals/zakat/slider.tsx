@@ -7,20 +7,26 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const imageList = [
-  "/AppealNew/Zakat/zakat1.jpeg",
-  "/AppealNew/Zakat/zakat2.jpeg",
-  "/AppealNew/Zakat/zakat3.jpeg",
-  "/AppealNew/Zakat/zakat4.jpeg",
-  "/AppealNew/Zakat/zakat5.jpeg",
-  "/AppealNew/Zakat/zakat6.jpeg",
-];
-
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionZakat() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Zakat" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/Zakat/zakat1.jpeg",
+    "/AppealNew/Zakat/zakat2.jpeg",
+    "/AppealNew/Zakat/zakat3.jpeg",
+    "/AppealNew/Zakat/zakat4.jpeg",
+    "/AppealNew/Zakat/zakat5.jpeg",
+    "/AppealNew/Zakat/zakat6.jpeg",
+  ];
   return (
     <>
       <Swiper
@@ -58,7 +64,7 @@ export default function SliderSectionZakat() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList?.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

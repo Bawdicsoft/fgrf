@@ -9,33 +9,41 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/disaster/palestine/palestine (1).png",
-  "/ourDepartment/disaster/palestine/palestine (2).png",
-  "/ourDepartment/disaster/palestine/palestine (3).png",
-  "/ourDepartment/disaster/palestine/palestine (4).png",
-  "/ourDepartment/disaster/palestine/palestine (5).png",
-  "/ourDepartment/disaster/palestine/palestine (6).png",
-  "/ourDepartment/disaster/palestine/palestine (7).png",
-  "/ourDepartment/disaster/palestine/palestine (8).png",
-  "/ourDepartment/disaster/palestine/palestine (9).png",
-  "/ourDepartment/disaster/palestine/palestine (10).png",
-  "/ourDepartment/disaster/palestine/palestine (11).png",
-  "/ourDepartment/disaster/palestine/palestine (12).png",
-  "/ourDepartment/disaster/palestine/palestine (14).png",
-  "/ourDepartment/disaster/palestine/palestine (15).png",
-  "/ourDepartment/disaster/palestine/palestine (16).png",
-  "/ourDepartment/disaster/palestine/palestine (17).png",
-  "/ourDepartment/disaster/palestine/palestine (18).png",
-  "/ourDepartment/disaster/palestine/palestine (19).png",
-  "/ourDepartment/disaster/palestine/palestine (13).png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionpalestinianBrotherSister() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Pakistan Flood" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/disaster/palestine/palestine (1).png",
+    "/ourDepartment/disaster/palestine/palestine (2).png",
+    "/ourDepartment/disaster/palestine/palestine (3).png",
+    "/ourDepartment/disaster/palestine/palestine (4).png",
+    "/ourDepartment/disaster/palestine/palestine (5).png",
+    "/ourDepartment/disaster/palestine/palestine (6).png",
+    "/ourDepartment/disaster/palestine/palestine (7).png",
+    "/ourDepartment/disaster/palestine/palestine (8).png",
+    "/ourDepartment/disaster/palestine/palestine (9).png",
+    "/ourDepartment/disaster/palestine/palestine (10).png",
+    "/ourDepartment/disaster/palestine/palestine (11).png",
+    "/ourDepartment/disaster/palestine/palestine (12).png",
+    "/ourDepartment/disaster/palestine/palestine (14).png",
+    "/ourDepartment/disaster/palestine/palestine (15).png",
+    "/ourDepartment/disaster/palestine/palestine (16).png",
+    "/ourDepartment/disaster/palestine/palestine (17).png",
+    "/ourDepartment/disaster/palestine/palestine (18).png",
+    "/ourDepartment/disaster/palestine/palestine (19).png",
+    "/ourDepartment/disaster/palestine/palestine (13).png",
+  ];
+
   return (
     <>
       <Swiper
@@ -73,7 +81,7 @@ export default function SliderSectionpalestinianBrotherSister() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

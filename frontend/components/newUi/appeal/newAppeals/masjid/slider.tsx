@@ -7,19 +7,25 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const imageList = [
-  "/AppealNew/masjid/1.jpg",
-  "/AppealNew/masjid/2.png",
-  "/AppealNew/masjid/3.jpg",
-  "/AppealNew/masjid/4.png",
-  "/AppealNew/masjid/5.png",
-];
-
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionMasjid() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Masjid Project" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/masjid/1.jpg",
+    "/AppealNew/masjid/2.png",
+    "/AppealNew/masjid/3.jpg",
+    "/AppealNew/masjid/4.png",
+    "/AppealNew/masjid/5.png",
+  ];
   return (
     <>
       <Swiper
@@ -57,7 +63,7 @@ export default function SliderSectionMasjid() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

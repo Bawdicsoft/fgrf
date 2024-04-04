@@ -4,7 +4,14 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "../../home/AnimationBtm";
 import AnimationTop from "../../home/AnimationTop";
+import { useContentContext } from "../../contextApi/contentContext";
 export default function DonationSectionEductionSkills() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Education & Skills" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
   const cardArray = [
     { amount: "25", title: "Food box" },
     { amount: "100", title: "clean drinking & Food Box" },
@@ -71,7 +78,10 @@ export default function DonationSectionEductionSkills() {
           <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
             <video className="h-full w-full rounded-lg object-fill" controls>
               <source
-                src="/ourDepartment/videos/Education Skills/education (1).mp4"
+                src={`${
+                  (videos && videos) ||
+                  "/ourDepartment/videos/Education Skills/education (1).mp4"
+                }`}
                 type="video/mp4"
               />
             </video>

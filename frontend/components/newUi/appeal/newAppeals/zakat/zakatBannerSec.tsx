@@ -11,7 +11,14 @@ import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const ZakatBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Zakat" === title.content.sec
+  );
+  const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -98,7 +105,9 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/Zakat/zakat4.jpeg"}
+                src={`${
+                  (photos && photos[0]) || "/AppealNew/Zakat/zakat4.jpeg"
+                }`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -115,7 +124,9 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/Zakat/zakat5.jpeg"}
+                src={`${
+                  (photos && photos[1]) || "/AppealNew/Zakat/zakat5.jpeg"
+                }`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

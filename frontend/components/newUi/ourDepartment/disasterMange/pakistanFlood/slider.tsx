@@ -10,42 +10,49 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/disaster/pakistanFlood/1.jpg",
-  "/ourDepartment/disaster/pakistanFlood/2.jpg",
-  "/ourDepartment/disaster/pakistanFlood/3.jpg",
-  "/ourDepartment/disaster/pakistanFlood/4.jpg",
-  "/ourDepartment/disaster/pakistanFlood/5.jpg",
-  "/ourDepartment/disaster/pakistanFlood/6.jpg",
-  "/ourDepartment/disaster/pakistanFlood/7.jpg",
-  "/ourDepartment/disaster/pakistanFlood/8.jpg",
-  "/ourDepartment/disaster/pakistanFlood/9.jpg",
-  "/ourDepartment/disaster/pakistanFlood/10.jpg",
-  "/ourDepartment/disaster/pakistanFlood/11.jpg",
-  "/ourDepartment/disaster/pakistanFlood/12.jpg",
-  "/ourDepartment/disaster/pakistanFlood/13.jpg",
-  "/ourDepartment/disaster/pakistanFlood/14.jpg",
-  "/ourDepartment/disaster/pakistanFlood/15.jpg",
-  "/ourDepartment/disaster/pakistanFlood/16.jpg",
-  "/ourDepartment/disaster/pakistanFlood/17.jpg",
-  "/ourDepartment/disaster/pakistanFlood/18.jpg",
-  "/ourDepartment/disaster/pakistanFlood/19.jpg",
-  "/ourDepartment/disaster/pakistanFlood/20.jpg",
-  "/ourDepartment/disaster/pakistanFlood/21.jpg",
-  "/ourDepartment/disaster/pakistanFlood/22.jpg",
-  "/ourDepartment/disaster/pakistanFlood/23.jpg",
-  "/ourDepartment/disaster/pakistanFlood/24.jpg",
-  "/ourDepartment/disaster/pakistanFlood/25.jpg",
-  "/ourDepartment/disaster/pakistanFlood/26.jpg",
-  "/ourDepartment/disaster/pakistanFlood/27.jpg",
-  "/ourDepartment/disaster/pakistanFlood/28.jpg",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionPakistanFlood() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Pakistan Flood" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/disaster/pakistanFlood/1.jpg",
+    "/ourDepartment/disaster/pakistanFlood/2.jpg",
+    "/ourDepartment/disaster/pakistanFlood/3.jpg",
+    "/ourDepartment/disaster/pakistanFlood/4.jpg",
+    "/ourDepartment/disaster/pakistanFlood/5.jpg",
+    "/ourDepartment/disaster/pakistanFlood/6.jpg",
+    "/ourDepartment/disaster/pakistanFlood/7.jpg",
+    "/ourDepartment/disaster/pakistanFlood/8.jpg",
+    "/ourDepartment/disaster/pakistanFlood/9.jpg",
+    "/ourDepartment/disaster/pakistanFlood/10.jpg",
+    "/ourDepartment/disaster/pakistanFlood/11.jpg",
+    "/ourDepartment/disaster/pakistanFlood/12.jpg",
+    "/ourDepartment/disaster/pakistanFlood/13.jpg",
+    "/ourDepartment/disaster/pakistanFlood/14.jpg",
+    "/ourDepartment/disaster/pakistanFlood/15.jpg",
+    "/ourDepartment/disaster/pakistanFlood/16.jpg",
+    "/ourDepartment/disaster/pakistanFlood/17.jpg",
+    "/ourDepartment/disaster/pakistanFlood/18.jpg",
+    "/ourDepartment/disaster/pakistanFlood/19.jpg",
+    "/ourDepartment/disaster/pakistanFlood/20.jpg",
+    "/ourDepartment/disaster/pakistanFlood/21.jpg",
+    "/ourDepartment/disaster/pakistanFlood/22.jpg",
+    "/ourDepartment/disaster/pakistanFlood/23.jpg",
+    "/ourDepartment/disaster/pakistanFlood/24.jpg",
+    "/ourDepartment/disaster/pakistanFlood/25.jpg",
+    "/ourDepartment/disaster/pakistanFlood/26.jpg",
+    "/ourDepartment/disaster/pakistanFlood/27.jpg",
+    "/ourDepartment/disaster/pakistanFlood/28.jpg",
+  ];
   return (
     <>
       <Swiper
@@ -83,7 +90,7 @@ export default function SliderSectionPakistanFlood() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

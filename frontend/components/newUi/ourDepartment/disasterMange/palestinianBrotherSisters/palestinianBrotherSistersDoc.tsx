@@ -4,25 +4,29 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import SliderSectionpalestinianBrotherSister from "./slider";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const PalestinianBrotherSistersDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Pakistan Flood" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionpalestinianBrotherSister />
       <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
-        With urgency and compassion, we provided over 100,000 cooked meals,
+        {(text && text) ||
+          ` With urgency and compassion, we provided over 100,000 cooked meals,
         along with container mattresses and blankets, to those in need.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
         Additionally, we distributed thousands of food packs and ration boxes,
         ensuring that no one went hungry during this difficult time. Multiple
         aid containers were dispatched via Egypt, delivering essential supplies
-        to affected communities.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-90">
-        FGRF remains committed to standing by the people of Palestine, offering
-        support and relief to help them overcome the challenges they face.
-        Together, we strive to bring comfort and hope to those in need.
+        to affected communities. FGRF remains committed to standing by the
+        people of Palestine, offering support and relief to help them overcome
+        the challenges they face. Together, we strive to bring comfort and hope
+        to those in need.`}
       </p>
       <div className="flex justify-center pb-8">
         <AnimationTop>

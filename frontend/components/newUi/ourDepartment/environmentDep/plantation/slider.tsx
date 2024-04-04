@@ -10,32 +10,39 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (1).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (2).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (3).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (4).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (5).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (6).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (7).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (8).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (9).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (10).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (11).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (12).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (13).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (14).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (15).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (16).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (17).jpg",
-  "/ourDepartment/EnvironmentDepartment/plantation/plantation (18).jpg",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionPlantation() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Plantation" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (1).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (2).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (3).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (4).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (5).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (6).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (7).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (8).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (9).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (10).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (11).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (12).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (13).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (14).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (15).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (16).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (17).jpg",
+    "/ourDepartment/EnvironmentDepartment/plantation/plantation (18).jpg",
+  ];
   return (
     <>
       <Swiper
@@ -73,7 +80,7 @@ export default function SliderSectionPlantation() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

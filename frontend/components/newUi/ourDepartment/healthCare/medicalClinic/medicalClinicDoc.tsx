@@ -4,17 +4,25 @@ import Link from "next/link";
 import SliderSectionMedicalClinic from "./slider";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const MedicalClinicDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Madical Clinic" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="py-5 px-4 xl:px-0 ">
       <SliderSectionMedicalClinic />
       <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
-        keeping costs low to accommodate the country&#39;s inflationary
+        {(text && text) ||
+          `keeping costs low to accommodate the country's inflationary
         challenges. With a mission to make healthcare accessible to all, FGRF
         aims to establish 250+ healthcare centers and 14,000 clinics across
         Pakistan within the next five years. Stay tuned for updates as we
         continue our efforts to provide affordable and quality healthcare to
-        communities in need.
+        communities in need.`}
       </p>
 
       <div className="flex justify-center pb-5">

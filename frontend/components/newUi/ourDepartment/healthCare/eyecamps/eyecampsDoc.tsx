@@ -4,22 +4,28 @@ import Link from "next/link";
 import SliderSectionEyeCamps from "./slider";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const EyecampsDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Eye Camps" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="py-5 px-4 xl:px-0">
       <SliderSectionEyeCamps />
 
       <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
-        FGRF has initiated various eye camps to provide essential services to
+        {(text && text) ||
+          ` FGRF has initiated various eye camps to provide essential services to
         communities in need. These camps offer free eye tests and medication,
         ensuring that individuals receive the necessary care without any
-        financial burden.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        TThrough these initiatives, FGRF aims to tackle eye issues prevalent in
-        rural communities and improve access to eye care services. By providing
-        free-of-cost screenings and treatment, we strive to alleviate suffering
-        and promote better eye health among those who need it most.
+        financial burden. TThrough these initiatives, FGRF aims to tackle eye
+        issues prevalent in rural communities and improve access to eye care
+        services. By providing free-of-cost screenings and treatment, we strive
+        to alleviate suffering and promote better eye health among those who
+        need it most.`}
       </p>
       <div className="flex justify-center pb-3">
         <AnimationTop>

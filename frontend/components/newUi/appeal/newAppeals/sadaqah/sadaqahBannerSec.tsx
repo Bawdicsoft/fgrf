@@ -11,7 +11,14 @@ import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const SadaqahBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Sadaqah" === title.content.sec
+  );
+  const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -98,7 +105,7 @@ const SadaqahBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/Sadaqah/1.jpg"}
+                src={`${(photos && photos[0]) || "/AppealNew/Sadaqah/1.jpg"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -115,7 +122,7 @@ const SadaqahBannerSection = () => {
               }`}
             >
               <Image
-                src={"/AppealNew/Sadaqah/4.jpg"}
+                src={`${(photos && photos[1]) || "/AppealNew/Sadaqah/4.jpg"}`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

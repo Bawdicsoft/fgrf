@@ -10,25 +10,32 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/disaster/covid/covid1.png",
-  "/ourDepartment/disaster/covid/covid2.png",
-  "/ourDepartment/disaster/covid/covid3.png",
-  "/ourDepartment/disaster/covid/covid4.png",
-  "/ourDepartment/disaster/covid/covid5.png",
-  "/ourDepartment/disaster/covid/covid6.png",
-  "/ourDepartment/disaster/covid/covid7.png",
-  "/ourDepartment/disaster/covid/covid8.png",
-  "/ourDepartment/disaster/covid/covid9.png",
-  "/ourDepartment/disaster/covid/covid10.png",
-  "/ourDepartment/disaster/covid/covid11.png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionCovid19() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Covid-19" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/disaster/covid/covid1.png",
+    "/ourDepartment/disaster/covid/covid2.png",
+    "/ourDepartment/disaster/covid/covid3.png",
+    "/ourDepartment/disaster/covid/covid4.png",
+    "/ourDepartment/disaster/covid/covid5.png",
+    "/ourDepartment/disaster/covid/covid6.png",
+    "/ourDepartment/disaster/covid/covid7.png",
+    "/ourDepartment/disaster/covid/covid8.png",
+    "/ourDepartment/disaster/covid/covid9.png",
+    "/ourDepartment/disaster/covid/covid10.png",
+    "/ourDepartment/disaster/covid/covid11.png",
+  ];
   return (
     <>
       <Swiper
@@ -66,7 +73,7 @@ export default function SliderSectionCovid19() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionRamadan from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const RamadanDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Ramadan 2024" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
+  const text = foodBoxData[0]?.content?.text;
   return (
     // new Code
     <div>
@@ -11,13 +20,13 @@ const RamadanDocs = () => {
 
         <div className="">
           <h2 className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-2">
-            The Holy Prophet ﷺ has said, ‘On the first night of Ramadan, the
+            {`${
+              text ||
+              `The Holy Prophet ﷺ has said, ‘On the first night of Ramadan, the
             portals of the skies and Paradise are opened which remain open until
-            the last night (of the month).{" "}
+            the last night (of the month).\n  (Shu’ab-ul-Īmān, pp. 314, vol. 3, Ḥadīš 3635)`
+            }`}
           </h2>
-          <p className="text-xs md:text-sm text-center">
-            (Shu’ab-ul-Īmān, pp. 314, vol. 3, Ḥadīš 3635)
-          </p>
         </div>
         <div className="flex justify-center">
           <Link href={"/donation"}>
@@ -37,14 +46,20 @@ const RamadanDocs = () => {
           <div className="md:w-3/4 ">
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[0]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoLeft>
           </div>
           <div className="md:w-3/4 ">
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[0]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoRight>
           </div>

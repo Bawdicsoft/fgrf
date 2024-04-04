@@ -1,9 +1,18 @@
+"use client";
+import { useContentContext } from "../../contextApi/contentContext";
 import { DonationSectionPage } from "../../donation/donation";
 
 export default function MasjidDonation() {
-  const img = "/AppealNew/masjid/1.jpg";
-  const title = "masjid";
-  const desc = `The holy prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم has said : The one who builds a Masjid for the
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Iftar Donation" === title.content.sec
+  );
+  const img = foodBoxData[0]?.content?.photo || "/AppealNew/masjid/1.jpg";
+  const title = foodBoxData[0]?.content?.sec || "masjid";
+  const desc =
+    foodBoxData[0]?.content?.text ||
+    `The holy prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم has said : The one who builds a Masjid for the
 pleasure of Allah Almighty; Allah Almighty would build a house for him in paradise. (Sahih
 Muslim)
 The holy prophet صَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم has said: “whoever builds a masjid for the sake of

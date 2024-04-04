@@ -10,39 +10,46 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/healthCare/medicalVan/medicalVan (1).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (2).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (3).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (4).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (5).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (6).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (7).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (8).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (9).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (10).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (11).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (12).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (13).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (14).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (15).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (16).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (17).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (18).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (19).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (20).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (21).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (22).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (23).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (24).png",
-  "/ourDepartment/healthCare/medicalVan/medicalVan (25).png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionMedicalVan() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Madical Van" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/healthCare/medicalVan/medicalVan (1).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (2).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (3).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (4).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (5).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (6).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (7).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (8).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (9).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (10).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (11).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (12).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (13).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (14).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (15).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (16).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (17).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (18).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (19).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (20).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (21).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (22).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (23).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (24).png",
+    "/ourDepartment/healthCare/medicalVan/medicalVan (25).png",
+  ];
   return (
     <>
       <Swiper
@@ -80,7 +87,7 @@ export default function SliderSectionMedicalVan() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

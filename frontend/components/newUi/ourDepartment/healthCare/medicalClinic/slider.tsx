@@ -10,32 +10,39 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/ourDepartment/healthCare/medicalClinic/medical (1).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (2).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (3).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (4).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (5).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (6).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (7).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (8).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (9).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (10).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (11).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (12).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (13).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (14).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (15).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (16).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (17).png",
-  "/ourDepartment/healthCare/medicalClinic/medical (18).png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionMedicalClinic() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Madical Clinic" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/ourDepartment/healthCare/medicalClinic/medical (1).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (2).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (3).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (4).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (5).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (6).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (7).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (8).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (9).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (10).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (11).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (12).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (13).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (14).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (15).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (16).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (17).png",
+    "/ourDepartment/healthCare/medicalClinic/medical (18).png",
+  ];
   return (
     <>
       <Swiper
@@ -73,7 +80,7 @@ export default function SliderSectionMedicalClinic() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

@@ -4,29 +4,32 @@ import Link from "next/link";
 import SliderSectionCovid19 from "./slider";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const Covid19Docs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Covid-19" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4 xl:px-0">
       <SliderSectionCovid19 />
 
       <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
-        We made a difference by providing essential food items, cooked meals,
+        {(text && text) ||
+          `We made a difference by providing essential food items, cooked meals,
         and ration boxes to millions of people worldwide, including over 25,000
-        in the UK alone.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        Additionally, we addressed a critical need by building temporary
-        mortuaries to support funeral services during this difficult time. Many
-        funeral services were hesitant to wash and shroud deceased individuals
-        who had died from COVID- 19, causing significant worry in communities.
-        FGRF stepped in to provide solutions and alleviate concerns, ensuring
-        proper care for the deceased and peace of mind for their loved ones.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        Through these efforts, FGRF continues to demonstrate its dedication to
-        serving humanity and making a positive impact, even in the face of
-        unprecedented challenges.
+        in the UK alone. Additionally, we addressed a critical need by building
+        temporary mortuaries to support funeral services during this difficult
+        time. Many funeral services were hesitant to wash and shroud deceased
+        individuals who had died from COVID- 19, causing significant worry in
+        communities. FGRF stepped in to provide solutions and alleviate
+        concerns, ensuring proper care for the deceased and peace of mind for
+        their loved ones.Through these efforts, FGRF continues to demonstrate
+        its dedication to serving humanity and making a positive impact, even in
+        the face of unprecedented challenges.`}
       </p>
 
       <div className="flex justify-center pb-5">

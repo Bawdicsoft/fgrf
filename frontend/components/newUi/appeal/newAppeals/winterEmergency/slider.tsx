@@ -6,23 +6,29 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const imageList = [
-  "/AppealNew/winter/2.png",
-  "/AppealNew/winter/5.png",
-  "/AppealNew/winter/6.png",
-  "/AppealNew/winter/7.png",
-  "/AppealNew/winter/8.png",
-  "/AppealNew/winter/9.png",
-  "/AppealNew/winter/10.png",
-  "/AppealNew/winter/11.png",
-  "/AppealNew/winter/12.png",
-];
-
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionWinter() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Winter Emergency" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/winter/2.png",
+    "/AppealNew/winter/5.png",
+    "/AppealNew/winter/6.png",
+    "/AppealNew/winter/7.png",
+    "/AppealNew/winter/8.png",
+    "/AppealNew/winter/9.png",
+    "/AppealNew/winter/10.png",
+    "/AppealNew/winter/11.png",
+    "/AppealNew/winter/12.png",
+  ];
   return (
     <>
       <Swiper
@@ -60,7 +66,7 @@ export default function SliderSectionWinter() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

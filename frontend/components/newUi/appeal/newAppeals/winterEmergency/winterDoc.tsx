@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionWinter from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const WinterDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Winter Emergency" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
+  const text = foodBoxData[0]?.content?.text;
   return (
     // new Code
     <div>
@@ -10,10 +19,11 @@ const WinterDocs = () => {
         <SliderSectionWinter />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          Allah will fulfil the needs Our beloved Rasool صلی اللہ علیہ وسلم has
+          {(text && text) ||
+            `  Allah will fulfil the needs Our beloved Rasool صلی اللہ علیہ وسلم has
           said, ‘He who fulfils the need of any person, Allah will fulfil his
           needs in the religion and the world.’ (Sahih Muslim, Kitab-uz-Zikr
-          wad-Du’a, pp. 1447, Hadees 2699)
+          wad-Du’a, pp. 1447, Hadees 2699)`}
         </p>
 
         <div className="flex justify-center">
@@ -35,7 +45,10 @@ const WinterDocs = () => {
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Winter Emergency/winterEmergency.mp4"
+                  src={` ${
+                    (videos && videos[0]) ||
+                    "/AppealNew/videos/Winter Emergency/winterEmergency.mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>
@@ -45,7 +58,10 @@ const WinterDocs = () => {
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Winter Emergency/winterEmergency.mp4"
+                  src={` ${
+                    (videos && videos[1]) ||
+                    "/AppealNew/videos/Winter Emergency/winterEmergency.mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>

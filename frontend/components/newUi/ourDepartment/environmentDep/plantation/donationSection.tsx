@@ -4,7 +4,14 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 export default function DonationSectionPlantation() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Plantation" === title.content.sec
+  );
+  const videos = foodBoxData[0]?.content?.video;
   const cardArray = [
     { amount: "25", title: "Food box" },
     { amount: "100", title: "clean drinking & Food Box" },
@@ -70,7 +77,10 @@ export default function DonationSectionPlantation() {
           <div className="border-4 border-sky-600 rounded-xl h-[250px] md:h-[450px] lg:h-[600px] w-full mx-auto my-8">
             <video className="h-full w-full rounded-lg object-cover" controls>
               <source
-                src="/ourDepartment/EnvironmentDepartment/Environment.mp4"
+                src={`${
+                  (videos && videos) ||
+                  "/ourDepartment/EnvironmentDepartment/Environment.mp4"
+                }`}
                 type="video/mp4"
               />
             </video>

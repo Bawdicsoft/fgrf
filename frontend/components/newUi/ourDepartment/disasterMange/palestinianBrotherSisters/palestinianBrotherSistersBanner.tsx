@@ -5,8 +5,15 @@ import { use, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
 import AnimationBottom from "@/components/newUi/home/AnimationBtm";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const PalestinianBrotherSistersBanner = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Pakistan" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -130,7 +137,10 @@ const PalestinianBrotherSistersBanner = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/disaster/palestine/palestine (8).png"}
+            src={`${
+              (photo && photo) ||
+              "/ourDepartment/disaster/palestine/palestine (8).png"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

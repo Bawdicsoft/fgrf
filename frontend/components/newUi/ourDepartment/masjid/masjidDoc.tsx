@@ -5,18 +5,26 @@ import { motion, useAnimation } from "framer-motion";
 import SliderSectionOrphan from "./slider";
 import SliderSectionMasjid from "./slider";
 import AnimationTop from "../../home/AnimationTop";
+import { useContentContext } from "../../contextApi/contentContext";
 
 const MasjidDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Masjid" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionMasjid />
       <p className="capitalize text-center py-3 md:py-5 font-semibold text-gray-900 text-sm md:text-lg">
-        Your contribution will help create sacred spaces for worship and
+        {(text && text) ||
+          `Your contribution will help create sacred spaces for worship and
         education, providing spiritual guidance and knowledge. Together, we can
         make a lasting impact on the lives of countless individuals and uphold
         the values of unity, faith, and compassion. Join us in this noble
         endeavor and leave a legacy of faith and generosity for generations to
-        come.
+        come.`}
       </p>
       <div className="flex justify-center pb-8">
         <AnimationTop>

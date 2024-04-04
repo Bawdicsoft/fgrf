@@ -4,7 +4,14 @@ import { use, useState } from "react";
 import AnimationTop from "../../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "../../home/AnimationBtm";
+import { useContentContext } from "../../contextApi/contentContext";
 const MasjidBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Masjid" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -136,7 +143,9 @@ const MasjidBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/masjid/masjid/masjid (5).png"}
+            src={`${
+              (photo && photo) || "/ourDepartment/masjid/masjid/masjid (5).png"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

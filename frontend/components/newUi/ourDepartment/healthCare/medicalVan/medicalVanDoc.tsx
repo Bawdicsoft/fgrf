@@ -4,27 +4,30 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import SliderSectionMedicalVan from "./slider";
 import AnimationTop from "@/components/newUi/home/AnimationTop";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 const MedicalVanDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Madical Van" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="py-5 px-4 xl:px-0">
       <SliderSectionMedicalVan />
       <p className="capitalize text-sm md:text-lg text-center pt-5  py-3 font-semibold text-gray-900">
-        Equipped with doctors and paramedical staff, dedicated to reaching rural
+        {(text && text) ||
+          ` Equipped with doctors and paramedical staff, dedicated to reaching rural
         areas with serious health issues. Our mission is to provide essential
         healthcare services to communities in need, ensuring access to medical
-        care where it&#39;s needed most.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        To expand our reach and impact, we are seeking your generous donations
-        to create more medical vans for these underserved areas. With your
-        support, we can extend our healthcare services to even more rural
-        communities, improving health outcomes and transforming lives.
-      </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        Join us in our mission to make healthcare accessible to all. Your
-        donation can make a real difference in the lives of those who need it
-        most.
+        care where it's needed most. To expand our reach and impact, we are
+        seeking your generous donations to create more medical vans for these
+        underserved areas. With your support, we can extend our healthcare
+        services to even more rural communities, improving health outcomes and
+        transforming lives. Join us in our mission to make healthcare accessible
+        to all. Your donation can make a real difference in the lives of those
+        who need it most.`}
       </p>
       <div className="flex justify-center pb-5">
         <AnimationTop>

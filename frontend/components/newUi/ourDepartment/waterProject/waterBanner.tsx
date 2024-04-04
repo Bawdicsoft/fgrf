@@ -4,7 +4,15 @@ import { use, useState } from "react";
 import AnimationTop from "../../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "../../home/AnimationBtm";
+import { useContentContext } from "../../contextApi/contentContext";
 const WaterBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Water Project" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
+  console.log("photo---------->", photo);
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -128,7 +136,9 @@ const WaterBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/handPump/handPump (22).jpg"}
+            src={`${
+              (photo && photo) || "/ourDepartment/handPump/handPump (22).jpg"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

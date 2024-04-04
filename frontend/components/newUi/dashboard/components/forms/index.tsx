@@ -3,6 +3,7 @@ import { useDashboardContext } from "@/components/newUi/contextApi/dashboardCont
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import {
+  addDoc,
   collection,
   doc,
   getDoc,
@@ -20,9 +21,12 @@ export default function UpdateForm() {
   const [sec, setSec] = useState("");
   const [text, setText] = useState("");
   const [photo1, setPhoto1] = useState<any>(null);
+  const [bannerPhoto, setBannerPhoto] = useState<any>(null);
+  const [heroPhoto, setHeroPhoto] = useState<any>(null);
   const [photo2, setPhoto2] = useState<any>(null);
   const [video1, setVideo1] = useState<any>(null);
   const [video2, setVideo2] = useState<any>(null);
+  const [urlList, setUrlList] = useState<any>([]);
 
   const disasterManagementLst = [
     "Covid-19",
@@ -40,71 +44,191 @@ export default function UpdateForm() {
   ];
   const environmentDepartmentLst = ["Plantation"];
 
+  // let sliderFilesArray: any[] = [];
+
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    // update code
-    // const usersRef = collection(db, "contents");
-    // const querySnapshot = await getDocs(usersRef);
-    // querySnapshot.forEach(async (docs) => {
-    //   const docsData = docs.data();
-    //   const chooseSec = docsData.content.sec;
-    //   if (chooseSec === sec) {
-    //     const storageRef = ref(storage, "images/" + photo?.name);
-    //     const titleSnapshot = await uploadBytes(storageRef, photo);
-    //     const titleImageUrl = await getDownloadURL(titleSnapshot.ref);
-    //     const videosRef = ref(storage, "videos/" + video?.name);
-    //     const titleVideos = await uploadBytes(videosRef, video);
-    //     const videoUrl = await getDownloadURL(titleVideos.ref);
-    //     const docsId = docs.id;
-    //     const docRef = doc(db, "contents", docsId);
-    //     await updateDoc(docRef, {
-    //       content: {
-    //         photo: titleImageUrl,
-    //         sec: sec,
-    //         text: text,
-    //         video: videoUrl,
-    //       },
-    //     });
-    //   }
-    // });
+    // update code start
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+      if (mainSection === "Our Department") {
+        if (chooseSec === sec) {
+          const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
+          const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
+          const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
+          const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
+          const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
+          const heroImageUrl = await getDownloadURL(heroSnapShot.ref);
+          const videosRef = ref(storage, "videos/" + video1?.name);
+          const titleVideos = await uploadBytes(videosRef, video1);
+          const videoUrl = await getDownloadURL(titleVideos.ref);
+          const docsId = docs.id;
+          const docRef = doc(db, "contents", docsId);
+          await updateDoc(docRef, {
+            content: {
+              bannerImg: bannerImageUrl,
+              heroSecImg: heroImageUrl,
+              sec: sec,
+              text: text,
+              slider: urlList,
+              video: videoUrl,
+            },
+          });
+        }
+      }
+      if (mainSection === "Appeals") {
+        if (chooseSec === sec) {
+          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
+          const firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
+          const storageRef2 = ref(storage, "images/" + photo2?.name);
+          const secondImageSnapShot = await uploadBytes(storageRef2, photo2);
+          const secondImageUrl = await getDownloadURL(secondImageSnapShot.ref);
+          const videosRef = ref(storage, "videos/" + video1?.name);
+          const titleVideos = await uploadBytes(videosRef, video1);
+          const videoUrl = await getDownloadURL(titleVideos.ref);
+          const docsId = docs.id;
+          const docRef = doc(db, "contents", docsId);
+          await updateDoc(docRef, {
+            content: {
+              photo: [firstImageUrl, secondImageUrl],
+              sec: sec,
+              text: text,
+              slider: urlList,
+              video: videoUrl,
+            },
+          });
+        }
+      }
+      if (mainSection === "Donations") {
+        if (chooseSec === sec) {
+          const newCollectionRef = collection(db, "contents");
+          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+          const docsId = docs.id;
+          const docRef = doc(db, "contents", docsId);
+          await updateDoc(docRef, {
+            content: {
+              sec,
+              text,
+              photo: titleImageUrl1,
+            },
+          });
+        }
+      }
+    });
+
     // };
     //Values you want to update
     // });
 
-    // create code
-    try {
-      const newCollectionRef = collection(db, "contents");
-      const newDocRef = doc(newCollectionRef);
-      const storageRef1 = ref(storage, "images/" + photo1?.name);
-      const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-      const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-      const storageRef2 = ref(storage, "images/" + photo2?.name);
-      const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-      const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-      const videosRef1 = ref(storage, "videos/" + video1?.name);
-      const titleVideos1 = await uploadBytes(videosRef1, video1);
-      const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-      const videosRef2 = ref(storage, "videos/" + video2?.name);
-      const titleVideos2 = await uploadBytes(videosRef2, video2);
-      const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-      const mainSection = {
-        content: {
-          sec,
-          text,
-          photo: [titleImageUrl1, titleImageUrl2],
-          video: [videoUrl1, videoUrl2],
-        },
-      };
+    // create code for appeal Sections
+    // try {
+    //   const newCollectionRef = collection(db, "contents");
+    //   const newDocRef = doc(newCollectionRef);
+    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+    //   const storageRef2 = ref(storage, "images/" + photo2?.name);
+    //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+    //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+    //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+    //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+    //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+    //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+    //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+    //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+    //   const mainSection = {
+    //     content: {
+    //       sec,
+    //       text,
+    //       photo: [titleImageUrl1, titleImageUrl2],
+    //       video: [videoUrl1, videoUrl2],
+    //       slider: urlList,
+    //     },
+    //   };
 
-      await setDoc(newDocRef, mainSection, { merge: true });
-      if (mainSection !== undefined) {
-        console.log("Ok ki report hai bahi");
-      }
-    } catch (error) {
-      console.error("Roko bahi firebaser error arha hai--->", error);
-    }
-    console.log("photo---->", photo1);
+    //   await setDoc(newDocRef, mainSection, { merge: true });
+    //   if (mainSection !== undefined) {
+    //     console.log("Ok ki report hai bahi");
+    //   }
+    // } catch (error) {
+    //   console.error("Roko bahi firebaser error arha hai--->", error);
+    // }
+    //   console.log("photo---->", photo1);
+    // };
+
+    // create code for Our department Section
+    //   try {
+    //     const newCollectionRef = collection(db, "contents");
+    //     const newDocRef = doc(newCollectionRef);
+    //     const storageRef1 = ref(storage, "images/" + photo1?.name);
+    //     const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+    //     const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+    //     const storageRef2 = ref(storage, "images/" + photo2?.name);
+    //     const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+    //     const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+    //     const videosRef1 = ref(storage, "videos/" + video1?.name);
+    //     const titleVideos1 = await uploadBytes(videosRef1, video1);
+    //     const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+    //     const videosRef2 = ref(storage, "videos/" + video2?.name);
+    //     const titleVideos2 = await uploadBytes(videosRef2, video2);
+    //     const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+    //     const mainSection = {
+    //       content: {
+    //         sec,
+    //         text,
+    //         bannerImg: titleImageUrl1,
+    //         heroSecImg: titleImageUrl2,
+    //         video: videoUrl1,
+    //         slider: urlList,
+    //       },
+    //     };
+
+    //     await setDoc(newDocRef, mainSection, { merge: true });
+    //     if (mainSection !== undefined) {
+    //       console.log("Ok ki report hai bahi");
+    //     }
+    //   } catch (error) {
+    //     console.error("Roko bahi firebaser error arha hai--->", error);
+    //   }
+    //   console.log("photo---->", photo1);
+
+    // create code for Donation Sections
+    // try {
+    //   const newCollectionRef = collection(db, "contents");
+    //   const newDocRef = doc(newCollectionRef);
+    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+    //   const mainSection = {
+    //     content: {
+    //       sec,
+    //       text,
+    //       photo: titleImageUrl1,
+    //     },
+    //   };
+
+    //   await setDoc(newDocRef, mainSection, { merge: true });
+    //   if (mainSection !== undefined) {
+    //     console.log("Ok ki report hai bahi");
+    //   }
+    // } catch (error) {
+    //   console.error("Roko bahi firebaser error arha hai--->", error);
+    // }
+  };
+  const bannerPhotoHandler = (e: any) => {
+    const bannerFile = e.target.files[0];
+    setBannerPhoto(bannerFile);
+  };
+  const heroPhotoHandler = (e: any) => {
+    const heroFile = e.target.files[0];
+    setHeroPhoto(heroFile);
   };
   const photoHandler = (e: any) => {
     const file1 = e.target.files[0];
@@ -113,6 +237,27 @@ export default function UpdateForm() {
     setPhoto2(file2);
     console.log("file1,file2", file1, file2);
   };
+
+  const sliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+
   const videoHandler = (e: any) => {
     const file1 = e.target.files[0];
     setVideo1(file1);
@@ -183,7 +328,10 @@ export default function UpdateForm() {
                     ))
                   ) : midSection === "Environment Department" ? (
                     environmentDepartmentLst.map((i, index) => (
-                      <option key={index}>{i}</option>
+                      <>
+                        <option>Select Section</option>
+                        <option key={index}>{i}</option>
+                      </>
                     ))
                   ) : (
                     <>
@@ -211,7 +359,7 @@ export default function UpdateForm() {
                   onChange={(e: any) => setText(e.target.value)}
                   rows={3}
                   className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  defaultValue={""}
+                  // defaultValue={""}
                 />
               </div>
             </div>
@@ -237,81 +385,203 @@ export default function UpdateForm() {
               </div>
             </div> */}
 
-            <div className="col-span-full">
-              <label
-                htmlFor="cover-photo"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Header photos
-              </label>
-              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                <div className="text-center">
-                  <PhotoIcon
-                    className="mx-auto h-12 w-12 text-gray-300"
-                    aria-hidden="true"
-                  />
-                  <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                    <label
-                      htmlFor="file-upload"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                    >
-                      <span>Upload a file</span>
-                      <input
-                        id="file-upload"
-                        name="file-upload"
-                        type="file"
-                        multiple
-                        required
-                        onChange={photoHandler}
-                        className="sr-only"
-                      />
-                    </label>
-                    <p className="pl-1">or drag and drop</p>
+            {/* Banner photos */}
+            {mainSection === "Our Department" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Banner photo
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="banner-file"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="banner-file"
+                          name="banner-file"
+                          type="file"
+                          onChange={bannerPhotoHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
                   </div>
-                  <p className="text-xs leading-5 text-gray-600">
-                    PNG, JPG, GIF up to 10MB
-                  </p>
                 </div>
               </div>
-            </div>
-            <div className="col-span-full">
-              <label
-                htmlFor="cover-photo"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Videos
-              </label>
-              <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                <div className="text-center">
-                  <PhotoIcon
-                    className="mx-auto h-12 w-12 text-gray-300"
-                    aria-hidden="true"
-                  />
-                  <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                    <label
-                      htmlFor="file-upload1"
-                      className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                    >
-                      <span>Upload a file</span>
-                      <input
-                        id="file-upload1"
-                        name="file-upload1"
-                        type="file"
-                        multiple
-                        accept="video/*"
-                        required
-                        onChange={videoHandler}
-                        className="sr-only"
-                      />
-                    </label>
-                    <p className="pl-1">or drag and drop</p>
+            )}
+            {/* heroSec photos */}
+            {mainSection === "Our Department" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Hero Section photo
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="hero-file"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="hero-file"
+                          name="hero-file"
+                          type="file"
+                          onChange={heroPhotoHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
                   </div>
-                  <p className="text-xs leading-5 text-gray-600">
-                    mp3, webm up to 10MB
-                  </p>
                 </div>
               </div>
-            </div>
+            )}
+            {/* Header photos */}
+            {mainSection !== "Our Department" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Header photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload"
+                          name="file-upload"
+                          type="file"
+                          multiple
+                          required
+                          onChange={photoHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* Videos */}
+            {mainSection !== "Donations" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  {mainSection === "Our Department" ? `Video` : "Videos"}
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload1"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload1"
+                          name="file-upload1"
+                          type="file"
+                          multiple
+                          accept="video/*"
+                          required
+                          onChange={videoHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      mp3, webm up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* Slider Photos */}
+            {mainSection !== "Donations" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Slider photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload2"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload2"
+                          name="file-upload2"
+                          type="file"
+                          multiple
+                          required
+                          onChange={sliderPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

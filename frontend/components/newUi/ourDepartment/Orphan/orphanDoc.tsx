@@ -4,21 +4,29 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import SliderSectionOrphan from "./slider";
 import AnimationTop from "../../home/AnimationTop";
+import { useContentContext } from "../../contextApi/contentContext";
 
 const OrphanDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Orphan" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4 xl:px-0 ">
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8"></h2>
 
       <SliderSectionOrphan />
       <p className="capitalize text-center py-3 md:py-5 font-semibold text-gray-800 text-sm md:text-lg">
-        This initiative underscores FGRF commitment to nurturing and empowering
+        {(text && text) ||
+          `This initiative underscores FGRF commitment to nurturing and empowering
         orphaned youth, offering them a safe and nurturing environment where
         they can thrive. Through holistic care, education, and emotional
         support, FGRF aims to create a loving and stable home for these
         children, giving them the opportunity to build brighter futures. The
         Orphan House represents FGRF unwavering dedication to serving the
-        community and making a positive impact on the lives of those in need.
+        community and making a positive impact on the lives of those in need.`}
       </p>
       <div className="flex justify-center pb-8">
         <AnimationTop>

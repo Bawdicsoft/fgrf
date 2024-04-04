@@ -10,26 +10,33 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
-const imageList = [
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-  "/AppealNew/waterWell/1.jpg",
-  "/AppealNew/waterWell/2.png",
-  "/AppealNew/waterWell/3.png",
-  "/AppealNew/waterWell/4.png",
-];
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionBloodDonations() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Blood Donation" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/waterWell/1.jpg",
+    "/AppealNew/waterWell/2.png",
+    "/AppealNew/waterWell/3.png",
+    "/AppealNew/waterWell/4.png",
+    "/AppealNew/waterWell/1.jpg",
+    "/AppealNew/waterWell/2.png",
+    "/AppealNew/waterWell/3.png",
+    "/AppealNew/waterWell/4.png",
+    "/AppealNew/waterWell/1.jpg",
+    "/AppealNew/waterWell/2.png",
+    "/AppealNew/waterWell/3.png",
+    "/AppealNew/waterWell/4.png",
+  ];
   return (
     <>
       <Swiper
@@ -67,7 +74,7 @@ export default function SliderSectionBloodDonations() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

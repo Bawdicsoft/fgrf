@@ -7,19 +7,25 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const imageList = [
-  "/AppealNew/food/foodBox1.jpeg",
-  "/AppealNew/food/foodBox2.jpeg",
-  "/AppealNew/food/foodBox3.jpeg",
-  "/AppealNew/food/foodBox4.jpeg",
-  "/AppealNew/food/foodBox5.jpeg",
-];
-
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionFoodBox() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Food Box" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/food/foodBox1.jpeg",
+    "/AppealNew/food/foodBox2.jpeg",
+    "/AppealNew/food/foodBox3.jpeg",
+    "/AppealNew/food/foodBox4.jpeg",
+    "/AppealNew/food/foodbox5.jpeg",
+  ];
   return (
     <>
       <Swiper
@@ -57,7 +63,7 @@ export default function SliderSectionFoodBox() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList?.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image

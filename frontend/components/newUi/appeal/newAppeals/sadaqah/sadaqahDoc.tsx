@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionSadaqah from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const SadaqahDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Sadaqah" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
+  const videos = foodBoxData[0]?.content?.video;
   return (
     // new Code
     <div>
@@ -15,8 +24,11 @@ const SadaqahDocs = () => {
         <SliderSectionSadaqah />
         <div className="">
           <h2 className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-2">
-            The holy prophet صلی اللہ علیہ وآلہ وسلم said: Sadaqah does not
-            cause reduction in wealth.
+            {`${
+              (text && text) ||
+              `The holy prophet صلی اللہ علیہ وآلہ وسلم said: Sadaqah does not
+            cause reduction in wealth.`
+            }`}
           </h2>
           <p className="text-xs md:text-sm text-center">
             (Sahih Muslim, pp. 1397, Hadees 2588/69)
@@ -54,7 +66,10 @@ const SadaqahDocs = () => {
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Sadaqah/sadaqah.mp4"
+                  src={`${
+                    (videos && videos[0]) ||
+                    "/AppealNew/videos/Sadaqah/sadaqah.mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>
@@ -64,7 +79,10 @@ const SadaqahDocs = () => {
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Sadaqah/sadaqah.mp4"
+                  src={`${
+                    (videos && videos[1]) ||
+                    "/AppealNew/videos/Sadaqah/sadaqah.mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>

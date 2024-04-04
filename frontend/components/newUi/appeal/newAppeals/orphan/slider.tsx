@@ -7,19 +7,25 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const imageList = [
-  "/AppealNew/Orphan/1.jpeg",
-  "/AppealNew/Orphan/2.jpeg",
-  "/AppealNew/Orphan/3.jpeg",
-  "/AppealNew/Orphan/4.jpeg",
-  "/AppealNew/Orphan/5.jpeg",
-];
-
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function SliderSectionOrphan() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Orphan Kind" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
+  const imageList = sliderImg || [
+    "/AppealNew/Orphan/1.jpeg",
+    "/AppealNew/Orphan/2.jpeg",
+    "/AppealNew/Orphan/3.jpeg",
+    "/AppealNew/Orphan/4.jpeg",
+    "/AppealNew/Orphan/5.jpeg",
+  ];
   return (
     <>
       <Swiper
@@ -57,7 +63,7 @@ export default function SliderSectionOrphan() {
         }}
         className="!relative"
       >
-        {imageList.map((img, index) => (
+        {imageList.map((img: any, index: any) => (
           <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image
@@ -65,7 +71,7 @@ export default function SliderSectionOrphan() {
                 alt="imagSLider"
                 width={400}
                 height={400}
-                className="h-full w-full "
+                className="h-full w-full"
               />
             </div>
           </SwiperSlide>

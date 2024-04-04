@@ -1,5 +1,6 @@
 // import OrphanBannerSection from "@/components/newUi/appeal/orphan/orphanBanner";
 // import OrphanDocs from "@/components/newUi/appeal/orphan/orphanDoc";
+"use client";
 import OrphanBannerSection from "@/components/newUi/ourDepartment/Orphan/orphanBanner";
 import OrphanDocs from "@/components/newUi/ourDepartment/Orphan/orphanDoc";
 import Covid19BannerSection from "@/components/newUi/ourDepartment/disasterMange/covid19/covid19Banner";
@@ -58,6 +59,8 @@ import WaterDocs from "@/components/newUi/ourDepartment/waterProject/waterDoc";
 import Image from "next/image";
 import DonationSectionOrphan from "@/components/newUi/ourDepartment/Orphan/donationSection";
 import DonationSectionPlantation from "@/components/newUi/ourDepartment/environmentDep/plantation/donationSection";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
+import { FullPageLoader } from "@/components/3dModel/fullPageLoader";
 
 export default function OurDepartmentAppeal({
   params,
@@ -65,6 +68,68 @@ export default function OurDepartmentAppeal({
   params: { slug: string };
 }) {
   const myParams = params.slug;
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  let bannerImgData;
+  if (myParams === "disaster-covid-19") {
+    bannerImgData = data.filter(
+      (title: any) => "Covid-19" === title.content.sec
+    );
+  } else if (myParams === "disaster-pakistan-flood") {
+    bannerImgData = data.filter(
+      (title: any) => "Pakistan Flood" === title.content.sec
+    );
+  } else if (myParams === "disaster-turkey-syria-earthquake") {
+    bannerImgData = data.filter(
+      (title: any) => "Turkey & Syria Earthquake" === title.content.sec
+    );
+  } else if (myParams === "disaster-morocco-earthquake") {
+    bannerImgData = data.filter(
+      (title: any) => "Morocco Earthquake" === title.content.sec
+    );
+  } else if (myParams === "disaster-palestine-brothers-sisters") {
+    bannerImgData = data.filter(
+      (title: any) => "Palestine" === title.content.sec
+    );
+  } else if (myParams === "health-care-eye-camps") {
+    bannerImgData = data.filter(
+      (title: any) => "Eye Camps" === title.content.sec
+    );
+  } else if (myParams === "health-care-blood-donations") {
+    bannerImgData = data.filter(
+      (title: any) => "Blood Donation" === title.content.sec
+    );
+  } else if (myParams === "health-care-medical-van") {
+    bannerImgData = data.filter(
+      (title: any) => "Madical Van" === title.content.sec
+    );
+  } else if (myParams === "health-care-faizan-rehabilitation-center") {
+    bannerImgData = data.filter(
+      (title: any) => "Faizan Rehabilitation Center" === title.content.sec
+    );
+  } else if (myParams === "health-care-medical-clinic") {
+    bannerImgData = data.filter(
+      (title: any) => "Madical Clinic" === title.content.sec
+    );
+  } else if (myParams === "water-project") {
+    bannerImgData = data.filter(
+      (title: any) => "Water Project" === title.content.sec
+    );
+    console.log("bannerImgData---->", bannerImgData);
+  } else if (myParams === "environment-department-plantation") {
+    bannerImgData = data.filter(
+      (title: any) => "Plantation" === title.content.sec
+    );
+  } else if (myParams === "education") {
+    bannerImgData = data.filter(
+      (title: any) => "Education & Skills" === title.content.sec
+    );
+  } else if (myParams === "orphan") {
+    bannerImgData = data.filter((title: any) => "Orphan" === title.content.sec);
+  } else if (myParams === "masjid") {
+    bannerImgData = data.filter((title: any) => "Masjid" === title.content.sec);
+  }
+  const photo = bannerImgData && bannerImgData[0]?.content?.bannerImg;
   return (
     <div className=" ">
       {/* Disaster department */}
@@ -100,7 +165,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/disaster/covid/banner.jpg"}
+              src={`${
+                (photo && photo) || "/ourDepartment/disaster/covid/banner.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -118,7 +185,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/disaster/morroco/banner.jpg"}
+              src={`${
+                (photo && photo) || "/ourDepartment/disaster/morroco/banner.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -136,7 +205,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/disaster/pakistanFlood/banner.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/disaster/pakistanFlood/banner.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -154,11 +226,14 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/disaster/turkeySyriaEarthquake/banner.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/disaster/turkeySyriaEarthquake/banner.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
-              className=" lg:max-h-screen w-full mx-auto"
+              className="lg:max-h-screen w-full mx-auto"
             />
           </div>
           <div className="max-w-screen-lg mx-auto">
@@ -172,7 +247,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/disaster/palestine/banner.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/disaster/palestine/banner.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -210,9 +288,12 @@ export default function OurDepartmentAppeal({
       )}
       {myParams === "health-care-eye-camps" && (
         <div className="bg-gray-200">
-          <div className="max-w-screen-2xl mx-auto h-full">
+          <div className="max-w-screen-2xl mx-autos h-full">
             <Image
-              src={"/ourDepartment/healthCare/banners/EyeCamps.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/healthCare/banners/EyeCamps.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -230,7 +311,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/healthCare/banners/BloodDonations.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/healthCare/banners/BloodDonations.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -249,7 +333,10 @@ export default function OurDepartmentAppeal({
           {" "}
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/healthCare/banners/MedicalVan.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/healthCare/banners/MedicalVan.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -267,9 +354,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={
+              src={`${
+                (photo && photo) ||
                 "/ourDepartment/healthCare/banners/FaizanRehabilitionCenter.jpg"
-              }
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -288,7 +376,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/healthCare/banners/MedicalClinic.jpg"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/healthCare/banners/MedicalClinic.jpg"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -308,7 +399,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/handPump/banner.png"}
+              src={`${
+                (photo && photo) || "/ourDepartment/handPump/banner.png"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -353,7 +446,10 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/EnvironmentDepartment/Plantation.png"}
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/EnvironmentDepartment/Plantation.png"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -373,7 +469,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/educationSkills/banner.png"}
+              src={`${
+                (photo && photo) || "/ourDepartment/educationSkills/banner.png"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -392,7 +490,7 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/orphan/banner.png"}
+              src={`${(photo && photo) || "/ourDepartment/orphan/banner.png"}`}
               alt="about image"
               width={2000}
               height={2000}
@@ -411,7 +509,7 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={"/ourDepartment/masjid/banner.png"}
+              src={`${(photo && photo) || "/ourDepartment/masjid/banner.png"}`}
               alt="about image"
               width={2000}
               height={2000}

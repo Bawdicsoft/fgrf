@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionFoodBox from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const FoodBoxDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Food Box" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
+  const videos = foodBoxData[0]?.content?.video;
   return (
     // new Code
     <div>
@@ -10,8 +19,9 @@ const FoodBoxDocs = () => {
         <SliderSectionFoodBox />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          It was asked from the final Messenger of Allah صلی اللہ علیہ وسلم
-          which aspect of Islam is better? He replied: that you provide food
+          {text ||
+            `It was asked from the final Messenger of Allah صلی اللہ علیہ وسلم
+          which aspect of Islam is better? He replied: that you provide food`}
         </p>
         <div className="flex justify-center">
           <Link href={"/donation"}>
@@ -31,14 +41,20 @@ const FoodBoxDocs = () => {
           <div className="md:w-3/4 ">
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[0]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoLeft>
           </div>
           <div className="md:w-3/4 ">
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
-                <source src="/Videonews/4.mp4" type="video/mp4" />
+                <source
+                  src={`${(videos && videos[1]) || "/Videonews/4.mp4"}`}
+                  type="video/mp4"
+                />
               </video>
             </AnimatedVideoRight>
           </div>

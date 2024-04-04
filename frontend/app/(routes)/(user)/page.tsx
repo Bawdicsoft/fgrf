@@ -13,8 +13,11 @@ import Appeals from "@/components/newUi/home/Appeals";
 import DonationSlider from "@/components/home/donationSlider";
 import NewsSection from "@/components/newUi/home/News";
 import { AnimatePresence, motion } from "framer-motion";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 
 export default function Home() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
   const [isModelLoading, setIsModelLoading] = useState(true);
 
   // const handleModelLoaded = () => {

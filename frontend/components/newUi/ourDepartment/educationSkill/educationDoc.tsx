@@ -6,7 +6,14 @@ import AnimationTop from "../../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimatedComponentLeft from "../../home/galleryAnimation/AnimationLeft";
 import AnimatedComponentRight from "../../home/galleryAnimation/AnimationRight";
+import { useContentContext } from "../../contextApi/contentContext";
 const EducationDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Education & Skills" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4  xl:px-0">
       <SliderSectionHealth />
@@ -25,9 +32,10 @@ const EducationDocs = () => {
         </div>
       </AnimatedComponentLeft>
       <p className="capitalize text-center  font-semibold text-gray-900 text-sm md:text-lg ">
-        SEP is offering different language programmes, i.e., Arabic, English,
+        {(text && text) ||
+          `SEP is offering different language programmes, i.e., Arabic, English,
         Urdu, French, Russian and Chinese, Thousands of students are improving
-        their communication skills with us.
+        their communication skills with us.`}
       </p>
       <h2 className="text-teal-500 font-bold text-xl md:text-3xl text-center py-8">
         Training – Overseas

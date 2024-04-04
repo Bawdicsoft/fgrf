@@ -4,22 +4,28 @@ import Link from "next/link";
 import SliderSectionWater from "./slider";
 import AnimationTop from "../../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
+import { useContentContext } from "../../contextApi/contentContext";
 const WaterDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Water Project" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
   return (
     <div className="px-4 xl:px-0 ">
       <SliderSectionWater />
       <p className="capitalize text-sm md:text-lg text-center py-3 md:py-5 font-semibold text-gray-900">
-        These projects showcase a diverse range of solutions, programs, and
+        {(text && text) ||
+          `These projects showcase a diverse range of solutions, programs, and
         costs, highlighting our commitment to addressing water scarcity and
         providing sustainable solutions. From innovative technologies to
         community-based initiatives, each project is tailored to the specific
         needs and challenges of the region. Together, these efforts contribute
-        to improving access to clean and
+        to improving access to clean and safe water for communities in need,
+        promoting health, hygiene, and overall well-being.`}
       </p>
-      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
-        safe water for communities in need, promoting health, hygiene, and
-        overall well-being.
-      </p>
+      <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900"></p>
 
       <p className="capitalize text-sm md:text-lg text-center py-3 font-semibold text-gray-900">
         &quot;Unlocking Potential: Providing Clean Water, Transforming Lives

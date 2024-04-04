@@ -4,7 +4,14 @@ import { use, useState } from "react";
 import AnimationTop from "../../home/AnimationTop";
 import { motion, useAnimation } from "framer-motion";
 import AnimationBottom from "../../home/AnimationBtm";
+import { useContentContext } from "../../contextApi/contentContext";
 const EducationBannerSection = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Education & Skills" === title.content.sec
+  );
+  const photo = foodBoxData[0]?.content?.heroSecImg;
   const [docs, setDocs] = useState(0);
   const oneOffBtnList = [
     { title: "50", doc: "Could provide food supplies for Palestinians." },
@@ -134,7 +141,10 @@ const EducationBannerSection = () => {
       <AnimationBottom>
         <div className="py-5">
           <Image
-            src={"/ourDepartment/educationSkills/education (11).jpg"}
+            src={`${
+              (photo && photo) ||
+              "/ourDepartment/educationSkills/education (11).jpg"
+            }`}
             alt="about image"
             width={2000}
             height={2000}

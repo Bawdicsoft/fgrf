@@ -1,8 +1,17 @@
+"use client";
 import Link from "next/link";
 import SliderSectionOrphan from "./slider";
 import AnimatedVideoLeft from "../animations/videoAnimationLeft";
 import AnimatedVideoRight from "../animations/videoAnimationRight";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 const OrphanDocs = () => {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Orphan Kind" === title.content.sec
+  );
+  const text = foodBoxData[0]?.content?.text;
+  const videos = foodBoxData[0]?.content?.video;
   return (
     // new Code
     <div>
@@ -10,9 +19,10 @@ const OrphanDocs = () => {
         <SliderSectionOrphan />
 
         <p className="capitalize text-center font-semibold text-gray-900 text-sm md:text-lg pt-8 py-3">
-          This golden teaching of treating orphans with kindness is a definite
-          way of &#39;improving human life&#39; and making every individual an
-          honourable person of a society.
+          {(text && text) ||
+            `This golden teaching of treating orphans with kindness is a definite
+          way of 'improving human life' and making every individual an
+          honourable person of a society.`}
         </p>
 
         <div className="flex justify-center">
@@ -34,7 +44,10 @@ const OrphanDocs = () => {
             <AnimatedVideoLeft>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Orphan/orphan (1).mp4"
+                  src={`${
+                    (videos && videos[0]) ||
+                    "/AppealNew/videos/Orphan/orphan (1).mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>
@@ -44,7 +57,10 @@ const OrphanDocs = () => {
             <AnimatedVideoRight>
               <video className="h-full w-full rounded-2xl" controls>
                 <source
-                  src="/AppealNew/videos/Orphan/orphan (2).mp4"
+                  src={`${
+                    (videos && videos[1]) ||
+                    "/AppealNew/videos/Orphan/orphan (2).mp4"
+                  }`}
                   type="video/mp4"
                 />
               </video>

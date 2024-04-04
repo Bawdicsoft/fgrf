@@ -144,8 +144,10 @@ const StartSec: React.FC<StartSecProps> = ({
     try {
       const newCollectionRef = collection(db, "userDonation");
       const newDocRef = doc(newCollectionRef);
+      const now = new Date();
       const userDetails = {
         userData: {
+          date: now.toLocaleString(),
           title,
           firstName,
           lastName,
@@ -269,7 +271,9 @@ const StartSec: React.FC<StartSecProps> = ({
     try {
       const newCollectionRef = collection(db, "userReclaimGifts");
       const newDocRef = doc(newCollectionRef);
+      const now = new Date();
       const userDetails = {
+        date: now.toLocaleString(),
         userData: formData,
       };
 

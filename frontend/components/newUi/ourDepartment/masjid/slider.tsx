@@ -54,8 +54,15 @@ const imageList = [
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "../../contextApi/contentContext";
 
 export default function SliderSectionMasjid() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const foodBoxData = data.filter(
+    (title: any) => "Masjid" === title.content.sec
+  );
+  const sliderImg = foodBoxData[0]?.content?.slider;
   return (
     <>
       <Swiper
@@ -86,7 +93,7 @@ export default function SliderSectionMasjid() {
             spaceBetween: 50,
           },
         }}
-        modules={[ Navigation]}
+        modules={[Navigation]}
         navigation={{
           prevEl: "#swiper-button-prev",
           nextEl: "#swiper-button-next",
@@ -94,7 +101,7 @@ export default function SliderSectionMasjid() {
         className="!relative"
       >
         {imageList.map((img, index) => (
-                  <SwiperSlide key={index} className="w-full h-full">
+          <SwiperSlide key={index} className="w-full h-full">
             <div className=" h-40 lg:h-56 ">
               <Image
                 src={img}
