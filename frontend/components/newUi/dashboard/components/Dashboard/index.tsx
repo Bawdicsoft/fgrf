@@ -21,7 +21,7 @@ const DashBoard: React.FC = () => {
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
-        <CardDataStats title="Total views" total="$3.456K" rate="0.43%" levelUp>
+        <CardDataStats title="Total views" total="£3.456K" rate="0.43%" levelUp>
           <svg
             className="fill-teal-500 "
             width="22"
@@ -42,7 +42,7 @@ const DashBoard: React.FC = () => {
         </CardDataStats>
         <CardDataStats
           title="Total Donation"
-          total="$45,2K"
+          total="£45,2K"
           rate="4.35%"
           levelUp
         >

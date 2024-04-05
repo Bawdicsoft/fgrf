@@ -9,7 +9,7 @@ export default function IftarDonation() {
     (title: any) => "Iftar Donation" === title.content.sec
   );
   const img = foodBoxData[0]?.content?.photo || "/AppealNew/iftar/iftar3.jpeg";
-  const title = foodBoxData[0]?.content?.sec || "Iftar";
+  const title = foodBoxData[0]?.content?.sec || "Iftar Donation";
   const desc =
     foodBoxData[0]?.content?.text ||
     `The Prophet صَّلى الـّٰلـُه َعَلْيِه َوٰاِلٖه َوَسَّلم  said, "The one who provides Iftar will gain reward equivalent to the reward of the one observing fast"

@@ -40,23 +40,23 @@ const StartSec: React.FC<StartSecProps> = ({
   const [input, setInput] = useState<Boolean>(false);
   const [dollar, setDollar] = useState<string>("100");
   const [dollarDonate, setDollarDonate] = useState<string>(
-    title === "water well"
+    title === "Water Well Donation"
       ? "1000"
-      : title === "hand pump"
+      : title === "Hand Pump Donation"
       ? "175"
-      : title === "masjid"
+      : title === "Masjid Donation"
       ? "5000"
-      : title === "Food Pack"
+      : title === "Food Box Donation"
       ? "40"
-      : title === "orphan" || title === "palestine"
+      : title === "Orphan Donation" || title === "Palestine Emergency Donation"
       ? "200"
-      : title === "zakat"
-      ? setTitleForDonation("zakat")
+      : title === "Zakat Donation"
+      ? setTitleForDonation("Zakat Donation")
       : donationDollar
       ? donationDollar
       : "100"
   );
-  if (title !== "zakat") {
+  if (title !== "Zakat Donation") {
     setTitleForDonation("QuickDonation");
   }
   console.log("donationDollar----->", donationDollar);
@@ -76,11 +76,11 @@ const StartSec: React.FC<StartSecProps> = ({
   const [check, setCheck] = useState(false);
   const [check1, setCheck1] = useState(false);
   const [donationBtns, setDonationBtns] = useState(
-    title === "masjid"
+    title === "Masjid Donation"
       ? masjidDonationList
-      : title === "orphan" || title === "palestine"
+      : title === "Orphan Donation" || title === "Palestine Emergency Donation"
       ? palestineDonationList
-      : title === "Winter"
+      : title === "Winter Emergency Donation"
       ? winterDonationList
       : defaultDonationList
   );
@@ -109,7 +109,7 @@ const StartSec: React.FC<StartSecProps> = ({
   };
 
   const nextHandler = () => {
-    if (donation[0] === "Quick Donation" || donation[0] === "zakat") {
+    if (donation[0] === "Quick Donation" || donation[0] === "Zakat Donation") {
       setShowPayment(true);
       setShowFormDonation(false);
       setShowBackBtn(true);
@@ -168,7 +168,7 @@ const StartSec: React.FC<StartSecProps> = ({
     }
   };
   const backHandler = () => {
-    if (donation[0] === "Quick Donation" || donation[0] === "zakat") {
+    if (donation[0] === "Quick Donation" || donation[0] === "Zakat Donation") {
       setZakatCalc(false);
       setShowPayment(false);
       setShowFormDonation(false);
@@ -303,7 +303,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </span>
             <span
               className={`text-sm md:text-base ${
-                title === "zakat" ? "text-gray-200" : "text-gray-500"
+                title === "Zakat Donation" ? "text-gray-200" : "text-gray-500"
               }`}
             >
               Start
@@ -331,7 +331,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </span>
             <span
               className={`text-sm md:text-base ${
-                title === "zakat" ? "text-gray-200" : "text-gray-500"
+                title === "Zakat Donation" ? "text-gray-200" : "text-gray-500"
               }`}
             >
               Donation
@@ -358,7 +358,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </span>
             <span
               className={`text-sm md:text-base ${
-                title === "zakat" ? "text-gray-200" : "text-gray-500"
+                title === "Zakat Donation" ? "text-gray-200" : "text-gray-500"
               }`}
             >
               Details
@@ -384,7 +384,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </span>
             <span
               className={`text-sm md:text-base ${
-                title === "zakat" ? "text-gray-200" : "text-gray-500"
+                title === "Zakat Donation" ? "text-gray-200" : "text-gray-500"
               }`}
             >
               Payment
@@ -777,7 +777,7 @@ const StartSec: React.FC<StartSecProps> = ({
                               {desc}
                             </p>
 
-                            {title === "zakat" && (
+                            {title === "Zakat Donation" && (
                               <div className="flex justify-center pt-2 md:pb-5 lg:pb-0 lg:pt-8">
                                 <button
                                   onClick={() => setZakatCalc(true)}
@@ -792,9 +792,9 @@ const StartSec: React.FC<StartSecProps> = ({
                             )}
                             <div className="flex flex-col gap-4 lg:pt-8 md:px-3 lg:px-0">
                               {!(
-                                title === "water well" ||
-                                title === "hand pump" ||
-                                title === "Food Pack"
+                                title === "Water Well Donation" ||
+                                title === "Hand Pump Donation" ||
+                                title === "Food Box Donation"
                               ) && (
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-2 lg:gap-3">
                                   {donationBtns?.map((data, index) =>
@@ -986,8 +986,8 @@ const StartSec: React.FC<StartSecProps> = ({
               <FaRegArrowAltCircleRight className="w-6 h-6 relative text-white group-hover:text-gray-400" />
             </button>
           </div>
-          {!(String(title) === "palestine") &&
-          !(String(title) === "zakat") &&
+          {!(String(title) === "Palestine Emergency Donation") &&
+          !(String(title) === "Zakat Donation") &&
           title ? (
             <div className="">
               <p className="text-black font-bold text-[13px] text-center ">
@@ -998,7 +998,8 @@ const StartSec: React.FC<StartSecProps> = ({
             </div>
           ) : (
             <>
-              {!(title === "zakat") && !(title === "palestine") ? (
+              {!(title === "Zakat Donation") &&
+              !(title === "Palestine Emergency Donation") ? (
                 <div className="">
                   <p className="text-black font-bold text-[13px] text-center ">
                     Your donations can be used for any welfare, well-wishing,
@@ -1009,7 +1010,7 @@ const StartSec: React.FC<StartSecProps> = ({
               ) : null}
             </>
           )}
-          {title === "palestine" && (
+          {title === "Palestine Emergency Donation" && (
             <div className="">
               <p className="text-black font-bold text-[13px] text-center ">
                 Support FGRF to help affected Palestinian Muslims. Please note:

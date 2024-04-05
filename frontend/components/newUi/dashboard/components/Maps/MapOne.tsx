@@ -62,6 +62,8 @@ const MapOne = () => {
       "Donation Title" +
       "," +
       "Email" +
+      "," +
+      "Date" +
       "\n";
 
     // Add data
@@ -76,6 +78,8 @@ const MapOne = () => {
         row.userData.donationTitle +
         "," +
         row.userData.email +
+        "," +
+        row.userData.date +
         "\n";
     });
 
@@ -101,6 +105,8 @@ const MapOne = () => {
       "Country" +
       "," +
       "Postal-Code" +
+      "," +
+      "Date" +
       "\n";
 
     // Add data
@@ -117,6 +123,8 @@ const MapOne = () => {
         row.userData.country +
         "," +
         row.userData.postalCode +
+        "," +
+        row.userData.date +
         "\n";
     });
     // Download the CSV file
@@ -167,7 +175,9 @@ const MapOne = () => {
             <p>Palestine</p>
 
             <button
-              onClick={() => downloadFileDonation("palestine")}
+              onClick={() =>
+                downloadFileDonation("Palestine Emergency Donation")
+              }
               className="bg-teal-500 text-sm  p-2 text-white"
             >
               {" "}
@@ -179,7 +189,7 @@ const MapOne = () => {
             <p>Food Pack</p>
 
             <button
-              onClick={() => downloadFileDonation("Food Pack")}
+              onClick={() => downloadFileDonation("Food Box Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -191,7 +201,7 @@ const MapOne = () => {
             <p>Winter</p>
 
             <button
-              onClick={() => downloadFileDonation("Winter")}
+              onClick={() => downloadFileDonation("Winter Emergency Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -203,7 +213,7 @@ const MapOne = () => {
             <p>Iftar</p>
 
             <button
-              onClick={() => downloadFileDonation("iftar")}
+              onClick={() => downloadFileDonation("Iftar Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -215,7 +225,7 @@ const MapOne = () => {
             <p>Orphan</p>
 
             <button
-              onClick={() => downloadFileDonation("orphan")}
+              onClick={() => downloadFileDonation("Orphan Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -227,7 +237,7 @@ const MapOne = () => {
             <p>Hand Pump</p>
 
             <button
-              onClick={() => downloadFileDonation("hand pump")}
+              onClick={() => downloadFileDonation("Hand Pump Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -239,7 +249,7 @@ const MapOne = () => {
             <p>Water Well</p>
 
             <button
-              onClick={() => downloadFileDonation("water well")}
+              onClick={() => downloadFileDonation("Water Well Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -251,7 +261,7 @@ const MapOne = () => {
             <p>Masjid</p>
 
             <button
-              onClick={() => downloadFileDonation("masjid")}
+              onClick={() => downloadFileDonation("Masjid Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}

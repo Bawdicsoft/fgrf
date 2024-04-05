@@ -143,6 +143,10 @@ const ChartOne: React.FC = () => {
         name: "Product Two",
         data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51],
       },
+      {
+        name: "Product Three",
+        data: [30, 25, 36, 10, 45, 35, 43, 52, 59, 37, 19, 51],
+      },
     ],
   });
 

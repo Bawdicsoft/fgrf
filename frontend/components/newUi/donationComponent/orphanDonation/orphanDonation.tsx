@@ -9,7 +9,7 @@ export default function OrphanDonation() {
     (title: any) => "Orphan Donation" === title.content.sec
   );
   const img = foodBoxData[0]?.content?.photo || "/AppealNew/Orphan/4.jpeg";
-  const title = foodBoxData[0]?.content?.sec || "orphan";
+  const title = foodBoxData[0]?.content?.sec || "Orphan Donation";
   const desc =
     foodBoxData[0]?.content?.text ||
     `This golden teaching of treating orphans with kindness is a definite way of 'improving human

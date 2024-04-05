@@ -9,7 +9,7 @@ export default function WaterWellDonation() {
     (title: any) => "Water Well Donation" === title.content.sec
   );
   const img = foodBoxData[0]?.content?.photo || "/AppealNew/waterWell/1.jpg";
-  const title = foodBoxData[0]?.content?.sec || "water well";
+  const title = foodBoxData[0]?.content?.sec || "Water Well Donation";
   const desc =
     foodBoxData[0]?.content?.text ||
     `Hadrat Sayyidunā Sa'd bin 'Ubadah رضی اللہ عنہ asked, "Ya Rasūlullah َصَّلى اللُه َتَعاَلى َعَلْيِه وآلہ وسلم ! My mother has passed away (I want to give some Şadaqah (charity) on behalf of

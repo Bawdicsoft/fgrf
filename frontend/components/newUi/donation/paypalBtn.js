@@ -1,8 +1,26 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 
 const MyPayPalButton = ({ amount, currency }) => {
+  const [customerEmailAddress, setCustomerEmailAddress] = useState("");
+  const fetchOrderDetails = (orderId) => {
+    fetchOrderDetailsFromPayPal(orderId)
+      .then((orderDetails) => {
+        if (
+          orderDetails &&
+          orderDetails.payer &&
+          orderDetails.payer.email_address
+        ) {
+          setCustomerEmailAddress(orderDetails.payer.email_address);
+        } else {
+          console.error("Customer email not available from PayPal.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching order details from PayPal:", error);
+      });
+  };
   const router = useRouter();
   return (
     <PayPalScriptProvider
@@ -26,6 +44,7 @@ const MyPayPalButton = ({ amount, currency }) => {
                   value: amount,
                   currency_code: currency,
                 },
+                payee: customerEmailAddress,
               },
             ],
           });
@@ -35,6 +54,7 @@ const MyPayPalButton = ({ amount, currency }) => {
             if (details.error) {
               router.push("/paypal-error");
             } else {
+              fetchOrderDetails(details.id);
               router.push({
                 pathname: `/paypal-success/${amount}`,
               });

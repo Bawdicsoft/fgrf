@@ -34,7 +34,9 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
   };
 
   return (
-    <section className={`relative ${title === "zakat" ? "bg-sky-800" : ""} `}>
+    <section
+      className={`relative ${title === "Zakat Donation" ? "bg-sky-800" : ""} `}
+    >
       <div className="max-w-5xl mx-auto z-10 relative pb-40">
         {/* container-01 */}
         {/* <div className="flex h-40 justify-center ml-10 md:ml-40">
@@ -119,25 +121,25 @@ export const DonationSectionPage: React.FC<DonationProps> = ({
           />
         </div>
       </div>
-      {title === "zakat" && (
+      {title === "Zakat Donation" && (
         <div
           className="absolute animate-pulse opacity-30 maskAnimation bottom-0 right-0 w-full h-[400px] bg-no-repeat bg-center bg-cover "
           style={{ backgroundImage: `url(/img/mask1.svg)` }}
         ></div>
       )}
-      {title === "zakat" && (
+      {title === "Zakat Donation" && (
         <div
           className="absolute  animate-pulse opacity-40 maskAnimation2 -bottom-10 right-0 w-full h-[400px] bg-no-repeat bg-center bg-cover "
           style={{ backgroundImage: `url(/img/mask2.svg)` }}
         ></div>
       )}
-      {title === "zakat" && (
+      {title === "Zakat Donation" && (
         <div
           className="absolute animate-pulse opacity-5 -bottom-10 right-0 w-full h-[400px] bg-no-repeat bg-center bg-cover "
           style={{ backgroundImage: `url(/img/mask3.svg)` }}
         ></div>
       )}
-      {title === "zakat" && (
+      {title === "Zakat Donation" && (
         <div className="w-full absolute top-0 right-0">
           <img src="/img/new-img/map.png" className="w-full h-full" alt="" />
         </div>

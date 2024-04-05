@@ -29,6 +29,8 @@ export default function UpdateForm() {
   const [urlList, setUrlList] = useState<any>([]);
 
   const disasterManagementLst = [
+    "Select An Option",
+    "Disaster Management",
     "Covid-19",
     "Pakistan Flood",
     "Turkey & Syria Earthquake",
@@ -36,15 +38,19 @@ export default function UpdateForm() {
     "Palestine",
   ];
   const healthCareLst = [
+    "Select An Option",
+    "Health Care",
     "Eye Camps",
     "Blood Donation",
     "Madical Van",
     "Faizan Rehabilitation Center",
     "Madical Clinic",
   ];
-  const environmentDepartmentLst = ["Plantation"];
-
-  // let sliderFilesArray: any[] = [];
+  const environmentDepartmentLst = [
+    "Select An Option",
+    "Environment Department",
+    "Plantation",
+  ];
 
   // Submit Handler
   const submitHandler = async (e: any) => {
@@ -122,10 +128,6 @@ export default function UpdateForm() {
         }
       }
     });
-
-    // };
-    //Values you want to update
-    // });
 
     // create code for appeal Sections
     // try {
@@ -279,29 +281,6 @@ export default function UpdateForm() {
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            {/* <div className="sm:col-span-4">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Username
-              </label>
-              <div className="mt-2">
-                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">
-                    workcation.com/
-                  </span>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    autoComplete="username"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="janesmith"
-                  />
-                </div>
-              </div>
-            </div> */}
             <div className="sm:col-span-3">
               <label
                 htmlFor="country"
@@ -328,15 +307,12 @@ export default function UpdateForm() {
                     ))
                   ) : midSection === "Environment Department" ? (
                     environmentDepartmentLst.map((i, index) => (
-                      <>
-                        <option>Select Section</option>
-                        <option key={index}>{i}</option>
-                      </>
+                      <option key={index}>{i}</option>
                     ))
                   ) : (
                     <>
                       <option>Select Section</option>
-                      <option>{midSection || childSection}</option>
+                      <option>{childSection}</option>
                     </>
                   )}
                 </select>
@@ -501,6 +477,48 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
+            {/* Down Videos photos */}
+            {midSection === "Disaster Management" ||
+              midSection === "Health Care" ||
+              (midSection === "Environment Department" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Upload Two Images Down to Video
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            multiple
+                            required
+                            onChange={photoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             {/* Videos */}
             {mainSection !== "Donations" && (
               <div className="col-span-full">

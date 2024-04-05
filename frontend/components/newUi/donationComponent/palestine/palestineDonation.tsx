@@ -9,7 +9,7 @@ export default function PalestineDonation() {
     (title: any) => "Palestine Emergency Donation" === title.content.sec
   );
   const img = foodBoxData[0]?.content?.photo || "/AppealNew/palestine/6.png";
-  const title = foodBoxData[0]?.content?.sec || "palestine";
+  const title = foodBoxData[0]?.content?.sec || "Palestine Emergency Donation";
   const desc =
     foodBoxData[0]?.content?.text ||
     `Allah will remove trouble

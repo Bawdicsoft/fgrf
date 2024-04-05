@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import SidebarLinkGroup from "./SidebarLinkGroup";
 import Image from "next/image";
@@ -13,6 +14,7 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+  const router = useRouter();
   const pathname = usePathname();
   const dataContext = useDashboardContext();
   const setMainSection = dataContext.setMainSectionHandler;
@@ -170,7 +172,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             } `}
           >
             <TiHome className="w-5 h-5 text-gray-300" />
-            <h3 className=" text-md text-gray-200 font-semibold ">Donations</h3>
+            <Link
+              href={"/admin/dashboard"}
+              className=" text-md text-gray-200 font-semibold "
+            >
+              Donations
+            </Link>
           </div>
           {/* <!-- Menu Our Department --> */}
           <div>
@@ -181,15 +188,15 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
-                      <Link
-                        href="#"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold duration-300  ${
-                          (pathname === "/" ||
+                      <p
+                        className={`group relative cursor-pointer flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold duration-300  ${
+                          (pathname === "/admin/form" ||
                             pathname.includes("dashboard")) &&
                           ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
+                          router.push("/admin/form");
                           setMainSection("Our Department");
                           sidebarExpanded
                             ? handleClick()
@@ -214,11 +221,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill=""
                           />
                         </svg>
-                      </Link>
+                      </p>
 
                       <div
                         className={`translate transform overflow-hidden ${
-                          !open && "hidden"
+                          open && "hidden"
                         }`}
                       >
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
@@ -273,7 +280,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
 
                                         <div
                                           className={`translate transform overflow-hidden ${
-                                            !open && "hidden"
+                                            open && "hidden"
                                           }`}
                                         >
                                           <ul className="">
@@ -357,16 +364,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
-                      <Link
-                        href="/admin/form"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold  duration-300  ${
+                      <p
+                        // href="/admin/form"
+                        className={`group relative cursor-pointer flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold  duration-300  ${
                           (pathname === "/" ||
                             pathname.includes("dashboard")) &&
                           ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
+                          router.push("/admin/form");
                           setMainSection("Appeals");
+                          // setMidSection(" ");
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -390,11 +399,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill=""
                           />
                         </svg>
-                      </Link>
+                      </p>
 
                       <div
                         className={`translate transform overflow-hidden ${
-                          !open && "hidden"
+                          open && "hidden"
                         }`}
                       >
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">
@@ -435,16 +444,18 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 {(handleClick, open) => {
                   return (
                     <React.Fragment>
-                      <Link
-                        href="/admin/form"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold  duration-300  ${
+                      <p
+                        // href="/admin/form"
+                        className={`group relative cursor-pointer flex items-center gap-2.5 rounded-sm py-2 px-4  text-md text-gray-200 font-semibold  duration-300  ${
                           (pathname === "/" ||
                             pathname.includes("dashboard")) &&
                           ""
                         }`}
                         onClick={(e) => {
                           e.preventDefault();
+                          router.push("/admin/form");
                           setMainSection("Donations");
+                          // setMidSection(" ");
                           sidebarExpanded
                             ? handleClick()
                             : setSidebarExpanded(true);
@@ -468,11 +479,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                             fill=""
                           />
                         </svg>
-                      </Link>
+                      </p>
 
                       <div
                         className={`translate transform overflow-hidden ${
-                          !open && "hidden"
+                          open && "hidden"
                         }`}
                       >
                         <ul className="mt-4 mb-5.5 flex flex-col gap-2.5 pl-6">

@@ -9,7 +9,7 @@ export default function WinterDonation() {
     (title: any) => "Winter Emergency Donation" === title.content.sec
   );
   const img = foodBoxData[0]?.content?.photo || "/AppealNew/winter/8.png";
-  const title = foodBoxData[0]?.content?.sec || "Winter";
+  const title = foodBoxData[0]?.content?.sec || "Winter Emergency Donation";
   const desc =
     foodBoxData[0]?.content?.text ||
     `Allah will fulfil the needs
