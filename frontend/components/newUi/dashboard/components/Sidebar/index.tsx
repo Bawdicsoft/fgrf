@@ -160,12 +160,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           <FaArrowLeft className="w-14 h-14 text-white " />
         </button>
       </div>
-      {/* <!-- SIDEBAR HEADER --> */}
 
       <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
         {/* <!-- Sidebar Menu --> */}
         <nav className="mt-5 py-4 px-4 lg:mt-6 lg:px-6">
-          {/* home */}
+          {/* Donation */}
           <div
             className={`flex items-center gap-3 py-2 justify-center mb-4 ml-4 ${
               pathname === "/admin/dashboard" && "bg-sky-900"
@@ -179,6 +178,23 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               Donations
             </Link>
           </div>
+          {/* home */}
+          {/* <div
+            className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
+              pathname === "/" && "bg-sky-900"
+            } `}
+          >
+            <Link
+              href={"/admin/form"}
+              className=" text-md text-gray-200 font-semibold "
+              onClick={() => {
+                setChildSection("Main Page");
+                setMainSection("Main Page");
+              }}
+            >
+              Main Page
+            </Link>
+          </div> */}
           {/* <!-- Menu Our Department --> */}
           <div>
             <ul className="mb-6 flex flex-col gap-1.5">

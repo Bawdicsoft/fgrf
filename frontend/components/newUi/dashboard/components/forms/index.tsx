@@ -26,7 +26,22 @@ export default function UpdateForm() {
   const [photo2, setPhoto2] = useState<any>(null);
   const [video1, setVideo1] = useState<any>(null);
   const [video2, setVideo2] = useState<any>(null);
+  const [video3, setVideo3] = useState<any>(null);
   const [urlList, setUrlList] = useState<any>([]);
+  const [mainBannerUrlList, setMainBannerUrlList] = useState<any>([]);
+  const [ourDepartmentUrlList, setOurDepartmentUrlList] = useState<any>([]);
+  const [ramazanUrlList, setRamazanUrlList] = useState<any>([]);
+  const [zakatUrlList, setZakatUrlList] = useState<any>([]);
+  const [foodBoxUrlList, setFoodBoxUrlList] = useState<any>([]);
+  const [winterUrlList, setWinterUrlList] = useState<any>([]);
+  const [palestineUrlList, setPalestineUrlList] = useState<any>([]);
+  const [orphanUrlList, setOrphanUrlList] = useState<any>([]);
+  const [handPumpUrlList, setHandPumpUrlList] = useState<any>([]);
+  const [waterUrlList, setWaterUrlList] = useState<any>([]);
+  const [masjidUrlList, setMasjidUrlList] = useState<any>([]);
+  const [achievementUrlList, setAchievementUrlList] = useState<any>([]);
+  const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
+  const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
 
   const disasterManagementLst = [
     "Select An Option",
@@ -55,7 +70,7 @@ export default function UpdateForm() {
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    // update code start
+    // start update code
     const dataRef = collection(db, "contents");
     const querySnapshot = await getDocs(dataRef);
     querySnapshot.forEach(async (docs) => {
@@ -127,7 +142,26 @@ export default function UpdateForm() {
           });
         }
       }
+      if (mainSection === "Main Page") {
+        if (chooseSec === sec) {
+          const newCollectionRef = collection(db, "contents");
+          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+          const docsId = docs.id;
+          const docRef = doc(db, "contents", docsId);
+          await updateDoc(docRef, {
+            content: {
+              sec,
+              text,
+              photo: titleImageUrl1,
+            },
+          });
+        }
+      }
     });
+
+    // end update code
 
     // create code for appeal Sections
     // try {
@@ -165,41 +199,53 @@ export default function UpdateForm() {
     //   console.log("photo---->", photo1);
     // };
 
-    // create code for Our department Section
-    //   try {
-    //     const newCollectionRef = collection(db, "contents");
-    //     const newDocRef = doc(newCollectionRef);
-    //     const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //     const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //     const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //     const storageRef2 = ref(storage, "images/" + photo2?.name);
-    //     const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-    //     const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-    //     const videosRef1 = ref(storage, "videos/" + video1?.name);
-    //     const titleVideos1 = await uploadBytes(videosRef1, video1);
-    //     const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-    //     const videosRef2 = ref(storage, "videos/" + video2?.name);
-    //     const titleVideos2 = await uploadBytes(videosRef2, video2);
-    //     const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-    //     const mainSection = {
-    //       content: {
-    //         sec,
-    //         text,
-    //         bannerImg: titleImageUrl1,
-    //         heroSecImg: titleImageUrl2,
-    //         video: videoUrl1,
-    //         slider: urlList,
-    //       },
-    //     };
+    // create code for main Page Section
+    // try {
+    //   const newCollectionRef = collection(db, "contents");
+    //   const newDocRef = doc(newCollectionRef);
+    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+    //   const storageRef2 = ref(storage, "images/" + photo2?.name);
+    //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+    //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+    //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+    //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+    //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+    //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+    //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+    //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+    //   const videosRef3 = ref(storage, "videos/" + video3?.name);
+    //   const titleVideos3 = await uploadBytes(videosRef3, video3);
+    //   const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+    //   const mainSection = {
+    //     content: {
+    //       sec,
+    //       text,
+    //       newsVideos: newsVideoUrlList,
+    //       newsVideo: [videoUrl1, videoUrl2, videoUrl3],
+    //       mainBannerSlider: mainBannerUrlList,
+    //       ourDepartmentSlider: ourDepartmentUrlList,
+    //       achievement: achievementUrlList,
+    //       ramazan: ramazanUrlList,
+    //       zakat: zakatUrlList,
+    //       foobox: foodBoxUrlList,
+    //       winter: winterUrlList,
+    //       palestine: palestineUrlList,
+    //       orphan: orphanUrlList,
+    //       handPump: handPumpUrlList,
+    //       waterWell: waterUrlList,
+    //       masjid: masjidUrlList,
+    //     },
+    //   };
 
-    //     await setDoc(newDocRef, mainSection, { merge: true });
-    //     if (mainSection !== undefined) {
-    //       console.log("Ok ki report hai bahi");
-    //     }
-    //   } catch (error) {
-    //     console.error("Roko bahi firebaser error arha hai--->", error);
+    //   await setDoc(newDocRef, mainSection, { merge: true });
+    //   if (mainSection !== undefined) {
+    //     console.log("Ok ki report hai bahi");
     //   }
-    //   console.log("photo---->", photo1);
+    // } catch (error) {
+    //   console.error("Roko bahi firebaser error arha hai--->", error);
+    // }
 
     // create code for Donation Sections
     // try {
@@ -252,7 +298,258 @@ export default function UpdateForm() {
         const snapshot = await uploadBytes(storageRef, file);
 
         const downloadURL = await getDownloadURL(snapshot.ref);
-        setUrlList((prev: any) => [...prev, downloadURL]);
+        if (mainSection === "Main Page") {
+          setMainBannerUrlList((prev: any) => [...prev, downloadURL]);
+        } else {
+          setUrlList((prev: any) => [...prev, downloadURL]);
+        }
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const ourDepartmentSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setOurDepartmentUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const ramzanSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setRamazanUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const zakatSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setZakatUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const foodBoxSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setFoodBoxUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const winterSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setWinterUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const palestineSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setPalestineUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const orphanSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setOrphanUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const handPumpSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setHandPumpUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const waterWellSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setWaterUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const masjidSliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setMasjidUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const gallerySliderPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setGalleryUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const sliderVideosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `videos/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setnewsVideoUrlList((prev: any) => [...prev, downloadURL]);
+        console.log("File uploaded successfully:", downloadURL);
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      }
+    }
+  };
+  const achievementPhotosHandler = async (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files: File[] = Array.from(e.target.files || []);
+
+    for (const file of files) {
+      const storageRef = ref(storage, `images/slider/${file.name}`);
+
+      try {
+        const snapshot = await uploadBytes(storageRef, file);
+
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        setAchievementUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
         console.error("Error uploading file:", error);
@@ -265,7 +562,9 @@ export default function UpdateForm() {
     setVideo1(file1);
     const file2 = e.target.files[1];
     setVideo2(file2);
-    console.log("file1,file2", file1, file2);
+    const file3 = e.target.files[2];
+    setVideo3(file3);
+    console.log("file1,file2", file1, file2, file3);
   };
   return (
     <form onSubmit={submitHandler}>
@@ -280,7 +579,7 @@ export default function UpdateForm() {
             share.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="mt-10 gap-x-6 gap-y-8">
             <div className="sm:col-span-3">
               <label
                 htmlFor="country"
@@ -438,45 +737,46 @@ export default function UpdateForm() {
               </div>
             )}
             {/* Header photos */}
-            {mainSection !== "Our Department" && (
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Header photos
-                </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-12 w-12 text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="file-upload"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="file-upload"
-                          name="file-upload"
-                          type="file"
-                          multiple
-                          required
-                          onChange={photoHandler}
-                          className="sr-only"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
+            {mainSection !== "Our Department" ||
+              (mainSection !== "Main Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Header photos
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            multiple
+                            required
+                            onChange={photoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
-              </div>
-            )}
+              ))}
             {/* Down Videos photos */}
             {midSection === "Disaster Management" ||
               midSection === "Health Care" ||
@@ -520,13 +820,98 @@ export default function UpdateForm() {
                 </div>
               ))}
             {/* Videos */}
-            {mainSection !== "Donations" && (
+            {mainSection !== "Donations" ||
+              (mainSection !== "Main Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    {mainSection === "Our Department" ? `Video` : "Videos"}
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload1"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload1"
+                            name="file-upload1"
+                            type="file"
+                            multiple
+                            accept="video/*"
+                            required
+                            onChange={videoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        mp3, webm up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            {/* Slider Photos */}
+            {mainSection !== "Donations" ||
+              (mainSection !== "Main Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Slider photos
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload2"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload2"
+                            name="file-upload2"
+                            type="file"
+                            multiple
+                            required
+                            onChange={sliderPhotosHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+            {/* Main Page */}
+            {/* banner Slider images */}
+            {mainSection === "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="cover-photo"
+                  htmlFor="main-banner-slider"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  {mainSection === "Our Department" ? `Video` : "Videos"}
+                  Main Banner Slider photos
                 </label>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                   <div className="text-center">
@@ -536,13 +921,600 @@ export default function UpdateForm() {
                     />
                     <div className="mt-4 flex text-sm leading-6 text-gray-600">
                       <label
-                        htmlFor="file-upload1"
+                        htmlFor="main-banner-slider"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
-                          id="file-upload1"
-                          name="file-upload1"
+                          id="main-banner-slider"
+                          name="main-banner-slider"
+                          type="file"
+                          multiple
+                          required
+                          onChange={sliderPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+            {/* our department slider images */}
+            {mainSection === "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="our-department"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Our Department Slider photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="our-department"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="our-department"
+                          name="our-department"
+                          type="file"
+                          multiple
+                          required
+                          onChange={ourDepartmentSliderPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* appeal sliders */}
+            <h2 className="block text-base py-3 font-medium leading-6 text-gray-900">
+              Appeals Sliders
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {/* ramazan slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Ramadan Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={ramzanSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* zakat slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Zakat Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={zakatSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Food Box slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Food Box Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={foodBoxSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Winter  slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Winter Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={winterSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* palestine  slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Palestine Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={palestineSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* orphan  slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Orphan Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={orphanSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/* Hand Pump slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Hand Pump Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={handPumpSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/*Water Well slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Water Well Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={waterWellSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {/*Masjid slider */}
+              {mainSection === "Main Page" && (
+                <div className="">
+                  <div className="col-span-full">
+                    <label
+                      htmlFor="our-department"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Masjid Slider photos
+                    </label>
+                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      <div className="text-center">
+                        <PhotoIcon
+                          className="mx-auto h-12 w-12 text-gray-300"
+                          aria-hidden="true"
+                        />
+                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="our-department"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="our-department"
+                              name="our-department"
+                              type="file"
+                              multiple
+                              required
+                              onChange={masjidSliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Achievements */}
+            {mainSection == "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Achievements photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload"
+                          name="file-upload"
+                          type="file"
+                          multiple
+                          required
+                          onChange={achievementPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* counter */}
+            <h2 className="pb-4">Counters</h2>
+            <div className="flex gap-4 pb-4">
+              <div className="relative h-10 w-full min-w-[200px] ">
+                <input
+                  type="text"
+                  placeholder="Title"
+                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </div>
+              <div className="relative h-10 w-full min-w-[200px] ">
+                <input
+                  type="number"
+                  placeholder="Counter"
+                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="relative h-10 w-full min-w-[200px] ">
+                <input
+                  type="text"
+                  placeholder="Title"
+                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </div>
+              <div className="relative h-10 w-full min-w-[200px] ">
+                <input
+                  type="number"
+                  placeholder="Counter"
+                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </div>
+            </div>
+
+            {/* Gallery */}
+            {mainSection == "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="gallery"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Gallery photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="gallery"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="gallery"
+                          name="gallery"
+                          type="file"
+                          multiple
+                          required
+                          onChange={gallerySliderPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
+                    </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Back Text"
+                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                />
+              </div>
+            )}
+            {/* News Videos */}
+            {mainSection === "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="news-video"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  News Videos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="slider-videos"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="slider-videos"
+                          name="slider-videos"
                           type="file"
                           multiple
                           accept="video/*"
@@ -560,14 +1532,14 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
-            {/* Slider Photos */}
-            {mainSection !== "Donations" && (
+            {/* News Slider Videos */}
+            {mainSection === "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="cover-photo"
+                  htmlFor="slider-videos"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Slider photos
+                  News Slider Videos
                 </label>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                   <div className="text-center">
@@ -577,24 +1549,25 @@ export default function UpdateForm() {
                     />
                     <div className="mt-4 flex text-sm leading-6 text-gray-600">
                       <label
-                        htmlFor="file-upload2"
+                        htmlFor="slider-videos"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
-                          id="file-upload2"
-                          name="file-upload2"
+                          id="slider-videos"
+                          name="slider-videos"
                           type="file"
                           multiple
+                          accept="video/*"
                           required
-                          onChange={sliderPhotosHandler}
+                          onChange={sliderVideosHandler}
                           className="sr-only"
                         />
                       </label>
                       <p className="pl-1">or drag and drop</p>
                     </div>
                     <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
+                      mp3, webm up to 10MB
                     </p>
                   </div>
                 </div>
@@ -602,299 +1575,6 @@ export default function UpdateForm() {
             )}
           </div>
         </div>
-
-        {/* <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">
-            Personal Information
-          </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            Use a permanent address where you can receive mail.
-          </p>
-
-          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                First name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Last name
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="country"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Country
-              </label>
-              <div className="mt-2">
-                <select
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                >
-                  <option>United States</option>
-                  <option>Canada</option>
-                  <option>Mexico</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="col-span-full">
-              <label
-                htmlFor="street-address"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Street address
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="street-address"
-                  id="street-address"
-                  autoComplete="street-address"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2 sm:col-start-1">
-              <label
-                htmlFor="city"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                City
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="city"
-                  id="city"
-                  autoComplete="address-level2"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="region"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                State / Province
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="region"
-                  id="region"
-                  autoComplete="address-level1"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="postal-code"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                ZIP / Postal code
-              </label>
-              <div className="mt-2">
-                <input
-                  type="text"
-                  name="postal-code"
-                  id="postal-code"
-                  autoComplete="postal-code"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-b border-gray-900/10 pb-12">
-          <h2 className="text-base font-semibold leading-7 text-gray-900">
-            Notifications
-          </h2>
-          <p className="mt-1 text-sm leading-6 text-gray-600">
-            We'll always let you know about important changes, but you pick what
-            else you want to hear about.
-          </p>
-
-          <div className="mt-10 space-y-10">
-            <fieldset>
-              <legend className="text-sm font-semibold leading-6 text-gray-900">
-                By Email
-              </legend>
-              <div className="mt-6 space-y-6">
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="comments"
-                      name="comments"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label
-                      htmlFor="comments"
-                      className="font-medium text-gray-900"
-                    >
-                      Comments
-                    </label>
-                    <p className="text-gray-500">
-                      Get notified when someones posts a comment on a posting.
-                    </p>
-                  </div>
-                </div>
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="candidates"
-                      name="candidates"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label
-                      htmlFor="candidates"
-                      className="font-medium text-gray-900"
-                    >
-                      Candidates
-                    </label>
-                    <p className="text-gray-500">
-                      Get notified when a candidate applies for a job.
-                    </p>
-                  </div>
-                </div>
-                <div className="relative flex gap-x-3">
-                  <div className="flex h-6 items-center">
-                    <input
-                      id="offers"
-                      name="offers"
-                      type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="text-sm leading-6">
-                    <label
-                      htmlFor="offers"
-                      className="font-medium text-gray-900"
-                    >
-                      Offers
-                    </label>
-                    <p className="text-gray-500">
-                      Get notified when a candidate accepts or rejects an offer.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend className="text-sm font-semibold leading-6 text-gray-900">
-                Push Notifications
-              </legend>
-              <p className="mt-1 text-sm leading-6 text-gray-600">
-                These are delivered via SMS to your mobile phone.
-              </p>
-              <div className="mt-6 space-y-6">
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-everything"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label
-                    htmlFor="push-everything"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Everything
-                  </label>
-                </div>
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-email"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label
-                    htmlFor="push-email"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Same as email
-                  </label>
-                </div>
-                <div className="flex items-center gap-x-3">
-                  <input
-                    id="push-nothing"
-                    name="push-notifications"
-                    type="radio"
-                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                  />
-                  <label
-                    htmlFor="push-nothing"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    No push notifications
-                  </label>
-                </div>
-              </div>
-            </fieldset>
-          </div>
-        </div> */}
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">

@@ -1,9 +1,11 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import axios from "axios";
 
 const MyPayPalButton = ({ amount, currency }) => {
   const [customerEmailAddress, setCustomerEmailAddress] = useState("");
+
   const fetchOrderDetails = (orderId) => {
     fetchOrderDetailsFromPayPal(orderId)
       .then((orderDetails) => {
@@ -13,6 +15,22 @@ const MyPayPalButton = ({ amount, currency }) => {
           orderDetails.payer.email_address
         ) {
           setCustomerEmailAddress(orderDetails.payer.email_address);
+          sendEmail(
+            orderDetails.payer.email_address,
+            `Thank you for your ${amount} Donation!`,
+            "FGRF Thankfull for your Donation."
+          );
+          axios
+            .post("/admin/api", {
+              email: orderDetails.payer.email_address,
+              amount: amount,
+            })
+            .then(function (response) {
+              // console.log(response);
+            })
+            .catch(function (error) {
+              // console.log(error);
+            });
         } else {
           console.error("Customer email not available from PayPal.");
         }

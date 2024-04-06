@@ -8,6 +8,7 @@ import Loader from "@/components/newUi/dashboard/components/common/Loader";
 import Header from "@/components/newUi/dashboard/components/Header";
 import Sidebar from "@/components/newUi/dashboard/components/Sidebar";
 import DashboardProvider from "@/components/newUi/contextApi/dashboardProvider";
+import AuthForm from "@/components/newUi/dashboard/components/authModal";
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default function RootLayout({
             <Loader />
           ) : (
             <DashboardProvider>
+              <AuthForm />
               <div className="flex h-screen overflow-hidden">
                 <Sidebar
                   sidebarOpen={sidebarOpen}
