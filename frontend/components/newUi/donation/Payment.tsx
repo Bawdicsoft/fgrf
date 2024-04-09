@@ -36,7 +36,8 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
         <div className="grid grid-cols-1 md:grid-cols-3  gap-5 md:gap-0 pt-8">
           {/* stripe today */}
           <div className="flex justify-center md:block">
-            <CheckoutButton amount={dollarDonate} />
+{/*             <CheckoutButton amount={dollarDonate} /> */}
+{/*             <CheckoutButton /> */}
           </div>
           <div className="md:col-span-2">
             <MyPayPalButton amount={dollarDonate} currency="GBP" />
@@ -46,10 +47,10 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           <GooglePayBtn amount={dollarDonate} />
 {/*           <Elements stripe={stripePromise}> */}
             <MyApplePayBtn amount={dollarDonate} />
-          </Elements>
+{/*           </Elements> */}
         </div>
       </div>
-    // </div>
+    </div>
   );
 };
 
