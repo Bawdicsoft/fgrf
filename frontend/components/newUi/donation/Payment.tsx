@@ -49,7 +49,7 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
           </Elements>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
