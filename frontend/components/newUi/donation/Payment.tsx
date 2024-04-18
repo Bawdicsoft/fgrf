@@ -17,7 +17,6 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
   // new Code
   const [loader, setLoader] = useState(true);
   // Clinet iD paypal
-  // AcKA0k1CSwjth14RN9FK5uDUmvGA8Jcv7yEfb024RnoMfJjCzT2wpYDtqKA7kD6YpHzjQW0lwn4TE-Fg
   return (
     <div>
       <div>
