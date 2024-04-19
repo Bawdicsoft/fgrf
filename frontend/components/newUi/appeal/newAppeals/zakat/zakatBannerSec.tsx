@@ -106,6 +106,7 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
+                priority={true}
                 src={`${
                   (photos && photos[0]) || "/AppealNew/Zakat/zakat4.jpeg"
                 }`}
@@ -125,6 +126,7 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
+                priority={true}
                 src={`${
                   (photos && photos[1]) || "/AppealNew/Zakat/zakat5.jpeg"
                 }`}
