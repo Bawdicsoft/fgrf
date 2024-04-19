@@ -11,21 +11,25 @@ const nextConfig = {
   // images: {
   //   domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com"],
   // },
+  // images: {
+  //   remotePatterns: [
+  // {
+  //   protocol: "https",
+  //   hostname: "firebasestorage.googleapis.com",
+  //   port: "",
+  //   pathname: "/v0/b/fgrf-dc455.appspot.com/**",
+  // },
+  // {
+  //   protocol: "https",
+  //   hostname: "lh3.googleusercontent.com",
+  //   port: "",
+  //   pathname: "/**",
+  // },
+  //   ],
+  // },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "firebasestorage.googleapis.com",
-        port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/**",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
+    domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com"],
+    formats: ["image/webp", "image/jpeg", "image/png", "image/gif"],
   },
 };
 
