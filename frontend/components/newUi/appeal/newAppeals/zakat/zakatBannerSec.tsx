@@ -108,8 +108,7 @@ const ZakatBannerSection = () => {
               <Image
                 priority={true}
                 src={`${
-                  (photos &&
-                    "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat2.webp?alt=media&token=a35de021-63e6-4245-954b-7a0fdea6698e") ||
+                  "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat2.webp?alt=media&token=a35de021-63e6-4245-954b-7a0fdea6698e" ||
                   "/AppealNew/Zakat/zakat4.jpeg"
                 }`}
                 alt="winter img1"
@@ -130,8 +129,7 @@ const ZakatBannerSection = () => {
               <Image
                 priority={true}
                 src={`${
-                  (photos &&
-                    "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat1.webp?alt=media&token=9f6462c0-091f-4e2e-842e-aeba0df51833") ||
+                  "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat1.webp?alt=media&token=9f6462c0-091f-4e2e-842e-aeba0df51833" ||
                   "/AppealNew/Zakat/zakat5.jpeg"
                 }`}
                 alt="winter img1"
