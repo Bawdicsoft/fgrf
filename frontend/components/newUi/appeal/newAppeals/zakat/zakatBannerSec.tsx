@@ -69,8 +69,8 @@ const ZakatBannerSection = () => {
       doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians.",
     },
   ];
-  // console.log("Photos-1--->", photos[0]);
-  // console.log("Photos-2--->", photos[1]);
+  console.log("Photos-1--->", photos[0]);
+  console.log("Photos-2--->", photos[1]);
   const [packeges, setPackeges] = useState(oneOffBtnList);
   const [bgColor, setBgColor] = useState(true);
   const [bgBtn, setbgBtn] = useState(0);
