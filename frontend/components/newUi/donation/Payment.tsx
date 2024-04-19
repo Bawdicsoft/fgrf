@@ -45,10 +45,12 @@ const PaymentSec: React.FC<PaymentProps> = ({ dollarDonate, titleDonate }) => {
             <MyPayPalButton amount={dollarDonate} currency="GBP" />
           </div>
         </div>
-        <div className="text-center w-64">
-          <Elements stripe={stripePromise}>
-            <MyApplePayBtn amount={dollarDonate} />
-          </Elements>
+        <div className="flex justify-center">
+          <div className="text-center w-64">
+            <Elements stripe={stripePromise}>
+              <MyApplePayBtn amount={dollarDonate} />
+            </Elements>
+          </div>
         </div>
       </div>
     </div>
