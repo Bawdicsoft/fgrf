@@ -29,7 +29,7 @@ const nextConfig = {
   // },
   images: {
     domains: ["firebasestorage.googleapis.com"],
-    formats: ["image/webp", "image/jpeg", "image/png", "image/gif"],
+    formats: ["image/webp", "image/avif"],
   },
 };
 
