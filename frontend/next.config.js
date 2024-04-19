@@ -9,7 +9,10 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com"],
+    domains: [
+      "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com",
+      "lh3.googleusercontent.com",
+    ],
   },
 };
 
