@@ -19,6 +19,12 @@ const nextConfig = {
         port: "",
         pathname: "/v0/b/fgrf-dc455.appspot.com/**",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
