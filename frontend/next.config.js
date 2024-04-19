@@ -28,7 +28,7 @@ const nextConfig = {
   //   ],
   // },
   images: {
-    domains: ["firebasestorage.googleapis.com"],
+    domains: ["firebasestorage.googleapis.com", "lh3.googleusercontent.com"],
     formats: ["image/webp", "image/avif"],
   },
 };
