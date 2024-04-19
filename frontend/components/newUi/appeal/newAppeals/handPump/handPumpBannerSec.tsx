@@ -201,7 +201,8 @@ const HandPumpBannerSection = () => {
               <p className="bg-white h-[1px] w-full"></p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 py-3">
-                <CheckoutButton amount={dollarDonate} />
+                {/* stripe button */}
+                {/* <CheckoutButton amount={dollarDonate} /> */}
                 <MyPayPalButton amount={dollarDonate} currency="GBP" />
               </div>
             </div>
