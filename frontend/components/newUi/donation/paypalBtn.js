@@ -62,7 +62,7 @@ const MyPayPalButton = ({ amount, currency }) => {
                   value: amount,
                   currency_code: currency,
                 },
-                payee: customerEmailAddress,
+                // payee: customerEmailAddress,
               },
             ],
           });
@@ -72,7 +72,7 @@ const MyPayPalButton = ({ amount, currency }) => {
             if (details.error) {
               router.push("/paypal-error");
             } else {
-              fetchOrderDetails(details.id);
+              // fetchOrderDetails(details.id);
               router.push({
                 pathname: `/paypal-success/${amount}`,
               });
