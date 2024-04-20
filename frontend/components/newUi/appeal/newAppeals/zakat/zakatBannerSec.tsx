@@ -69,8 +69,8 @@ const ZakatBannerSection = () => {
       doc: "Could provide 15 x Critical Medical Packs to provide emergency medical assistance for over 100 Palestinians.",
     },
   ];
-  console.log("Photos-1--->", photos[0]);
-  console.log("Photos-2--->", photos[1]);
+  // console.log("Photos-1--->", photos[0]);
+  // console.log("Photos-2--->", photos[1]);
   const [packeges, setPackeges] = useState(oneOffBtnList);
   const [bgColor, setBgColor] = useState(true);
   const [bgBtn, setbgBtn] = useState(0);
@@ -106,8 +106,11 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
-                priority={true}
-                src={`${"https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat2.webp?alt=media&token=a35de021-63e6-4245-954b-7a0fdea6698e"}`}
+                // priority={true}
+                // src={`${"https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat2.webp?alt=media&token=a35de021-63e6-4245-954b-7a0fdea6698e"}`}
+                src={`${
+                  (photos && photos[0]) || "/AppealNew/Zakat/zakat4.jpeg"
+                }`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}
@@ -124,8 +127,11 @@ const ZakatBannerSection = () => {
               }`}
             >
               <Image
-                priority={true}
-                src={`${"https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat1.webp?alt=media&token=9f6462c0-091f-4e2e-842e-aeba0df51833"}`}
+                // priority={true}
+                // src={`${"https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com/o/images%2Fzakat1.webp?alt=media&token=9f6462c0-091f-4e2e-842e-aeba0df51833"}`}
+                src={`${
+                  (photos && photos[1]) || "/AppealNew/Zakat/zakat1.jpeg"
+                }`}
                 alt="winter img1"
                 className="w-full h-full rounded-lg"
                 width={600}

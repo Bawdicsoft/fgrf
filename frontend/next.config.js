@@ -8,10 +8,20 @@ const nextConfig = {
       },
     ];
   },
+  // images: {
+  //   domains: [
+  //     "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com",
+  //     "lh3.googleusercontent.com",
+  //   ],
+  // },
   images: {
-    domains: [
-      "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com",
-      "lh3.googleusercontent.com",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**",
+      },
     ],
   },
 };
