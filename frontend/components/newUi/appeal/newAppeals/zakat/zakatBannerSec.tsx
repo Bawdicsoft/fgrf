@@ -115,6 +115,7 @@ const ZakatBannerSection = () => {
                 className="w-full h-full rounded-lg"
                 width={600}
                 height={600}
+                priority
               />
             </div>
           </AppealBannerAnimationLeft>
@@ -136,6 +137,7 @@ const ZakatBannerSection = () => {
                 className="w-full h-full rounded-lg"
                 width={600}
                 height={600}
+                priority
               />
             </div>
           </AppealBannerAnimationRight>
