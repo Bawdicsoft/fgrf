@@ -474,7 +474,7 @@ export default function Navbar() {
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
                   >
-                    Paletines Emergency
+                    Palestine Emergency
                   </Link>
                   <Link
                     href={"/appeal/winter-emergency"}
