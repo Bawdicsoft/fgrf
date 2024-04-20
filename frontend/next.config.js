@@ -8,12 +8,6 @@ const nextConfig = {
       },
     ];
   },
-  // images: {
-  //   domains: [
-  //     "https://firebasestorage.googleapis.com/v0/b/fgrf-dc455.appspot.com",
-  //     "lh3.googleusercontent.com",
-  //   ],
-  // },
   images: {
     remotePatterns: [
       {
@@ -23,6 +17,12 @@ const nextConfig = {
         pathname: "/v0/b/fgrf-dc455.appspot.com/o/**",
       },
     ],
+    // {
+    //   protocol: "https",
+    //   hostname: "lh3.googleusercontent.com",
+    //   port: "",
+    //   pathname: "/**",
+    // },
   },
 };
 
