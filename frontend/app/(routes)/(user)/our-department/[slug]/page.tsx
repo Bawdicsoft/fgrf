@@ -166,7 +166,7 @@ export default function OurDepartmentAppeal({
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
               src={`${
-                (photo && photo) || "/ourDepartment/disaster/covid/banner.jpg"
+                (photo && photo) || "/ourDepartment/disaster/covid/covid.jpg"
               }`}
               alt="about image"
               width={2000}
@@ -186,7 +186,8 @@ export default function OurDepartmentAppeal({
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
               src={`${
-                (photo && photo) || "/ourDepartment/disaster/morroco/banner.jpg"
+                (photo && photo) ||
+                "/ourDepartment/disaster/morroco/moroccobanner.jpg"
               }`}
               alt="about image"
               width={2000}
@@ -207,7 +208,7 @@ export default function OurDepartmentAppeal({
             <Image
               src={`${
                 (photo && photo) ||
-                "/ourDepartment/disaster/pakistanFlood/banner.jpg"
+                "/ourDepartment/disaster/pakistanFlood/pakistanbanner.jpg"
               }`}
               alt="about image"
               width={2000}
@@ -228,7 +229,7 @@ export default function OurDepartmentAppeal({
             <Image
               src={`${
                 (photo && photo) ||
-                "/ourDepartment/disaster/turkeySyriaEarthquake/banner.jpg"
+                "/ourDepartment/disaster/turkeySyriaEarthquake/turkey&syriabanner.jpg"
               }`}
               alt="about image"
               width={2000}
@@ -249,7 +250,7 @@ export default function OurDepartmentAppeal({
             <Image
               src={`${
                 (photo && photo) ||
-                "/ourDepartment/disaster/palestine/banner.jpg"
+                "/ourDepartment/disaster/palestine/palestinebanner.jpg"
               }`}
               alt="about image"
               width={2000}
@@ -400,7 +401,7 @@ export default function OurDepartmentAppeal({
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
               src={`${
-                (photo && photo) || "/ourDepartment/handPump/banner.png"
+                (photo && photo) || "/ourDepartment/handPump/waterbanner.png"
               }`}
               alt="about image"
               width={2000}
@@ -470,7 +471,8 @@ export default function OurDepartmentAppeal({
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
               src={`${
-                (photo && photo) || "/ourDepartment/educationSkills/banner.png"
+                (photo && photo) ||
+                "/ourDepartment/educationSkills/educationbanner.png"
               }`}
               alt="about image"
               width={2000}
@@ -490,7 +492,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={`${(photo && photo) || "/ourDepartment/orphan/banner.png"}`}
+              src={`${
+                (photo && photo) || "/ourDepartment/orphan/orphanbanner.png"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
@@ -509,7 +513,9 @@ export default function OurDepartmentAppeal({
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
-              src={`${(photo && photo) || "/ourDepartment/masjid/banner.png"}`}
+              src={`${
+                (photo && photo) || "/ourDepartment/masjid/masjidbanner.png"
+              }`}
               alt="about image"
               width={2000}
               height={2000}
