@@ -2,7 +2,7 @@
 import { useDashboardContext } from "@/components/newUi/contextApi/dashboardContext";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
-import ClipLoader from "react-spinners/BounceLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import {
   addDoc,
   collection,
@@ -43,7 +43,8 @@ export default function UpdateForm() {
   const [achievementUrlList, setAchievementUrlList] = useState<any>([]);
   const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
   const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
-  const [uploading, setUploading] = useState(false);
+  const [uploading1, setUploading1] = useState(false);
+  const [uploading2, setUploading2] = useState(false);
 
   const disasterManagementLst = [
     "Select An Option",
@@ -292,7 +293,7 @@ export default function UpdateForm() {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-    setUploading(true);
+    setUploading1(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -307,10 +308,10 @@ export default function UpdateForm() {
         }
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
-    setUploading(false);
+    setUploading1(false);
   };
   const ourDepartmentSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
@@ -327,7 +328,7 @@ export default function UpdateForm() {
         setOurDepartmentUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -346,7 +347,7 @@ export default function UpdateForm() {
         setRamazanUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -365,7 +366,7 @@ export default function UpdateForm() {
         setZakatUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -384,7 +385,7 @@ export default function UpdateForm() {
         setFoodBoxUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -403,7 +404,7 @@ export default function UpdateForm() {
         setWinterUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -422,7 +423,7 @@ export default function UpdateForm() {
         setPalestineUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -441,7 +442,7 @@ export default function UpdateForm() {
         setOrphanUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -460,7 +461,7 @@ export default function UpdateForm() {
         setHandPumpUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -479,7 +480,7 @@ export default function UpdateForm() {
         setWaterUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -498,7 +499,7 @@ export default function UpdateForm() {
         setMasjidUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -517,7 +518,7 @@ export default function UpdateForm() {
         setGalleryUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -536,7 +537,7 @@ export default function UpdateForm() {
         setnewsVideoUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -555,7 +556,7 @@ export default function UpdateForm() {
         setAchievementUrlList((prev: any) => [...prev, downloadURL]);
         console.log("File uploaded successfully:", downloadURL);
       } catch (error) {
-        console.error("Error uploading file:", error);
+        console.error("Error uploading1 file:", error);
       }
     }
   };
@@ -875,16 +876,6 @@ export default function UpdateForm() {
                   Slider photos
                 </label>
                 <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="flex flex-wrap gap-5">
-                    <ClipLoader
-                      color={"#36d7b7"}
-                      loading={true}
-                      size={120}
-                      aria-label="Loading Spinner"
-                      data-testid="loader"
-                    />
-                    <p className="text-teal-500">uploading Images ...</p>
-                  </div>
                   <div className="text-center">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
@@ -907,11 +898,26 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploading1 ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF up to 10MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploading1}
+                            size={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500">uploading1 Images ...</p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
