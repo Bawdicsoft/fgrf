@@ -40,6 +40,7 @@
     "react-jvectormap": "^0.0.16",
     "react-responsive-carousel": "^3.2.23",
     "react-scroll": "^1.9.0",
+    "react-spinners": "^0.13.8",
     "react-tsparticles": "^2.12.2",
     "react-use": "^17.4.2",
     "swiper": "^11.0.5",

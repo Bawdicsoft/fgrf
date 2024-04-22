@@ -179,7 +179,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </Link>
           </div>
           {/* home */}
-          {/* <div
+          <div
             className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
               pathname === "/" && "bg-sky-900"
             } `}
@@ -194,7 +194,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             >
               Main Page
             </Link>
-          </div> */}
+          </div>
           {/* <!-- Menu Our Department --> */}
           <div>
             <ul className="mb-6 flex flex-col gap-1.5">

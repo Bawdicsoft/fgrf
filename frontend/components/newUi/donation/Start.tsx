@@ -290,7 +290,7 @@ const StartSec: React.FC<StartSecProps> = ({
     <div>
       {/* navbar */}
       <div className="flex h-40 justify-center ml-10 md:ml-40">
-        <div className="w-40 md:w-60 relative flex items-center">
+        {/* <div className="w-40 md:w-60 relative flex items-center">
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
             <span
               onClick={donationHandler}
@@ -310,7 +310,7 @@ const StartSec: React.FC<StartSecProps> = ({
             </span>
           </div>
           <span className={`bg-gray-100 h-[6px] w-full`}></span>
-        </div>
+        </div> */}
         <div className="w-40 md:w-60 relative flex items-center">
           <span className="relative bg-gray-100 h-[6px] w-full"></span>
           <div className="absolute top-[87px] -left-2 transform  -translate-y-1/2">
@@ -326,7 +326,7 @@ const StartSec: React.FC<StartSecProps> = ({
                   !showFormDonation && !showPayment ? "text-white" : ""
                 }`}
               >
-                2
+                1
               </span>
             </span>
             <span
@@ -353,7 +353,7 @@ const StartSec: React.FC<StartSecProps> = ({
                   showFormDonation ? "text-white" : ""
                 }`}
               >
-                3
+                2
               </span>
             </span>
             <span
@@ -379,7 +379,7 @@ const StartSec: React.FC<StartSecProps> = ({
                   showPayment ? "text-white" : ""
                 }`}
               >
-                4
+                3
               </span>
             </span>
             <span

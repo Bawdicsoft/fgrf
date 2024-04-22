@@ -2,6 +2,7 @@
 import { useDashboardContext } from "@/components/newUi/contextApi/dashboardContext";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import ClipLoader from "react-spinners/BounceLoader";
 import {
   addDoc,
   collection,
@@ -42,6 +43,7 @@ export default function UpdateForm() {
   const [achievementUrlList, setAchievementUrlList] = useState<any>([]);
   const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
   const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
+  const [uploading, setUploading] = useState(false);
 
   const disasterManagementLst = [
     "Select An Option",
@@ -290,7 +292,7 @@ export default function UpdateForm() {
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploading(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -308,6 +310,7 @@ export default function UpdateForm() {
         console.error("Error uploading file:", error);
       }
     }
+    setUploading(false);
   };
   const ourDepartmentSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
@@ -736,9 +739,10 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
+
             {/* Header photos */}
-            {mainSection !== "Our Department" ||
-              (mainSection !== "Main Page" && (
+            {mainSection !== "Our Department" &&
+              mainSection !== "Main Page" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="cover-photo"
@@ -776,7 +780,8 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-              ))}
+              )}
+
             {/* Down Videos photos */}
             {midSection === "Disaster Management" ||
               midSection === "Health Care" ||
@@ -820,88 +825,97 @@ export default function UpdateForm() {
                 </div>
               ))}
             {/* Videos */}
-            {mainSection !== "Donations" ||
-              (mainSection !== "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="cover-photo"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    {mainSection === "Our Department" ? `Video` : "Videos"}
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload1"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload1"
-                            name="file-upload1"
-                            type="file"
-                            multiple
-                            accept="video/*"
-                            required
-                            onChange={videoHandler}
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs leading-5 text-gray-600">
-                        mp3, webm up to 10MB
-                      </p>
+            {mainSection !== "Donations" && mainSection !== "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  {mainSection === "Our Department" ? `Video` : "Videos"}
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload1"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+                        <input
+                          id="file-upload1"
+                          name="file-upload1"
+                          type="file"
+                          multiple
+                          accept="video/*"
+                          required
+                          onChange={videoHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
                     </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      mp3, webm up to 10MB
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+            )}
             {/* Slider Photos */}
-            {mainSection !== "Donations" ||
-              (mainSection !== "Main Page" && (
-                <div className="col-span-full">
-                  <label
-                    htmlFor="cover-photo"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Slider photos
-                  </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
-                      <PhotoIcon
-                        className="mx-auto h-12 w-12 text-gray-300"
-                        aria-hidden="true"
-                      />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload2"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload2"
-                            name="file-upload2"
-                            type="file"
-                            multiple
-                            required
-                            onChange={sliderPhotosHandler}
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs leading-5 text-gray-600">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
+            {mainSection !== "Donations" && mainSection !== "Main Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="cover-photo"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Slider photos
+                </label>
+                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="flex flex-wrap gap-5">
+                    <ClipLoader
+                      color={"#36d7b7"}
+                      loading={true}
+                      size={120}
+                      aria-label="Loading Spinner"
+                      data-testid="loader"
+                    />
+                    <p className="text-teal-500">uploading Images ...</p>
+                  </div>
+                  <div className="text-center">
+                    <PhotoIcon
+                      className="mx-auto h-12 w-12 text-gray-300"
+                      aria-hidden="true"
+                    />
+                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <label
+                        htmlFor="file-upload2"
+                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                      >
+                        <span>Upload a file</span>
+
+                        <input
+                          id="file-upload2"
+                          name="file-upload2"
+                          type="file"
+                          multiple
+                          required
+                          onChange={sliderPhotosHandler}
+                          className="sr-only"
+                        />
+                      </label>
+                      <p className="pl-1">or drag and drop</p>
                     </div>
+                    <p className="text-xs leading-5 text-gray-600">
+                      PNG, JPG, GIF up to 10MB
+                    </p>
                   </div>
                 </div>
-              ))}
+              </div>
+            )}
 
             {/* Main Page */}
             {/* banner Slider images */}
@@ -986,9 +1000,11 @@ export default function UpdateForm() {
             )}
 
             {/* appeal sliders */}
-            <h2 className="block text-base py-3 font-medium leading-6 text-gray-900">
-              Appeals Sliders
-            </h2>
+            {mainSection === "Main Page" && (
+              <h2 className="block text-base py-3 font-medium leading-6 text-gray-900">
+                Appeals Sliders
+              </h2>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {/* ramazan slider */}
               {mainSection === "Main Page" && (
@@ -1412,39 +1428,43 @@ export default function UpdateForm() {
             )}
 
             {/* counter */}
-            <h2 className="pb-4">Counters</h2>
-            <div className="flex gap-4 pb-4">
-              <div className="relative h-10 w-full min-w-[200px] ">
-                <input
-                  type="text"
-                  placeholder="Title"
-                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                />
-              </div>
-              <div className="relative h-10 w-full min-w-[200px] ">
-                <input
-                  type="number"
-                  placeholder="Counter"
-                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                />
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="relative h-10 w-full min-w-[200px] ">
-                <input
-                  type="text"
-                  placeholder="Title"
-                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                />
-              </div>
-              <div className="relative h-10 w-full min-w-[200px] ">
-                <input
-                  type="number"
-                  placeholder="Counter"
-                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                />
-              </div>
-            </div>
+            {mainSection == "Main Page" ? (
+              <>
+                <h2 className="pb-4">Counters</h2>
+                <div className="flex gap-4 pb-4">
+                  <div className="relative h-10 w-full min-w-[200px] ">
+                    <input
+                      type="text"
+                      placeholder="Title"
+                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    />
+                  </div>
+                  <div className="relative h-10 w-full min-w-[200px] ">
+                    <input
+                      type="number"
+                      placeholder="Counter"
+                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="relative h-10 w-full min-w-[200px] ">
+                    <input
+                      type="text"
+                      placeholder="Title"
+                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    />
+                  </div>
+                  <div className="relative h-10 w-full min-w-[200px] ">
+                    <input
+                      type="number"
+                      placeholder="Counter"
+                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                    />
+                  </div>
+                </div>
+              </>
+            ) : null}
 
             {/* Gallery */}
             {mainSection == "Main Page" && (
