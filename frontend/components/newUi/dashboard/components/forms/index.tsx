@@ -44,7 +44,21 @@ export default function UpdateForm() {
   const [newsVideoUrlList, setnewsVideoUrlList] = useState<any>([]);
   const [galleryUrlList, setGalleryUrlList] = useState<any>([]);
   const [uploading1, setUploading1] = useState(false);
-  const [uploading2, setUploading2] = useState(false);
+  const [uploadingOurDepartmentSlider, setUploadingOurDepartmentSlider] =
+    useState(false);
+  const [uploadingRamzanSlider, setUploadingRamzanSlider] = useState(false);
+  const [uploadingZakatSlider, setUploadingZakatSlider] = useState(false);
+  const [uploadingFoodBoxSlider, setUploadingFoodBoxSlider] = useState(false);
+  const [uploadingWinterSlider, setUploadingWinterSlider] = useState(false);
+  const [uploadingPalestineSlider, setUploadingPalestineSlider] =
+    useState(false);
+  const [uploadingOrphanSlider, setUploadingOrphanSlider] = useState(false);
+  const [uploadingHandPumpSlider, setUploadingHandPumpSlider] = useState(false);
+  const [uploadingWaterWellSlider, setUploadingWaterWellSlider] =
+    useState(false);
+  const [uploadingMasjidSlider, setUploadingMasjidSlider] = useState(false);
+  const [uploadingGallerySlider, setUploadingGallerySlider] = useState(false);
+  const [uploadingVideosSlider, setUploadingVideosSlider] = useState(false);
 
   const disasterManagementLst = [
     "Select An Option",
@@ -73,14 +87,15 @@ export default function UpdateForm() {
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    // start update code
     const dataRef = collection(db, "contents");
     const querySnapshot = await getDocs(dataRef);
     querySnapshot.forEach(async (docs) => {
       const docsData = docs.data();
       const chooseSec = docsData.content.sec;
+      const chooseContent = docsData.content;
       if (mainSection === "Our Department") {
         if (chooseSec === sec) {
+          console.log("chooseSec----->", chooseContent);
           const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
           const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
           const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
@@ -94,12 +109,12 @@ export default function UpdateForm() {
           const docRef = doc(db, "contents", docsId);
           await updateDoc(docRef, {
             content: {
-              bannerImg: bannerImageUrl,
-              heroSecImg: heroImageUrl,
-              sec: sec,
-              text: text,
-              slider: urlList,
-              video: videoUrl,
+              bannerImg: bannerImageUrl || chooseContent.bannerImageUrl,
+              heroSecImg: heroImageUrl || chooseContent.heroImageUrl,
+              sec: sec || chooseContent.sec,
+              text: text || chooseContent.text,
+              slider: urlList || chooseContent.urlList,
+              video: videoUrl || chooseContent.videoUrl,
             },
           });
         }
@@ -119,11 +134,14 @@ export default function UpdateForm() {
           const docRef = doc(db, "contents", docsId);
           await updateDoc(docRef, {
             content: {
-              photo: [firstImageUrl, secondImageUrl],
-              sec: sec,
-              text: text,
-              slider: urlList,
-              video: videoUrl,
+              photo: [
+                firstImageUrl || chooseContent.photo[0],
+                secondImageUrl || chooseContent.photo[1],
+              ],
+              sec: sec || chooseContent.sec,
+              text: text || chooseContent.text,
+              slider: urlList || chooseContent.urlList,
+              video: videoUrl || chooseContent.videoUrl,
             },
           });
         }
@@ -138,9 +156,9 @@ export default function UpdateForm() {
           const docRef = doc(db, "contents", docsId);
           await updateDoc(docRef, {
             content: {
-              sec,
-              text,
-              photo: titleImageUrl1,
+              sec: sec || chooseContent.sec,
+              text: text || chooseContent.text,
+              photo: titleImageUrl1 || chooseContent.titleImageUrl1,
             },
           });
         }
@@ -155,124 +173,126 @@ export default function UpdateForm() {
           const docRef = doc(db, "contents", docsId);
           await updateDoc(docRef, {
             content: {
-              sec,
-              text,
-              photo: titleImageUrl1,
+              sec: sec || chooseContent.sec,
+              text: text || chooseContent.text,
+              photo: titleImageUrl1 || chooseContent.titleImageUrl1,
             },
           });
         }
       }
     });
-
-    // end update code
-
-    // create code for appeal Sections
-    // try {
-    //   const newCollectionRef = collection(db, "contents");
-    //   const newDocRef = doc(newCollectionRef);
-    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //   const storageRef2 = ref(storage, "images/" + photo2?.name);
-    //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-    //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-    //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-    //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-    //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-    //   const videosRef2 = ref(storage, "videos/" + video2?.name);
-    //   const titleVideos2 = await uploadBytes(videosRef2, video2);
-    //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-    //   const mainSection = {
-    //     content: {
-    //       sec,
-    //       text,
-    //       photo: [titleImageUrl1, titleImageUrl2],
-    //       video: [videoUrl1, videoUrl2],
-    //       slider: urlList,
-    //     },
-    //   };
-
-    //   await setDoc(newDocRef, mainSection, { merge: true });
-    //   if (mainSection !== undefined) {
-    //     console.log("Ok ki report hai bahi");
-    //   }
-    // } catch (error) {
-    //   console.error("Roko bahi firebaser error arha hai--->", error);
-    // }
-    //   console.log("photo---->", photo1);
-    // };
-
-    // create code for main Page Section
-    // try {
-    //   const newCollectionRef = collection(db, "contents");
-    //   const newDocRef = doc(newCollectionRef);
-    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //   const storageRef2 = ref(storage, "images/" + photo2?.name);
-    //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-    //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-    //   const videosRef1 = ref(storage, "videos/" + video1?.name);
-    //   const titleVideos1 = await uploadBytes(videosRef1, video1);
-    //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-    //   const videosRef2 = ref(storage, "videos/" + video2?.name);
-    //   const titleVideos2 = await uploadBytes(videosRef2, video2);
-    //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-    //   const videosRef3 = ref(storage, "videos/" + video3?.name);
-    //   const titleVideos3 = await uploadBytes(videosRef3, video3);
-    //   const videoUrl3 = await getDownloadURL(titleVideos3.ref);
-    //   const mainSection = {
-    //     content: {
-    //       sec,
-    //       text,
-    //       newsVideos: newsVideoUrlList,
-    //       newsVideo: [videoUrl1, videoUrl2, videoUrl3],
-    //       mainBannerSlider: mainBannerUrlList,
-    //       ourDepartmentSlider: ourDepartmentUrlList,
-    //       achievement: achievementUrlList,
-    //       ramazan: ramazanUrlList,
-    //       zakat: zakatUrlList,
-    //       foobox: foodBoxUrlList,
-    //       winter: winterUrlList,
-    //       palestine: palestineUrlList,
-    //       orphan: orphanUrlList,
-    //       handPump: handPumpUrlList,
-    //       waterWell: waterUrlList,
-    //       masjid: masjidUrlList,
-    //     },
-    //   };
-
-    //   await setDoc(newDocRef, mainSection, { merge: true });
-    //   if (mainSection !== undefined) {
-    //     console.log("Ok ki report hai bahi");
-    //   }
-    // } catch (error) {
-    //   console.error("Roko bahi firebaser error arha hai--->", error);
-    // }
-
-    // create code for Donation Sections
-    // try {
-    //   const newCollectionRef = collection(db, "contents");
-    //   const newDocRef = doc(newCollectionRef);
-    //   const storageRef1 = ref(storage, "images/" + photo1?.name);
-    //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-    //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-    //   const mainSection = {
-    //     content: {
-    //       sec,
-    //       text,
-    //       photo: titleImageUrl1,
-    //     },
-    //   };
-
-    //   await setDoc(newDocRef, mainSection, { merge: true });
-    //   if (mainSection !== undefined) {
-    //     console.log("Ok ki report hai bahi");
-    //   }
-    // } catch (error) {
-    //   console.error("Roko bahi firebaser error arha hai--->", error);
-    // }
   };
+  // end update code
+
+  // create code for appeal Sections
+  const createHandler = async (e: any) => {
+    try {
+      const newCollectionRef = collection(db, "contents");
+      const newDocRef = doc(newCollectionRef);
+      const storageRef1 = ref(storage, "images/" + photo1?.name);
+      const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+      const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+      const storageRef2 = ref(storage, "images/" + photo2?.name);
+      const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+      const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+      const videosRef1 = ref(storage, "videos/" + video1?.name);
+      const titleVideos1 = await uploadBytes(videosRef1, video1);
+      const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+      const videosRef2 = ref(storage, "videos/" + video2?.name);
+      const titleVideos2 = await uploadBytes(videosRef2, video2);
+      const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+      const mainSection = {
+        content: {
+          sec,
+          text,
+          photo: [titleImageUrl1, titleImageUrl2],
+          video: [videoUrl1, videoUrl2],
+          slider: urlList,
+        },
+      };
+
+      await setDoc(newDocRef, mainSection, { merge: true });
+      if (mainSection !== undefined) {
+        console.log("Ok ki report hai bahi");
+      }
+    } catch (error) {
+      console.error("Roko bahi firebaser error arha hai--->", error);
+    }
+  };
+  //   console.log("photo---->", photo1);
+  // };
+
+  // create code for main Page Section
+  // try {
+  //   const newCollectionRef = collection(db, "contents");
+  //   const newDocRef = doc(newCollectionRef);
+  //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+  //   const storageRef2 = ref(storage, "images/" + photo2?.name);
+  //   const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+  //   const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
+  //   const videosRef1 = ref(storage, "videos/" + video1?.name);
+  //   const titleVideos1 = await uploadBytes(videosRef1, video1);
+  //   const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+  //   const videosRef2 = ref(storage, "videos/" + video2?.name);
+  //   const titleVideos2 = await uploadBytes(videosRef2, video2);
+  //   const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+  //   const videosRef3 = ref(storage, "videos/" + video3?.name);
+  //   const titleVideos3 = await uploadBytes(videosRef3, video3);
+  //   const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+  //   const mainSection = {
+  //     content: {
+  //       sec,
+  //       text,
+  //       newsVideos: newsVideoUrlList,
+  //       newsVideo: [videoUrl1, videoUrl2, videoUrl3],
+  //       mainBannerSlider: mainBannerUrlList,
+  //       ourDepartmentSlider: ourDepartmentUrlList,
+  //       achievement: achievementUrlList,
+  //       ramazan: ramazanUrlList,
+  //       zakat: zakatUrlList,
+  //       foobox: foodBoxUrlList,
+  //       winter: winterUrlList,
+  //       palestine: palestineUrlList,
+  //       orphan: orphanUrlList,
+  //       handPump: handPumpUrlList,
+  //       waterWell: waterUrlList,
+  //       masjid: masjidUrlList,
+  //     },
+  //   };
+
+  //   await setDoc(newDocRef, mainSection, { merge: true });
+  //   if (mainSection !== undefined) {
+  //     console.log("Ok ki report hai bahi");
+  //   }
+  // } catch (error) {
+  //   console.error("Roko bahi firebaser error arha hai--->", error);
+  // }
+
+  // create code for Donation Sections
+  // try {
+  //   const newCollectionRef = collection(db, "contents");
+  //   const newDocRef = doc(newCollectionRef);
+  //   const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //   const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //   const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+  //   const mainSection = {
+  //     content: {
+  //       sec,
+  //       text,
+  //       photo: titleImageUrl1,
+  //     },
+  //   };
+
+  //   await setDoc(newDocRef, mainSection, { merge: true });
+  //   if (mainSection !== undefined) {
+  //     console.log("Ok ki report hai bahi");
+  //   }
+  // } catch (error) {
+  //   console.error("Roko bahi firebaser error arha hai--->", error);
+  // }
+
   const bannerPhotoHandler = (e: any) => {
     const bannerFile = e.target.files[0];
     setBannerPhoto(bannerFile);
@@ -313,10 +333,13 @@ export default function UpdateForm() {
     }
     setUploading1(false);
   };
+
+  // For Main page
   const ourDepartmentSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
+    setUploadingOurDepartmentSlider(true);
 
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
@@ -331,12 +354,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingOurDepartmentSlider(false);
   };
   const ramzanSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingRamzanSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -350,12 +374,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingRamzanSlider(false);
   };
   const zakatSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingZakatSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -369,12 +394,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingZakatSlider(false);
   };
   const foodBoxSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingFoodBoxSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -388,12 +414,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingFoodBoxSlider(false);
   };
   const winterSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingWinterSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -407,12 +434,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingWinterSlider(false);
   };
   const palestineSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingPalestineSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -426,12 +454,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingPalestineSlider(false);
   };
   const orphanSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingOrphanSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -445,12 +474,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingOrphanSlider(false);
   };
   const handPumpSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingHandPumpSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -464,12 +494,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingHandPumpSlider(false);
   };
   const waterWellSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingWaterWellSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -483,12 +514,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingWaterWellSlider(false);
   };
   const masjidSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingMasjidSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -502,12 +534,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingMasjidSlider(false);
   };
   const gallerySliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingGallerySlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -521,12 +554,13 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingGallerySlider(false);
   };
   const sliderVideosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingVideosSlider(true);
     for (const file of files) {
       const storageRef = ref(storage, `videos/${file.name}`);
 
@@ -540,7 +574,9 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingVideosSlider(false);
   };
+
   const achievementPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -596,7 +632,6 @@ export default function UpdateForm() {
                   id="country"
                   name="country"
                   autoComplete="country-name"
-                  required
                   onChange={(e: any) => setSec(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
@@ -634,7 +669,6 @@ export default function UpdateForm() {
                   id="about"
                   name="about"
                   value={text}
-                  required
                   onChange={(e: any) => setText(e.target.value)}
                   rows={3}
                   className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -768,7 +802,6 @@ export default function UpdateForm() {
                             name="file-upload"
                             type="file"
                             multiple
-                            required
                             onChange={photoHandler}
                             className="sr-only"
                           />
@@ -811,7 +844,6 @@ export default function UpdateForm() {
                             name="file-upload"
                             type="file"
                             multiple
-                            required
                             onChange={photoHandler}
                             className="sr-only"
                           />
@@ -852,7 +884,6 @@ export default function UpdateForm() {
                           type="file"
                           multiple
                           accept="video/*"
-                          required
                           onChange={videoHandler}
                           className="sr-only"
                         />
@@ -893,7 +924,6 @@ export default function UpdateForm() {
                           name="file-upload2"
                           type="file"
                           multiple
-                          required
                           onChange={sliderPhotosHandler}
                           className="sr-only"
                         />
@@ -950,7 +980,6 @@ export default function UpdateForm() {
                           name="main-banner-slider"
                           type="file"
                           multiple
-                          required
                           onChange={sliderPhotosHandler}
                           className="sr-only"
                         />
@@ -990,16 +1019,30 @@ export default function UpdateForm() {
                           name="our-department"
                           type="file"
                           multiple
-                          required
                           onChange={ourDepartmentSliderPhotosHandler}
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploadingOurDepartmentSlider ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF up to 10MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploadingOurDepartmentSlider}
+                            size={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500">uploading1 Images ...</p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1039,16 +1082,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={ramzanSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingRamzanSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingRamzanSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1081,16 +1140,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={zakatSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingZakatSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingZakatSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1123,16 +1198,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={foodBoxSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingFoodBoxSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingFoodBoxSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1165,16 +1256,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={winterSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingWinterSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingWinterSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1207,16 +1314,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={palestineSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingPalestineSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingPalestineSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1249,16 +1372,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={orphanSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingOrphanSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingOrphanSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1291,16 +1430,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={handPumpSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingHandPumpSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingHandPumpSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1333,16 +1488,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={waterWellSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingWaterWellSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingWaterWellSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1375,16 +1546,32 @@ export default function UpdateForm() {
                               name="our-department"
                               type="file"
                               multiple
-                              required
                               onChange={masjidSliderPhotosHandler}
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          {!uploadingMasjidSlider ? (
+                            <>
+                              <p className="pl-1">or drag and drop</p>
+                              <p className="text-xs leading-5 text-gray-600">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </>
+                          ) : (
+                            <div className="flex flex-wrap gap-5">
+                              <PropagateLoader
+                                color={"#36d7b7"}
+                                loading={uploadingMasjidSlider}
+                                size={12}
+                                aria-label="Loading Spinner"
+                                data-testid="loader"
+                              />
+                              <p className="text-teal-500 text-sm">
+                                uploading Images ...
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p className="text-xs leading-5 text-gray-600">
-                          PNG, JPG, GIF up to 10MB
-                        </p>
                       </div>
                     </div>
                   </div>
@@ -1418,7 +1605,6 @@ export default function UpdateForm() {
                           name="file-upload"
                           type="file"
                           multiple
-                          required
                           onChange={achievementPhotosHandler}
                           className="sr-only"
                         />
@@ -1498,16 +1684,32 @@ export default function UpdateForm() {
                           name="gallery"
                           type="file"
                           multiple
-                          required
                           onChange={gallerySliderPhotosHandler}
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploadingGallerySlider ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF up to 10MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploadingGallerySlider}
+                            size={12}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500 text-sm">
+                            uploading Images ...
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
                 <input
@@ -1544,16 +1746,32 @@ export default function UpdateForm() {
                           type="file"
                           multiple
                           accept="video/*"
-                          required
                           onChange={videoHandler}
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploadingVideosSlider ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            mp4, other up to 100MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploadingVideosSlider}
+                            size={12}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500 text-sm">
+                            uploading Images ...
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      mp3, webm up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1585,7 +1803,6 @@ export default function UpdateForm() {
                           type="file"
                           multiple
                           accept="video/*"
-                          required
                           onChange={sliderVideosHandler}
                           className="sr-only"
                         />
