@@ -31,6 +31,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.JPG", // JPEG format
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
         pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.webp", // WebP format
       },
       {
