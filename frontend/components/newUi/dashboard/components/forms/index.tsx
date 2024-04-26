@@ -898,7 +898,10 @@ export default function UpdateForm() {
             {midSection === "Hide Page" &&
               data &&
               data.map((i: any, index: any) => (
-                <div className="flex justify-between border-teal-400 border  items-center">
+                <div
+                  key={i}
+                  className="flex justify-between border-teal-400 border  items-center"
+                >
                   <p className="p-2 text-teal-500 font-semibold" key={index}>
                     {i.content.sec}
                   </p>
