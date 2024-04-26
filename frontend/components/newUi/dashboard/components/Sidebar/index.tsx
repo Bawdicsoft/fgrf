@@ -370,7 +370,6 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               </SidebarLinkGroup>
             </ul>
           </div>
-
           {/* <!-- Menu Items Appeal --> */}
           <div>
             <ul className="mb-6 flex flex-col gap-1.5">
@@ -530,6 +529,42 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 }}
               </SidebarLinkGroup>
             </ul>
+          </div>
+          {/* new page  */}
+          <div
+            className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
+              pathname === "/" && "bg-sky-900"
+            } `}
+          >
+            <Link
+              href={"/admin/form"}
+              className=" text-md text-gray-200 font-semibold "
+              onClick={() => {
+                setChildSection("New Page");
+                setMidSection("New Page");
+                setMainSection("New Page");
+              }}
+            >
+              Create New Page
+            </Link>
+          </div>
+          {/* hide page  */}
+          <div
+            className={`flex items-center gap-3 py-2 mb-4 ml-4 ${
+              pathname === "/" && "bg-sky-900"
+            } `}
+          >
+            <Link
+              href={"/admin/form"}
+              className=" text-md text-gray-200 font-semibold "
+              onClick={() => {
+                setChildSection("Hide Page");
+                setMidSection("Hide Page");
+                setMainSection("Hide Page");
+              }}
+            >
+              Hide / Delete Page
+            </Link>
           </div>
         </nav>
       </div>

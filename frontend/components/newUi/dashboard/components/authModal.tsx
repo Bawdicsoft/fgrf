@@ -72,7 +72,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
             setImage(user.email?.slice(0, 1) ?? "");
           }
         } else {
-          setOpen(true);
+          // setOpen(true);
         }
         console.log("user--->", user);
 
@@ -140,7 +140,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
       <Dialog
         as="div"
         className="relative z-50"
-        initialFocus={cancelButtonRef}
+        // initialFocus={cancelButtonRef}
         onClose={setOpen}
       >
         <Transition.Child

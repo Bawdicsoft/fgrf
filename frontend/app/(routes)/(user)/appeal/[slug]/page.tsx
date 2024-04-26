@@ -1,3 +1,4 @@
+"use client";
 // import DonateSection from "@/components/donationApeal/feedOurWold/donatSection";
 // import FeedOurWoldBannerSection from "@/components/donationApeal/feedOurWold/feedOurWoldBannerSection";
 // import FidyaDocSection from "@/components/donationApeal/fidyaORkaffarah/fidyaDocSection";
@@ -53,6 +54,9 @@ import MasjidDocs from "@/components/newUi/appeal/newAppeals/masjid/masjidDoc";
 import RamadanBannerSection from "@/components/newUi/appeal/newAppeals/ramadan/ramadanBannerSec";
 import RamadanDocs from "@/components/newUi/appeal/newAppeals/ramadan/ramadanDoc";
 import ContentProvider from "@/components/newUi/contextApi/contentProvider";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
+import BannerSectionAppeal from "@/components/newUi/appeal/newAppeals/appeals/bannerSec";
+import DocsAppeal from "@/components/newUi/appeal/newAppeals/appeals/doc";
 
 export default function donationAppeal({
   params,
@@ -60,85 +64,98 @@ export default function donationAppeal({
   params: { slug: string };
 }) {
   const myParams = params.slug;
-  return (
-    <div className=" bg-gray-200">
-      {/* <ContentProvider> */}
-      {/* Palestine Emergency */}
-      {myParams === "palestine-emergency" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <PalestinBannerSection />
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  console.log("allDatacheckoer----->", data);
+  let allData;
+  if (
+    myParams === "palestine-emergency" ||
+    myParams === "food-box" ||
+    myParams === "winter-emergency" ||
+    myParams === "masjid-project" ||
+    myParams === "hand-pump-project" ||
+    myParams === "orphan" ||
+    myParams === "sadaqah" ||
+    myParams === "ramadan"
+  ) {
+    return (
+      <div className=" bg-gray-200">
+        {myParams === "palestine-emergency" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <PalestinBannerSection />
           <GhazaUnderTakDocs /> */}
-          <PalestineBannerSection />
-          <PalestineDocs />
-        </div>
-      )}
-      {/* food-box */}
-      {myParams === "food-box" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <DonateSection /> */}
-          <FoodBoxBannerSection />
-          <FoodBoxDocs />
-        </div>
-      )}
+            <PalestineBannerSection />
+            <PalestineDocs />
+          </div>
+        ) : myParams === "food-box" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <DonateSection /> */}
+            <FoodBoxBannerSection />
+            <FoodBoxDocs />
+          </div>
+        ) : myParams === "winter-emergency" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            {/* <WinterEmergency /> */}
+            <WinterBannerSection />
+            <WinterDocs />
+          </div>
+        ) : myParams === "masjid-project" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <MasjidBannerSection />
+            <MasjidDocs />
+          </div>
+        ) : myParams === "hand-pump-project" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <HandPumpBannerSection />
+            <HandPumpDocs />
+          </div>
+        ) : myParams === "orphan" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <OrphanBannerSection />
+            <OrphanDocs />
+          </div>
+        ) : myParams === "sadaqah" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <SadaqahBannerSection />
+            <SadaqahDocs />
+          </div>
+        ) : myParams === "ramadan" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <RamadanBannerSection />
+            <RamadanDocs />
+          </div>
+        ) : myParams === "water-well-project" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <WaterWellBannerSection />
+            <WaterWellDocs />
+          </div>
+        ) : myParams === "zakat" ? (
+          <div className="max-w-7xl mx-auto bg-gray-200">
+            <ZakatBannerSection />
+            <ZakatDocs />
+          </div>
+        ) : null}
+      </div>
+    );
+  } else {
+    allData = data.filter(
+      (title: any) =>
+        myParams.toLocaleLowerCase().split("-").join(" ") === title.content.sec
+    );
+    const images = allData[0].content.photo;
+    const sect = allData[0].content.sec;
+    const slider = allData[0].content.slider;
+    const text = allData[0].content.text;
+    const video = allData[0].content.video;
 
-      {/* winter-emergency */}
-      {myParams === "winter-emergency" && (
+    return (
+      <div className=" bg-gray-200">
         <div className="max-w-7xl mx-auto bg-gray-200">
-          {/* <WinterEmergency /> */}
-          <WinterBannerSection />
-          <WinterDocs />
+          <BannerSectionAppeal images={images} sec={sect} />
+          <DocsAppeal slider={slider} text={text} video={video} />
         </div>
-      )}
-      {/* Masjid Build */}
-      {myParams === "masjid-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <MasjidBannerSection />
-          <MasjidDocs />
-        </div>
-      )}
-      {/* Hand Pump Project */}
-      {myParams === "hand-pump-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <HandPumpBannerSection />
-          <HandPumpDocs />
-        </div>
-      )}
-      {/* Orphan */}
-      {myParams === "orphan" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <OrphanBannerSection />
-          <OrphanDocs />
-        </div>
-      )}
-      {/* Sadaqah */}
-      {myParams === "sadaqah" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <SadaqahBannerSection />
-          <SadaqahDocs />
-        </div>
-      )}
-      {/* water-well-project */}
-      {myParams === "water-well-project" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <WaterWellBannerSection />
-          <WaterWellDocs />
-        </div>
-      )}
-      {/* Zakat */}
-      {myParams === "zakat" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <ZakatBannerSection />
-          <ZakatDocs />
-        </div>
-      )}
-      {/* ramadan */}
-      {myParams === "ramadan" && (
-        <div className="max-w-7xl mx-auto bg-gray-200">
-          <RamadanBannerSection />
-          <RamadanDocs />
-        </div>
-      )}
-      {/* </ContentProvider> */}
-    </div>
-  );
+        ;
+      </div>
+    );
+  }
 }

@@ -16,7 +16,32 @@ import { LiaDonateSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
 import AnalogWatch from "./AnalogWatch";
 import { useDonationContext } from "../contextApi/donationContext";
+import { useContentContext } from "../contextApi/contentContext";
 export default function Navbar() {
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  const ourDepartmentList = data.filter(
+    (title: any) =>
+      "Our Department" === title.content.mainSec &&
+      "Covid-19" !== title.content.sec &&
+      "Pakistan Flood" !== title.content.sec &&
+      "Morocco Earthquake" !== title.content.sec &&
+      "Faizan Rehabilitation Center" !== title.content.sec &&
+      "Madical Van" !== title.content.sec &&
+      "Eye Camps" !== title.content.sec &&
+      "Plantation" !== title.content.sec &&
+      "Turkey & Syria Earthquake" !== title.content.sec &&
+      "Palestine" !== title.content.sec &&
+      "Madical Clinic" !== title.content.sec &&
+      "Blood Donation" !== title.content.sec
+  );
+  console.log("ourDepartmentList--->", ourDepartmentList);
+  const appealList = data.filter(
+    (title: any) => "Appeals" === title.content.mainSec
+  );
+  const donationList = data.filter(
+    (title: any) => "Donation" === title.content.mainSec
+  );
   const [isHovered, setIsHovered] = useState(false);
   const days = [
     "Sunday",
@@ -362,7 +387,6 @@ export default function Navbar() {
                   >
                     Disaster Management
                   </Link>
-
                   <Link
                     href={"/our-department/health-care"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
@@ -373,6 +397,28 @@ export default function Navbar() {
                     Health Care
                   </Link>
                   <Link
+                    href={"/our-department/environment-department"}
+                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                  >
+                    Environment Department
+                  </Link>
+
+                  {ourDepartmentList.map((i: any, index: any) => (
+                    <Link
+                      key={index}
+                      href={i.content.url}
+                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+              before:bottom-0 before:left-0 before:bg-sky-400
+              before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
+              before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
+                    >
+                      {i.content.switch === "true" && i.content.sec}
+                    </Link>
+                  ))}
+                  {/* <Link
                     href={"/our-department/water-project"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
@@ -416,7 +462,7 @@ export default function Navbar() {
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
                   >
                     Masjid
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
               {/* <Link
@@ -439,16 +485,19 @@ export default function Navbar() {
                   </Link>
                 </div>
                 <div className="-ml-2 py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
-                  <Link
-                    href={"/appeal/ramadan"}
-                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+                  {appealList.map((i: any, index: any) => (
+                    <Link
+                      key={index}
+                      href={i.content.url}
+                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
-                  >
-                    Ramadan 2024
-                  </Link>
-
+                    >
+                      {i.content.switch === "true" && i.content.sec}
+                    </Link>
+                  ))}
+                  {/* 
                   <Link
                     href={"/appeal/zakat"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
@@ -529,7 +578,7 @@ export default function Navbar() {
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
                   >
                     Masjid Project
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
               <div className="group relative cursor-pointer">
@@ -545,16 +594,19 @@ export default function Navbar() {
                   </Link>
                 </div>
                 <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-3 px-3 text-gray-800 shadow-xl group-hover:visible">
-                  <Link
-                    href={"/donation/iftar-donation"}
-                    className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+                  {donationList.map((i: any, index: any) => (
+                    <Link
+                      key={index}
+                      href={i.content.url}
+                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
-                  >
-                    Iftar
-                  </Link>
-
+                    >
+                      {i.content.switch === "true" && i.content.sec}
+                    </Link>
+                  ))}
+                  {/* 
                   <Link
                     href={"/donation/zakat-donation"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
@@ -618,7 +670,6 @@ export default function Navbar() {
                   >
                     Water-well
                   </Link>
-
                   <Link
                     href={"/donation/masjid-donation"}
                     className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
@@ -627,7 +678,7 @@ export default function Navbar() {
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
                   >
                     Masjid
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

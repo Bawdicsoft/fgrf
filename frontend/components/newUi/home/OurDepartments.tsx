@@ -22,8 +22,15 @@ import { BsArrowLeftCircleFill } from "react-icons/bs";
 import Image from "next/image";
 import AnimationTop from "./AnimationTop";
 import Link from "next/link";
+import { useContentContext } from "../contextApi/contentContext";
 
 const OurDepartments = () => {
+  const contentContext = useContentContext();
+  const dataContent = contentContext.content;
+  const foodBoxData = dataContent.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const ourDepartmentSlider = foodBoxData[0]?.content?.ourDepartmentSlider;
   const [showBlob, setShowBlob] = useState<boolean>(false);
   const [blobIndex, setBlobIndex] = useState<number>();
   const data = [

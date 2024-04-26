@@ -24,7 +24,9 @@ export default function Home() {
   //   setIsModelLoading(false);
   // };
   setTimeout(() => {
-    setIsModelLoading(false);
+    if (data) {
+      setIsModelLoading(false);
+    }
   }, 3000);
   return (
     <>

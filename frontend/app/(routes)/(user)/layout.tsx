@@ -24,15 +24,17 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <DonationProvider>
-          <Navbar />
-          {/* <DonationModal /> */}
-          {/* myCode */}
-          {/* <Navbar /> */}
-          <div>
-            <Fgrflogo />
-          </div>
-          <ContentProvider>{children}</ContentProvider>
-          <Footer />
+          <ContentProvider>
+            <Navbar />
+            {/* <DonationModal /> */}
+            {/* myCode */}
+            {/* <Navbar /> */}
+            <div>
+              <Fgrflogo />
+            </div>
+            {children}
+            <Footer />
+          </ContentProvider>
         </DonationProvider>
       </body>
     </html>

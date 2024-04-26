@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,8 +9,15 @@ import "./DonationSlider.css";
 
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import Image from "next/image";
+import { useContentContext } from "../../contextApi/contentContext";
 
 export default function DonationSlider5() {
+  const contentContext = useContentContext();
+  const dataContent = contentContext.content;
+  const foodBoxData = dataContent.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const handPumpSlider = foodBoxData[0]?.content?.handPumpSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
     "/newImage/ramdan (4).jpeg",
@@ -29,7 +37,7 @@ export default function DonationSlider5() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 rounded-md"
       >
-        {imgList.map((img, index) => (
+        {imgList.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>
@@ -46,7 +54,7 @@ export default function DonationSlider5() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper rounded-md"
       >
-        {imgList.map((img, index) => (
+        {imgList.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>

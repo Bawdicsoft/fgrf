@@ -6,6 +6,7 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import {
   addDoc,
   collection,
+  deleteDoc,
   doc,
   getDoc,
   getDocs,
@@ -14,13 +15,20 @@ import {
 } from "firebase/firestore";
 import { db, storage } from "@/components/newUi/config/firebase";
 import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
+import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 export default function UpdateForm() {
   const dataContext = useDashboardContext();
   const mainSection = dataContext.mainSection;
   const midSection = dataContext.midSection;
   const childSection = dataContext.childSection;
   const [sec, setSec] = useState("");
+  const [section, setSection] = useState("");
+  const [sectionName, setSectionName] = useState("");
   const [text, setText] = useState("");
+  const [counter1, setCounter1] = useState("");
+  const [counter1Text, setCounter1Text] = useState("");
+  const [counter2, setCounter2] = useState("");
+  const [counter2Text, setCounter2Text] = useState("");
   const [photo1, setPhoto1] = useState<any>(null);
   const [bannerPhoto, setBannerPhoto] = useState<any>(null);
   const [heroPhoto, setHeroPhoto] = useState<any>(null);
@@ -59,7 +67,12 @@ export default function UpdateForm() {
   const [uploadingMasjidSlider, setUploadingMasjidSlider] = useState(false);
   const [uploadingGallerySlider, setUploadingGallerySlider] = useState(false);
   const [uploadingVideosSlider, setUploadingVideosSlider] = useState(false);
-
+  const [uploadingVideosNews, setUploadingVideosNews] = useState(false);
+  const [uploadingAchievementImages, setUploadingAchievementImages] =
+    useState(false);
+  const contentContext = useContentContext();
+  const data = contentContext.content;
+  console.log("datainFormm----->", data);
   const disasterManagementLst = [
     "Select An Option",
     "Disaster Management",
@@ -84,141 +97,312 @@ export default function UpdateForm() {
     "Plantation",
   ];
 
+  const mainSectionList = [
+    "Select An Option",
+    "Our Department",
+    "Appeals",
+    "Donation",
+  ];
+
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    const dataRef = collection(db, "contents");
-    const querySnapshot = await getDocs(dataRef);
-    querySnapshot.forEach(async (docs) => {
-      const docsData = docs.data();
-      const chooseSec = docsData.content.sec;
-      const chooseContent = docsData.content;
-      if (mainSection === "Our Department") {
-        if (chooseSec === sec) {
-          console.log("chooseSec----->", chooseContent);
-          const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
-          const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
-          const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
-          const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
-          const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
-          const heroImageUrl = await getDownloadURL(heroSnapShot.ref);
-          const videosRef = ref(storage, "videos/" + video1?.name);
-          const titleVideos = await uploadBytes(videosRef, video1);
-          const videoUrl = await getDownloadURL(titleVideos.ref);
-          const docsId = docs.id;
-          const docRef = doc(db, "contents", docsId);
-          await updateDoc(docRef, {
-            content: {
-              bannerImg: bannerImageUrl || chooseContent.bannerImageUrl,
-              heroSecImg: heroImageUrl || chooseContent.heroImageUrl,
-              sec: sec || chooseContent.sec,
-              text: text || chooseContent.text,
-              slider: urlList || chooseContent.urlList,
-              video: videoUrl || chooseContent.videoUrl,
-            },
-          });
-        }
-      }
-      if (mainSection === "Appeals") {
-        if (chooseSec === sec) {
+    if (mainSection === "New Page") {
+      if (sec === "Donation") {
+        try {
+          const newCollectionRef = collection(db, "contents");
+          const newDocRef = doc(newCollectionRef);
           const storageRef1 = ref(storage, "images/" + photo1?.name);
-          const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
-          const firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+          const mainSection = {
+            content: {
+              sec: sectionName,
+              mainSec: "Donation",
+              url: `/donation/${sectionName
+                .toLocaleLowerCase()
+                .split(" ")
+                .join("-")}`,
+              text: text,
+              photo: titleImageUrl1,
+            },
+          };
+          await setDoc(newDocRef, mainSection, { merge: true });
+          if (mainSection !== undefined) {
+            console.log("Ok ki report hai bahi");
+          }
+        } catch (error) {
+          console.error("Roko bahi firebaser error arha hai--->", error);
+        }
+      } else if (sec === "Appeals") {
+        try {
+          const newCollectionRef = collection(db, "contents");
+          const newDocRef = doc(newCollectionRef);
+          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+          const appeal1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
           const storageRef2 = ref(storage, "images/" + photo2?.name);
-          const secondImageSnapShot = await uploadBytes(storageRef2, photo2);
-          const secondImageUrl = await getDownloadURL(secondImageSnapShot.ref);
-          const videosRef = ref(storage, "videos/" + video1?.name);
-          const titleVideos = await uploadBytes(videosRef, video1);
-          const videoUrl = await getDownloadURL(titleVideos.ref);
-          const docsId = docs.id;
-          const docRef = doc(db, "contents", docsId);
-          await updateDoc(docRef, {
+          const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+          const appeal2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+          const videosRef1 = ref(storage, "videos/" + video1?.name);
+          const titleVideos1 = await uploadBytes(videosRef1, video1);
+          const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+          const videosRef2 = ref(storage, "videos/" + video2?.name);
+          const titleVideos2 = await uploadBytes(videosRef2, video2);
+          const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+          const mainSection = {
             content: {
-              photo: [
-                firstImageUrl || chooseContent.photo[0],
-                secondImageUrl || chooseContent.photo[1],
-              ],
-              sec: sec || chooseContent.sec,
-              text: text || chooseContent.text,
-              slider: urlList || chooseContent.urlList,
-              video: videoUrl || chooseContent.videoUrl,
+              sec: sectionName,
+              mainSec: "Appeals",
+              url: `/appeal/${sectionName
+                .toLocaleLowerCase()
+                .split(" ")
+                .join("-")}`,
+              text: text,
+              video: [videoUrl1, videoUrl2],
+              photo: [appeal1ImageUrl, appeal2ImageUrl],
+              slider: urlList,
             },
-          });
+          };
+          await setDoc(newDocRef, mainSection, { merge: true });
+          if (mainSection !== undefined) {
+            console.log("Ok ki report hai bahi");
+          }
+        } catch (error) {
+          console.error("Roko bahi firebaser error arha hai--->", error);
         }
-      }
-      if (mainSection === "Donations") {
-        if (chooseSec === sec) {
+      } else if (sec === "Our Department") {
+        try {
           const newCollectionRef = collection(db, "contents");
-          const storageRef1 = ref(storage, "images/" + photo1?.name);
-          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-          const docsId = docs.id;
-          const docRef = doc(db, "contents", docsId);
-          await updateDoc(docRef, {
+          const newDocRef = doc(newCollectionRef);
+          const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
+          const titleSnapshot1 = await uploadBytes(storageRef1, bannerPhoto);
+          const ourDepartment1Url = await getDownloadURL(titleSnapshot1.ref);
+          const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
+          const titleSnapshot2 = await uploadBytes(storageRef2, heroPhoto);
+          const ourDepartment2Url = await getDownloadURL(titleSnapshot2.ref);
+          const videosRef1 = ref(storage, "videos/" + video1?.name);
+          const titleVideos1 = await uploadBytes(videosRef1, video1);
+          const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+          const mainSection = {
             content: {
-              sec: sec || chooseContent.sec,
-              text: text || chooseContent.text,
-              photo: titleImageUrl1 || chooseContent.titleImageUrl1,
+              sec: sectionName,
+              mainSec: "Our Department",
+              url: `/our-department/${sectionName
+                .toLocaleLowerCase()
+                .split(" ")
+                .join("-")}`,
+              text: text,
+              slider: urlList,
+              video: videoUrl1,
+              bannerImg: ourDepartment1Url,
+              heroSecImg: ourDepartment2Url,
             },
-          });
+          };
+          await setDoc(newDocRef, mainSection, { merge: true });
+          if (mainSection !== undefined) {
+            console.log("Ok ki report hai bahi");
+          }
+        } catch (error) {
+          console.error("Roko bahi firebaser error arha hai--->", error);
         }
       }
-      if (mainSection === "Main Page") {
-        if (chooseSec === sec) {
-          const newCollectionRef = collection(db, "contents");
-          const storageRef1 = ref(storage, "images/" + photo1?.name);
-          const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-          const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-          const docsId = docs.id;
-          const docRef = doc(db, "contents", docsId);
-          await updateDoc(docRef, {
-            content: {
-              sec: sec || chooseContent.sec,
-              text: text || chooseContent.text,
-              photo: titleImageUrl1 || chooseContent.titleImageUrl1,
-            },
-          });
+    } else {
+      const dataRef = collection(db, "contents");
+      const querySnapshot = await getDocs(dataRef);
+      querySnapshot.forEach(async (docs) => {
+        const docsData = docs.data();
+        const chooseSec = docsData.content.sec;
+        const chooseContent = docsData.content;
+        if (mainSection === "Our Department") {
+          if (chooseSec === sec) {
+            console.log("chooseSec----->", chooseContent);
+            const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
+            const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
+            const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
+            const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
+            const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
+            const heroImageUrl = await getDownloadURL(heroSnapShot.ref);
+            const videosRef = ref(storage, "videos/" + video1?.name);
+            const titleVideos = await uploadBytes(videosRef, video1);
+            const videoUrl = await getDownloadURL(titleVideos.ref);
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                bannerImg: bannerImageUrl || chooseContent.bannerImg,
+                heroSecImg: heroImageUrl || chooseContent.heroSecImg,
+                sec: sec || chooseContent.sec,
+                text: text || chooseContent.text,
+                slider: urlList || chooseContent.slider,
+                video: videoUrl || chooseContent.video,
+              },
+            });
+          }
         }
-      }
-    });
+        if (mainSection === "Appeals") {
+          if (chooseSec === sec) {
+            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
+            const firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
+            const storageRef2 = ref(storage, "images/" + photo2?.name);
+            const secondImageSnapShot = await uploadBytes(storageRef2, photo2);
+            const secondImageUrl = await getDownloadURL(
+              secondImageSnapShot.ref
+            );
+            const videosRef1 = ref(storage, "videos/" + video1?.name);
+            const titleVideos1 = await uploadBytes(videosRef1, video1);
+            const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            const videosRef2 = ref(storage, "videos/" + video2?.name);
+            const titleVideos2 = await uploadBytes(videosRef2, video2);
+            const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                photo: [
+                  firstImageUrl || chooseContent.photo[0],
+                  secondImageUrl || chooseContent.photo[1],
+                ],
+                sec: sec || chooseContent.sec,
+                text: text || chooseContent.text,
+                slider: urlList || chooseContent.slider,
+                video: [videoUrl1, videoUrl2] || chooseContent.video,
+              },
+            });
+          }
+        }
+        if (mainSection === "Donations") {
+          if (chooseSec === sec) {
+            const newCollectionRef = collection(db, "contents");
+            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+            const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                sec: sec || chooseContent.sec,
+                text: text || chooseContent.text,
+                photo: titleImageUrl1 || chooseContent.photo,
+              },
+            });
+          }
+        }
+        if (mainSection === "Main Page") {
+          if (chooseSec === sec) {
+            const newCollectionRef = collection(db, "contents");
+            const newDocRef = doc(newCollectionRef);
+            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+            const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+            const storageRef2 = ref(storage, "images/" + photo2?.name);
+            const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+            const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+            const videosRef1 = ref(storage, "videos/" + video1?.name);
+            const titleVideos1 = await uploadBytes(videosRef1, video1);
+            const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            const videosRef2 = ref(storage, "videos/" + video2?.name);
+            const titleVideos2 = await uploadBytes(videosRef2, video2);
+            const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            const videosRef3 = ref(storage, "videos/" + video3?.name);
+            const titleVideos3 = await uploadBytes(videosRef3, video3);
+            const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+            const docsId = docs.id;
+            const docRef = doc(db, "contents", docsId);
+            await updateDoc(docRef, {
+              content: {
+                sec: sec || chooseContent.sec,
+                text: text || chooseContent.text,
+                mainSlider: mainBannerUrlList || chooseContent.mainSlider,
+                ourDepartmentSlider:
+                  ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
+                ramazanSlider: ramazanUrlList || chooseContent.ramazanSlider,
+                zakatSlider: zakatUrlList || chooseContent.zakatSlider,
+                foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
+                winterSlider: winterUrlList || chooseContent.winterSlider,
+                palestineSlider:
+                  palestineUrlList || chooseContent.palestineSlider,
+                orphanSlider: orphanUrlList || chooseContent.orphanSlider,
+                handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
+                waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
+                masjidSlider: masjidUrlList || chooseContent.masjidSlider,
+                achievementSlider:
+                  achievementUrlList || chooseContent.achievementSlider,
+                gallerySlider: galleryUrlList || chooseContent.gallerySlider,
+                newVideos:
+                  [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
+                newsVideoSlider:
+                  newsVideoUrlList || chooseContent.newsVideoSlider,
+                counters:
+                  [
+                    { counter1Text, counter1, counter1ImageUrl },
+                    { counter2Text, counter2, counter2ImageUrl },
+                  ] || chooseContent.counters,
+              },
+            });
+          }
+        }
+      });
+    }
   };
   // end update code
 
-  // create code for appeal Sections
-  const createHandler = async (e: any) => {
-    try {
-      const newCollectionRef = collection(db, "contents");
-      const newDocRef = doc(newCollectionRef);
-      const storageRef1 = ref(storage, "images/" + photo1?.name);
-      const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-      const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
-      const storageRef2 = ref(storage, "images/" + photo2?.name);
-      const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-      const titleImageUrl2 = await getDownloadURL(titleSnapshot2.ref);
-      const videosRef1 = ref(storage, "videos/" + video1?.name);
-      const titleVideos1 = await uploadBytes(videosRef1, video1);
-      const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-      const videosRef2 = ref(storage, "videos/" + video2?.name);
-      const titleVideos2 = await uploadBytes(videosRef2, video2);
-      const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-      const mainSection = {
-        content: {
-          sec,
-          text,
-          photo: [titleImageUrl1, titleImageUrl2],
-          video: [videoUrl1, videoUrl2],
-          slider: urlList,
-        },
-      };
+  // create code for Main Page
+  // const createHandler = async (e: any) => {
+  //   e.preventDefault();
+  //   try {
+  //     const newCollectionRef = collection(db, "contents");
+  //     const newDocRef = doc(newCollectionRef);
+  //     const storageRef1 = ref(storage, "images/" + photo1?.name);
+  //     const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+  //     const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+  //     const storageRef2 = ref(storage, "images/" + photo2?.name);
+  //     const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+  //     const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+  //     const videosRef1 = ref(storage, "videos/" + video1?.name);
+  //     const titleVideos1 = await uploadBytes(videosRef1, video1);
+  //     const videoUrl1 = await getDownloadURL(titleVideos1.ref);
+  //     const videosRef2 = ref(storage, "videos/" + video2?.name);
+  //     const titleVideos2 = await uploadBytes(videosRef2, video2);
+  //     const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+  //     const videosRef3 = ref(storage, "videos/" + video3?.name);
+  //     const titleVideos3 = await uploadBytes(videosRef3, video3);
+  //     const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+  //     const mainSection = {
+  //       content: {
+  //         sec: sec,
+  //         text: text,
+  //         mainSlider: mainBannerUrlList,
+  //         ourDepartmentSlider: ourDepartmentUrlList,
+  //         ramazanSlider: ramazanUrlList,
+  //         zakatSlider: zakatUrlList,
+  //         foodboxSlider: foodBoxUrlList,
+  //         winterSlider: winterUrlList,
+  //         palestineSlider: palestineUrlList,
+  //         orphanSlider: orphanUrlList,
+  //         handPumpSlider: handPumpUrlList,
+  //         waterWellSlider: waterUrlList,
+  //         masjidSlider: masjidUrlList,
+  //         achievementSlider: achievementUrlList,
+  //         gallerySlider: galleryUrlList,
+  //         newVideos: [videoUrl1, videoUrl2, videoUrl3],
+  //         newsVideoSlider: newsVideoUrlList,
+  //         counters: [
+  //           { counter1Text, counter1, counter1ImageUrl },
+  //           { counter2Text, counter2, counter2ImageUrl },
+  //         ],
+  //       },
+  //     };
 
-      await setDoc(newDocRef, mainSection, { merge: true });
-      if (mainSection !== undefined) {
-        console.log("Ok ki report hai bahi");
-      }
-    } catch (error) {
-      console.error("Roko bahi firebaser error arha hai--->", error);
-    }
-  };
+  //     await setDoc(newDocRef, mainSection, { merge: true });
+  //     if (mainSection !== undefined) {
+  //       console.log("Ok ki report hai bahi");
+  //     }
+  //   } catch (error) {
+  //     console.error("Roko bahi firebaser error arha hai--->", error);
+  //   }
+  // };
   //   console.log("photo---->", photo1);
   // };
 
@@ -335,6 +519,14 @@ export default function UpdateForm() {
   };
 
   // For Main page
+  const counter1PhotoHandler = (e: any) => {
+    const file1 = e.target.files[0];
+    setPhoto1(file1);
+  };
+  const counter2PhotoHandler = (e: any) => {
+    const file2 = e.target.files[0];
+    setPhoto2(file2);
+  };
   const ourDepartmentSliderPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -576,12 +768,11 @@ export default function UpdateForm() {
     }
     setUploadingVideosSlider(false);
   };
-
   const achievementPhotosHandler = async (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const files: File[] = Array.from(e.target.files || []);
-
+    setUploadingAchievementImages(true);
     for (const file of files) {
       const storageRef = ref(storage, `images/slider/${file.name}`);
 
@@ -595,8 +786,8 @@ export default function UpdateForm() {
         console.error("Error uploading1 file:", error);
       }
     }
+    setUploadingAchievementImages(false);
   };
-
   const videoHandler = (e: any) => {
     const file1 = e.target.files[0];
     setVideo1(file1);
@@ -605,6 +796,47 @@ export default function UpdateForm() {
     const file3 = e.target.files[2];
     setVideo3(file3);
     console.log("file1,file2", file1, file2, file3);
+  };
+  const hideHandler = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+        console.log("docsData---->", docsData);
+        const updatedContent = {
+          ...docsData.content,
+          switch: docsData.content.switch === "false" ? "true" : "false",
+        };
+        await updateDoc(docRef, {
+          content: updatedContent,
+        });
+      }
+    });
+    //  updateHide = data.filter(
+    //    (title: any) =>
+    //      data === title.content.sec
+    //  );
+  };
+  const deleteHandler = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+
+        // Delete the document
+        await deleteDoc(docRef);
+      }
+    });
   };
   return (
     <form onSubmit={submitHandler}>
@@ -620,62 +852,120 @@ export default function UpdateForm() {
           </p>
 
           <div className="mt-10 gap-x-6 gap-y-8">
-            <div className="sm:col-span-3">
-              <label
-                htmlFor="country"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Choose Section
-              </label>
-              <div className="mt-2">
-                <select
-                  id="country"
-                  name="country"
-                  autoComplete="country-name"
-                  onChange={(e: any) => setSec(e.target.value)}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            {mainSection !== "Hide Page" && (
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  {midSection === "Disaster Management" ? (
-                    disasterManagementLst.map((i, index) => (
-                      <option key={index}>{i}</option>
-                    ))
-                  ) : midSection === "Health Care" ? (
-                    healthCareLst.map((i, index) => (
-                      <option key={index}>{i}</option>
-                    ))
-                  ) : midSection === "Environment Department" ? (
-                    environmentDepartmentLst.map((i, index) => (
-                      <option key={index}>{i}</option>
-                    ))
-                  ) : (
-                    <>
-                      <option>Select Section</option>
-                      <option>{childSection}</option>
-                    </>
-                  )}
-                </select>
+                  Choose Section
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="country"
+                    name="country"
+                    autoComplete="country-name"
+                    onChange={(e: any) => setSec(e.target.value)}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  >
+                    {midSection === "Disaster Management" ? (
+                      disasterManagementLst.map((i, index) => (
+                        <option key={index}>{i}</option>
+                      ))
+                    ) : midSection === "Health Care" ? (
+                      healthCareLst.map((i, index) => (
+                        <option key={index}>{i}</option>
+                      ))
+                    ) : midSection === "Environment Department" ? (
+                      environmentDepartmentLst.map((i, index) => (
+                        <option key={index}>{i}</option>
+                      ))
+                    ) : midSection === "New Page" ? (
+                      mainSectionList.map((i, index) => (
+                        <option key={index}>{i}</option>
+                      ))
+                    ) : (
+                      <>
+                        <option>Select Section</option>
+                        <option>{childSection}</option>
+                      </>
+                    )}
+                  </select>
+                </div>
               </div>
-            </div>
+            )}
+            {/* toggle */}
+            {midSection === "Hide Page" &&
+              data &&
+              data.map((i: any, index: any) => (
+                <div className="flex justify-between border-teal-400 border  items-center">
+                  <p className="p-2 text-teal-500 font-semibold" key={index}>
+                    {i.content.sec}
+                  </p>
+                  <div className="flex gap-8 items-center">
+                    <button
+                      type="button"
+                      onClick={() => deleteHandler(i.content.sec)}
+                      className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-2"
+                    >
+                      Delete Page
+                    </button>
+                    <div className="pr-5">
+                      <label className="inline-flex items-center cursor-pointer">
+                        <input
+                          type="checkbox"
+                          value=""
+                          className="sr-only peer"
+                          onChange={() => hideHandler(i.content.sec)}
+                        />
+                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              ))}
 
-            <div className="col-span-full">
-              <label
-                htmlFor="about"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Contents
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="about"
-                  name="about"
-                  value={text}
-                  onChange={(e: any) => setText(e.target.value)}
-                  rows={3}
-                  className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  // defaultValue={""}
-                />
+            {mainSection !== "Hide Page" && (
+              <div className="col-span-full py-2">
+                <label
+                  htmlFor="myInput"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Section Name
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="myInput"
+                    name="myInput"
+                    value={sectionName}
+                    onChange={(e: any) => setSectionName(e.target.value)}
+                    className="block w-2/4 rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Type Section Name here ..."
+                  />
+                </div>
               </div>
-            </div>
+            )}
+            {mainSection !== "Hide Page" && (
+              <div className="col-span-full">
+                <label
+                  htmlFor="about"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Contents
+                </label>
+                <div className="mt-2">
+                  <textarea
+                    id="about"
+                    name="about"
+                    value={text}
+                    onChange={(e: any) => setText(e.target.value)}
+                    rows={3}
+                    className="block w-full rounded-md border-0 py-1 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    // defaultValue={""}
+                  />
+                </div>
+              </div>
+            )}
 
             {/* <div className="col-span-full">
               <label
@@ -699,91 +989,97 @@ export default function UpdateForm() {
             </div> */}
 
             {/* Banner photos */}
-            {mainSection === "Our Department" && (
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Banner photo
-                </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-12 w-12 text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="banner-file"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="banner-file"
-                          name="banner-file"
-                          type="file"
-                          onChange={bannerPhotoHandler}
-                          className="sr-only"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-            {/* heroSec photos */}
-            {mainSection === "Our Department" && (
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Hero Section photo
-                </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-12 w-12 text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="hero-file"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="hero-file"
-                          name="hero-file"
-                          type="file"
-                          onChange={heroPhotoHandler}
-                          className="sr-only"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Header photos */}
-            {mainSection !== "Our Department" &&
-              mainSection !== "Main Page" && (
+            {mainSection === "Our Department" ||
+              (sec === "Our Department" && (
                 <div className="col-span-full">
                   <label
                     htmlFor="cover-photo"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
-                    Header photos
+                    Banner photo
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="banner-file"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="banner-file"
+                            name="banner-file"
+                            type="file"
+                            onChange={bannerPhotoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            {/* heroSec photos */}
+            {mainSection === "Our Department" ||
+              (sec === "Our Department" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Hero Section photo
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="hero-file"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="hero-file"
+                            name="hero-file"
+                            type="file"
+                            onChange={heroPhotoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+            {/* Header photos */}
+            {mainSection !== "Our Department" &&
+              mainSection !== "Main Page" &&
+              sec !== "Our Department" &&
+              mainSection !== "Hide Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    {sec === "Donation" || mainSection === "Our Department"
+                      ? "Photo Main"
+                      : "Header Photos"}
                   </label>
                   <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div className="text-center">
@@ -858,100 +1154,111 @@ export default function UpdateForm() {
                 </div>
               ))}
             {/* Videos */}
-            {mainSection !== "Donations" && mainSection !== "Main Page" && (
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  {mainSection === "Our Department" ? `Video` : "Videos"}
-                </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-12 w-12 text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="file-upload1"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="file-upload1"
-                          name="file-upload1"
-                          type="file"
-                          multiple
-                          accept="video/*"
-                          onChange={videoHandler}
-                          className="sr-only"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      mp3, webm up to 10MB
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-            {/* Slider Photos */}
-            {mainSection !== "Donations" && mainSection !== "Main Page" && (
-              <div className="col-span-full">
-                <label
-                  htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Slider photos
-                </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-12 w-12 text-gray-300"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="file-upload2"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-
-                        <input
-                          id="file-upload2"
-                          name="file-upload2"
-                          type="file"
-                          multiple
-                          onChange={sliderPhotosHandler}
-                          className="sr-only"
-                        />
-                      </label>
-                      {!uploading1 ? (
-                        <>
-                          <p className="pl-1">or drag and drop</p>
-                          <p className="text-xs leading-5 text-gray-600">
-                            PNG, JPG, GIF up to 10MB
-                          </p>
-                        </>
-                      ) : (
-                        <div className="flex flex-wrap gap-5">
-                          <PropagateLoader
-                            color={"#36d7b7"}
-                            loading={uploading1}
-                            size={20}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
+            {mainSection !== "Donations" &&
+              mainSection !== "Main Page" &&
+              sec !== "Donation" &&
+              mainSection !== "Hide Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    {mainSection === "Our Department" ||
+                    sec === "Our Department"
+                      ? `Video`
+                      : "Videos"}
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload1"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload1"
+                            name="file-upload1"
+                            type="file"
+                            multiple
+                            accept="video/*"
+                            onChange={videoHandler}
+                            className="sr-only"
                           />
-                          <p className="text-teal-500">uploading1 Images ...</p>
-                        </div>
-                      )}
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        mp3, webm up to 10MB
+                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
+            {/* Slider Photos */}
+            {mainSection !== "Donations" &&
+              mainSection !== "Main Page" &&
+              sec !== "Donation" &&
+              mainSection !== "Hide Page" && (
+                <div className="col-span-full">
+                  <label
+                    htmlFor="cover-photo"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Slider photos
+                  </label>
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload2"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+
+                          <input
+                            id="file-upload2"
+                            name="file-upload2"
+                            type="file"
+                            multiple
+                            onChange={sliderPhotosHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        {!uploading1 ? (
+                          <>
+                            <p className="pl-1">or drag and drop</p>
+                            <p className="text-xs leading-5 text-gray-600">
+                              PNG, JPG, GIF up to 10MB
+                            </p>
+                          </>
+                        ) : (
+                          <div className="flex flex-wrap gap-5">
+                            <PropagateLoader
+                              color={"#36d7b7"}
+                              loading={uploading1}
+                              size={20}
+                              aria-label="Loading Spinner"
+                              data-testid="loader"
+                            />
+                            <p className="text-teal-500">
+                              uploading1 Images ...
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
             {/* Main Page */}
             {/* banner Slider images */}
@@ -984,11 +1291,26 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploading1 ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF up to 10MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploading1}
+                            size={20}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500">uploading1 Images ...</p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
@@ -1060,7 +1382,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="ramazan-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Ramadan Slider photos
@@ -1073,13 +1395,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="ramazan-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="ramazan-slider"
+                              name="ramazan-slider"
                               type="file"
                               multiple
                               onChange={ramzanSliderPhotosHandler}
@@ -1118,7 +1440,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="zakat-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Zakat Slider photos
@@ -1131,13 +1453,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="zakat-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="zakat-slider"
+                              name="zakat-slider"
                               type="file"
                               multiple
                               onChange={zakatSliderPhotosHandler}
@@ -1176,7 +1498,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="foodBox-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Food Box Slider photos
@@ -1189,13 +1511,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="foodBox-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="foodBox-slider"
+                              name="foodBox-slider"
                               type="file"
                               multiple
                               onChange={foodBoxSliderPhotosHandler}
@@ -1234,7 +1556,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="winter-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Winter Slider photos
@@ -1247,13 +1569,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="winter-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="winter-slider"
+                              name="winter-slider"
                               type="file"
                               multiple
                               onChange={winterSliderPhotosHandler}
@@ -1292,7 +1614,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="palestine-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Palestine Slider photos
@@ -1305,13 +1627,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="palestine-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="palestine-slider"
+                              name="palestine-slider"
                               type="file"
                               multiple
                               onChange={palestineSliderPhotosHandler}
@@ -1350,7 +1672,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="orphan-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Orphan Slider photos
@@ -1363,13 +1685,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="orphan-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="orphan-slider"
+                              name="orphan-slider"
                               type="file"
                               multiple
                               onChange={orphanSliderPhotosHandler}
@@ -1408,7 +1730,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="handpump-file"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Hand Pump Slider photos
@@ -1421,13 +1743,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="handpump-file"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="handpump-file"
+                              name="handpump-file"
                               type="file"
                               multiple
                               onChange={handPumpSliderPhotosHandler}
@@ -1466,7 +1788,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="waterwell-file"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Water Well Slider photos
@@ -1479,13 +1801,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="waterwell-file"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="waterwell-file"
+                              name="waterwell-file"
                               type="file"
                               multiple
                               onChange={waterWellSliderPhotosHandler}
@@ -1524,7 +1846,7 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="our-department"
+                      htmlFor="masjid-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Masjid Slider photos
@@ -1537,13 +1859,13 @@ export default function UpdateForm() {
                         />
                         <div className="mt-4 flex text-sm leading-6 text-gray-600">
                           <label
-                            htmlFor="our-department"
+                            htmlFor="masjid-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
                             <input
-                              id="our-department"
-                              name="our-department"
+                              id="masjid-slider"
+                              name="masjid-slider"
                               type="file"
                               multiple
                               onChange={masjidSliderPhotosHandler}
@@ -1578,12 +1900,11 @@ export default function UpdateForm() {
                 </div>
               )}
             </div>
-
             {/* Achievements */}
             {mainSection == "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="cover-photo"
+                  htmlFor="achievement-file"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Achievements photos
@@ -1596,54 +1917,119 @@ export default function UpdateForm() {
                     />
                     <div className="mt-4 flex text-sm leading-6 text-gray-600">
                       <label
-                        htmlFor="file-upload"
+                        htmlFor="achievement-file"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
-                          id="file-upload"
-                          name="file-upload"
+                          id="achievement-file"
+                          name="achievement-file"
                           type="file"
                           multiple
                           onChange={achievementPhotosHandler}
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploadingAchievementImages ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            PNG, JPG, GIF up to 10MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploadingAchievementImages}
+                            size={12}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500 text-sm">
+                            uploading Images ...
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      PNG, JPG, GIF up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
             )}
-
             {/* counter */}
             {mainSection == "Main Page" ? (
               <>
                 <h2 className="pb-4">Counters</h2>
                 <div className="flex gap-4 pb-4">
-                  <div className="relative h-10 w-full min-w-[200px] ">
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="counter1-file"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="counter1-file"
+                            name="counter1-file"
+                            type="file"
+                            onChange={counter1PhotoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="relative h-10 w-full min-w-[100px] ">
                     <input
                       type="text"
                       placeholder="Title"
+                      onChange={(e) => setCounter1Text(e.target.value)}
                       className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
-                  <div className="relative h-10 w-full min-w-[200px] ">
+                  <div className="relative h-10 w-full min-w-[100px] ">
                     <input
                       type="number"
                       placeholder="Counter"
+                      onChange={(e) => setCounter1(e.target.value)}
                       className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
                 </div>
                 <div className="flex gap-4">
+                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5">
+                    <div className="text-center">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
+                      />
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="counter2-file"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="counter2-file"
+                            name="counter2-file"
+                            type="file"
+                            onChange={counter2PhotoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
                   <div className="relative h-10 w-full min-w-[200px] ">
                     <input
                       type="text"
                       placeholder="Title"
+                      onChange={(e) => setCounter2Text(e.target.value)}
                       className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
@@ -1651,6 +2037,7 @@ export default function UpdateForm() {
                     <input
                       type="number"
                       placeholder="Counter"
+                      onChange={(e) => setCounter2(e.target.value)}
                       className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                     />
                   </div>
@@ -1712,11 +2099,11 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-                <input
+                {/* <input
                   type="text"
                   placeholder="Back Text"
                   className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                />
+                /> */}
               </div>
             )}
             {/* News Videos */}
@@ -1736,13 +2123,13 @@ export default function UpdateForm() {
                     />
                     <div className="mt-4 flex text-sm leading-6 text-gray-600">
                       <label
-                        htmlFor="slider-videos"
+                        htmlFor="news-videos"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                       >
                         <span>Upload a file</span>
                         <input
-                          id="slider-videos"
-                          name="slider-videos"
+                          id="news-videos"
+                          name="news-videos"
                           type="file"
                           multiple
                           accept="video/*"
@@ -1750,27 +2137,11 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
-                      {!uploadingVideosSlider ? (
-                        <>
-                          <p className="pl-1">or drag and drop</p>
-                          <p className="text-xs leading-5 text-gray-600">
-                            mp4, other up to 100MB
-                          </p>
-                        </>
-                      ) : (
-                        <div className="flex flex-wrap gap-5">
-                          <PropagateLoader
-                            color={"#36d7b7"}
-                            loading={uploadingVideosSlider}
-                            size={12}
-                            aria-label="Loading Spinner"
-                            data-testid="loader"
-                          />
-                          <p className="text-teal-500 text-sm">
-                            uploading Images ...
-                          </p>
-                        </div>
-                      )}
+
+                      <p className="pl-1">or drag and drop</p>
+                      <p className="text-xs leading-5 text-gray-600">
+                        mp4, other up to 100MB
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1807,15 +2178,58 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
-                      <p className="pl-1">or drag and drop</p>
+                      {!uploadingVideosSlider ? (
+                        <>
+                          <p className="pl-1">or drag and drop</p>
+                          <p className="text-xs leading-5 text-gray-600">
+                            mp4, other up to 100MB
+                          </p>
+                        </>
+                      ) : (
+                        <div className="flex flex-wrap gap-5">
+                          <PropagateLoader
+                            color={"#36d7b7"}
+                            loading={uploadingVideosSlider}
+                            size={12}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                          />
+                          <p className="text-teal-500 text-sm">
+                            uploading Images ...
+                          </p>
+                        </div>
+                      )}
                     </div>
-                    <p className="text-xs leading-5 text-gray-600">
-                      mp3, webm up to 10MB
-                    </p>
                   </div>
                 </div>
               </div>
             )}
+
+            {/* new Page */}
+            {/* {mainSection === "New Page" && (
+              <div className="sm:col-span-3">
+                <label
+                  htmlFor="country"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Choose Section
+                </label>
+                <div className="mt-2">
+                  <select
+                    id="country"
+                    name="country"
+                    autoComplete="country-name"
+                    onChange={(e: any) => setSec(e.target.value)}
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  >
+                    <option>Select Main Section</option>
+                    <option>Our Department</option>
+                    <option>Appeals</option>
+                    <option>Donation</option>
+                  </select>
+                </div>
+              </div>
+            )} */}
           </div>
         </div>
       </div>
@@ -1831,7 +2245,7 @@ export default function UpdateForm() {
           type="submit"
           className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Update
+          {mainSection !== "New Page" ? "Update" : "Create"}
         </button>
       </div>
     </form>

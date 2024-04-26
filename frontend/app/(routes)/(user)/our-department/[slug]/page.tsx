@@ -61,6 +61,9 @@ import DonationSectionOrphan from "@/components/newUi/ourDepartment/Orphan/donat
 import DonationSectionPlantation from "@/components/newUi/ourDepartment/environmentDep/plantation/donationSection";
 import { useContentContext } from "@/components/newUi/contextApi/contentContext";
 import { FullPageLoader } from "@/components/3dModel/fullPageLoader";
+import BannerSection from "@/components/newUi/ourDepartment/disasterMange/components/banner";
+import DonationSection from "@/components/newUi/ourDepartment/disasterMange/components/donationSection";
+import Docs from "@/components/newUi/ourDepartment/disasterMange/components/doc";
 
 export default function OurDepartmentAppeal({
   params,
@@ -71,6 +74,7 @@ export default function OurDepartmentAppeal({
   const contentContext = useContentContext();
   const data = contentContext.content;
   let bannerImgData;
+
   if (myParams === "disaster-covid-19") {
     bannerImgData = data.filter(
       (title: any) => "Covid-19" === title.content.sec
@@ -128,12 +132,23 @@ export default function OurDepartmentAppeal({
     bannerImgData = data.filter((title: any) => "Orphan" === title.content.sec);
   } else if (myParams === "masjid") {
     bannerImgData = data.filter((title: any) => "Masjid" === title.content.sec);
+  } else {
+    bannerImgData = data.filter(
+      (title: any) =>
+        myParams.toLocaleLowerCase().split("-").join(" ") === title.content.sec
+    );
   }
   const photo = bannerImgData && bannerImgData[0]?.content?.bannerImg;
+  const heroImg = bannerImgData && bannerImgData[0]?.content?.heroSecImg;
+  const mainSect = bannerImgData && bannerImgData[0]?.content?.mainSec;
+  const sect = bannerImgData && bannerImgData[0]?.content?.sec;
+  const slider = bannerImgData && bannerImgData[0]?.content?.slider;
+  const text = bannerImgData && bannerImgData[0]?.content?.text;
+  const video = bannerImgData && bannerImgData[0]?.content?.video;
   return (
     <div className=" ">
       {/* Disaster department */}
-      {myParams === "disaster" && (
+      {myParams === "disaster" ? (
         <div
           className="bg-gray-200"
           // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
@@ -158,10 +173,138 @@ export default function OurDepartmentAppeal({
             {/* <Disasters /> */}
           </div>
         </div>
+      ) : myParams === "health-care" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/healthCare/banners/HealthCare.jpg"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className=" lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <HealthCareBannerSection />
+            <DonationSectionHealthCare />
+            <HealthCareDocs />
+          </div>
+        </div>
+      ) : myParams === "water-project" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={`${
+                (photo && photo) || "/ourDepartment/handPump/waterbanner.png"
+              }`}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <WaterBannerSection />
+            <DonationSectionWaterProject />
+            <WaterDocs />
+          </div>
+        </div>
+      ) : myParams === "environment-department" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={"/ourDepartment/EnvironmentDepartment/banner.png"}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <EnvironmentDepBannerSection />
+            <DonationSectionEnvironmentDepartment />
+            <EnvironmentDocs />
+          </div>
+        </div>
+      ) : myParams === "education" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={`${
+                (photo && photo) ||
+                "/ourDepartment/educationSkills/educationbanner.png"
+              }`}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <EducationBannerSection />
+            <DonationSectionEductionSkills />
+            <EducationDocs />
+          </div>
+        </div>
+      ) : myParams === "orphan" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={`${
+                (photo && photo) || "/ourDepartment/orphan/orphanbanner.png"
+              }`}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <OrphanBannerSection />
+            <DonationSectionOrphan />
+            <OrphanDocs />
+          </div>
+        </div>
+      ) : myParams === "masjid" ? (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={`${
+                (photo && photo) || "/ourDepartment/masjid/masjidbanner.png"
+              }`}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <MasjidBannerSection />
+            <DonationSectionMasjid />
+            <MasjidDocs />
+          </div>
+        </div>
+      ) : (
+        <div className="bg-gray-200">
+          <div className="max-w-screen-2xl mx-auto h-full">
+            <Image
+              src={`${photo && photo}`}
+              alt="about image"
+              width={2000}
+              height={2000}
+              className="lg:max-h-screen w-full mx-auto"
+            />
+          </div>
+          <div className="max-w-screen-lg mx-auto">
+            <BannerSection sec={sect} heroImg={heroImg} />
+            <DonationSection video={video} />
+            <Docs txt={text} slider={slider} />
+          </div>
+        </div>
       )}
       {/* Disasters */}
 
-      {myParams === "disaster-covid-19" && (
+      {/* {myParams === "disaster-covid-19" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -265,10 +408,10 @@ export default function OurDepartmentAppeal({
             <PalestinianBrotherSistersDocs />
           </div>
         </div>
-      )}
+      )} */}
 
       {/* Health Care Department*/}
-      {myParams === "health-care" && (
+      {/* {myParams === "health-care" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -283,11 +426,10 @@ export default function OurDepartmentAppeal({
             <HealthCareBannerSection />
             <DonationSectionHealthCare />
             <HealthCareDocs />
-            {/* <HealthCares /> */}
           </div>
         </div>
-      )}
-      {myParams === "health-care-eye-camps" && (
+      )} */}
+      {/* {myParams === "health-care-eye-camps" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-autos h-full">
             <Image
@@ -393,10 +535,10 @@ export default function OurDepartmentAppeal({
             <MedicalClinicDocs />
           </div>
         </div>
-      )}
+      )} */}
 
       {/* water-project*/}
-      {myParams === "water-project" && (
+      {/* {myParams === "water-project" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -415,16 +557,11 @@ export default function OurDepartmentAppeal({
             <WaterDocs />
           </div>
         </div>
-      )}
+      )} */}
       {/* environment-department*/}
-      {myParams === "environment-department" && (
+      {/* {myParams === "environment-department" && (
         <div
           className="bg-gray-200"
-          // className="bg-center bg-cover bg-no-repeat bg-blend-multiply"
-          // style={{
-          //   backgroundImage: `url("./finalIconAssets/Assest/Secondpage/bgasset.png")`,
-          //   height: "100%",
-          // }}
         >
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -439,11 +576,11 @@ export default function OurDepartmentAppeal({
             <EnvironmentDepBannerSection />
             <DonationSectionEnvironmentDepartment />
             <EnvironmentDocs />
-            {/* <EnvironmentDepartments /> */}
+      
           </div>
         </div>
-      )}
-      {myParams === "environment-department-plantation" && (
+      )} */}
+      {/* {myParams === "environment-department-plantation" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -463,10 +600,10 @@ export default function OurDepartmentAppeal({
             <PlantationDocs />
           </div>
         </div>
-      )}
+      )} */}
 
       {/* education*/}
-      {myParams === "education" && (
+      {/* {myParams === "education" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -486,9 +623,9 @@ export default function OurDepartmentAppeal({
             <EducationDocs />
           </div>
         </div>
-      )}
+      )} */}
       {/* orphan*/}
-      {myParams === "orphan" && (
+      {/* {myParams === "orphan" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -507,9 +644,9 @@ export default function OurDepartmentAppeal({
             <OrphanDocs />
           </div>
         </div>
-      )}
+      )} */}
       {/* masjid*/}
-      {myParams === "masjid" && (
+      {/* {myParams === "masjid" && (
         <div className="bg-gray-200">
           <div className="max-w-screen-2xl mx-auto h-full">
             <Image
@@ -528,7 +665,7 @@ export default function OurDepartmentAppeal({
             <MasjidDocs />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

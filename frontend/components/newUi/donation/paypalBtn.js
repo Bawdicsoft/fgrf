@@ -7,14 +7,14 @@ const MyPayPalButton = ({ amount, currency }) => {
   const [customerEmailAddress, setCustomerEmailAddress] = useState("");
 
   const fetchOrderDetails = (orderId) => {
-    fetchOrderDetailsFromPayPal(orderId)
+    return fetch(`https://api.paypal.com/v2/checkout/orders/${orderId}`)
       .then((orderDetails) => {
         if (
           orderDetails &&
           orderDetails.payer &&
           orderDetails.payer.email_address
         ) {
-          setCustomerEmailAddress(orderDetails.payer.email_address);
+          // setCustomerEmailAddress(orderDetails.payer.email_address);
           sendEmail(
             orderDetails.payer.email_address,
             `Thank you for your ${amount} Donation!`,
@@ -26,10 +26,10 @@ const MyPayPalButton = ({ amount, currency }) => {
               amount: amount,
             })
             .then(function (response) {
-              // console.log(response);
+              console.log("responsePaypall from paypall", response);
             })
             .catch(function (error) {
-              // console.log(error);
+              console.log("errorPaypall from paypall", error);
             });
         } else {
           console.error("Customer email not available from PayPal.");
@@ -72,7 +72,7 @@ const MyPayPalButton = ({ amount, currency }) => {
             if (details.error) {
               router.push("/paypal-error");
             } else {
-              // fetchOrderDetails(details.id);
+              fetchOrderDetails(details.id);
               router.push({
                 pathname: `/paypal-success/${amount}`,
               });
