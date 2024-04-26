@@ -58,7 +58,7 @@ import { useContentContext } from "@/components/newUi/contextApi/contentContext"
 import BannerSectionAppeal from "@/components/newUi/appeal/newAppeals/appeals/bannerSec";
 import DocsAppeal from "@/components/newUi/appeal/newAppeals/appeals/doc";
 
-export default function donationAppeal({
+export default function DonationAppeal({
   params,
 }: {
   params: { slug: string };
