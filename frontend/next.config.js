@@ -51,6 +51,12 @@ const nextConfig = {
         port: "",
         pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.jpeg", // PNG format
       },
+      {
+        protocol: "https",
+        hostname: "api.paypal.com",
+        port: "",
+        pathname: "/v2/checkout/orders/**",
+      },
       // Add more patterns for other formats as needed
     ],
   },
