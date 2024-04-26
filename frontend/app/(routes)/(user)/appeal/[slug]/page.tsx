@@ -76,7 +76,9 @@ export default function DonationAppeal({
     myParams === "hand-pump-project" ||
     myParams === "orphan" ||
     myParams === "sadaqah" ||
-    myParams === "ramadan"
+    myParams === "ramadan" ||
+    myParams === "zakat" ||
+    myParams === "water-well-project"
   ) {
     return (
       <div className=" bg-gray-200">
