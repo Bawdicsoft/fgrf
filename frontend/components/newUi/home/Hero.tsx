@@ -19,8 +19,8 @@ const Hero = () => {
     "/img/slidersImage/slider2.jpg",
     "/img/slidersImage/distribution.jpeg",
     "/img/slidersImage/foodbanner.jpeg",
-    "/img/slidersImage/foodPack.jpeg",
-    "/img/slidersImage/slider1.jpg",
+    // "/img/slidersImage/foodPack.jpeg",
+    // "/img/slidersImage/slider1.jpg",
   ];
   const handleUpdate = (newIndex: any) => {
     if (newIndex < 0 || newIndex > 7) {

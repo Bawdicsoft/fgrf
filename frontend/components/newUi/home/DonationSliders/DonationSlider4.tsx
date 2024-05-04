@@ -20,7 +20,7 @@ export default function DonationSlider4() {
   const masjidSlider = foodBoxData[0]?.content?.masjidSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/newImage/ramdan (6).jpeg",
+    // "/newImage/ramdan (6).jpeg",
     "/AppealNew/masjid/1.jpg",
     "/AppealNew/masjid/2.png",
     "/AppealNew/masjid/3.jpg",

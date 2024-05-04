@@ -20,7 +20,7 @@ export default function DonationSlider3() {
   const foodboxSlider = foodBoxData[0]?.content?.foodboxSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/newImage/ramdan (1).jpeg",
+    // "/newImage/ramdan (1).jpeg",
     "/newImage/food1.jpeg",
     "/newImage/food2.jpeg",
     "/newImage/food3.jpeg",

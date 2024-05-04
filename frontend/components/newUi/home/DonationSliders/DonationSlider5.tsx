@@ -20,7 +20,7 @@ export default function DonationSlider5() {
   const handPumpSlider = foodBoxData[0]?.content?.handPumpSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = [
-    "/newImage/ramdan (4).jpeg",
+    // "/newImage/ramdan (4).jpeg",
     "/AppealNew/handPump/1.jpg",
     "/AppealNew/handPump/2.png",
     "/AppealNew/handPump/3.jpg",
