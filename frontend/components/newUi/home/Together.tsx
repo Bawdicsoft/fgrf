@@ -17,8 +17,17 @@ import AnimationTop from "./AnimationTop";
 import AnimatedNumberCounter from "./AnimationCounter";
 import AnimatedComponentLeft from "./AnimationLeft";
 import AnimatedComponentRight from "./AnimationRight";
+import { useContentContext } from "../contextApi/contentContext";
 
 const Together = () => {
+  const contentContext = useContentContext();
+  const dataContent = contentContext.content;
+  const foodBoxData = dataContent.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const counterSlider = foodBoxData[0]?.content?.counters;
+  const counter = counterSlider;
+  const data = counter;
   // for cardBLood
   // const x = useMotionValue(0);
   // const y = useMotionValue(0);
@@ -121,8 +130,8 @@ const Together = () => {
   useEffect(() => {
     const animations: any[] = [];
     if (inView) {
-      animations.push(animate(count1, 2700000, { duration: 10 }));
-      animations.push(animate(count, 54000, { duration: 10 }));
+      animations.push(animate(count1, data?.[1].counter2, { duration: 10 }));
+      animations.push(animate(count, data?.[0].counter1, { duration: 10 }));
     }
     return () => {
       animations.forEach((animation) => animation.stop());
@@ -195,7 +204,7 @@ const Together = () => {
                         style={{
                           transform: "translateZ(25px)",
                         }}
-                        src={"/blood2.png"}
+                        src={data?.[0].counter1ImageUrl}
                         alt=""
                         width={300}
                         height={300}
@@ -223,7 +232,7 @@ const Together = () => {
                         </motion.div>
                       </span>
                       <span className="text-white md:font-semibold lg:text-lg">
-                        Blood Bags
+                        {data?.[0].counter1Text}
                       </span>
                     </div>
                   </AnimatedComponentLeft>
@@ -246,7 +255,7 @@ const Together = () => {
                         style={{
                           transform: "translateZ(25px)",
                         }}
-                        src={"/tree2.png"}
+                        src={data?.[1].counter2ImageUrl}
                         alt=""
                         width={300}
                         height={300}
@@ -272,7 +281,7 @@ const Together = () => {
                         </motion.div>
                       </span>
                       <span className="text-white md:font-semibold lg:text-lg">
-                        Planted Trees
+                        {data?.[1].counter2Text}
                       </span>
                     </div>
                   </AnimatedComponentRight>

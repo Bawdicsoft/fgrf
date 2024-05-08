@@ -12,25 +12,17 @@ import AnimatedComponentRight from "./AnimationRight";
 import AnimationBottom from "./AnimationBtm";
 import Image from "next/image";
 import AnimationTop from "./AnimationTop";
+import { useContentContext } from "../contextApi/contentContext";
 
 const Achievement = () => {
-  const data = [
-    {
-      img: "/AchievementNew/6.jpg",
-    },
-    {
-      img: "/AchievementNew/7.jpg",
-    },
-    {
-      img: "/AchievementNew/8.jpg",
-    },
-    // {
-    //   img: '/img/index4.jpeg',
-    // },
-    // {
-    //   img: '/img/index5.jpg',
-    // },
-  ];
+  const contentContext = useContentContext();
+  const dataContent = contentContext.content;
+  const foodBoxData = dataContent.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const achievementSlider = foodBoxData[0]?.content?.achievementSlider;
+  const achievements = achievementSlider;
+  const data = achievements;
   const [open, setOpen] = useState(false);
   const [certicateImage, setCertificateImage] = useState("");
 
@@ -94,8 +86,8 @@ const Achievement = () => {
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div
                     className="w-full rounded-md h-80 bg-[#bebebc] cursor-pointer bg-no-repeat bg-cover bg-center"
-                    style={{ backgroundImage: `url(${data[0].img})` }}
-                    onClick={() => handleOpenAndCerticate(data[0].img)}
+                    style={{ backgroundImage: `url(${data?.[0]})` }}
+                    onClick={() => handleOpenAndCerticate(data?.[0])}
                   ></div>
                 </div>
               </div>
@@ -115,8 +107,8 @@ const Achievement = () => {
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div
                     className="w-full rounded-md h-80 bg-[#bebebc] cursor-pointer bg-no-repeat bg-cover bg-center"
-                    style={{ backgroundImage: `url(${data[1].img})` }}
-                    onClick={() => handleOpenAndCerticate(data[1].img)}
+                    style={{ backgroundImage: `url(${data?.[1]})` }}
+                    onClick={() => handleOpenAndCerticate(data?.[1])}
                   ></div>
                 </div>
               </div>
@@ -136,8 +128,8 @@ const Achievement = () => {
                   {/* <img src={data.img} className="w-full h-full" alt="" /> */}
                   <div
                     className="w-full rounded-md h-80 bg-[#bebebc] cursor-pointer bg-no-repeat bg-cover bg-center"
-                    style={{ backgroundImage: `url(${data[2].img})` }}
-                    onClick={() => handleOpenAndCerticate(data[2].img)}
+                    style={{ backgroundImage: `url(${data?.[2]})` }}
+                    onClick={() => handleOpenAndCerticate(data?.[2])}
                   ></div>
                 </div>
               </div>

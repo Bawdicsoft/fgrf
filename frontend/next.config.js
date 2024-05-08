@@ -25,31 +25,31 @@ const nextConfig = {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.jpg", // JPEG format
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**", // JPEG format
       },
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.JPG", // JPEG format
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**", // JPEG format
       },
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.webp", // WebP format
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**", // WebP format
       },
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.png", // PNG format
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**", // PNG format
       },
       {
         protocol: "https",
         hostname: "firebasestorage.googleapis.com",
         port: "",
-        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**/*.jpeg", // PNG format
+        pathname: "/v0/b/fgrf-dc455.appspot.com/o/**", // PNG format
       },
       {
         protocol: "https",

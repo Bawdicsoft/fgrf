@@ -11,17 +11,7 @@ const Hero = () => {
     (title: any) => "Main Page" === title.content.sec
   );
   const mainSlider = foodBoxData[0]?.content?.mainSlider;
-  const heroImage = [
-    "/img/slidersImage/6.jpeg",
-    "/img/slidersImage/5.jpeg",
-    "/img/slidersImage/4.jpeg",
-    "/img/slidersImage/3.jpeg",
-    "/img/slidersImage/slider2.jpg",
-    "/img/slidersImage/distribution.jpeg",
-    "/img/slidersImage/foodbanner.jpeg",
-    // "/img/slidersImage/foodPack.jpeg",
-    // "/img/slidersImage/slider1.jpg",
-  ];
+  const heroImage = mainSlider;
   const handleUpdate = (newIndex: any) => {
     if (newIndex < 0 || newIndex > 7) {
       newIndex = 0;
@@ -46,7 +36,7 @@ const Hero = () => {
             className="transform duration-1000 whitespace-nowrap h-full"
             style={{ transform: `translate(-${currentIndex * 100}%)` }}
           >
-            {heroImage.map((data: any, index: any) => (
+            {heroImage?.map((data: any, index: any) => (
               <div
                 className="inline-flex w-full relative items-center justify-center h-full bg-white"
                 key={index}

@@ -104,7 +104,7 @@ const Appeals = () => {
           </AnimationTop>
         </div>
         <div className="px-8 lg:px-0 lg:w-2/3 mx-auto py-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
-          <div className="col-span-1 text-center">
+          {/* <div className="col-span-1 text-center">
             <AnimatedComponentLeft>
               {" "}
               <motion.div
@@ -136,7 +136,7 @@ const Appeals = () => {
                 </Link>
               </motion.div>
             </AnimationTop>
-          </div>
+          </div> */}
           <div className="col-span-1 text-center">
             <AnimationBottom>
               <motion.div

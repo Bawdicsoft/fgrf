@@ -19,17 +19,7 @@ export default function DonationSlider3() {
   );
   const foodboxSlider = foodBoxData[0]?.content?.foodboxSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  const imgList = [
-    // "/newImage/ramdan (1).jpeg",
-    "/newImage/food1.jpeg",
-    "/newImage/food2.jpeg",
-    "/newImage/food3.jpeg",
-    "/newImage/food4.jpeg",
-    // "/AppealNew/food/foodBox2.jpeg",
-    // "/AppealNew/food/foodBox3.jpeg",
-    // "/AppealNew/food/foodBox4.jpeg",
-    // "/AppealNew/food/foodbox5.jpeg",
-  ];
+  const imgList = foodboxSlider;
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
       <Swiper
@@ -40,7 +30,7 @@ export default function DonationSlider3() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 rounded-md"
       >
-        {imgList.map((img: any, index: any) => (
+        {imgList?.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>
@@ -57,7 +47,7 @@ export default function DonationSlider3() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper rounded-md"
       >
-        {imgList.map((img: any, index: any) => (
+        {imgList?.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>

@@ -291,54 +291,91 @@ export default function UpdateForm() {
         }
         if (mainSection === "Main Page") {
           if (chooseSec === sec) {
+            let a = Math.random();
             const newCollectionRef = collection(db, "contents");
             const newDocRef = doc(newCollectionRef);
-            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            const storageRef1 = ref(
+              storage,
+              "images/" + photo1?.name + a.toString().slice(2, 10)
+            );
             const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
             const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-            const storageRef2 = ref(storage, "images/" + photo2?.name);
+            const storageRef2 = ref(
+              storage,
+              "images/" + photo2?.name + a.toString().slice(2, 10)
+            );
             const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
             const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-            const videosRef1 = ref(storage, "videos/" + video1?.name);
+            const videosRef1 = ref(
+              storage,
+              "videos/" + video1?.name + a.toString().slice(2, 10)
+            );
             const titleVideos1 = await uploadBytes(videosRef1, video1);
             const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-            const videosRef2 = ref(storage, "videos/" + video2?.name);
+            const videosRef2 = ref(
+              storage,
+              "videos/" + video2?.name + a.toString().slice(2, 10)
+            );
             const titleVideos2 = await uploadBytes(videosRef2, video2);
             const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-            const videosRef3 = ref(storage, "videos/" + video3?.name);
+            const videosRef3 = ref(
+              storage,
+              "videos/" + video3?.name + a.toString().slice(2, 10)
+            );
             const titleVideos3 = await uploadBytes(videosRef3, video3);
             const videoUrl3 = await getDownloadURL(titleVideos3.ref);
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
               content: {
-                sec: sec || chooseContent.sec,
-                text: text || chooseContent.text,
-                mainSlider: mainBannerUrlList || chooseContent.mainSlider,
-                ourDepartmentSlider:
-                  ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
-                ramazanSlider: ramazanUrlList || chooseContent.ramazanSlider,
-                zakatSlider: zakatUrlList || chooseContent.zakatSlider,
-                foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
-                winterSlider: winterUrlList || chooseContent.winterSlider,
-                palestineSlider:
-                  palestineUrlList || chooseContent.palestineSlider,
-                orphanSlider: orphanUrlList || chooseContent.orphanSlider,
-                handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
-                waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
-                masjidSlider: masjidUrlList || chooseContent.masjidSlider,
-                achievementSlider:
-                  achievementUrlList || chooseContent.achievementSlider,
-                gallerySlider: galleryUrlList || chooseContent.gallerySlider,
-                newVideos:
-                  [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
-                newsVideoSlider:
-                  newsVideoUrlList || chooseContent.newsVideoSlider,
-                counters:
-                  [
-                    { counter1Text, counter1, counter1ImageUrl },
-                    { counter2Text, counter2, counter2ImageUrl },
-                  ] || chooseContent.counters,
+                // sec: sec || chooseContent.sec,
+                sec: sec,
+                // text: text || chooseContent.text,
+                text: text,
+                // mainSlider: mainBannerUrlList || chooseContent.mainSlider,
+                mainSlider: mainBannerUrlList,
+                // ourDepartmentSlider:
+                //   ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
+                ourDepartmentSlider: ourDepartmentUrlList,
+                // ramazanSlider: ramazanUrlList || chooseContent.ramazanSlider,
+                ramazanSlider: ramazanUrlList,
+                // zakatSlider: zakatUrlList || chooseContent.zakatSlider,
+                zakatSlider: zakatUrlList,
+                // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
+                foodboxSlider: foodBoxUrlList,
+                // winterSlider: winterUrlList || chooseContent.winterSlider,
+                winterSlider: winterUrlList,
+                // palestineSlider:
+                //   palestineUrlList || chooseContent.palestineSlider,
+                palestineSlider: palestineUrlList,
+                // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
+                orphanSlider: orphanUrlList,
+                // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
+                handPumpSlider: handPumpUrlList,
+                // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
+                waterWellSlider: waterUrlList,
+                // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
+                masjidSlider: masjidUrlList,
+                // achievementSlider:
+                //   achievementUrlList || chooseContent.achievementSlider,
+                achievementSlider: achievementUrlList,
+                // gallerySlider: galleryUrlList || chooseContent.gallerySlider,
+                gallerySlider: galleryUrlList,
+                // newVideos:
+                //   [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
+                newVideos: [videoUrl1, videoUrl2, videoUrl3],
+                // newsVideoSlider:
+                //   newsVideoUrlList || chooseContent.newsVideoSlider,
+                newsVideoSlider: newsVideoUrlList,
+                // counters:
+                //   [
+                //     { counter1Text, counter1, counter1ImageUrl },
+                //     { counter2Text, counter2, counter2ImageUrl },
+                //   ] || chooseContent.counters,
+                counters: [
+                  { counter1Text, counter1, counter1ImageUrl },
+                  { counter2Text, counter2, counter2ImageUrl },
+                ],
               },
             });
           }
@@ -499,7 +536,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploading1(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -534,7 +575,11 @@ export default function UpdateForm() {
     setUploadingOurDepartmentSlider(true);
 
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -554,7 +599,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingRamzanSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -574,7 +623,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingZakatSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -594,7 +647,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingFoodBoxSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -614,7 +671,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingWinterSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -634,7 +695,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingPalestineSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -654,7 +719,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingOrphanSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -674,7 +743,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingHandPumpSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -694,7 +767,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingWaterWellSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -714,7 +791,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingMasjidSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -734,7 +815,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingGallerySlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -754,7 +839,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingVideosSlider(true);
     for (const file of files) {
-      const storageRef = ref(storage, `videos/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `videos/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -774,7 +863,11 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingAchievementImages(true);
     for (const file of files) {
-      const storageRef = ref(storage, `images/slider/${file.name}`);
+      let a = Math.random();
+      const storageRef = ref(
+        storage,
+        `images/slider/${file.name}${a.toString().slice(2, 10)}`
+      );
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -969,27 +1062,6 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
-
-            {/* <div className="col-span-full">
-              <label
-                htmlFor="photo"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Photo
-              </label>
-              <div className="mt-2 flex items-center gap-x-3">
-                <UserCircleIcon
-                  className="h-12 w-12 text-gray-300"
-                  aria-hidden="true"
-                />
-                <button
-                  type="button"
-                  className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                >
-                  Change
-                </button>
-              </div>
-            </div> */}
 
             {/* Banner photos */}
             {mainSection === "Our Department" ||

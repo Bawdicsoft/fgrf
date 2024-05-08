@@ -19,13 +19,7 @@ export default function DonationSlider8() {
   );
   const waterWellSlider = foodBoxData[0]?.content?.waterWellSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-  const imgList = [
-    // "/newImage/ramdan (3).jpeg",
-    "/AppealNew/waterWell/1.jpg",
-    "/AppealNew/waterWell/2.png",
-    "/AppealNew/waterWell/3.png",
-    "/AppealNew/waterWell/4.png",
-  ];
+  const imgList = waterWellSlider;
   return (
     <div className="bg-[#1aabab] rounded-lg p-4">
       <Swiper
@@ -36,7 +30,7 @@ export default function DonationSlider8() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2 rounded-md"
       >
-        {imgList.map((img: any, index: any) => (
+        {imgList?.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>
@@ -53,7 +47,7 @@ export default function DonationSlider8() {
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper rounded-md"
       >
-        {imgList.map((img: any, index: any) => (
+        {imgList?.map((img: any, index: any) => (
           <SwiperSlide key={index}>
             <Image src={img} alt="Image" width={400} height={400} />
           </SwiperSlide>
