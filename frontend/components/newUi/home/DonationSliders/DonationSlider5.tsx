@@ -17,7 +17,8 @@ export default function DonationSlider5() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const handPumpSlider = foodBoxData[0]?.content?.handPumpSlider;
+  const handPumpSlider =
+    foodBoxData[0]?.content?.handPumpSlider?.handPumpSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = handPumpSlider;
   return (

@@ -17,7 +17,7 @@ export default function DonationSlider6() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const orphanSlider = foodBoxData[0]?.content?.orphanSlider;
+  const orphanSlider = foodBoxData[0]?.content?.orphanSlider?.orphanSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = orphanSlider;
   return (

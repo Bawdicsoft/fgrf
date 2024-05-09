@@ -85,7 +85,6 @@ const Appeals = () => {
         <div className="flex flex-col items-center max-w-[1200px] mx-auto px-3">
           <AnimationTop>
             <motion.div
-              // className="box"
               whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
@@ -104,7 +103,7 @@ const Appeals = () => {
           </AnimationTop>
         </div>
         <div className="px-8 lg:px-0 lg:w-2/3 mx-auto py-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
-          {/* <div className="col-span-1 text-center">
+          <div className="col-span-1 text-center">
             <AnimatedComponentLeft>
               {" "}
               <motion.div
@@ -118,7 +117,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -136,7 +134,7 @@ const Appeals = () => {
                 </Link>
               </motion.div>
             </AnimationTop>
-          </div> */}
+          </div>
           <div className="col-span-1 text-center">
             <AnimationBottom>
               <motion.div
@@ -150,15 +148,9 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                {/* <button className="rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                  <span className="bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                    Donate Now
-                  </span>
-                </button> */}
                 <Link href={"/donation/zakat-donation"}>
                   <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                     <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
@@ -187,7 +179,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -219,7 +210,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -251,7 +241,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -283,7 +272,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -315,7 +303,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -347,7 +334,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -379,7 +365,6 @@ const Appeals = () => {
 
             <AnimationTop>
               <motion.div
-                // className="box"
                 whileHover={{ scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
@@ -398,38 +383,6 @@ const Appeals = () => {
               </motion.div>
             </AnimationTop>
           </div>
-          {/* <div className="col-span-1 text-center">
-            <AnimatedComponentRight>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider10 />
-              </motion.div>
-            </AnimatedComponentRight>
-
-            <AnimationTop>
-              <motion.div
-                // className="box"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-2xl">
-                      <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-
-                      <span className="relative group-hover:text-white">
-                        Donate Now
-                      </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div> */}
         </div>
         <div className="w-full absolute top-0 right-0 z-[-1]">
           <img src="./img/new-img/map.png" className="w-full h-full" alt="" />

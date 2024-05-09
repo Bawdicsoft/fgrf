@@ -17,7 +17,8 @@ export default function DonationSlider1() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const palestineSlider = foodBoxData[0]?.content?.palestineSlider;
+  const palestineSlider =
+    foodBoxData[0]?.content?.palestineSlider?.palestineSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = palestineSlider;
   return (

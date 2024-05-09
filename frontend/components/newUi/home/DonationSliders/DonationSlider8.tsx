@@ -17,7 +17,8 @@ export default function DonationSlider8() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const waterWellSlider = foodBoxData[0]?.content?.waterWellSlider;
+  const waterWellSlider =
+    foodBoxData[0]?.content?.waterWellSlider?.waterWellSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = waterWellSlider;
   return (

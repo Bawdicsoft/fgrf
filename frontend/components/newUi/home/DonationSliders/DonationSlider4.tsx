@@ -17,7 +17,7 @@ export default function DonationSlider4() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const masjidSlider = foodBoxData[0]?.content?.masjidSlider;
+  const masjidSlider = foodBoxData[0]?.content?.masjidSlider?.masjidSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = masjidSlider;
   return (

@@ -17,7 +17,7 @@ export default function DonationSlider10() {
   const foodBoxData = dataContent.filter(
     (title: any) => "Main Page" === title.content.sec
   );
-  const ramazanSlider = foodBoxData[0]?.content?.ramazanSlider;
+  const ramazanSlider = foodBoxData[0]?.content?.ramazanSlider?.ramazanSlider;
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const imgList = ramazanSlider;
   return (

@@ -124,6 +124,7 @@ export default function UpdateForm() {
                 .split(" ")
                 .join("-")}`,
               text: text,
+              switch: "true",
               photo: titleImageUrl1,
             },
           };
@@ -159,6 +160,7 @@ export default function UpdateForm() {
                 .split(" ")
                 .join("-")}`,
               text: text,
+              switch: "true",
               video: [videoUrl1, videoUrl2],
               photo: [appeal1ImageUrl, appeal2ImageUrl],
               slider: urlList,
@@ -193,6 +195,7 @@ export default function UpdateForm() {
                 .split(" ")
                 .join("-")}`,
               text: text,
+              switch: "true",
               slider: urlList,
               video: videoUrl1,
               bannerImg: ourDepartment1Url,
@@ -216,7 +219,6 @@ export default function UpdateForm() {
         const chooseContent = docsData.content;
         if (mainSection === "Our Department") {
           if (chooseSec === sec) {
-            console.log("chooseSec----->", chooseContent);
             const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
             const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
             const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
@@ -274,7 +276,6 @@ export default function UpdateForm() {
         }
         if (mainSection === "Donations") {
           if (chooseSec === sec) {
-            const newCollectionRef = collection(db, "contents");
             const storageRef1 = ref(storage, "images/" + photo1?.name);
             const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
             const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
@@ -292,8 +293,7 @@ export default function UpdateForm() {
         if (mainSection === "Main Page") {
           if (chooseSec === sec) {
             let a = Math.random();
-            const newCollectionRef = collection(db, "contents");
-            const newDocRef = doc(newCollectionRef);
+
             const storageRef1 = ref(
               storage,
               "images/" + photo1?.name + a.toString().slice(2, 10)
@@ -899,7 +899,6 @@ export default function UpdateForm() {
       if (chooseSec === data) {
         const docsId = docs.id;
         const docRef = doc(db, "contents", docsId);
-        console.log("docsData---->", docsData);
         const updatedContent = {
           ...docsData.content,
           switch: docsData.content.switch === "false" ? "true" : "false",
@@ -909,10 +908,6 @@ export default function UpdateForm() {
         });
       }
     });
-    //  updateHide = data.filter(
-    //    (title: any) =>
-    //      data === title.content.sec
-    //  );
   };
   const deleteHandler = async (data: any) => {
     const dataRef = collection(db, "contents");
@@ -2174,11 +2169,6 @@ export default function UpdateForm() {
                     </div>
                   </div>
                 </div>
-                {/* <input
-                  type="text"
-                  placeholder="Back Text"
-                  className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                /> */}
               </div>
             )}
             {/* News Videos */}
@@ -2279,32 +2269,6 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
-
-            {/* new Page */}
-            {/* {mainSection === "New Page" && (
-              <div className="sm:col-span-3">
-                <label
-                  htmlFor="country"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Choose Section
-                </label>
-                <div className="mt-2">
-                  <select
-                    id="country"
-                    name="country"
-                    autoComplete="country-name"
-                    onChange={(e: any) => setSec(e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                  >
-                    <option>Select Main Section</option>
-                    <option>Our Department</option>
-                    <option>Appeals</option>
-                    <option>Donation</option>
-                  </select>
-                </div>
-              </div>
-            )} */}
           </div>
         </div>
       </div>
