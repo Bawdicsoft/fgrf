@@ -22,9 +22,26 @@ import DonationSlider7 from "./DonationSliders/DonationSlider7";
 import DonationSlider8 from "./DonationSliders/DonationSlider8";
 import DonationSlider9 from "./DonationSliders/DonationSlider9";
 import DonationSlider10 from "./DonationSliders/DonationSlider10";
+import { useContentContext } from "../contextApi/contentContext";
 // import DonationSlider from "./DonationSlider";
 
 const Appeals = () => {
+  const contentContext = useContentContext();
+  const dataContent = contentContext.content;
+  const fetchData = dataContent.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+
+  const palestineSlider = fetchData[0]?.content?.palestineSlider;
+  const winterSlider = fetchData[0]?.content?.winterSlider;
+  const foodboxSlider = fetchData[0]?.content?.foodboxSlider;
+  const masjidSlider = fetchData[0]?.content?.masjidSlider;
+  const handPumpSlider = fetchData[0]?.content?.handPumpSlider;
+  const orphanSlider = fetchData[0]?.content?.orphanSlider;
+  const zakatSlider = fetchData[0]?.content?.zakatSlider;
+  const waterWellSlider = fetchData[0]?.content?.waterWellSlider;
+  const ramazanSlider = fetchData[0]?.content?.ramazanSlider;
+
   const data = [
     {
       img: "/img/index1.jpeg",
@@ -103,286 +120,304 @@ const Appeals = () => {
           </AnimationTop>
         </div>
         <div className="px-8 lg:px-0 lg:w-2/3 mx-auto py-6 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8">
-          <div className="col-span-1 text-center">
-            <AnimatedComponentLeft>
-              {" "}
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider10 />
-              </motion.div>
-            </AnimatedComponentLeft>
+          {ramazanSlider && ramazanSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentLeft>
+                {" "}
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider10 />
+                </motion.div>
+              </AnimatedComponentLeft>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/iftar-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/iftar-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimationBottom>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider9 />
-              </motion.div>
-            </AnimationBottom>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {zakatSlider && zakatSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimationBottom>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider9 />
+                </motion.div>
+              </AnimationBottom>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/zakat-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/zakat-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimatedComponentRight>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider3 />
-              </motion.div>
-            </AnimatedComponentRight>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {foodboxSlider && foodboxSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentRight>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider3 />
+                </motion.div>
+              </AnimatedComponentRight>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/food-box-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/food-box-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimatedComponentLeft>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider2 />
-              </motion.div>
-            </AnimatedComponentLeft>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {winterSlider && winterSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentLeft>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider2 />
+                </motion.div>
+              </AnimatedComponentLeft>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/winter-emergency-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/winter-emergency-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimationBottom>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider1 />
-              </motion.div>
-            </AnimationBottom>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {palestineSlider && palestineSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimationBottom>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider1 />
+                </motion.div>
+              </AnimationBottom>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/palestine-emergency-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/palestine-emergency-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimatedComponentRight>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider6 />
-              </motion.div>
-            </AnimatedComponentRight>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {orphanSlider && orphanSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentRight>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider6 />
+                </motion.div>
+              </AnimatedComponentRight>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/orphan-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/orphan-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimatedComponentLeft>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider5 />
-              </motion.div>
-            </AnimatedComponentLeft>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {handPumpSlider && handPumpSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentLeft>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider5 />
+                </motion.div>
+              </AnimatedComponentLeft>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/hand-pump-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/hand-pump-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1  text-center">
-            <AnimationBottom>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider8 />
-              </motion.div>
-            </AnimationBottom>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {waterWellSlider && waterWellSlider.switch === "true" && (
+            <div className="col-span-1  text-center">
+              <AnimationBottom>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider8 />
+                </motion.div>
+              </AnimationBottom>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/water-well-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/water-well-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
-          <div className="col-span-1 text-center">
-            <AnimatedComponentRight>
-              <motion.div
-                className="box"
-                whileHover={{ scale: 1.1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <DonationSlider4 />
-              </motion.div>
-            </AnimatedComponentRight>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
+          {masjidSlider && masjidSlider.switch === "true" && (
+            <div className="col-span-1 text-center">
+              <AnimatedComponentRight>
+                <motion.div
+                  className="box"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <DonationSlider4 />
+                </motion.div>
+              </AnimatedComponentRight>
 
-            <AnimationTop>
-              <motion.div
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <Link href={"/donation/masjid-donation"}>
-                  <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
-                    <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                    <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+              <AnimationTop>
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Link href={"/donation/masjid-donation"}>
+                    <button className="relative group overflow-hidden rounded-md bg-gradient-to-t from-sky-800 via-green-200 to-sky-800 px-4 py-0 mt-3">
                       <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                      <span className="relative group overflow-hidden bg-white text-sky-900 font-extrabold p-0.5 text-xl md:text-2xl">
+                        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-[#19afaf] top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
 
-                      <span className="relative group-hover:text-white">
-                        Donate Now
+                        <span className="relative group-hover:text-white">
+                          Donate Now
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </Link>
-              </motion.div>
-            </AnimationTop>
-          </div>
+                    </button>
+                  </Link>
+                </motion.div>
+              </AnimationTop>
+            </div>
+          )}
         </div>
         <div className="w-full absolute top-0 right-0 z-[-1]">
           <img src="./img/new-img/map.png" className="w-full h-full" alt="" />

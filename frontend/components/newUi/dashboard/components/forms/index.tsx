@@ -72,6 +72,11 @@ export default function UpdateForm() {
     useState(false);
   const contentContext = useContentContext();
   const data = contentContext.content;
+  const data2 = contentContext.content;
+  const fetchAllData = data.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+
   console.log("datainFormm----->", data);
   const disasterManagementLst = [
     "Select An Option",
@@ -103,7 +108,37 @@ export default function UpdateForm() {
     "Appeals",
     "Donation",
   ];
-
+  const [numbIndex, setNumIndex] = useState(null);
+  const [mySwitch, setMySwitch] = useState(false);
+  const foodboxSliderSwitch = fetchAllData[0]?.content?.foodboxSlider?.switch;
+  const handPumpSliderSwitch = fetchAllData[0]?.content?.handPumpSlider?.switch;
+  const masjidSliderSwitch = fetchAllData[0]?.content?.masjidSlider?.switch;
+  const orphanSliderSwitch = fetchAllData[0]?.content?.orphanSlider?.switch;
+  const palestineSliderSwitch =
+    fetchAllData[0]?.content?.palestineSlider?.switch;
+  const ramazanSliderSwitch = fetchAllData[0]?.content?.ramazanSlider?.switch;
+  const waterWellSliderrSwitch =
+    fetchAllData[0]?.content?.waterWellSlider?.switch;
+  const winterSliderSwitch = fetchAllData[0]?.content?.winterSlider?.switch;
+  const zakatSliderSwitch = fetchAllData[0]?.content?.zakatSlider?.switch;
+  const arrayAppeal = [
+    { title: "foodboxSlider", switch: foodboxSliderSwitch },
+    { title: "handPumpSlider", switch: handPumpSliderSwitch },
+    { title: "masjidSlider", switch: masjidSliderSwitch },
+    { title: "orphanSlider", switch: orphanSliderSwitch },
+    { title: "palestineSlider", switch: palestineSliderSwitch },
+    { title: "ramazanSlider", switch: ramazanSliderSwitch },
+    { title: "waterWellSlider", switch: waterWellSliderrSwitch },
+    { title: "winterSlider", switch: winterSliderSwitch },
+    { title: "zakatSlider", switch: zakatSliderSwitch },
+  ];
+  const funcHandler = (id: any) => {
+    if (id === numbIndex) {
+      setMySwitch(true);
+    } else {
+      setMySwitch(false);
+    }
+  };
   // Submit Handler
   const submitHandler = async (e: any) => {
     e.preventDefault();
@@ -238,16 +273,26 @@ export default function UpdateForm() {
                 text: text || chooseContent.text,
                 slider: urlList || chooseContent.slider,
                 video: videoUrl || chooseContent.video,
+                mainSec: "Our Department" || chooseContent.mainSec,
+                switch: chooseContent.switch,
+                url: chooseContent.url,
               },
             });
           }
         }
         if (mainSection === "Appeals") {
           if (chooseSec === sec) {
-            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            let a = Math.random();
+            const storageRef1 = ref(
+              storage,
+              "images/" + photo1?.name + a.toString().slice(2, 10)
+            );
             const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
             const firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
-            const storageRef2 = ref(storage, "images/" + photo2?.name);
+            const storageRef2 = ref(
+              storage,
+              "images/" + photo2?.name + a.toString().slice(2, 10)
+            );
             const secondImageSnapShot = await uploadBytes(storageRef2, photo2);
             const secondImageUrl = await getDownloadURL(
               secondImageSnapShot.ref
@@ -267,9 +312,12 @@ export default function UpdateForm() {
                   secondImageUrl || chooseContent.photo[1],
                 ],
                 sec: sec || chooseContent.sec,
+                mainSec: "Appeals" || chooseContent.mainSec,
                 text: text || chooseContent.text,
                 slider: urlList || chooseContent.slider,
                 video: [videoUrl1, videoUrl2] || chooseContent.video,
+                url: chooseContent.url,
+                switch: chooseContent.switch,
               },
             });
           }
@@ -286,6 +334,9 @@ export default function UpdateForm() {
                 sec: sec || chooseContent.sec,
                 text: text || chooseContent.text,
                 photo: titleImageUrl1 || chooseContent.photo,
+                switch: chooseContent.switch,
+                url: chooseContent.url,
+                mainSec: "Donations" || chooseContent.mainSec,
               },
             });
           }
@@ -306,76 +357,116 @@ export default function UpdateForm() {
             );
             const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
             const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-            const videosRef1 = ref(
-              storage,
-              "videos/" + video1?.name + a.toString().slice(2, 10)
-            );
+            const videosRef1 = ref(storage, "videos/" + video1?.name);
             const titleVideos1 = await uploadBytes(videosRef1, video1);
             const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-            const videosRef2 = ref(
-              storage,
-              "videos/" + video2?.name + a.toString().slice(2, 10)
-            );
+            const videosRef2 = ref(storage, "videos/" + video2?.name);
             const titleVideos2 = await uploadBytes(videosRef2, video2);
             const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-            const videosRef3 = ref(
-              storage,
-              "videos/" + video3?.name + a.toString().slice(2, 10)
-            );
+            const videosRef3 = ref(storage, "videos/" + video3?.name);
             const titleVideos3 = await uploadBytes(videosRef3, video3);
             const videoUrl3 = await getDownloadURL(titleVideos3.ref);
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
               content: {
-                // sec: sec || chooseContent.sec,
-                sec: sec,
-                // text: text || chooseContent.text,
-                text: text,
-                // mainSlider: mainBannerUrlList || chooseContent.mainSlider,
-                mainSlider: mainBannerUrlList,
-                // ourDepartmentSlider:
-                //   ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
-                ourDepartmentSlider: ourDepartmentUrlList,
-                // ramazanSlider: ramazanUrlList || chooseContent.ramazanSlider,
-                ramazanSlider: ramazanUrlList,
-                // zakatSlider: zakatUrlList || chooseContent.zakatSlider,
-                zakatSlider: zakatUrlList,
+                sec: sec || chooseContent.sec,
+                switch: chooseContent.switch,
+                // sec: sec,
+                text: text || chooseContent.text,
+                // text: text,
+                mainSlider: mainBannerUrlList || chooseContent.mainSlider,
+                // mainSlider: mainBannerUrlList,
+                ourDepartmentSlider:
+                  ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
+                // ourDepartmentSlider: ourDepartmentUrlList,
+                ramazanSlider: {
+                  ramazanSlider:
+                    ramazanUrlList || chooseContent.ramazanSlider.ramazanSlider,
+                  switch: chooseContent.ramazanSlider.switch,
+                },
+                // ramazanSlider: ramazanUrlList,
+
+                zakatSlider: {
+                  zakatSlider:
+                    zakatUrlList || chooseContent.zakatSlider.zakatSlider,
+                  switch: chooseContent.zakatSlider.switch,
+                },
                 // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
-                foodboxSlider: foodBoxUrlList,
+                // foodboxSlider: foodBoxUrlList,
+                foodboxSlider: {
+                  foodboxSlider:
+                    foodBoxUrlList || chooseContent.foodboxSlider.foodboxSlider,
+                  switch: chooseContent.foodboxSlider.switch,
+                },
                 // winterSlider: winterUrlList || chooseContent.winterSlider,
-                winterSlider: winterUrlList,
+                // winterSlider: winterUrlList,
+                winterSlider: {
+                  winterSlider:
+                    winterUrlList || chooseContent.winterSlider.winterSlider,
+                  switch: chooseContent.winterSlider.switch,
+                },
                 // palestineSlider:
                 //   palestineUrlList || chooseContent.palestineSlider,
-                palestineSlider: palestineUrlList,
+                // palestineSlider: palestineUrlList,
+                palestineSlider: {
+                  palestineSlider:
+                    palestineUrlList ||
+                    chooseContent.palestineSlider.palestineSlider,
+                  switch: chooseContent.palestineSlider.switch,
+                },
                 // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
-                orphanSlider: orphanUrlList,
+                // orphanSlider: orphanUrlList,
+                orphanSlider: {
+                  orphanSlider:
+                    orphanUrlList || chooseContent.orphanSlider.orphanSlider,
+                  switch: chooseContent.orphanSlider.switch,
+                },
                 // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
-                handPumpSlider: handPumpUrlList,
+                // handPumpSlider: handPumpUrlList,
+                handPumpSlider: {
+                  handPumpSlider:
+                    handPumpUrlList ||
+                    chooseContent.handPumpSlider.handPumpSlider,
+                  switch: chooseContent.handPumpSlider.switch,
+                },
                 // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
-                waterWellSlider: waterUrlList,
+                // waterWellSlider: waterUrlList,
+                waterWellSlider: {
+                  waterWellSlider:
+                    waterUrlList ||
+                    chooseContent.waterWellSlider.waterWellSlider,
+                  switch: chooseContent.waterWellSlider.switch,
+                },
                 // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
-                masjidSlider: masjidUrlList,
-                // achievementSlider:
-                //   achievementUrlList || chooseContent.achievementSlider,
-                achievementSlider: achievementUrlList,
-                // gallerySlider: galleryUrlList || chooseContent.gallerySlider,
-                gallerySlider: galleryUrlList,
-                // newVideos:
-                //   [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
-                newVideos: [videoUrl1, videoUrl2, videoUrl3],
-                // newsVideoSlider:
-                //   newsVideoUrlList || chooseContent.newsVideoSlider,
-                newsVideoSlider: newsVideoUrlList,
-                // counters:
-                //   [
-                //     { counter1Text, counter1, counter1ImageUrl },
-                //     { counter2Text, counter2, counter2ImageUrl },
-                //   ] || chooseContent.counters,
-                counters: [
-                  { counter1Text, counter1, counter1ImageUrl },
-                  { counter2Text, counter2, counter2ImageUrl },
-                ],
+                // masjidSlider: masjidUrlList,
+                masjidSlider: {
+                  masjidSlider:
+                    masjidUrlList || chooseContent.masjidSlider.masjidSlider,
+                  switch: chooseContent.masjidSlider.switch,
+                },
+                achievementSlider:
+                  achievementUrlList || chooseContent.achievementSlider,
+                // achievementSlider: achievementUrlList,
+
+                gallerySlider: galleryUrlList || chooseContent.gallerySlider,
+                // gallerySlider: galleryUrlList,
+
+                newVideos:
+                  [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
+                // newVideos: [videoUrl1, videoUrl2, videoUrl3],
+                newsVideoSlider:
+                  newsVideoUrlList || chooseContent.newsVideoSlider,
+                // newsVideoSlider: newsVideoUrlList,
+                counters:
+                  [
+                    { counter1Text, counter1, counter1ImageUrl },
+                    { counter2Text, counter2, counter2ImageUrl },
+                  ] || chooseContent.counters,
+                // counters: [
+                //   { counter1Text, counter1, counter1ImageUrl },
+                //   { counter2Text, counter2, counter2ImageUrl },
+                // ],
               },
             });
           }
@@ -839,11 +930,7 @@ export default function UpdateForm() {
     const files: File[] = Array.from(e.target.files || []);
     setUploadingVideosSlider(true);
     for (const file of files) {
-      let a = Math.random();
-      const storageRef = ref(
-        storage,
-        `videos/${file.name}${a.toString().slice(2, 10)}`
-      );
+      const storageRef = ref(storage, `videos/${file.name}`);
 
       try {
         const snapshot = await uploadBytes(storageRef, file);
@@ -926,6 +1013,188 @@ export default function UpdateForm() {
       }
     });
   };
+  const allData = data.filter(
+    (title: any) => "Main Page" === title.content.sec
+  );
+  const content = allData[0]?.content;
+  const foodboxSlider = allData[0]?.content?.foodboxSlider?.foodboxSlider;
+
+  const hideHandler1 = async (switcherSlider: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+      if (chooseSec === "Main Page") {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+        if (switcherSlider === "foodboxSlider") {
+          const foodboxSlider = docsData.content.foodboxSlider.foodboxSlider;
+          const updatedContent = {
+            ...docsData.content,
+            foodboxSlider: {
+              foodboxSlider,
+              switch:
+                docsData.content.foodboxSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "handPumpSlider") {
+          const handPumpSlider = docsData.content.handPumpSlider.handPumpSlider;
+          const updatedContent = {
+            ...docsData.content,
+            handPumpSlider: {
+              handPumpSlider,
+              switch:
+                docsData.content.handPumpSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "masjidSlider") {
+          const masjidSlider = docsData.content.masjidSlider.masjidSlider;
+          const updatedContent = {
+            ...docsData.content,
+            masjidSlider: {
+              masjidSlider,
+              switch:
+                docsData.content.masjidSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "orphanSlider") {
+          const orphanSlider = docsData.content.orphanSlider.orphanSlider;
+          const updatedContent = {
+            ...docsData.content,
+            orphanSlider: {
+              orphanSlider,
+              switch:
+                docsData.content.orphanSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "palestineSlider") {
+          const palestineSlider =
+            docsData.content.palestineSlider.palestineSlider;
+          const updatedContent = {
+            ...docsData.content,
+            palestineSlider: {
+              palestineSlider,
+              switch:
+                docsData.content.palestineSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "ramazanSlider") {
+          const ramazanSlider = docsData.content.ramazanSlider.ramazanSlider;
+          const updatedContent = {
+            ...docsData.content,
+            ramazanSlider: {
+              ramazanSlider,
+              switch:
+                docsData.content.ramazanSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "waterWellSlider") {
+          const waterWellSlider =
+            docsData.content.waterWellSlider.waterWellSlider;
+          const updatedContent = {
+            ...docsData.content,
+            waterWellSlider: {
+              waterWellSlider,
+              switch:
+                docsData.content.waterWellSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "winterSlider") {
+          const winterSlider = docsData.content.winterSlider.winterSlider;
+          const updatedContent = {
+            ...docsData.content,
+            winterSlider: {
+              winterSlider,
+              switch:
+                docsData.content.winterSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+        if (switcherSlider === "zakatSlider") {
+          const zakatSlider = docsData.content.zakatSlider.zakatSlider;
+          const updatedContent = {
+            ...docsData.content,
+            zakatSlider: {
+              zakatSlider,
+              switch:
+                docsData.content.zakatSlider.switch === "false"
+                  ? "true"
+                  : "false",
+            },
+          };
+          await updateDoc(docRef, {
+            content: updatedContent,
+          });
+        }
+      }
+    });
+  };
+
+  const deleteHandler1 = async (data: any) => {
+    const dataRef = collection(db, "contents");
+    const querySnapshot = await getDocs(dataRef);
+
+    querySnapshot.forEach(async (docs) => {
+      const docsData = docs.data();
+      const chooseSec = docsData.content.sec;
+
+      if (chooseSec === data) {
+        const docsId = docs.id;
+        const docRef = doc(db, "contents", docsId);
+
+        // Delete the document
+        await deleteDoc(docRef);
+      }
+    });
+  };
   return (
     <form onSubmit={submitHandler}>
       <div className="space-y-12">
@@ -983,6 +1252,16 @@ export default function UpdateForm() {
               </div>
             )}
             {/* toggle */}
+            {midSection === "Hide Page" && data && (
+              <div className="flex justify-between md:grid grid-cols-4 p-2 py-3 border border-teal-300">
+                <span className="font-bold col-span-3">Pages</span>
+
+                <div className="flex justify-between items-center gap-2 md:gap-0">
+                  <span className="font-bold">Delete</span>
+                  <span className="text-xs md:text-sm">Hide/Show</span>
+                </div>
+              </div>
+            )}
             {midSection === "Hide Page" &&
               data &&
               data.map((i: any, index: any) => (
@@ -990,32 +1269,35 @@ export default function UpdateForm() {
                   key={i}
                   className="flex justify-between border-teal-400 border  items-center"
                 >
-                  <p className="p-2 text-teal-500 font-semibold" key={index}>
+                  <p
+                    className="p-2 text-sm md:text-base text-teal-500 md:font-semibold"
+                    key={index}
+                  >
                     {i.content.sec}
                   </p>
-                  <div className="flex gap-8 items-center">
+                  <div className="flex gap-3 md:gap-8 items-center">
                     <button
                       type="button"
                       onClick={() => deleteHandler(i.content.sec)}
-                      className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 my-2"
+                      className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
                     >
                       Delete Page
                     </button>
-                    <div className="pr-5">
+                    <div className="pr-2 md:pr-5">
                       <label className="inline-flex items-center cursor-pointer">
                         <input
                           type="checkbox"
+                          checked={i.content.switch === "true" && true}
                           value=""
                           className="sr-only peer"
                           onChange={() => hideHandler(i.content.sec)}
                         />
-                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-teal-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-green-600"></div>
                       </label>
                     </div>
                   </div>
                 </div>
               ))}
-
             {mainSection !== "Hide Page" && (
               <div className="col-span-full py-2">
                 <label
@@ -1057,7 +1339,6 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
-
             {/* Banner photos */}
             {mainSection === "Our Department" ||
               (sec === "Our Department" && (
@@ -1136,7 +1417,6 @@ export default function UpdateForm() {
                   </div>
                 </div>
               ))}
-
             {/* Header photos */}
             {mainSection !== "Our Department" &&
               mainSection !== "Main Page" &&
@@ -1181,7 +1461,6 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-
             {/* Down Videos photos */}
             {midSection === "Disaster Management" ||
               midSection === "Health Care" ||
@@ -1329,7 +1608,6 @@ export default function UpdateForm() {
                   </div>
                 </div>
               )}
-
             {/* Main Page */}
             {/* banner Slider images */}
             {mainSection === "Main Page" && (
@@ -1439,7 +1717,6 @@ export default function UpdateForm() {
                 </div>
               </div>
             )}
-
             {/* appeal sliders */}
             {mainSection === "Main Page" && (
               <h2 className="block text-base py-3 font-medium leading-6 text-gray-900">
@@ -2114,7 +2391,6 @@ export default function UpdateForm() {
                 </div>
               </>
             ) : null}
-
             {/* Gallery */}
             {mainSection == "Main Page" && (
               <div className="col-span-full">
@@ -2273,20 +2549,67 @@ export default function UpdateForm() {
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button
-          type="button"
-          className="text-sm font-semibold leading-6 text-gray-900"
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          {mainSection !== "New Page" ? "Update" : "Create"}
-        </button>
-      </div>
+      {midSection !== "Hide Page" && (
+        <div className="mt-6 flex items-center justify-end gap-x-6">
+          <button
+            type="button"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            {mainSection !== "New Page" ? "Update" : "Create"}
+          </button>
+        </div>
+      )}
+      {midSection === "Hide Page" && (
+        <div className="flex items-center justify-between">
+          <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
+          <p className="text-teal-500 md:font-semibold text-sm md:text-xl p-2">
+            Main Page
+          </p>
+          <span className="bg-teal-600 w-2/6 h-[2px] px-2"></span>
+        </div>
+      )}
+      {midSection === "Hide Page" &&
+        arrayAppeal.map((i: any, index: any) => (
+          <div
+            key={index}
+            className="flex justify-between border-teal-400 border  items-center"
+          >
+            <p className="p-2 text-sm md:text-base text-teal-500 md:font-semibold">
+              {i.title}
+            </p>
+            <div className="flex gap-3 md:gap-8 items-center">
+              <button
+                type="button"
+                onClick={() => deleteHandler(i.title)}
+                className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-xs md:text-sm px-2 md:px-5 py-1  md:py-2.5 text-center me-2 my-2"
+              >
+                Delete Slider
+              </button>
+              <div className="pr-2 md:pr-5">
+                <label className="inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={i.switch === "true" && true}
+                    value=""
+                    className="sr-only peer"
+                    onChange={() => {
+                      hideHandler1(i.title);
+                      // setNumIndex(index);
+                      // funcHandler(index)
+                    }}
+                  />
+                  <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-teal-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-green-600"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        ))}
     </form>
   );
 }
