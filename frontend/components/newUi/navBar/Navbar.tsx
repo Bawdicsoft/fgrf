@@ -407,16 +407,20 @@ export default function Navbar() {
                   </Link>
 
                   {ourDepartmentList.map((i: any, index: any) => (
-                    <Link
-                      key={index}
-                      href={i.content.url}
-                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+                    <>
+                      {i.content.switch === "true" ? (
+                        <Link
+                          key={index}
+                          href={i.content.url}
+                          className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
-                    >
-                      {i.content.switch === "true" && i.content.sec}
-                    </Link>
+                        >
+                          {i.content.sec}
+                        </Link>
+                      ) : null}
+                    </>
                   ))}
                   {/* <Link
                     href={"/our-department/water-project"}
@@ -486,16 +490,20 @@ export default function Navbar() {
                 </div>
                 <div className="-ml-2 py-3 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 px-3 text-gray-800 shadow-xl group-hover:visible">
                   {appealList.map((i: any, index: any) => (
-                    <Link
-                      key={index}
-                      href={i.content.url}
-                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+                    <>
+                      {i.content.switch === "true" ? (
+                        <Link
+                          key={index}
+                          href={i.content.url}
+                          className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
-                    >
-                      {i.content.switch === "true" && i.content.sec}
-                    </Link>
+                        >
+                          {i.content.sec}
+                        </Link>
+                      ) : null}
+                    </>
                   ))}
                   {/* 
                   <Link
@@ -595,16 +603,20 @@ export default function Navbar() {
                 </div>
                 <div className="-ml-2 border-b-2  border-teal-500 mt-1 text-sm invisible absolute z-50 flex w-40 lg:w-48 flex-col bg-gray-100 py-3 px-3 text-gray-800 shadow-xl group-hover:visible">
                   {donationList.map((i: any, index: any) => (
-                    <Link
-                      key={index}
-                      href={i.content.url}
-                      className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
+                    <>
+                      {i.content.switch === "true" ? (
+                        <Link
+                          key={index}
+                          href={i.content.url}
+                          className="my-1 block relative before:content-[''] before:absolute before:block before:w-full before:h-[1px] 
               before:bottom-0 before:left-0 before:bg-sky-400
               before:hover:scale-x-100 before:scale-x-0 before:origin-top-left
               before:transition before:ease-in-out before:duration-300 hover:text-sky-400 border-b border-gray-100  font-medium"
-                    >
-                      {i.content.switch === "true" && i.content.sec}
-                    </Link>
+                        >
+                          {i.content.sec}
+                        </Link>
+                      ) : null}
+                    </>
                   ))}
                   {/* 
                   <Link

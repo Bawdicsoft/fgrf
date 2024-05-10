@@ -143,11 +143,15 @@ export default function UpdateForm() {
   const submitHandler = async (e: any) => {
     e.preventDefault();
     if (mainSection === "New Page") {
+      let a = Math.random();
       if (sec === "Donation") {
         try {
           const newCollectionRef = collection(db, "contents");
           const newDocRef = doc(newCollectionRef);
-          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const storageRef1 = ref(
+            storage,
+            "images/" + photo1?.name + a.toString().slice(2, 10)
+          );
           const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
           const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
           const mainSection = {
@@ -174,10 +178,16 @@ export default function UpdateForm() {
         try {
           const newCollectionRef = collection(db, "contents");
           const newDocRef = doc(newCollectionRef);
-          const storageRef1 = ref(storage, "images/" + photo1?.name);
+          const storageRef1 = ref(
+            storage,
+            "images/" + photo1?.name + a.toString().slice(2, 10)
+          );
           const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
           const appeal1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-          const storageRef2 = ref(storage, "images/" + photo2?.name);
+          const storageRef2 = ref(
+            storage,
+            "images/" + photo2?.name + a.toString().slice(2, 10)
+          );
           const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
           const appeal2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
           const videosRef1 = ref(storage, "videos/" + video1?.name);
@@ -212,10 +222,16 @@ export default function UpdateForm() {
         try {
           const newCollectionRef = collection(db, "contents");
           const newDocRef = doc(newCollectionRef);
-          const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
+          const storageRef1 = ref(
+            storage,
+            "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
+          );
           const titleSnapshot1 = await uploadBytes(storageRef1, bannerPhoto);
           const ourDepartment1Url = await getDownloadURL(titleSnapshot1.ref);
-          const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
+          const storageRef2 = ref(
+            storage,
+            "images/" + heroPhoto?.name + a.toString().slice(2, 10)
+          );
           const titleSnapshot2 = await uploadBytes(storageRef2, heroPhoto);
           const ourDepartment2Url = await getDownloadURL(titleSnapshot2.ref);
           const videosRef1 = ref(storage, "videos/" + video1?.name);
@@ -246,6 +262,7 @@ export default function UpdateForm() {
         }
       }
     } else {
+      let a = Math.random();
       const dataRef = collection(db, "contents");
       const querySnapshot = await getDocs(dataRef);
       querySnapshot.forEach(async (docs) => {
@@ -254,10 +271,16 @@ export default function UpdateForm() {
         const chooseContent = docsData.content;
         if (mainSection === "Our Department") {
           if (chooseSec === sec) {
-            const storageRef1 = ref(storage, "images/" + bannerPhoto?.name);
+            const storageRef1 = ref(
+              storage,
+              "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
+            );
             const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
             const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
-            const storageRef2 = ref(storage, "images/" + heroPhoto?.name);
+            const storageRef2 = ref(
+              storage,
+              "images/" + heroPhoto?.name + a.toString().slice(2, 10)
+            );
             const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
             const heroImageUrl = await getDownloadURL(heroSnapShot.ref);
             const videosRef = ref(storage, "videos/" + video1?.name);
@@ -324,7 +347,10 @@ export default function UpdateForm() {
         }
         if (mainSection === "Donations") {
           if (chooseSec === sec) {
-            const storageRef1 = ref(storage, "images/" + photo1?.name);
+            const storageRef1 = ref(
+              storage,
+              "images/" + photo1?.name + a.toString().slice(2, 10)
+            );
             const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
             const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
             const docsId = docs.id;
