@@ -42,10 +42,11 @@ const AuthForm: React.FC<AuthFormProps> = ({
   const passwordRef = useRef<any>();
   const conformPasswordRef = useRef<any>();
   const modalActive = useDashboardContext();
-  const open = modalActive.loggedIn;
-  const setOpen = modalActive.setAuthHandler;
+  const openMy = modalActive.loggedIn;
+  const setMyOpen = modalActive.setAuthHandler;
   const setImage = modalActive.setImageHandler;
   const setEmail = modalActive.setEmailHandler;
+  const [admin, setAdmin] = useState(false);
   //   const modalCheck = useImageContext();
   //   const FethUserImage = useImageContext();
   //   const setUserImage = FethUserImage.userImageHandler;
@@ -56,38 +57,46 @@ const AuthForm: React.FC<AuthFormProps> = ({
   // useEffect(() => {
   //   setModalCheck(modal);
   // }, [myModal]);
+  // useEffect(() => {
+  //   console.log("admin logged in----->");
+  // }, [admin]);
 
   const submitHandler = (e: any) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        if (user) {
-          setOpen(false);
-          if (user.photoURL) {
-            setImage(user?.photoURL);
-          } else {
-            setImage(user.email?.slice(0, 1) ?? "");
-          }
-        } else {
-          // setOpen(true);
-        }
-        console.log("user--->", user);
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then((userCredential) => {
+    //     const user = userCredential.user;
+    //     if (user) {
+    //       setOpen(false);
+    //       if (user.photoURL) {
+    //         setImage(user?.photoURL);
+    //       } else {
+    //         setImage(user.email?.slice(0, 1) ?? "");
+    //       }
+    //     } else {
+    //       // setOpen(true);
+    //     }
+    //     console.log("user--->", user);
 
-        localStorage.setItem("Auth-admin", JSON.stringify(user));
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log("errorMessage--->", errorMessage);
-        console.log("errorCode--->", errorCode);
-      });
+    //     localStorage.setItem("Auth-admin", JSON.stringify(user));
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log("errorMessage--->", errorMessage);
+    //     console.log("errorCode--->", errorCode);
+    //   });
 
-    if (signIn && signInHandler !== undefined) {
-      signInHandler(email, password);
+    // sign in Admin
+    if (email === "fgrf25@gmail.com" && password === "faizan@12globaladmin") {
+      setMyOpen(false);
     }
+
+    // if (signIn && signInHandler !== undefined) {
+    //   signInHandler(email, password);
+    // }
   };
   //   const provider = new GoogleAuthProvider();
   //   const signInWithGoogle = async () => {
@@ -136,12 +145,12 @@ const AuthForm: React.FC<AuthFormProps> = ({
   //   };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={openMy} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-50"
-        // initialFocus={cancelButtonRef}
-        onClose={setOpen}
+        initialFocus={cancelButtonRef}
+        onClose={setMyOpen}
       >
         <Transition.Child
           as={Fragment}
@@ -198,7 +207,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
                         className="block w-full rounded-md border border-green py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-text-green sm:text-sm sm:leading-6"
                       />
 
-                      {signUp && (
+                      {/* {signUp && (
                         <input
                           id="conformPassword"
                           name="conformPassword"
@@ -209,7 +218,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
                           required
                           className="block w-full rounded-md border border-green py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-text-green sm:text-sm sm:leading-6"
                         />
-                      )}
+                      )} */}
 
                       <button
                         type="submit"

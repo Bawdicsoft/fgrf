@@ -271,31 +271,53 @@ export default function UpdateForm() {
         const chooseContent = docsData.content;
         if (mainSection === "Our Department") {
           if (chooseSec === sec) {
-            const storageRef1 = ref(
-              storage,
-              "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
-            );
-            const bannerSnapShot = await uploadBytes(storageRef1, bannerPhoto);
-            const bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
-            const storageRef2 = ref(
-              storage,
-              "images/" + heroPhoto?.name + a.toString().slice(2, 10)
-            );
-            const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
-            const heroImageUrl = await getDownloadURL(heroSnapShot.ref);
-            const videosRef = ref(storage, "videos/" + video1?.name);
-            const titleVideos = await uploadBytes(videosRef, video1);
-            const videoUrl = await getDownloadURL(titleVideos.ref);
+            let bannerImageUrl;
+            let heroImageUrl;
+            let videoUrl;
+            if (bannerPhoto) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + bannerPhoto?.name + a.toString().slice(2, 10)
+              );
+              const bannerSnapShot = await uploadBytes(
+                storageRef1,
+                bannerPhoto
+              );
+              bannerImageUrl = await getDownloadURL(bannerSnapShot.ref);
+            } else {
+              bannerImageUrl = undefined;
+            }
+            if (heroPhoto) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + heroPhoto?.name + a.toString().slice(2, 10)
+              );
+              const heroSnapShot = await uploadBytes(storageRef2, heroPhoto);
+              heroImageUrl = await getDownloadURL(heroSnapShot.ref);
+            } else {
+              heroImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef = ref(storage, "videos/" + video1?.name);
+              const titleVideos = await uploadBytes(videosRef, video1);
+              videoUrl = await getDownloadURL(titleVideos.ref);
+            } else {
+              videoUrl = undefined;
+            }
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
               content: {
-                bannerImg: bannerImageUrl || chooseContent.bannerImg,
-                heroSecImg: heroImageUrl || chooseContent.heroSecImg,
+                bannerImg: bannerImageUrl
+                  ? bannerImageUrl
+                  : chooseContent.bannerImg,
+                heroSecImg: heroImageUrl
+                  ? heroImageUrl
+                  : chooseContent.heroSecImg,
                 sec: sec || chooseContent.sec,
-                text: text || chooseContent.text,
-                slider: urlList || chooseContent.slider,
-                video: videoUrl || chooseContent.video,
+                text: text ? text : chooseContent.text,
+                slider: urlList.length > 0 ? urlList : chooseContent.slider,
+                video: videoUrl ? videoUrl : chooseContent.video,
                 mainSec: "Our Department" || chooseContent.mainSec,
                 switch: chooseContent.switch,
                 url: chooseContent.url,
@@ -306,39 +328,63 @@ export default function UpdateForm() {
         if (mainSection === "Appeals") {
           if (chooseSec === sec) {
             let a = Math.random();
-            const storageRef1 = ref(
-              storage,
-              "images/" + photo1?.name + a.toString().slice(2, 10)
-            );
-            const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
-            const firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
-            const storageRef2 = ref(
-              storage,
-              "images/" + photo2?.name + a.toString().slice(2, 10)
-            );
-            const secondImageSnapShot = await uploadBytes(storageRef2, photo2);
-            const secondImageUrl = await getDownloadURL(
-              secondImageSnapShot.ref
-            );
-            const videosRef1 = ref(storage, "videos/" + video1?.name);
-            const titleVideos1 = await uploadBytes(videosRef1, video1);
-            const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-            const videosRef2 = ref(storage, "videos/" + video2?.name);
-            const titleVideos2 = await uploadBytes(videosRef2, video2);
-            const videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            let firstImageUrl;
+            let secondImageUrl;
+            let videoUrl1;
+            let videoUrl2;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const firstImageSnapShot = await uploadBytes(storageRef1, photo1);
+              firstImageUrl = await getDownloadURL(firstImageSnapShot.ref);
+            } else {
+              firstImageUrl = undefined;
+            }
+            if (photo2) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + photo2?.name + a.toString().slice(2, 10)
+              );
+              const secondImageSnapShot = await uploadBytes(
+                storageRef2,
+                photo2
+              );
+              secondImageUrl = await getDownloadURL(secondImageSnapShot.ref);
+            } else {
+              secondImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef1 = ref(storage, "videos/" + video1?.name);
+              const titleVideos1 = await uploadBytes(videosRef1, video1);
+              videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            } else {
+              videoUrl1 = undefined;
+            }
+            if (video2) {
+              const videosRef2 = ref(storage, "videos/" + video2?.name);
+              const titleVideos2 = await uploadBytes(videosRef2, video2);
+              videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            } else {
+              videoUrl2 = undefined;
+            }
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
               content: {
                 photo: [
-                  firstImageUrl || chooseContent.photo[0],
-                  secondImageUrl || chooseContent.photo[1],
+                  firstImageUrl ? firstImageUrl : chooseContent.photo[0],
+                  secondImageUrl ? secondImageUrl : chooseContent.photo[1],
                 ],
                 sec: sec || chooseContent.sec,
                 mainSec: "Appeals" || chooseContent.mainSec,
-                text: text || chooseContent.text,
-                slider: urlList || chooseContent.slider,
-                video: [videoUrl1, videoUrl2] || chooseContent.video,
+                text: text ? text : chooseContent.text,
+                slider: urlList.length > 0 ? urlList : chooseContent.slider,
+                video:
+                  videoUrl1 && videoUrl2
+                    ? [videoUrl1, videoUrl2]
+                    : chooseContent.video,
                 url: chooseContent.url,
                 switch: chooseContent.switch,
               },
@@ -347,19 +393,24 @@ export default function UpdateForm() {
         }
         if (mainSection === "Donations") {
           if (chooseSec === sec) {
-            const storageRef1 = ref(
-              storage,
-              "images/" + photo1?.name + a.toString().slice(2, 10)
-            );
-            const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-            const titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+            let titleImageUrl1;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+              titleImageUrl1 = await getDownloadURL(titleSnapshot1.ref);
+            } else {
+              titleImageUrl1 = undefined;
+            }
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
               content: {
                 sec: sec || chooseContent.sec,
                 text: text || chooseContent.text,
-                photo: titleImageUrl1 || chooseContent.photo,
+                photo: titleImageUrl1 ? titleImageUrl1 : chooseContent.photo,
                 switch: chooseContent.switch,
                 url: chooseContent.url,
                 mainSec: "Donations" || chooseContent.mainSec,
@@ -370,28 +421,52 @@ export default function UpdateForm() {
         if (mainSection === "Main Page") {
           if (chooseSec === sec) {
             let a = Math.random();
-
-            const storageRef1 = ref(
-              storage,
-              "images/" + photo1?.name + a.toString().slice(2, 10)
-            );
-            const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
-            const counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
-            const storageRef2 = ref(
-              storage,
-              "images/" + photo2?.name + a.toString().slice(2, 10)
-            );
-            const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
-            const counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
-            const videosRef1 = ref(storage, "videos/" + video1?.name);
-            const titleVideos1 = await uploadBytes(videosRef1, video1);
-            const videoUrl1 = await getDownloadURL(titleVideos1.ref);
-            const videosRef2 = ref(storage, "videos/" + video2?.name);
-            const titleVideos2 = await uploadBytes(videosRef2, video2);
-            const videoUrl2 = await getDownloadURL(titleVideos2.ref);
-            const videosRef3 = ref(storage, "videos/" + video3?.name);
-            const titleVideos3 = await uploadBytes(videosRef3, video3);
-            const videoUrl3 = await getDownloadURL(titleVideos3.ref);
+            let counter1ImageUrl;
+            let counter2ImageUrl;
+            let videoUrl1;
+            let videoUrl2;
+            let videoUrl3;
+            if (photo1) {
+              const storageRef1 = ref(
+                storage,
+                "images/" + photo1?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot1 = await uploadBytes(storageRef1, photo1);
+              counter1ImageUrl = await getDownloadURL(titleSnapshot1.ref);
+            } else {
+              counter1ImageUrl = undefined;
+            }
+            if (photo2) {
+              const storageRef2 = ref(
+                storage,
+                "images/" + photo2?.name + a.toString().slice(2, 10)
+              );
+              const titleSnapshot2 = await uploadBytes(storageRef2, photo2);
+              counter2ImageUrl = await getDownloadURL(titleSnapshot2.ref);
+            } else {
+              counter2ImageUrl = undefined;
+            }
+            if (video1) {
+              const videosRef1 = ref(storage, "videos/" + video1?.name);
+              const titleVideos1 = await uploadBytes(videosRef1, video1);
+              videoUrl1 = await getDownloadURL(titleVideos1.ref);
+            } else {
+              videoUrl1 = undefined;
+            }
+            if (video2) {
+              const videosRef2 = ref(storage, "videos/" + video2?.name);
+              const titleVideos2 = await uploadBytes(videosRef2, video2);
+              videoUrl2 = await getDownloadURL(titleVideos2.ref);
+            } else {
+              videoUrl2 = undefined;
+            }
+            if (video3) {
+              const videosRef3 = ref(storage, "videos/" + video3?.name);
+              const titleVideos3 = await uploadBytes(videosRef3, video3);
+              videoUrl3 = await getDownloadURL(titleVideos3.ref);
+            } else {
+              videoUrl3 = undefined;
+            }
             const docsId = docs.id;
             const docRef = doc(db, "contents", docsId);
             await updateDoc(docRef, {
@@ -399,37 +474,50 @@ export default function UpdateForm() {
                 sec: sec || chooseContent.sec,
                 switch: chooseContent.switch,
                 // sec: sec,
-                text: text || chooseContent.text,
+                text: text ? text : chooseContent.text,
                 // text: text,
-                mainSlider: mainBannerUrlList || chooseContent.mainSlider,
+                mainSlider:
+                  mainBannerUrlList.length > 0
+                    ? mainBannerUrlList
+                    : chooseContent.mainSlider,
                 // mainSlider: mainBannerUrlList,
                 ourDepartmentSlider:
-                  ourDepartmentUrlList || chooseContent.ourDepartmentSlider,
+                  ourDepartmentUrlList.length > 0
+                    ? ourDepartmentUrlList
+                    : chooseContent.ourDepartmentSlider,
                 // ourDepartmentSlider: ourDepartmentUrlList,
                 ramazanSlider: {
                   ramazanSlider:
-                    ramazanUrlList || chooseContent.ramazanSlider.ramazanSlider,
+                    ramazanUrlList.length > 0
+                      ? ramazanUrlList
+                      : chooseContent.ramazanSlider.ramazanSlider,
                   switch: chooseContent.ramazanSlider.switch,
                 },
                 // ramazanSlider: ramazanUrlList,
 
                 zakatSlider: {
                   zakatSlider:
-                    zakatUrlList || chooseContent.zakatSlider.zakatSlider,
+                    zakatUrlList.length > 0
+                      ? zakatUrlList
+                      : chooseContent.zakatSlider.zakatSlider,
                   switch: chooseContent.zakatSlider.switch,
                 },
                 // foodboxSlider: foodBoxUrlList || chooseContent.foodboxSlider,
                 // foodboxSlider: foodBoxUrlList,
                 foodboxSlider: {
                   foodboxSlider:
-                    foodBoxUrlList || chooseContent.foodboxSlider.foodboxSlider,
+                    foodBoxUrlList.length > 0
+                      ? foodBoxUrlList
+                      : chooseContent.foodboxSlider.foodboxSlider,
                   switch: chooseContent.foodboxSlider.switch,
                 },
                 // winterSlider: winterUrlList || chooseContent.winterSlider,
                 // winterSlider: winterUrlList,
                 winterSlider: {
                   winterSlider:
-                    winterUrlList || chooseContent.winterSlider.winterSlider,
+                    winterUrlList.length > 0
+                      ? winterUrlList
+                      : chooseContent.winterSlider.winterSlider,
                   switch: chooseContent.winterSlider.switch,
                 },
                 // palestineSlider:
@@ -437,57 +525,93 @@ export default function UpdateForm() {
                 // palestineSlider: palestineUrlList,
                 palestineSlider: {
                   palestineSlider:
-                    palestineUrlList ||
-                    chooseContent.palestineSlider.palestineSlider,
+                    palestineUrlList.length > 0
+                      ? palestineUrlList
+                      : chooseContent.palestineSlider.palestineSlider,
                   switch: chooseContent.palestineSlider.switch,
                 },
                 // orphanSlider: orphanUrlList || chooseContent.orphanSlider,
                 // orphanSlider: orphanUrlList,
                 orphanSlider: {
                   orphanSlider:
-                    orphanUrlList || chooseContent.orphanSlider.orphanSlider,
+                    orphanUrlList.length > 0
+                      ? orphanUrlList
+                      : chooseContent.orphanSlider.orphanSlider,
                   switch: chooseContent.orphanSlider.switch,
                 },
                 // handPumpSlider: handPumpUrlList || chooseContent.handPumpSlider,
                 // handPumpSlider: handPumpUrlList,
                 handPumpSlider: {
                   handPumpSlider:
-                    handPumpUrlList ||
-                    chooseContent.handPumpSlider.handPumpSlider,
+                    handPumpUrlList.length > 0
+                      ? handPumpUrlList
+                      : chooseContent.handPumpSlider.handPumpSlider,
                   switch: chooseContent.handPumpSlider.switch,
                 },
                 // waterWellSlider: waterUrlList || chooseContent.waterWellSlider,
                 // waterWellSlider: waterUrlList,
                 waterWellSlider: {
                   waterWellSlider:
-                    waterUrlList ||
-                    chooseContent.waterWellSlider.waterWellSlider,
+                    waterUrlList.length > 0
+                      ? waterUrlList
+                      : chooseContent.waterWellSlider.waterWellSlider,
                   switch: chooseContent.waterWellSlider.switch,
                 },
                 // masjidSlider: masjidUrlList || chooseContent.masjidSlider,
                 // masjidSlider: masjidUrlList,
                 masjidSlider: {
                   masjidSlider:
-                    masjidUrlList || chooseContent.masjidSlider.masjidSlider,
+                    masjidUrlList.length > 0
+                      ? masjidUrlList
+                      : chooseContent.masjidSlider.masjidSlider,
                   switch: chooseContent.masjidSlider.switch,
                 },
                 achievementSlider:
-                  achievementUrlList || chooseContent.achievementSlider,
+                  achievementUrlList.length > 0
+                    ? achievementUrlList
+                    : chooseContent.achievementSlider,
                 // achievementSlider: achievementUrlList,
 
-                gallerySlider: galleryUrlList || chooseContent.gallerySlider,
+                gallerySlider:
+                  galleryUrlList.length > 0
+                    ? galleryUrlList
+                    : chooseContent.gallerySlider,
                 // gallerySlider: galleryUrlList,
 
                 newVideos:
-                  [videoUrl1, videoUrl2, videoUrl3] || chooseContent.newVideos,
+                  videoUrl1 && videoUrl2 && videoUrl3
+                    ? [videoUrl1, videoUrl2, videoUrl3]
+                    : chooseContent.newVideos,
                 // newVideos: [videoUrl1, videoUrl2, videoUrl3],
                 newsVideoSlider:
-                  newsVideoUrlList || chooseContent.newsVideoSlider,
+                  newsVideoUrlList.length > 0
+                    ? newsVideoUrlList
+                    : chooseContent.newsVideoSlider,
                 // newsVideoSlider: newsVideoUrlList,
                 counters:
                   [
-                    { counter1Text, counter1, counter1ImageUrl },
-                    { counter2Text, counter2, counter2ImageUrl },
+                    {
+                      counter1Text: counter1Text
+                        ? counter1Text
+                        : chooseContent.counters[0].counter1Text,
+                      counter1: counter1
+                        ? counter1
+                        : chooseContent.counters[0].counter1,
+                      counter1ImageUrl: counter1ImageUrl
+                        ? counter1ImageUrl
+                        : chooseContent.counters[0].counter1ImageUrl,
+                    },
+                    {
+                      counter2Text: counter2Text
+                        ? counter2Text
+                        : chooseContent.counters[1].counter2Text,
+                      counter2: counter2
+                        ? counter2
+                        : chooseContent.counters[1].counter2,
+                      counter2ImageUrl: counter2ImageUrl
+                        ? counter2ImageUrl
+                        : chooseContent.counters[1].counter2ImageUrl,
+                    },
                   ] || chooseContent.counters,
                 // counters: [
                 //   { counter1Text, counter1, counter1ImageUrl },

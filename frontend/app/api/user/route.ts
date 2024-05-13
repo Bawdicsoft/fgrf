@@ -13,8 +13,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 export const POST = async (req: Request, res: Response) => {
-  const { amount, email } = await req.json();
   try {
+    const { amount, email } = await req.json();
     const mailOptions = {
       from: "fgrfuk25@gmail.com",
       to: email,
@@ -22,7 +22,7 @@ export const POST = async (req: Request, res: Response) => {
       text: "FGRF Thankfull for your Donation.",
       // html: `<h1>Hello ashraf</h1><p>my name is ${name} from karachi so i will meet with you tomorrow</p><p>~${message}</p><p>~${phoneNo}</p>`,
     };
-    transporter.sendMail(mailOptions, (err, info) => {
+    await transporter.sendMail(mailOptions, (err, info) => {
       if (err) {
         console.error(err);
       } else {

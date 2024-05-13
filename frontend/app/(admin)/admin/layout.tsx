@@ -31,9 +31,10 @@ export default function RootLayout({
           {loading ? (
             <Loader />
           ) : (
-            <DashboardProvider>
-              <ContentProvider>
+            <ContentProvider>
+              <DashboardProvider>
                 <AuthForm />
+
                 <div className="flex h-screen overflow-hidden">
                   <Sidebar
                     sidebarOpen={sidebarOpen}
@@ -53,8 +54,8 @@ export default function RootLayout({
                     </main>
                   </div>
                 </div>
-              </ContentProvider>
-            </DashboardProvider>
+              </DashboardProvider>
+            </ContentProvider>
           )}
         </div>
       </body>

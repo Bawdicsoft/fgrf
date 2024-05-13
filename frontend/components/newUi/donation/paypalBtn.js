@@ -14,14 +14,14 @@ const MyPayPalButton = ({ amount, currency }) => {
           orderDetails.payer &&
           orderDetails.payer.email_address
         ) {
-          // setCustomerEmailAddress(orderDetails.payer.email_address);
+          setCustomerEmailAddress(orderDetails.payer.email_address);
           sendEmail(
             orderDetails.payer.email_address,
             `Thank you for your ${amount} Donation!`,
             "FGRF Thankfull for your Donation."
           );
           axios
-            .post("/admin/api", {
+            .post("/api/user", {
               email: orderDetails.payer.email_address,
               amount: amount,
             })
@@ -62,7 +62,7 @@ const MyPayPalButton = ({ amount, currency }) => {
                   value: amount,
                   currency_code: currency,
                 },
-                // payee: customerEmailAddress,
+                payee: customerEmailAddress,
               },
             ],
           });
