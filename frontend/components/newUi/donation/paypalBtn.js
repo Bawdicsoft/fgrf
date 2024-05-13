@@ -62,7 +62,7 @@ const MyPayPalButton = ({ amount, currency }) => {
                   value: amount,
                   currency_code: currency,
                 },
-                payee: customerEmailAddress,
+                // payee: customerEmailAddress,
               },
             ],
           });
