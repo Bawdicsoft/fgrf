@@ -771,7 +771,7 @@ const StartSec: React.FC<StartSecProps> = ({
                         <div className="grid  grid-cols-1 md:grid-cols-2 gap-4 md:gap-2 lg:gap-1 pt-2 md:py-8 mx-auto">
                           <div>
                             <h2 className="text-center text-2xl md:text-3xl lg:text-7xl uppercase font-semibold md:font-bold lg:font-extrabold md:py-2 text-teal-500">
-                              {title}
+                              {title.split(" ").slice(0, -1).join(" ")}
                             </h2>
                             <p className="text-sm md:text-justify md:text-lg text-teal-500 font-semibold capitalize pb-2 md:py-3 ">
                               {desc}

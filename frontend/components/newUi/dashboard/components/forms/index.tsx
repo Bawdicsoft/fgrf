@@ -413,7 +413,7 @@ export default function UpdateForm() {
                 photo: titleImageUrl1 ? titleImageUrl1 : chooseContent.photo,
                 switch: chooseContent.switch,
                 url: chooseContent.url,
-                mainSec: "Donations" || chooseContent.mainSec,
+                mainSec: "Donation" || chooseContent.mainSec,
               },
             });
           }
