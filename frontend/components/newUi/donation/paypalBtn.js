@@ -15,11 +15,11 @@ const MyPayPalButton = ({ amount, currency }) => {
           orderDetails.payer.email_address
         ) {
           setCustomerEmailAddress(orderDetails.payer.email_address);
-          sendEmail(
-            orderDetails.payer.email_address,
-            `Thank you for your ${amount} Donation!`,
-            "FGRF Thankfull for your Donation."
-          );
+          // sendEmail(
+          //   orderDetails.payer.email_address,
+          //   `Thank you for your ${amount} Donation!`,
+          //   "FGRF Thankfull for your Donation."
+          // );
           axios
             .post("/api/user", {
               email: orderDetails.payer.email_address,
@@ -72,7 +72,7 @@ const MyPayPalButton = ({ amount, currency }) => {
             if (details.error) {
               router.push("/paypal-error");
             } else {
-              // fetchOrderDetails(details.id);
+              fetchOrderDetails(details.id);
               router.push({
                 pathname: `/paypal-success/${amount}`,
               });
