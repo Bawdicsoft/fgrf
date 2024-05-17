@@ -190,6 +190,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
               onClick={() => {
                 setChildSection("Main Page");
                 setMainSection("Main Page");
+                setMidSection("Main Page");
               }}
             >
               Main Page
