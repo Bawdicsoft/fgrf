@@ -9,7 +9,7 @@ app.use(express.json());
 
 // checkOut MiddleWare
 app.use("/stripe", checkOut);
-app.use("/contactus", contactUs);
+app.use("/message", contactUs);
 app.get("/", function (req, res) {
   res.send("Server is running");
 });
