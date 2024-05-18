@@ -12,7 +12,7 @@ const ContactUs: React.FC = () => {
   const submitHandler = (e: any) => {
     e.preventDefault();
     axios
-      .post("/api/contactus", {
+      .post("/api/message/contactus", {
         email: formData.email,
         name: formData.userName,
         phoneNo: formData.phoneNo,
