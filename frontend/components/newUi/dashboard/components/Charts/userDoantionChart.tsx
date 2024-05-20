@@ -5,7 +5,7 @@ import { usAea } from "@react-jvectormap/unitedstates";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/components/newUi/config/firebase";
 
-const MapOne = () => {
+const UserDonationChart = () => {
   const [donationData, setDonationData] = useState<any>([]);
   const [reclaimData, setReclaimData] = useState<any>([]);
   const getDataFromFirestoreDonation = async () => {
@@ -267,4 +267,4 @@ const MapOne = () => {
   );
 };
 
-export default MapOne;
+export default UserDonationChart;

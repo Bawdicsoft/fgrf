@@ -5,12 +5,12 @@ import { usAea } from "@react-jvectormap/unitedstates";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/components/newUi/config/firebase";
 
-const MapOne = () => {
-  const [donationData, setDonationData] = useState<any>([]);
-  const [reclaimData, setReclaimData] = useState<any>([]);
-  const getDataFromFirestoreDonation = async () => {
+const UserAppealDonationChart = () => {
+  const [quickDonationData, setQuickDonationData] = useState<any>([]);
+  const [appealData, setAppealData] = useState<any>([]);
+  const getDataFromFireStoreAppealDonation = async () => {
     try {
-      const collectionRef = collection(db, "userDonation");
+      const collectionRef = collection(db, "userAppealDonation");
       const querySnapshot = await getDocs(collectionRef);
       const data: any = [];
 
@@ -23,9 +23,9 @@ const MapOne = () => {
       return [];
     }
   };
-  const getDataFromFirestoreReclaimGifts = async () => {
+  const getDataFromFireStoreQuickDonation = async () => {
     try {
-      const collectionRef = collection(db, "userReclaimGifts");
+      const collectionRef = collection(db, "userQuickDonation");
       const querySnapshot = await getDocs(collectionRef);
       const data: any = [];
 
@@ -39,45 +39,27 @@ const MapOne = () => {
     }
   };
   useEffect(() => {
-    getDataFromFirestoreDonation().then((result) => {
-      setDonationData(result);
+    getDataFromFireStoreQuickDonation().then((result) => {
+      setQuickDonationData(result);
     });
-    getDataFromFirestoreReclaimGifts().then((result) => {
-      setReclaimData(result);
+    getDataFromFireStoreAppealDonation().then((result) => {
+      setAppealData(result);
     });
   }, []);
 
-  function downloadFileDonation(data: any) {
-    const filterData = donationData.filter(
+  function downloadFileAppealDonation(data: any) {
+    const filterData = appealData.filter(
       (title: any) => data === title.userData.donationTitle
     );
     // Add header
-    let csvData =
-      "First Name" +
-      "," +
-      "Contact No" +
-      "," +
-      "Donation" +
-      "," +
-      "Donation Title" +
-      "," +
-      "Email" +
-      "," +
-      "Date" +
-      "\n";
+    let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
 
     // Add data
     filterData.forEach(function (row: any) {
       csvData +=
-        row.userData.firstName +
-        "," +
-        row.userData.contactNo +
-        "," +
-        row.userData.donation +
-        "," +
         row.userData.donationTitle +
         "," +
-        row.userData.email +
+        row.userData.donation +
         "," +
         row.userData.date +
         "\n";
@@ -90,39 +72,16 @@ const MapOne = () => {
     anchor.download = `${data}.csv`;
     anchor.click();
   }
-  function downloadFileReclaimGifts() {
-    console.log("reclaimData---->", reclaimData);
+  function downloadFileQuickDonation() {
     // Add header
-    let csvData =
-      "Email" +
-      "," +
-      "Address-1" +
-      "," +
-      "Address-2" +
-      "," +
-      "City" +
-      "," +
-      "Country" +
-      "," +
-      "Postal-Code" +
-      "," +
-      "Date" +
-      "\n";
+    let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
 
     // Add data
-    reclaimData.forEach(function (row: any) {
+    quickDonationData.forEach(function (row: any) {
       csvData +=
-        row.userData.email +
+        row.userData.donationTitle +
         "," +
-        row.userData.address1 +
-        "," +
-        row.userData.address2 +
-        "," +
-        row.userData.city +
-        "," +
-        row.userData.country +
-        "," +
-        row.userData.postalCode +
+        row.userData.donation +
         "," +
         row.userData.date +
         "\n";
@@ -131,9 +90,10 @@ const MapOne = () => {
     let anchor = document.createElement("a");
     anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
     anchor.target = "_blank";
-    anchor.download = "reclaimGifts.csv";
+    anchor.download = "quickDonation.csv";
     anchor.click();
   }
+
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-6 shadow-default xl:col-span-7">
       <h4 className="mb-2 text-xl font-semibold text-black">Users</h4>
@@ -141,53 +101,51 @@ const MapOne = () => {
         <div className="flex flex-col gap-4">
           <div className="flex gap-2 items-center">
             <hr className="h-[2px] bg-teal-500 w-full" />
-            <span className="text-teal-500">Donations</span>
+            <span className="text-teal-500">Appeal</span>
             <hr className="h-[2px] bg-teal-500 w-full" />
           </div>
           {/* palestine */}
           <div className="flex items-center justify-between ">
-            <p>Palestine</p>
+            <p>Winter Emergency</p>
 
             <button
-              onClick={() =>
-                downloadFileDonation("Palestine Emergency Donation")
-              }
+              onClick={() => downloadFileAppealDonation("Winter Emergency")}
               className="bg-teal-500 text-sm  p-2 text-white"
             >
               {" "}
               Download CSV file{" "}
             </button>
           </div>
-          {/* Food Pack */}
+          {/* Sadaqah */}
           <div className="flex items-center justify-between ">
-            <p>Food Pack</p>
+            <p>Sadaqah</p>
 
             <button
-              onClick={() => downloadFileDonation("Food Box Donation")}
+              onClick={() => downloadFileAppealDonation("Sadaqah")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
               Download CSV file{" "}
             </button>
           </div>
-          {/* Winter */}
+          {/* Zakat */}
           <div className="flex items-center justify-between ">
-            <p>Winter</p>
+            <p>Zakat</p>
 
             <button
-              onClick={() => downloadFileDonation("Winter Emergency Donation")}
+              onClick={() => downloadFileAppealDonation("Zakat")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
               Download CSV file{" "}
             </button>
           </div>
-          {/* Iftar */}
+          {/* Food Box */}
           <div className="flex items-center justify-between ">
-            <p>Iftar</p>
+            <p>Food Box</p>
 
             <button
-              onClick={() => downloadFileDonation("Iftar Donation")}
+              onClick={() => downloadFileAppealDonation("Food Box")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -196,10 +154,10 @@ const MapOne = () => {
           </div>
           {/* Orphan */}
           <div className="flex items-center justify-between ">
-            <p>Orphan</p>
+            <p>Palestine Emergency</p>
 
             <button
-              onClick={() => downloadFileDonation("Orphan Donation")}
+              onClick={() => downloadFileAppealDonation("Palestine Emergency")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -211,7 +169,7 @@ const MapOne = () => {
             <p>Hand Pump</p>
 
             <button
-              onClick={() => downloadFileDonation("Hand Pump Donation")}
+              onClick={() => downloadFileAppealDonation("Hand Pump Donation")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -223,7 +181,43 @@ const MapOne = () => {
             <p>Water Well</p>
 
             <button
-              onClick={() => downloadFileDonation("Water Well Donation")}
+              onClick={() => downloadFileAppealDonation("Water Well")}
+              className="bg-teal-500 text-sm p-2 text-white"
+            >
+              {" "}
+              Download CSV file{" "}
+            </button>
+          </div>
+          {/* Masjid */}
+          <div className="flex items-center justify-between ">
+            <p>Ramadan</p>
+
+            <button
+              onClick={() => downloadFileAppealDonation("Ramadan")}
+              className="bg-teal-500 text-sm p-2 text-white"
+            >
+              {" "}
+              Download CSV file{" "}
+            </button>
+          </div>
+          {/* Orphan */}
+          <div className="flex items-center justify-between ">
+            <p>Orphan</p>
+
+            <button
+              onClick={() => downloadFileAppealDonation("Orphan")}
+              className="bg-teal-500 text-sm p-2 text-white"
+            >
+              {" "}
+              Download CSV file{" "}
+            </button>
+          </div>
+          {/* Hand Pump */}
+          <div className="flex items-center justify-between ">
+            <p>Hand Pump</p>
+
+            <button
+              onClick={() => downloadFileAppealDonation("Hand Pump")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -235,7 +229,7 @@ const MapOne = () => {
             <p>Masjid</p>
 
             <button
-              onClick={() => downloadFileDonation("Masjid Donation")}
+              onClick={() => downloadFileAppealDonation("Masjid")}
               className="bg-teal-500 text-sm p-2 text-white"
             >
               {" "}
@@ -243,18 +237,18 @@ const MapOne = () => {
             </button>
           </div>
 
-          {/* Reclaim Gifts */}
+          {/* Quick Donation */}
           <div className="flex gap-2 items-center">
-            <hr className="h-[2px] bg-teal-500 w-full" />
-            <span className="text-teal-500 ">ReclaimGifts</span>
-            <hr className="h-[2px] bg-teal-500 w-full" />
+            <hr className="h-[2px] bg-teal-500 w-2/6" />
+            <span className="text-teal-500 ">Quick Donations</span>
+            <hr className="h-[2px] bg-teal-500 w-2/6" />
           </div>
           {/* Reclaim Gifts */}
           <div className="flex items-center justify-between ">
-            <p>Reclaim Gifts</p>
+            <p>Quick Donations</p>
 
             <button
-              onClick={() => downloadFileReclaimGifts()}
+              onClick={() => downloadFileQuickDonation()}
               className="bg-teal-500 text-sm  p-2 text-white"
             >
               {" "}
@@ -267,4 +261,4 @@ const MapOne = () => {
   );
 };
 
-export default MapOne;
+export default UserAppealDonationChart;

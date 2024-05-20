@@ -13,9 +13,11 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 import dynamic from "next/dynamic";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
 import UpdateForm from "../forms";
-const MapOne = dynamic(() => import("../Maps/MapOne"), {
-  ssr: false,
-});
+import UserDonationChart from "../Charts/userDoantionChart";
+import UserAppealDonationChart from "../Charts/userAppealChart";
+// const MapOne = dynamic(() => import("../Maps/MapOne"), {
+//   ssr: false,
+// });
 
 const DashBoard: React.FC = () => {
   return (
@@ -96,7 +98,9 @@ const DashBoard: React.FC = () => {
         <ChartOne />
         <ChartTwo />
         <ChartThree />
-        <MapOne />
+        {/* <MapOne /> */}
+        <UserDonationChart />
+        <UserAppealDonationChart />
         <div className="col-span-12 xl:col-span-8">{/* <TableOne /> */}</div>
         {/* <ChatCard /> */}
       </div>

@@ -59,13 +59,12 @@ const StartSec: React.FC<StartSecProps> = ({
   if (title !== "Zakat Donation") {
     setTitleForDonation("QuickDonation");
   }
-  console.log("donationDollar----->", donationDollar);
   const [titleDonate, setTitleDonate] = useState<string>(title);
   const [bgBtnIndex, setBgBtnIndex] = useState<number>(1);
 
   const [zakatCalc, setZakatCalc] = useState<Boolean>(false);
   const [otherDollarVal, setOtherDollarVal] = useState<string>("");
-  const [userDetails, setUserDetails] = useState<any>("");
+
   const [country, setCountry] = useState<string>("United kingdom");
   const donation = [titleDonate || "Quick Donation", dollarDonate];
   const [showPayment, setShowPayment] = useState(false);
@@ -97,10 +96,6 @@ const StartSec: React.FC<StartSecProps> = ({
       setCheck1(true);
       setCheck(true);
       a = { title, firstName, lastName, email, contactNo };
-      // setUserDetails(userDet);
-      console.log("a---->", a);
-      // userDonation(userDet);
-      // return { title, firstName, lastName, email, contactNo };
     } else {
       setShowFormText(true);
       setShowFormDonation(true);
@@ -108,8 +103,33 @@ const StartSec: React.FC<StartSecProps> = ({
     }
   };
 
+  const userQuickDonation = async () => {
+    try {
+      const newCollectionRef = collection(db, "userQuickDonation");
+      const newDocRef = doc(newCollectionRef);
+      const now = new Date();
+      const userDetails = {
+        userData: {
+          date: now.toLocaleString(),
+          donationTitle: "Quick Donation",
+          donation: dollarDonate,
+        },
+      };
+
+      await setDoc(newDocRef, userDetails, { merge: true });
+      if (userDetails !== undefined) {
+        console.log("Hogeya meray Bahi");
+      }
+    } catch (error) {
+      console.error("submit reclaim gift handler--->", error);
+    }
+  };
+
   const nextHandler = () => {
     if (donation[0] === "Quick Donation" || donation[0] === "Zakat Donation") {
+      if (donation[0] === "Quick Donation") {
+        userQuickDonation();
+      }
       setShowPayment(true);
       setShowFormDonation(false);
       setShowBackBtn(true);

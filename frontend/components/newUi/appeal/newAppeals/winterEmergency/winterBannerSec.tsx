@@ -12,6 +12,8 @@ import AppealBannerAnimationRight from "../animations/bannerAnimationRight";
 import AnimatedComponentLeft from "@/components/newUi/home/AnimationLeft";
 import AnimatedComponentRight from "@/components/newUi/home/AnimationRight";
 import { useContentContext } from "@/components/newUi/contextApi/contentContext";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "@/components/newUi/config/firebase";
 const WinterBannerSection = () => {
   const contentContext = useContentContext();
   const data = contentContext.content;
@@ -77,6 +79,29 @@ const WinterBannerSection = () => {
   const [amount, setAmount] = useState();
   const [donationForm, setDonationForm] = useState(true);
   const [borderColor, setBorderColor] = useState(false);
+
+  const userDonation = async () => {
+    try {
+      const newCollectionRef = collection(db, "userAppealDonation");
+      const newDocRef = doc(newCollectionRef);
+      const now = new Date();
+      const userDetails = {
+        userData: {
+          date: now.toLocaleString(),
+          donationTitle: "Winter Emergency",
+          donation: dollarDonate,
+        },
+      };
+
+      await setDoc(newDocRef, userDetails, { merge: true });
+      if (userDetails !== undefined) {
+        console.log("Hogeya meray Bahi");
+      }
+    } catch (error) {
+      console.error("submit reclaim gift handler--->", error);
+    }
+  };
+
   return (
     <div className="pt-10 lg:pt-16">
       <div className="max-w-3xl mx-auto">
@@ -195,7 +220,9 @@ const WinterBannerSection = () => {
               </p>
               <p className="bg-white h-[1px] w-full"></p>
               <div className="py-2 flex justify-between">
-                <p className="text-gray-700 text-base">Quick Donation</p>
+                <p className="text-gray-700 text-base">
+                  Winter Emergency Appeal Donation
+                </p>
                 <p className="text-gray-700 text-base">{dollarDonate}</p>
               </div>
               <p className="bg-white h-[1px] w-full"></p>
@@ -233,6 +260,7 @@ const WinterBannerSection = () => {
             onClick={() => {
               // nextHandler();
               setDonationForm(false);
+              userDonation();
             }}
             className="relative  group overflow-hidden  uppercase  py-2 px-4 text-2xl font-bold  bg-[#19afaf] flex gap-2 items-center justify-center"
           >
