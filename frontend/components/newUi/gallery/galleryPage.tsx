@@ -304,14 +304,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -354,14 +354,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -404,14 +404,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -454,14 +454,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -504,14 +504,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -554,14 +554,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -604,14 +604,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -654,14 +654,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -704,14 +704,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -754,14 +754,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -804,14 +804,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -854,14 +854,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -904,14 +904,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -954,14 +954,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1004,14 +1004,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1054,14 +1054,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1104,14 +1104,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1154,14 +1154,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1204,14 +1204,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1254,14 +1254,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1304,14 +1304,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1354,14 +1354,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1404,14 +1404,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1454,14 +1454,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1504,14 +1504,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1554,14 +1554,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1604,14 +1604,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
@@ -1654,14 +1654,14 @@ const GalleryPage = () => {
                     </div>
                     <div className="back absolute top-0 left-0 w-full h-full bg-gray-200 transform rotate-y-180 group-hover:rotate-y-0">
                       <div className="back-content flex flex-col justify-center items-center text-gray-700">
-                        <div className="sm space-x-2">
+                        {/* <div className="sm space-x-2">
                           <h3>Lorem ipsum</h3>
                           <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Lorem ipsum dolor sit amet consectetur
                             adipisicing elit.
                           </p>
-                        </div>
+                        </div> */}
                         <motion.div
                           // className="box"
                           whileHover={{ scale: 1.2 }}
