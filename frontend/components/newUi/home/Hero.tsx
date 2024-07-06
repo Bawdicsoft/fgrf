@@ -13,7 +13,7 @@ const Hero = () => {
   const mainSlider = foodBoxData[0]?.content?.mainSlider;
   const heroImage = mainSlider;
   const handleUpdate = (newIndex: any) => {
-    if (newIndex < 0 || newIndex > 7) {
+    if (newIndex < 0 || newIndex > 10) {
       newIndex = 0;
     } else if (newIndex >= heroImage.length) {
       newIndex = heroImage.length - 1;
