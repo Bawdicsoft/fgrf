@@ -119,8 +119,8 @@ const Header = (props: {
             {/* <DropdownNotification /> */}
             {/* <!-- Notification Menu Area --> */}
             {/* </DropdownUser /> */}
-            {Email === "fgrfuk25@gmail.com" &&
-              userPassword === "123@fgrfadmin" && (
+            {Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
+              userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD && (
                 <a
                   href="/admin/dashboard"
                   onClick={signOutHandler}
