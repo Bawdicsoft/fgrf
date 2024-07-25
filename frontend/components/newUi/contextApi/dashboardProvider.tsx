@@ -4,7 +4,18 @@ import { DashboardContext } from "./dashboardContext";
 
 export default function DashboardProvider({ children }: { children: any }) {
   const [mainSection, setMainSection] = useState("");
-  const [loggedIn, setLoggedIn] = useState(true);
+  const checkFunc = () => {
+    let userimg = localStorage.getItem("Auth-admin");
+    const user = userimg ? JSON.parse(userimg) : null;
+    const Email = user?.email;
+    const userPassword = user?.password;
+    if (Email === "fgrfuk25@gmail.com" && userPassword === "123@fgrfadmin") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  const [loggedIn, setLoggedIn] = useState(checkFunc);
   const [midSection, setMidSection] = useState("");
   const [childSection, setChildSection] = useState("");
   const [userImage, setUserImage] = useState("");
@@ -20,16 +31,21 @@ export default function DashboardProvider({ children }: { children: any }) {
     setChildSection(title);
   };
   const setAuthHandler = (bol: any) => {
-    // let userimg =
-    //   typeof window !== "undefined" ? localStorage.getItem("Auth-admin") : null;
-    // const user = userimg ? JSON.parse(userimg) : null;
-    // const userEmail = user?.email;
-    // const userPassword = user?.email;
-    // if (userEmail === "fgrfuk25@gmail.com" && userPassword === "123@fgrf") {
-    //   setLoggedIn(bol);
-    // } else {
-    setLoggedIn(bol);
-    // }
+    // setLoggedIn(bol);
+    setTimeout(() => {
+      let userimg = localStorage.getItem("Auth-admin");
+      const user = userimg ? JSON.parse(userimg) : null;
+      const userEmail = user?.email;
+      const userPassword = user?.password;
+      if (
+        userEmail === process.env.NEXT_PUBLIC_USER_EMAIL &&
+        userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD
+      ) {
+        setLoggedIn(bol);
+      } else {
+        // setLoggedIn(bol);
+      }
+    }, 3000);
   };
   const setImageHandler = (bol: any) => {
     setUserImage(bol);
