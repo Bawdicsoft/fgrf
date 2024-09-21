@@ -367,10 +367,10 @@ const ChartTwo: React.FC = () => {
   ];
   thisWeekData.push(thisWeekDataAllData && thisWeekDataAllData);
   lastWeekData.push(lastWeekDataAllData && lastWeekDataAllData);
-  console.log("thisWeekData------>", thisWeekData[3]);
-  console.log("lastWeekData------>", lastWeekData[3]);
+  console.log("thisWeekData------>", thisWeekData);
+  console.log("lastWeekData------>", lastWeekData);
   const [weekendData, setWeekendData] = useState<any>({
-    mydata: thisWeekData[3],
+    mydata: thisWeekData,
     title: "thisWeekData",
   });
   const [state, setState] = useState<ChartTwoState>({
@@ -409,8 +409,8 @@ const ChartTwo: React.FC = () => {
               onChange={() =>
                 setWeekendData(
                   weekendData?.title === "thisWeekData"
-                    ? { mydata: thisWeekData[3], title: "thisWeekData" }
-                    : { mydata: lastWeekData[3], title: "lastWeekData" }
+                    ? { mydata: thisWeekData, title: "thisWeekData" }
+                    : { mydata: lastWeekData, title: "lastWeekData" }
                 )
               }
               className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none"
