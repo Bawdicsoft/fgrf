@@ -9,7 +9,8 @@ export default function DashboardProvider({ children }: { children: any }) {
     const user = userimg ? JSON.parse(userimg) : null;
     const Email = user?.email;
     const userPassword = user?.password;
-    if (Email === "fgrfuk25@gmail.com" && userPassword === "123@fgrfadmin") {
+    if ( Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
+      userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD) {
       return false;
     } else {
       return true;
