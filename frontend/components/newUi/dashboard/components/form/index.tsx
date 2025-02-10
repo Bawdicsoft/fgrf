@@ -16,7 +16,9 @@ import {
 import { db, storage } from "@/components/newUi/config/firebase";
 import { ref, uploadBytes, getDownloadURL } from "@firebase/storage";
 import { useContentContext } from "@/components/newUi/contextApi/contentContext";
+import { useRouter } from "next/navigation";
 export default function UpdateForm() {
+  const router = useRouter();
   const dataContext = useDashboardContext();
   const mainSection = dataContext.mainSection;
   const midSection = dataContext.midSection;
@@ -78,7 +80,7 @@ export default function UpdateForm() {
   );
 
   const disasterManagementLst = [
-    "Select An Option",
+    "Select An Options",
     "Disaster Management",
     "Covid-19",
     "Pakistan Flood",
@@ -173,8 +175,14 @@ export default function UpdateForm() {
   //     setMySwitch(false);
   //   }
   // };
+
   // Submit Handler
+  const [loader, setLoader] = useState<boolean>(false);
   const submitHandler = async (e: any) => {
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false);
+    }, 2000);
     e.preventDefault();
     if (mainSection === "New Page") {
       let a = Math.random();
@@ -182,6 +190,7 @@ export default function UpdateForm() {
         try {
           const newCollectionRef = collection(db, "contents");
           const newDocRef = doc(newCollectionRef);
+
           const storageRef1 = ref(
             storage,
             "images/" + photo1?.name + a.toString().slice(2, 10)
@@ -205,6 +214,7 @@ export default function UpdateForm() {
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
+          router.refresh()
         } catch (error) {
           console.error("Roko bahi firebaser error arha hai--->", error);
         }
@@ -249,6 +259,7 @@ export default function UpdateForm() {
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
+          router.refresh()
         } catch (error) {
           console.error("Roko bahi firebaser error arha hai--->", error);
         }
@@ -291,6 +302,7 @@ export default function UpdateForm() {
           if (mainSection !== undefined) {
             console.log("Ok ki report hai bahi");
           }
+          router.refresh()
         } catch (error) {
           console.error("Roko bahi firebaser error arha hai--->", error);
         }
@@ -352,11 +364,12 @@ export default function UpdateForm() {
                 text: text ? text : chooseContent.text,
                 slider: urlList.length > 0 ? urlList : chooseContent.slider,
                 video: videoUrl ? videoUrl : chooseContent.video,
-                mainSec: "Our Department" || chooseContent.mainSec,
+                mainSec: chooseContent.mainSec || "Our Department",
                 switch: chooseContent.switch,
                 url: chooseContent.url,
               },
             });
+            router.refresh()
           }
         }
         if (mainSection === "Appeals") {
@@ -412,7 +425,7 @@ export default function UpdateForm() {
                   secondImageUrl ? secondImageUrl : chooseContent.photo[1],
                 ],
                 sec: sec || chooseContent.sec,
-                mainSec: "Appeals" || chooseContent.mainSec,
+                mainSec: chooseContent.mainSec || "Appeals",
                 text: text ? text : chooseContent.text,
                 slider: urlList.length > 0 ? urlList : chooseContent.slider,
                 video:
@@ -423,6 +436,7 @@ export default function UpdateForm() {
                 switch: chooseContent.switch,
               },
             });
+            router.refresh()
           }
         }
         if (mainSection === "Donations") {
@@ -447,9 +461,10 @@ export default function UpdateForm() {
                 photo: titleImageUrl1 ? titleImageUrl1 : chooseContent.photo,
                 switch: chooseContent.switch,
                 url: chooseContent.url,
-                mainSec: "Donation" || chooseContent.mainSec,
+                mainSec: chooseContent.mainSec || "Donation",
               },
             });
+            router.refresh()
           }
         }
         if (mainSection === "Main Page") {
@@ -622,37 +637,37 @@ export default function UpdateForm() {
                     ? newsVideoUrlList
                     : chooseContent.newsVideoSlider,
                 // newsVideoSlider: newsVideoUrlList,
-                counters:
-                  [
-                    {
-                      counter1Text: counter1Text
-                        ? counter1Text
-                        : chooseContent.counters[0].counter1Text,
-                      counter1: counter1
-                        ? counter1
-                        : chooseContent.counters[0].counter1,
-                      counter1ImageUrl: counter1ImageUrl
-                        ? counter1ImageUrl
-                        : chooseContent.counters[0].counter1ImageUrl,
-                    },
-                    {
-                      counter2Text: counter2Text
-                        ? counter2Text
-                        : chooseContent.counters[1].counter2Text,
-                      counter2: counter2
-                        ? counter2
-                        : chooseContent.counters[1].counter2,
-                      counter2ImageUrl: counter2ImageUrl
-                        ? counter2ImageUrl
-                        : chooseContent.counters[1].counter2ImageUrl,
-                    },
-                  ] || chooseContent.counters,
+                counters:  [
+                  {
+                    counter1Text: counter1Text
+                      ? counter1Text
+                      : chooseContent.counters[0].counter1Text,
+                    counter1: counter1
+                      ? counter1
+                      : chooseContent.counters[0].counter1,
+                    counter1ImageUrl: counter1ImageUrl
+                      ? counter1ImageUrl
+                      : chooseContent.counters[0].counter1ImageUrl,
+                  },
+                  {
+                    counter2Text: counter2Text
+                      ? counter2Text
+                      : chooseContent.counters[1].counter2Text,
+                    counter2: counter2
+                      ? counter2
+                      : chooseContent.counters[1].counter2,
+                    counter2ImageUrl: counter2ImageUrl
+                      ? counter2ImageUrl
+                      : chooseContent.counters[1].counter2ImageUrl,
+                  },
+                ],
                 // counters: [
                 //   { counter1Text, counter1, counter1ImageUrl },
                 //   { counter2Text, counter2, counter2ImageUrl },
                 // ],
               },
             });
+            router.refresh()
           }
         }
       });
@@ -1379,6 +1394,291 @@ export default function UpdateForm() {
       }
     });
   };
+  const [backendImages, setBackendImages] = useState<any>(null);
+  const [backendVideos, setBackendVideos] = useState<any>(null);
+  const [backendSliderImages, setBackendSliderImages] = useState<any>([]);
+  const [backendMainPageSliderImages, setBackendMainPageSliderImages] =
+    useState<any>([]);
+  const [
+    backendMainPageOurDepartmentSliderImages,
+    setBackendMainPageOurDepartmentSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageRamdanSliderImages,
+    setBackendMainPageRamdanSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageZakatSliderImages,
+    setBackendMainPageZakatSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageFoodBoxSliderImages,
+    setBackendMainPageFoodBoxSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageWinterSliderImages,
+    setBackendMainPageWinterSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPagePalestineSliderImages,
+    setBackendMainPagePalestineSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageOrphanSliderImages,
+    setBackendMainPageOrphanSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageHandPumpSliderImages,
+    setBackendMainPageHandPumpSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageWaterWellSliderImages,
+    setBackendMainPageWaterWellSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageMasjidSliderImages,
+    setBackendMainPageMasjidSliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageAchievementImages,
+    setBackendMainPageAchievementImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageCounters,
+    setBackendMainPageCounters,
+  ] = useState<any>([]);
+  const [
+    counter1MainPageBackendImage,
+    setCounter1MainPageBackendImage,
+  ] = useState<any>([]);
+  const [
+    counter2MainPageBackendImage,
+    setCounter2MainPageBackendImage,
+  ] = useState<any>([]);
+  const [
+    backendMainPageGallerySliderImages,
+    setBackendMainPageGallerySliderImages,
+  ] = useState<any>([]);
+  const [
+    backendMainPageNewsVideos,
+    setBackendMainPageNewsVideos,
+  ] = useState<any>([]);
+  const [
+    backendMainPageNewsSliderVideos,
+    setBackendMainPageNewsSliderVideos,
+  ] = useState<any>([]);
+  const filterDataBySection = (e: any) => {
+    const allData = data.filter((title: any) => e === title.content.sec);
+    setText(allData[0]?.content?.text);
+    if (allData[0]?.content.mainSec === "Donation") {
+      setBackendImages([allData[0]?.content?.photo]);
+    } else if (allData[0]?.content.mainSec === "Appeals") {
+      setBackendImages(allData[0]?.content?.photo);
+      setBackendVideos(allData[0]?.content?.video);
+      setBackendSliderImages(allData[0]?.content?.slider);
+    } else if (allData[0]?.content?.sec === "Main Page") {
+      setBackendMainPageSliderImages(allData[0]?.content?.mainSlider);
+      setBackendMainPageOurDepartmentSliderImages(
+        allData[0]?.content?.ourDepartmentSlider
+      );
+      setBackendMainPageRamdanSliderImages(
+        allData[0]?.content?.ramazanSlider?.ramazanSlider
+      );
+      setBackendMainPageZakatSliderImages(
+        allData[0]?.content?.zakatSlider?.zakatSlider
+      );
+      setBackendMainPageFoodBoxSliderImages(
+        allData[0]?.content?.foodboxSlider?.foodboxSlider
+      );
+      setBackendMainPageWinterSliderImages(
+        allData[0]?.content?.winterSlider?.winterSlider
+      );
+      setBackendMainPagePalestineSliderImages(
+        allData[0]?.content?.palestineSlider?.palestineSlider
+      );
+      setBackendMainPageOrphanSliderImages(
+        allData[0]?.content?.orphanSlider?.orphanSlider
+      );
+      setBackendMainPageHandPumpSliderImages(
+        allData[0]?.content?.handPumpSlider?.handPumpSlider
+      );
+      setBackendMainPageWaterWellSliderImages(
+        allData[0]?.content?.waterWellSlider?.waterWellSlider
+      );
+      setBackendMainPageMasjidSliderImages(
+        allData[0]?.content?.masjidSlider?.masjidSlider
+      );
+      setBackendMainPageAchievementImages(
+        allData[0]?.content?.achievementSlider
+      );
+      setBackendMainPageGallerySliderImages(
+        allData[0]?.content?.gallerySlider
+      );
+      setBackendMainPageNewsVideos(
+        allData[0]?.content?.newVideos
+      );
+      setBackendMainPageNewsSliderVideos(allData[0]?.content?.newsVideoSlider);
+      setBackendMainPageCounters(
+        allData[0]?.content?.counters
+      );
+      setCounter1Text(allData[0]?.content?.counters?.[0]?.counter1Text)
+      setCounter1(allData[0]?.content?.counters?.[0]?.counter1)
+      setCounter2Text(allData[0]?.content?.counters?.[1]?.counter2Text)
+      setCounter2(allData[0]?.content?.counters?.[1]?.counter2)
+      setCounter1MainPageBackendImage(allData[0]?.content?.counters?.[0]?.counter1ImageUrl)
+      setCounter2MainPageBackendImage(allData[0]?.content?.counters?.[1]?.counter2ImageUrl)
+    } else if(allData[0]?.content.mainSec === "Our Department"){
+      setBackendImages([allData[0]?.content?.bannerImg]);
+      setBackendImages((prev:any) => [...prev,allData[0]?.content?.heroSecImg]);
+      setBackendVideos([allData[0]?.content?.video])
+      setBackendSliderImages(allData[0]?.content?.slider);
+    }
+
+    console.log(
+      "allData-->",
+      allData
+    );
+  };
+  let backSlider = backendSliderImages?.length > 0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-44 h-32" />
+      ))}
+    </div>
+  );
+  let backMainPageSlider = backendMainPageSliderImages?.length > 0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-72 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageOurDepartmentSlider =
+    backendMainPageOurDepartmentSliderImages?.length > 0 && (
+      <div className="gap-2 flex flex-wrap">
+        {backendMainPageOurDepartmentSliderImages?.map((d: any) => (
+          <img key={d} src={d} className="w-32 h-28" />
+        ))}
+      </div>
+    );
+  let backMainPageRamdanSlider = backendMainPageRamdanSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageRamdanSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageZakatSlider = backendMainPageZakatSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageZakatSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageFoodBoxSlider = backendMainPageFoodBoxSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageFoodBoxSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageWinterSlider = backendMainPageWinterSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageWinterSliderImages?.map((d: any) => (
+        <img key={d} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPagePalestineSlider = backendMainPagePalestineSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPagePalestineSliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageOrphanSlider = backendMainPageOrphanSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageOrphanSliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+    )
+  let backMainPageHandPumpSlider = backendMainPageHandPumpSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageHandPumpSliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageWaterWellSlider = backendMainPageWaterWellSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageWaterWellSliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageMasjidSlider = backendMainPageMasjidSliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageMasjidSliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageAchievementImages = backendMainPageAchievementImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageAchievementImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-72" />
+      ))}
+    </div>
+  );
+  let backMainPageGallerySlider = backendMainPageGallerySliderImages?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageGallerySliderImages?.map((d: any,index:any) => (
+        <img key={index} src={d} className="w-60 h-44" />
+      ))}
+    </div>
+  );
+  let backMainPageNewsVideos = backendMainPageNewsVideos?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageNewsVideos?.map((d: any,index:any) => (
+
+          <video
+          key={index}
+                        className="w-60 h-52 object-fill outline-none"
+                        controls
+                      >
+                        <source src={d} type="video/webm" />
+                      </video>
+      ))}
+    </div>
+  );
+  let backMainPageNewsSliderVideos = backendMainPageNewsSliderVideos?.length >
+    0 && (
+    <div className="gap-2 flex flex-wrap">
+      {backendMainPageNewsSliderVideos?.map((d: any,index:any) => (
+
+          <video
+          key={index}
+                        className="w-60 h-52 object-fill outline-none"
+                        controls
+                      >
+                        <source src={d} type="video/webm" />
+                      </video>
+      ))}
+    </div>
+  );
   return (
     <form onSubmit={submitHandler}>
       <div className="space-y-12">
@@ -1406,7 +1706,10 @@ export default function UpdateForm() {
                     id="country"
                     name="country"
                     autoComplete="country-name"
-                    onChange={(e: any) => setSec(e.target.value)}
+                    onChange={(e: any) => {
+                      setSec(e.target.value),
+                        filterDataBySection(e.target.value);
+                    }}
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   >
                     {midSection === "Disaster Management" ? (
@@ -1425,12 +1728,15 @@ export default function UpdateForm() {
                       mainSectionList.map((i, index) => (
                         <option key={index}>{i}</option>
                       ))
-                    ) : (
+                    ) : midSection === "Water Project" || midSection === "Orphan" || midSection === "Education & Skills" || midSection === "Masjid" ? (
                       <>
                         <option>Select Section</option>
-                        <option>{childSection}</option>
+                        <option>{midSection}</option>
                       </>
-                    )}
+                    ):  <>
+                        <option>Select Section</option>
+                        <option>{childSection}</option>
+                      </>}
                   </select>
                 </div>
               </div>
@@ -1574,13 +1880,19 @@ export default function UpdateForm() {
                 >
                   Banner photo
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                   <div className="flex justify-center gap-4">
+                      {backendImages?.[0] && (
+                        <img src={backendImages[0]} className="w-[80%] h-60" />
+                      )}
+                     
+                    </div>
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col  justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                       <label
                         htmlFor="banner-file"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1612,13 +1924,19 @@ export default function UpdateForm() {
                 >
                   Hero Section photo
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                   <div className="flex justify-center gap-4">
+                      {backendImages?.[1] && (
+                        <img src={backendImages[1]} className="w-[70%] h-60" />
+                      )}
+                     
+                    </div>
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col  justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                       <label
                         htmlFor="hero-file"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1655,32 +1973,42 @@ export default function UpdateForm() {
                       ? "Photo Main"
                       : "Header Photos"}
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
+                  <div className="mt-2 flex-col gap-4 justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="flex justify-center gap-4">
+                      {backendImages?.[0] && (
+                        <img src={backendImages[0]} className="w-60 h-52" />
+                      )}
+                      {backendImages?.[1] && (
+                        <img src={backendImages[1]} className="w-60 h-52" />
+                      )}
+                    </div>
+                    <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload"
-                            name="file-upload"
-                            type="file"
-                            multiple
-                            onChange={photoHandler}
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
+                      <div>
+                        <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
+                          <label
+                            htmlFor="file-upload"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="file-upload"
+                              name="file-upload"
+                              type="file"
+                              multiple
+                              onChange={photoHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
                       </div>
-                      <p className="text-xs leading-5 text-gray-600">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -1696,13 +2024,13 @@ export default function UpdateForm() {
                   >
                     Upload Two Images Down to Video
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
+                  <div className="mt-2 flex-col gap-4  justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
                         <label
                           htmlFor="file-upload"
                           className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1741,33 +2069,54 @@ export default function UpdateForm() {
                       ? `Video`
                       : "Videos"}
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
+                  <div className="mt-2 gap-4 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="flex justify-center gap-4">
+                      {backendVideos?.[0] && (
+                        <video
+                          className="w-1/2 h-60 object-fill outline-none"
+                          controls
+                        >
+                          <source src={backendVideos?.[0]} type="video/webm" />
+                        </video>
+                      )}
+                      {backendVideos?.[1] && (
+                        <video
+                          className="w-1/2 h-60 object-fill outline-none"
+                          controls
+                        >
+                          <source src={backendVideos?.[1]} type="video/webm" />
+                        </video>
+                      )}
+                    </div>
+                    <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload1"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload1"
-                            name="file-upload1"
-                            type="file"
-                            multiple
-                            accept="video/*"
-                            onChange={videoHandler}
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
+                      <div className="flex-col justify-center items-center">
+                        <div className="mt-4 flex justify-center text-sm leading-6 text-gray-600">
+                          
+                          <label
+                            htmlFor="file-upload1"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
+                            <input
+                              id="file-upload1"
+                              name="file-upload1"
+                              type="file"
+                              multiple
+                              accept="video/*"
+                              onChange={videoHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
+                        <p className="text-xs leading-5 text-gray-600">
+                          mp3, webm up to 10MB
+                        </p>
                       </div>
-                      <p className="text-xs leading-5 text-gray-600">
-                        mp3, webm up to 10MB
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -1784,31 +2133,34 @@ export default function UpdateForm() {
                   >
                     Slider photos
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center">
+                  <div className="mt-2 gap-4 flex-col flex-wrap justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    {backSlider && backSlider}
+                    <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                        <label
-                          htmlFor="file-upload2"
-                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                        >
-                          <span>Upload a file</span>
+                      <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                        <div className="flex justify-center gap-1">
+                          <label
+                            htmlFor="file-upload2"
+                            className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                          >
+                            <span>Upload a file</span>
 
-                          <input
-                            id="file-upload2"
-                            name="file-upload2"
-                            type="file"
-                            multiple
-                            onChange={sliderPhotosHandler}
-                            className="sr-only"
-                          />
-                        </label>
+                            <input
+                              id="file-upload2"
+                              name="file-upload2"
+                              type="file"
+                              multiple
+                              onChange={sliderPhotosHandler}
+                              className="sr-only"
+                            />
+                          </label>
+                          <p className="pl-1">or drag and drop</p>
+                        </div>
                         {!uploading1 ? (
                           <>
-                            <p className="pl-1">or drag and drop</p>
                             <p className="text-xs leading-5 text-gray-600">
                               PNG, JPG, GIF up to 10MB
                             </p>
@@ -1842,13 +2194,16 @@ export default function UpdateForm() {
                 >
                   Main Banner Slider photos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2  rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  <div className="">{backMainPageSlider}</div>
+                  <div className="text-center w-1/2 mx-auto  mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                     <div className="flex justify-center gap-1">
+
                       <label
                         htmlFor="main-banner-slider"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1861,11 +2216,12 @@ export default function UpdateForm() {
                           multiple
                           onChange={sliderPhotosHandler}
                           className="sr-only"
-                        />
-                      </label>
+                        />                          
+                        </label>
+                     <p className="pl-1">or drag and drop</p>
+                     </div>
                       {!uploading1 ? (
                         <>
-                          <p className="pl-1">or drag and drop</p>
                           <p className="text-xs leading-5 text-gray-600">
                             PNG, JPG, GIF up to 10MB
                           </p>
@@ -1891,18 +2247,22 @@ export default function UpdateForm() {
             {mainSection === "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="our-department"
+                  // htmlFor="our-department"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Our Department Slider photos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  {backMainPageOurDepartmentSlider}
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                     <div className="flex justify-center gap-1">
+
+
                       <label
                         htmlFor="our-department"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1917,9 +2277,11 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
+                       <p className="pl-1">or drag and drop</p>
+                      </div>
                       {!uploadingOurDepartmentSlider ? (
                         <>
-                          <p className="pl-1">or drag and drop</p>
+                         
                           <p className="text-xs leading-5 text-gray-600">
                             PNG, JPG, GIF up to 10MB
                           </p>
@@ -1947,24 +2309,27 @@ export default function UpdateForm() {
                 Appeals Sliders
               </h2>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1  gap-3">
               {/* ramazan slider */}
               {mainSection === "Main Page" && (
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="ramazan-slider"
+                      // htmlFor="ramazan-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Ramadan Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageRamdanSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                          <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="ramazan-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -1979,9 +2344,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                              <p className="pl-1">or drag and drop</p>
+                          </div>
                           {!uploadingRamzanSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                          
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2011,18 +2378,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="zakat-slider"
+                      // htmlFor="zakat-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Zakat Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageZakatSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="zakat-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2037,9 +2407,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                                 <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingZakatSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                       
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2069,18 +2441,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="foodBox-slider"
+                      // htmlFor="foodBox-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Food Box Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageFoodBoxSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div  className="flex justify-center gap-1">
+
                           <label
                             htmlFor="foodBox-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2095,9 +2470,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                            <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingFoodBoxSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                            
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2127,18 +2504,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="winter-slider"
+                      // htmlFor="winter-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Winter Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageWinterSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                        <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="winter-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2153,9 +2533,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                            <p className="pl-1">or drag and drop</p>
+                        </div>
                           {!uploadingWinterSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                            
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2185,18 +2567,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="palestine-slider"
+                      // htmlFor="palestine-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Palestine Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPagePalestineSlider}
+                      <div className="text-center w-1/2 mx-auto  mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div className="flex justify-center gap-1" >
+
                           <label
                             htmlFor="palestine-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2211,9 +2596,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                           <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingPalestineSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                             
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2243,18 +2630,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="orphan-slider"
+                      // htmlFor="orphan-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Orphan Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageOrphanSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="orphan-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2269,9 +2659,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                            <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingOrphanSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                            
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2301,18 +2693,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="handpump-file"
+                      // htmlFor="handpump-file"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Hand Pump Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageHandPumpSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="handpump-file"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2327,9 +2722,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                           <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingHandPumpSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                             
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2359,18 +2756,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="waterwell-file"
+                      // htmlFor="waterwell-file"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Water Well Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageWaterWellSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                          <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="waterwell-file"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2385,9 +2785,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                           <p className="pl-1">or drag and drop</p>
+                          </div>
                           {!uploadingWaterWellSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                             
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2417,18 +2819,21 @@ export default function UpdateForm() {
                 <div className="">
                   <div className="col-span-full">
                     <label
-                      htmlFor="masjid-slider"
+                      // htmlFor="masjid-slider"
                       className="block text-sm font-medium leading-6 text-gray-900"
                     >
                       Masjid Slider photos
                     </label>
-                    <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                      <div className="text-center">
+                    <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                      {backMainPageMasjidSlider}
+                      <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                         <PhotoIcon
                           className="mx-auto h-12 w-12 text-gray-300"
                           aria-hidden="true"
                         />
-                        <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                         <div className="flex justify-center gap-1">
+
                           <label
                             htmlFor="masjid-slider"
                             className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2443,9 +2848,11 @@ export default function UpdateForm() {
                               className="sr-only"
                             />
                           </label>
+                              <p className="pl-1">or drag and drop</p>
+                         </div>
                           {!uploadingMasjidSlider ? (
                             <>
-                              <p className="pl-1">or drag and drop</p>
+                          
                               <p className="text-xs leading-5 text-gray-600">
                                 PNG, JPG, GIF up to 10MB
                               </p>
@@ -2475,18 +2882,21 @@ export default function UpdateForm() {
             {mainSection == "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="achievement-file"
+                  // htmlFor="achievement-file"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Achievements photos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  {backMainPageAchievementImages}
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                     <div className="flex gap-1 justify-center">
+
                       <label
                         htmlFor="achievement-file"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2501,9 +2911,11 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
+                      <p className="pl-1">or drag and drop</p>
+                     </div>
                       {!uploadingAchievementImages ? (
                         <>
-                          <p className="pl-1">or drag and drop</p>
+                          
                           <p className="text-xs leading-5 text-gray-600">
                             PNG, JPG, GIF up to 10MB
                           </p>
@@ -2531,14 +2943,40 @@ export default function UpdateForm() {
             {mainSection == "Main Page" ? (
               <>
                 <h2 className="pb-4">Counters</h2>
-                <div className="flex gap-4 pb-4">
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5">
-                    <div className="text-center">
+                <div className="grid grid-cols-1  md:grid-cols-2  gap-4 pb-4">
+                  <div className="flex-col  w-full gap-4">
+                    <div className="relative h-10 w-full min-w-[100px] ">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        value={counter1Text}
+                        onChange={(e) => setCounter1Text(e.target.value)}
+                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      />
+                    </div>
+                    <div className="relative h-10 w-full min-w-[100px] ">
+                      <input
+                        type="number"
+                        placeholder="Counter"
+                        value={counter1}
+                        onChange={(e) => setCounter1(e.target.value)}
+                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      />
+                    </div>
+                  </div>
+                  <div className=" flex justify-center gap-2 items-center rounded-lg border border-dashed border-gray-900/25 px-2 py-3">
+                    {counter1MainPageBackendImage && (
+                      <img
+                        src={counter1MainPageBackendImage}
+                        className="w-36 h-28"
+                      />
+                    )}
+                    <div className="text-center mt-4 flex-col justify-center items-center border border-green-400 p-4 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <div className="mt-2 flex text-sm leading-6 text-gray-600">
                         <label
                           htmlFor="counter1-file"
                           className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2555,39 +2993,49 @@ export default function UpdateForm() {
                       </div>
                     </div>
                   </div>
-                  <div className="relative h-10 w-full min-w-[100px] ">
-                    <input
-                      type="text"
-                      placeholder="Title"
-                      onChange={(e) => setCounter1Text(e.target.value)}
-                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                  </div>
-                  <div className="relative h-10 w-full min-w-[100px] ">
-                    <input
-                      type="number"
-                      placeholder="Counter"
-                      onChange={(e) => setCounter1(e.target.value)}
-                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-3 py-5">
-                    <div className="text-center">
+                <div className="grid grid-cols-1  md:grid-cols-2  gap-4 pb-4">
+                  <div className="flex-col  w-full gap-4">
+                    <div className="relative h-10 w-full min-w-[100px] ">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        value={counter2Text}
+                        onChange={(e) => setCounter2Text(e.target.value)}
+                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      />
+                    </div>
+                    <div className="relative h-10 w-full min-w-[100px] ">
+                      <input
+                        type="number"
+                        placeholder="Counter"
+                        value={counter2}
+                        onChange={(e) => setCounter2(e.target.value)}
+                        className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
+                      />
+                    </div>
+                  </div>
+                  <div className=" flex justify-center gap-2 items-center rounded-lg border border-dashed border-gray-900/25 px-2 py-3">
+                    {counter2MainPageBackendImage && (
+                      <img
+                        src={counter2MainPageBackendImage}
+                        className="w-32 h-28"
+                      />
+                    )}
+                    <div className="text-center mt-4 flex-col justify-center items-center border border-green-400 p-4 rounded-full">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
                       />
-                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                      <div className="mt-2 flex text-sm leading-6 text-gray-600">
                         <label
-                          htmlFor="counter2-file"
+                          htmlFor="counter1-file"
                           className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
                         >
                           <span>Upload a file</span>
                           <input
-                            id="counter2-file"
-                            name="counter2-file"
+                            id="counter1-file"
+                            name="counter1-file"
                             type="file"
                             onChange={counter2PhotoHandler}
                             className="sr-only"
@@ -2596,22 +3044,6 @@ export default function UpdateForm() {
                       </div>
                     </div>
                   </div>
-                  <div className="relative h-10 w-full min-w-[200px] ">
-                    <input
-                      type="text"
-                      placeholder="Title"
-                      onChange={(e) => setCounter2Text(e.target.value)}
-                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                  </div>
-                  <div className="relative h-10 w-full min-w-[200px] ">
-                    <input
-                      type="number"
-                      placeholder="Counter"
-                      onChange={(e) => setCounter2(e.target.value)}
-                      className="peer h-full w-full rounded-[7px]  !border  !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700  shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2  focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
-                    />
-                  </div>
                 </div>
               </>
             ) : null}
@@ -2619,18 +3051,21 @@ export default function UpdateForm() {
             {mainSection == "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="gallery"
+                  // htmlFor="gallery"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Gallery photos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  {backMainPageGallerySlider}
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                     <div className = "flex justify-center gap-1">
+
                       <label
                         htmlFor="gallery"
                         className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
@@ -2645,9 +3080,11 @@ export default function UpdateForm() {
                           className="sr-only"
                         />
                       </label>
+                          <p className="pl-1">or drag and drop</p>
+                     </div>
                       {!uploadingGallerySlider ? (
                         <>
-                          <p className="pl-1">or drag and drop</p>
+                      
                           <p className="text-xs leading-5 text-gray-600">
                             PNG, JPG, GIF up to 10MB
                           </p>
@@ -2675,35 +3112,38 @@ export default function UpdateForm() {
             {mainSection === "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="news-video"
+                  // htmlFor="news-video"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   News Videos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  {backMainPageNewsVideos}
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="news-videos"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="news-videos"
-                          name="news-videos"
-                          type="file"
-                          multiple
-                          accept="video/*"
-                          onChange={videoHandler}
-                          className="sr-only"
-                        />
-                      </label>
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                      <div className="flex gap-1 justify-center">
+                        <label
+                          htmlFor="news-videos"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="news-videos"
+                            name="news-videos"
+                            type="file"
+                            multiple
+                            accept="video/*"
+                            onChange={videoHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
 
-                      <p className="pl-1">or drag and drop</p>
                       <p className="text-xs leading-5 text-gray-600">
                         mp4, other up to 100MB
                       </p>
@@ -2716,36 +3156,39 @@ export default function UpdateForm() {
             {mainSection === "Main Page" && (
               <div className="col-span-full">
                 <label
-                  htmlFor="slider-videos"
+                  // htmlFor="slider-videos"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   News Slider Videos
                 </label>
-                <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-                  <div className="text-center">
+                <div className="mt-2 flex-col justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                  {backMainPageNewsSliderVideos}
+                  <div className="text-center w-1/2 mx-auto mt-4 flex-col justify-center items-center border border-green-400 p-2 rounded-full">
                     <PhotoIcon
                       className="mx-auto h-12 w-12 text-gray-300"
                       aria-hidden="true"
                     />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="slider-videos"
-                        className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="slider-videos"
-                          name="slider-videos"
-                          type="file"
-                          multiple
-                          accept="video/*"
-                          onChange={sliderVideosHandler}
-                          className="sr-only"
-                        />
-                      </label>
+                    <div className="mt-4 flex-col justify-center text-sm leading-6 text-gray-600">
+                      <div className="flex justify-center gap-1">
+                        <label
+                          htmlFor="slider-videos"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-teal-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="slider-videos"
+                            name="slider-videos"
+                            type="file"
+                            multiple
+                            accept="video/*"
+                            onChange={sliderVideosHandler}
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
                       {!uploadingVideosSlider ? (
                         <>
-                          <p className="pl-1">or drag and drop</p>
                           <p className="text-xs leading-5 text-gray-600">
                             mp4, other up to 100MB
                           </p>
@@ -2783,9 +3226,35 @@ export default function UpdateForm() {
           </button>
           <button
             type="submit"
+            // onClick={submitHandler()}
+            onSubmit={submitHandler}
             className="rounded-md bg-teal-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            {mainSection !== "New Page" ? "Update" : "Create"}
+            {loader ? (
+              <div role="status">
+                <svg
+                  aria-hidden="true"
+                  className="inline w-4 h-4 text-gray-200 animate-spin fill-green-600"
+                  viewBox="0 0 100 101"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill"
+                  />
+                </svg>
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : mainSection !== "New Page" ? (
+              "Update"
+            ) : (
+              "Create"
+            )}
           </button>
         </div>
       )}

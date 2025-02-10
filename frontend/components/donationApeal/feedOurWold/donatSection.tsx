@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import { FaPastafarianism } from "react-icons/fa"
 
 const DonateSection = () => {
     return (<div className="py-10 md:py-16 px-5 md:px-10 max-w-2xl mx-auto">

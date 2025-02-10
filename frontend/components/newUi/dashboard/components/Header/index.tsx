@@ -7,6 +7,7 @@ import Image from "next/image";
 import { RiSearchLine } from "react-icons/ri";
 import { TfiLayoutListThumbAlt } from "react-icons/tfi";
 import { useState } from "react";
+import { signOut } from "firebase/auth";
 const Header = (props: {
   sidebarOpen: string | boolean | undefined;
   setSidebarOpen: (arg0: boolean) => void;
@@ -119,7 +120,9 @@ const Header = (props: {
             {/* <DropdownNotification /> */}
             {/* <!-- Notification Menu Area --> */}
             {/* </DropdownUser /> */}
-            {Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
+
+
+            {/* {Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
               userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD && (
                 <a
                   href="/admin/dashboard"
@@ -128,7 +131,41 @@ const Header = (props: {
                 >
                   Sign Out
                 </a>
-              )}
+              )} */}
+
+            {/* {Email === process.env.NEXT_PUBLIC_USER1_EMAIL &&
+              userPassword === process.env.NEXT_PUBLIC_USER1_PASSWORD && (
+                <a
+                  href="/admin1/dashboard"
+                  onClick={signOutHandler}
+                  className="bg-red-600 text-white py-2 px-4 rounded-2xl"
+                >
+                  Sign Out
+                </a>
+              )} */}
+            {Email === process.env.NEXT_PUBLIC_USER_EMAIL && 
+            userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD &&(
+              <a href="/admin/dashboard"
+              onClick={signOutHandler}
+              className="bg-black text-white py-2 px-4 rounded-2xl"
+              >
+                Sign Out
+              </a>
+            )
+            }
+
+          {Email === process.env.NEXT_PUBLIC_USER1_EMAIL && 
+          userPassword === process.env.NEXT_PUBLIC_USER1_PASSWORD && (
+            <a
+              href="/admin1/dashboard"
+              onClick={signOutHandler}
+              className="bg-red-600 text-white py-2 px-4 rounded-2xl"
+          
+            >Sign Out</a>
+          )}
+
+
+
             {/* <!-- Chat Notification Area --> */}
             {/* <DropdownMessage /> */}
             {/* <!-- Chat Notification Area --> */}

@@ -1,4 +1,4 @@
-import UpdateForm from "@/components/newUi/dashboard/components/form";
+import DashBoard from "@/components/newUi/dashboard/components/Dashboard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <UpdateForm />
+      {/* <DashBoard /> */}
     </>
   );
 }

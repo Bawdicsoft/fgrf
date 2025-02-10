@@ -9,8 +9,10 @@ export default function DashboardProvider({ children }: { children: any }) {
     const user = userimg ? JSON.parse(userimg) : null;
     const Email = user?.email;
     const userPassword = user?.password;
-    if ( Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
-      userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD) {
+    if (
+      Email === process.env.NEXT_PUBLIC_USER_EMAIL &&
+      userPassword === process.env.NEXT_PUBLIC_USER_PASSWORD
+    ) {
       return false;
     } else {
       return true;
@@ -21,6 +23,45 @@ export default function DashboardProvider({ children }: { children: any }) {
   const [childSection, setChildSection] = useState("");
   const [userImage, setUserImage] = useState("");
   const [userEmail, setUserEmail] = useState("");
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const userData = localStorage.getItem("Auth-admin");
+      if (!userData) {
+        setLoggedIn(false);
+        return;
+      }
+
+      const user = JSON.parse(userData);
+      const admins = [
+        {
+          email: process.env.NEXT_PUBLIC_USER_EMAIL,
+          password: process.env.NEXT_PUBLIC_USER_PASSWORD,
+          role: "admin",
+        },
+        {
+          email: process.env.NEXT_PUBLIC_USER1_EMAIL,
+          password: process.env.NEXT_PUBLIC_USER1_PASSWORD,
+          role: "admin1",
+        },
+      ];
+
+      const validAdmin = admins.find(
+        (admin) =>
+          admin.email === user.email && admin.password === user.password
+      );
+
+      if (validAdmin) {
+        setLoggedIn(true);
+        setUserEmail(user.email);
+      } else {
+        setLoggedIn(false);
+        localStorage.removeItem("Auth-admin"); // Remove invalid session
+      }
+    };
+
+    checkAuth();
+  }, [loggedIn]); // Run every time `loggedIn` changes
 
   const setMainSectionHandler = (title: any) => {
     setMainSection(title);

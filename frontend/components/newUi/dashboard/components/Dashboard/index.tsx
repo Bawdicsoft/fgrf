@@ -12,11 +12,15 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 // without this the component renders on server and throws an error
 import dynamic from "next/dynamic";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
-import UpdateForm from "../forms";
+import UpdateForm from "../form";
 import UserDonationChart from "../Charts/userDoantionChart";
 import UserAppealDonationChart from "../Charts/userAppealChart";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/components/newUi/config/firebase";
+import MapOne from "../Maps/MapOne";
+import VisitorStatsCard from "../../visitorCard/VisitorStatsCard";
+import { getVisitorCount } from "@/components/newUi/config/firebaseUtils";
+import { useRouter } from "next/router";
 // const MapOne = dynamic(() => import("../Maps/MapOne"), {
 //   ssr: false,
 // });
@@ -25,6 +29,7 @@ import { db } from "@/components/newUi/config/firebase";
 const DashBoard: React.FC = () => {
   const [content, setContent] = useState<any>([]);
   const [reclaimDatas, sertReclaimDatas] = useState<any>([]);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
   let totalReclaimGifts: any;
   const getDataFromFirestore = async () => {
     try {
@@ -40,6 +45,7 @@ const DashBoard: React.FC = () => {
       const data2: any = [];
       const data3: any = [];
       const data4: any = [];
+
 
       querySnapshot.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
@@ -122,17 +128,50 @@ const DashBoard: React.FC = () => {
     }
   };
   myFunc();
+
+  useEffect(() => {
+    // Fetch visitor count from Firebase
+    const fetchVisitorCount = async () => {
+      const count = await getVisitorCount();
+      setVisitorCount(count);
+    };
+
+    fetchVisitorCount();
+  }, []);
+
   return (
     <div className="">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
         <CardDataStats
-          title="Total ReclaimGifts"
-          total={`${reclaimDatas && reclaimDatas}`}
-          rate="0.43%"
+          title="ReclaimGifts"
+          // total={`${reclaimDatas && reclaimDatas}`}
+          total=""
+          rate={`${reclaimDatas && reclaimDatas}`} // remove the rate value 0.43%
           levelUp
         >
           <svg
-            className="fill-teal-500 "
+            className="fill-teal-500"
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 7H17.66C18.29 6.36 18.66 5.47 18.66 4.5C18.66 2.57 17.09 1 15.16 1C13.75 1 12.56 1.84 12 3C11.44 1.84 10.25 1 8.84 1C6.91 1 5.34 2.57 5.34 4.5C5.34 5.47 5.71 6.36 6.34 7H4C2.9 7 2 7.9 2 9V11C2 12.1 2.9 13 4 13H6V20C6 21.1 6.9 22 8 22H16C17.1 22 18 21.1 18 20V13H20C21.1 13 22 12.1 22 11V9C22 7.9 21.1 7 20 7ZM15.16 3C16.08 3 16.66 3.58 16.66 4.5C16.66 5.16 16.29 5.72 15.77 6H12.88L13.61 4.38C13.9 3.74 14.49 3 15.16 3ZM8.84 3C9.51 3 10.1 3.74 10.39 4.38L11.12 6H8.23C7.71 5.72 7.34 5.16 7.34 4.5C7.34 3.58 7.92 3 8.84 3ZM20 11H4V9H20V11Z"
+              fill=""
+            />
+          </svg>
+        </CardDataStats>
+
+        <CardDataStats
+          title="Visitors"
+          total={`${visitorCount !== null ? visitorCount : "Loading..."}`}
+          rate=""
+          levelUp
+        >
+          <svg
+            className="fill-teal-500"
             width="22"
             height="16"
             viewBox="0 0 22 16"
@@ -149,20 +188,30 @@ const DashBoard: React.FC = () => {
             />
           </svg>
         </CardDataStats>
+
         <CardDataStats
           title="Total Donation"
-          total={` £
-            ${
-              totalDonations && +totalDonations > 1000000000
-                ? (totalDonations / 1000000000).toFixed(2) + "B"
-                : totalDonations
-            }`}
-          rate={percentageDonation + "%"}
+          total={`£ ${
+            totalDonations
+              ? totalDonations >= 1_000_000_000 // For billions
+                ? (totalDonations / 1_000_000_000).toFixed(2) + "B"
+                : totalDonations >= 1_000_000 // For millions
+                ? (totalDonations / 1_000_000).toFixed(2) + "M"
+                : parseFloat(totalDonations.toFixed(2)).toLocaleString() // Format smaller numbers
+              : "0" // Default to 0 if undefined or null
+          }`}
+          rate=""
+          // rate={`${
+          //   percentageDonation
+          //     ? parseFloat(Number(percentageDonation).toFixed(2)) // Ensure it's a number
+          //     : 0
+          // }%`}
           levelUp
         >
           <BiSolidDonateHeart className="w-6 h-6 text-teal-500" />
         </CardDataStats>
-        <CardDataStats title="Total Appeals" total="2.450" rate="2.59%" levelUp>
+
+        {/* <CardDataStats title="Total Appeals" total="20" rate="20" levelUp>
           <svg
             className="fill-teal-500 "
             width="22"
@@ -180,13 +229,13 @@ const DashBoard: React.FC = () => {
               fill=""
             />
           </svg>
-        </CardDataStats>
+        </CardDataStats> */}
         <CardDataStats
           title="Total Users"
           total={
             users && users > 1000 ? (users / 1000).toFixed(2) + "k" : users
           }
-          rate={percentageuser + "%"}
+          rate=""
           levelDown
         >
           <svg
@@ -217,7 +266,7 @@ const DashBoard: React.FC = () => {
         <ChartOne />
         <ChartTwo />
         <ChartThree />
-        {/* <MapOne /> */}
+        <MapOne />
         <UserDonationChart />
         <UserAppealDonationChart />
         <div className="col-span-12 xl:col-span-8">{/* <TableOne /> */}</div>
@@ -228,7 +277,6 @@ const DashBoard: React.FC = () => {
 };
 
 export default DashBoard;
-
 
 // "use client";
 // import React from "react";

@@ -1,13 +1,240 @@
+// "use client";
+// import React, { useEffect, useState } from "react";
+// import { VectorMap } from "@react-jvectormap/core";
+// import { usAea } from "@react-jvectormap/unitedstates";
+// import { collection, getDocs } from "firebase/firestore";
+// import { db } from "@/components/newUi/config/firebase";
+// import { takeCoverage } from "v8";
+
+// const UserAppealDonationChart = () => {
+//   const [quickDonationData, setQuickDonationData] = useState<any>([]);
+//   const [appealData, setAppealData] = useState<any>([]);
+
+//   // new code start
+
+//   // new code end
+
+//   const getDataFromFireStoreAppealDonation = async () => {
+//     try {
+//       const collectionRef = collection(db, "userAppealDonation");
+//       const querySnapshot = await getDocs(collectionRef);
+//       const data: any = [];
+
+//       querySnapshot.forEach((doc) => {
+//         data.push({ id: doc.id, ...doc.data() });
+//       });
+//       return data;
+//     } catch (error) {
+//       console.error("Error fetching data from Firestore:", error);
+//       return [];
+//     }
+//   };
+//   const getDataFromFireStoreQuickDonation = async () => {
+//     try {
+//       const collectionRef = collection(db, "userQuickDonation");
+//       const querySnapshot = await getDocs(collectionRef);
+//       const data: any = [];
+
+//       querySnapshot.forEach((doc) => {
+//         data.push({ id: doc.id, ...doc.data() });
+//       });
+//       return data;
+//     } catch (error) {
+//       console.error("Error fetching data from Firestore:", error);
+//       return [];
+//     }
+//   };
+  // useEffect(() => {
+  //   getDataFromFireStoreQuickDonation().then((result) => {
+  //     setQuickDonationData(result);
+  //   });
+  //   getDataFromFireStoreAppealDonation().then((result) => {
+  //     setAppealData(result);
+  //   });
+  // }, []);
+
+  // function downloadFileAppealDonation(data: any) {
+  //   let filterData = appealData.filter(
+  //     (title: any) => data === title.userData.donationTitle
+  //   );
+  //   // Add header
+  //   let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
+  //   filterData = filterData.filter((data: any) =>
+  //     data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
+  //   );
+  //   // Add data
+  //   filterData.forEach(function (row: any) {
+  //     csvData +=
+  //       row.userData.donationTitle +
+  //       "," +
+  //       row.userData.donation +
+  //       "," +
+  //       row.userData.date +
+  //       "\n";
+  //   });
+
+  //   // Download the CSV file
+  //   let anchor = document.createElement("a");
+  //   anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
+  //   anchor.target = "_blank";
+  //   anchor.download = `${data}.csv`;
+  //   anchor.click();
+  // }
+  // function downloadFileXLS(data: any) {
+  //   let filterData = appealData.filter(
+  //     (title: any) => data === title.userData.donationTitle
+  //   );
+  //   // // Add header
+  //   let csvData =
+  //     "First Name" +
+  //     "," +
+  //     "Contact No" +
+  //     "," +
+  //     "Donation" +
+  //     "," +
+  //     "Donation Title" +
+  //     "," +
+  //     "Email" +
+  //     "," +
+  //     "Date" +
+  //     "\n";
+
+  //   filterData = filterData.filter((data: any) =>
+  //     data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
+  //   );
+  //   filterData.forEach(function (row: any) {
+  //     csvData +=
+  //       row.userData.firstName +
+  //       "," +
+  //       row.userData.contactNo +
+  //       "," +
+  //       row.userData.donation +
+  //       "," +
+  //       row.userData.donationTitle +
+  //       "," +
+  //       row.userData.email +
+  //       "," +
+  //       row.userData.date +
+  //       "\n";
+  //   });
+
+  //   // Download the CSV file
+  //   let anchor = document.createElement("a");
+  //   anchor.href = "data:text/xlsx," + encodeURI(csvData);
+  //   anchor.target = "_blank";
+  //   anchor.download = `${data}.xlsx`;
+  //   anchor.click();
+  // }
+  // let datePicker: any;
+  // const datePickerFunc = (e: any) => {
+  //   datePicker = e.target.value;
+  //   datePicker =
+  //     datePicker.split("-")[2] +
+  //     "/" +
+  //     datePicker.split("-")[1] +
+  //     "/" +
+  //     datePicker.split("-")[0];
+  //   console.log("date picker function is working", datePicker);
+  // };
+
+  // function downloadFileQuickDonation() {
+  //   // Add header
+  //   let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
+
+  //   // Add data
+  //   let arr: any = [];
+  //   arr = quickDonationData.filter((data: any) =>
+  //     data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
+  //   );
+  //   arr.forEach(function (row: any) {
+  //     csvData +=
+  //       row.userData.donationTitle +
+  //       "," +
+  //       row.userData.donation +
+  //       "," +
+  //       row.userData.date +
+  //       "\n";
+  //   });
+  //   // Download the CSV file
+  //   let anchor = document.createElement("a");
+  //   anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
+  //   anchor.target = "_blank";
+  //   anchor.download = "quickDonation.csv";
+  //   anchor.click();
+  // }
+  // function downloadFileQuickDonationXlsxFile() {
+  //   // Add header
+  //   let csvData =
+  //     "Email" +
+  //     "," +
+  //     "Address-1" +
+  //     "," +
+  //     "Address-2" +
+  //     "," +
+  //     "City" +
+  //     "," +
+  //     "Country" +
+  //     "," +
+  //     "Postal-Code" +
+  //     "," +
+  //     "Date" +
+  //     "\n";
+  //   let arr: any = [];
+  //   arr = quickDonationData.filter((data: any) =>
+  //     data.date ? data.date.split(",")[0] == datePicker : null
+  //   );
+  //   // Add data
+  //   arr?.forEach(function (row: any) {
+  //     csvData +=
+  //       row.userData.email +
+  //       "," +
+  //       row.userData.address1 +
+  //       "," +
+  //       row.userData.address2 +
+  //       "," +
+  //       row.userData.city +
+  //       "," +
+  //       row.userData.country +
+  //       "," +
+  //       row.userData.postalCode +
+  //       "," +
+  //       row.date +
+  //       "\n";
+  //   });
+  //   // Download the CSV file
+  //   let anchor = document.createElement("a");
+  //   anchor.href = "data:text/xlsx," + encodeURI(csvData);
+  //   anchor.target = "_blank";
+  //   anchor.download = "reclaimGifts.xlsx";
+  //   anchor.click();
+  // }
+
+
+// new update start code 21/01/2024
+
+
+
 "use client";
 import React, { useEffect, useState } from "react";
-import { VectorMap } from "@react-jvectormap/core";
-import { usAea } from "@react-jvectormap/unitedstates";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/components/newUi/config/firebase";
+import DatePicker from "react-datepicker"; 
+import { parse, isValid } from "date-fns";
 
 const UserAppealDonationChart = () => {
   const [quickDonationData, setQuickDonationData] = useState<any>([]);
   const [appealData, setAppealData] = useState<any>([]);
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
+
+  // Function to handle date changes
+  const handleDateChange = (newStartDate: string, newEndDate: string) => {
+    setStartDate(newStartDate); // Set the start date
+    setEndDate(newEndDate); // Set the end date
+    console.log("Start Date:", newStartDate); // Debug log
+    console.log("End Date:", newEndDate); // Debug log
+  };
+
   const getDataFromFireStoreAppealDonation = async () => {
     try {
       const collectionRef = collection(db, "userAppealDonation");
@@ -23,6 +250,7 @@ const UserAppealDonationChart = () => {
       return [];
     }
   };
+
   const getDataFromFireStoreQuickDonation = async () => {
     try {
       const collectionRef = collection(db, "userQuickDonation");
@@ -38,6 +266,7 @@ const UserAppealDonationChart = () => {
       return [];
     }
   };
+
   useEffect(() => {
     getDataFromFireStoreQuickDonation().then((result) => {
       setQuickDonationData(result);
@@ -47,159 +276,188 @@ const UserAppealDonationChart = () => {
     });
   }, []);
 
-  function downloadFileAppealDonation(data: any) {
-    let filterData = appealData.filter(
-      (title: any) => data === title.userData.donationTitle
+  const filterDataByDateRange = (data: any[], start: string, end: string) => {
+    if (!start || !end) {
+      console.log("No date range provided, returning all data.");
+      return data; // Return all data if no date range is provided.
+    }
+
+  
+
+    // Convert start and end dates to Date objects
+    const startDate = new Date(start).getTime();
+    const endDate = new Date(end).getTime();
+
+    // Debug: Check the parsed dates
+    console.log(
+      `Filtering data from ${new Date(startDate)} to ${new Date(endDate)}`
     );
-    // Add header
-    let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
-    filterData = filterData.filter((data: any) =>
-      data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
-    );
-    // Add data
-    filterData.forEach(function (row: any) {
-      csvData +=
-        row.userData.donationTitle +
-        "," +
-        row.userData.donation +
-        "," +
-        row.userData.date +
-        "\n";
+
+    return data.filter((item) => {
+      // Ensure the date in the item is parsed correctly
+      const itemDate = item.userData?.date
+        ? new Date(item.userData.date).getTime()
+        : null;
+
+      // Debug: Check item date
+      console.log(
+        `Checking item: ${item.userData?.date}, Parsed item date: ${itemDate}`
+      );
+
+      return itemDate && itemDate >= startDate && itemDate <= endDate;
     });
-
-    // Download the CSV file
-    let anchor = document.createElement("a");
-    anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
-    anchor.target = "_blank";
-    anchor.download = `${data}.csv`;
-    anchor.click();
-  }
-  function downloadFileXLS(data: any) {
-    let filterData = appealData.filter(
-      (title: any) => data === title.userData.donationTitle
-    );
-    // // Add header
-    let csvData =
-      "First Name" +
-      "," +
-      "Contact No" +
-      "," +
-      "Donation" +
-      "," +
-      "Donation Title" +
-      "," +
-      "Email" +
-      "," +
-      "Date" +
-      "\n";
-
-    filterData = filterData.filter((data: any) =>
-      data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
-    );
-    filterData.forEach(function (row: any) {
-      csvData +=
-        row.userData.firstName +
-        "," +
-        row.userData.contactNo +
-        "," +
-        row.userData.donation +
-        "," +
-        row.userData.donationTitle +
-        "," +
-        row.userData.email +
-        "," +
-        row.userData.date +
-        "\n";
-    });
-
-    // Download the CSV file
-    let anchor = document.createElement("a");
-    anchor.href = "data:text/xlsx," + encodeURI(csvData);
-    anchor.target = "_blank";
-    anchor.download = `${data}.xlsx`;
-    anchor.click();
-  }
-  let datePicker: any;
-  const datePickerFunc = (e: any) => {
-    datePicker = e.target.value;
-    datePicker =
-      datePicker.split("-")[2] +
-      "/" +
-      datePicker.split("-")[1] +
-      "/" +
-      datePicker.split("-")[0];
   };
-  function downloadFileQuickDonation() {
-    // Add header
-    let csvData = "Donation Title" + "," + "Donation" + "," + "Date" + "\n";
 
-    // Add data
-    let arr: any = [];
-    arr = quickDonationData.filter((data: any) =>
-      data.userData.date ? data.userData.date.split(",")[0] == datePicker : null
+  function downloadFileAppealDonation(donationTitle: string) {
+    // Filter data by donation title and date range
+    const filteredData = filterDataByDateRange(
+      appealData.filter(
+        (item: any) => item.userData.donationTitle === donationTitle
+      ),
+      startDate,
+      endDate
     );
-    arr.forEach(function (row: any) {
-      csvData +=
-        row.userData.donationTitle +
-        "," +
-        row.userData.donation +
-        "," +
-        row.userData.date +
-        "\n";
+
+    // Check if filtered data exists
+    if (filteredData.length === 0) {
+      console.log(
+        `No data found for the donation title "${donationTitle}" in the selected date range.`
+      );
+      return;
+    }
+
+    // Generate CSV data
+    let csvData = "Donation Title,Donation,Date\n";
+    filteredData.forEach((row: any) => {
+      csvData += `${row.userData.donationTitle},${row.userData.donation},${row.userData.date}\n`;
     });
-    // Download the CSV file
-    let anchor = document.createElement("a");
+
+    // Download the file
+    const anchor = document.createElement("a");
     anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
     anchor.target = "_blank";
-    anchor.download = "quickDonation.csv";
+    anchor.download = `${donationTitle}.csv`;
     anchor.click();
   }
-  function downloadFileQuickDonationXlsxFile() {
-    // Add header
-    let csvData =
-      "Email" +
-      "," +
-      "Address-1" +
-      "," +
-      "Address-2" +
-      "," +
-      "City" +
-      "," +
-      "Country" +
-      "," +
-      "Postal-Code" +
-      "," +
-      "Date" +
-      "\n";
-    let arr: any = [];
-    arr = quickDonationData.filter((data: any) =>
-      data.date ? data.date.split(",")[0] == datePicker : null
+
+
+  function downloadFileXLS(donationTitle: string) {
+    // Filter data by donation title and date range
+    const filteredData = filterDataByDateRange(
+      appealData.filter(
+        (item: any) => item.userData.donationTitle === donationTitle
+      ),
+      startDate,
+      endDate
     );
-    // Add data
-    arr?.forEach(function (row: any) {
-      csvData +=
-        row.userData.email +
-        "," +
-        row.userData.address1 +
-        "," +
-        row.userData.address2 +
-        "," +
-        row.userData.city +
-        "," +
-        row.userData.country +
-        "," +
-        row.userData.postalCode +
-        "," +
-        row.date +
-        "\n";
+
+    // Check if filtered data exists
+    if (filteredData.length === 0) {
+      console.log(
+        `No data found for the donation title "${donationTitle}" in the selected date range.`
+      );
+      return;
+    }
+
+    // Generate CSV data
+    let csvData = "First Name,Contact No,Donation,Donation Title,Email,Date\n";
+    filteredData.forEach((row: any) => {
+      csvData += `${row.userData.firstName},${row.userData.contactNo},${row.userData.donation},${row.userData.donationTitle},${row.userData.email},${row.userData.date}\n`;
     });
-    // Download the CSV file
-    let anchor = document.createElement("a");
-    anchor.href = "data:text/xlsx," + encodeURI(csvData);
+
+    // Download the file
+    const anchor = document.createElement("a");
+    anchor.href = "data:text/xlsx;charset=utf-8," + encodeURI(csvData);
     anchor.target = "_blank";
-    anchor.download = "reclaimGifts.xlsx";
+    anchor.download = `${donationTitle}.xlsx`;
     anchor.click();
   }
+
+function downloadQuickDonationCSV() {
+  // Filter data by date range
+  const filteredData = filterDataByDateRange(
+    quickDonationData,
+    startDate,
+    endDate
+  );
+
+  // Check if filtered data exists
+  if (filteredData.length === 0) {
+    console.log(
+      `No data found in the selected date range for quick donations.`
+    );
+    return;
+  }
+
+  // Generate CSV data
+  let csvData = "Donation Title,Donation,Date\n";
+  filteredData.forEach((row: any) => {
+    csvData += `${row.userData.donationTitle},${row.userData.donation},${row.userData.date}\n`;
+  });
+
+  // Download the file
+  const anchor = document.createElement("a");
+  anchor.href = "data:text/csv;charset=utf-8," + encodeURI(csvData);
+  anchor.target = "_blank";
+  anchor.download = "quickDonation.csv";
+  anchor.click();
+}
+
+function downloadQuickDonationXLS() {
+  // Filter data by date range
+  const filteredData = filterDataByDateRange(
+    quickDonationData,
+    startDate,
+    endDate
+  );
+
+  // Check if filtered data exists
+  if (filteredData.length === 0) {
+    console.log(
+      `No data found in the selected date range for quick donations.`
+    );
+    return;
+  }
+
+  // Generate CSV data for XLS
+  let csvData = "Email,Address-1,Address-2,City,Country,Postal-Code,Date\n";
+  filteredData.forEach((row: any) => {
+    csvData += `${row.userData.email},${row.userData.address1},${row.userData.address2},${row.userData.city},${row.userData.country},${row.userData.postalCode},${row.userData.date}\n`;
+  });
+
+  // Download the file
+  const anchor = document.createElement("a");
+  anchor.href = "data:text/xlsx;charset=utf-8," + encodeURI(csvData);
+  anchor.target = "_blank";
+  anchor.download = "quickDonation.xlsx";
+  anchor.click();
+}
+
+
+
+
+  // Function to handle date changes
+  const handleStartDateChange = (date: Date) => {
+    setStartDate(date.toISOString());
+  };
+
+  const handleEndDateChange = (date: Date) => {
+    setEndDate(date.toISOString());
+  };
+
+  // Define the datePickerFunc to handle the change event for startDate and endDate
+  const datePickerFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === "startDate") {
+      setStartDate(value);
+    } else if (name === "endDate") {
+      setEndDate(value);
+    }
+  };
+
+  // new update end code 21/01/2024
+
 
   return (
     <div className="col-span-12 rounded-sm border border-stroke bg-white py-6 px-6 shadow-default xl:col-span-7">
@@ -211,19 +469,22 @@ const UserAppealDonationChart = () => {
             <span className="text-teal-500">Appeal</span>
             <hr className="h-[2px] bg-teal-500 w-full" />
           </div>
-          <div className="flex gap-2 justify-between">
-            <p>Select Your Option:</p>
-            <div className="flex gap-4 items-center">
-              <input
-                type="date"
-                onChange={datePickerFunc}
-                className="bg-gray-300 py-1 px-2 h-full "
-              ></input>
-              {/* <select className="bg-gray-300 p-1.5 h-full">
-                <option>This Week</option>
-                <option>Last Week</option>
-              </select> */}
-            </div>
+
+          <div className="flex justify-end gap-3 items-end">
+            <input
+              type="date"
+              name="startDate"
+              value={startDate}
+              onChange={datePickerFunc} // Using the datePickerFunc
+              className="bg-gray-300 py-1 h-full"
+            />
+            <input
+              type="date"
+              name="endDate"
+              value={endDate}
+              onChange={datePickerFunc} // Using the datePickerFunc
+              className="bg-gray-300 py-1 h-full"
+            />
           </div>
           {/* palestine */}
           <div className="flex items-center justify-between ">
@@ -465,33 +726,35 @@ const UserAppealDonationChart = () => {
             <span className="text-teal-500 ">Quick Donations</span>
             <hr className="h-[2px] bg-teal-500 w-2/6" />
           </div>
-          <div className="flex gap-2 justify-between">
-            <p>Select Your Option:</p>
-            <div className="flex gap-4 items-center">
-              <input
-                type="date"
-                onChange={datePickerFunc}
-                className="bg-gray-300 py-1 px-2 h-full "
-              ></input>
-              {/* <select className="bg-gray-300 p-1.5 h-full">
-                <option>This Week</option>
-                <option>Last Week</option>
-              </select> */}
-            </div>
+          <div className="flex justify-end gap-3 items-end">
+            <input
+              type="date"
+              name="startDate"
+              value={startDate}
+              onChange={datePickerFunc} // Using the datePickerFunc
+              className="bg-gray-300 py-1 h-full"
+            />
+            <input
+              type="date"
+              name="endDate"
+              value={endDate}
+              onChange={datePickerFunc} // Using the datePickerFunc
+              className="bg-gray-300 py-1 h-full"
+            />
           </div>
           {/* Reclaim Gifts */}
           <div className="flex items-center justify-between ">
             <p>Quick Donations</p>
             <div className="flex justify-center gap-4 items-center">
               <button
-                onClick={() => downloadFileQuickDonation()}
+                onClick={() => downloadQuickDonationCSV()}
                 className="bg-teal-500 text-sm  p-2 text-white"
               >
                 {" "}
                 Download CSV file{" "}
               </button>
               <button
-                onClick={() => downloadFileQuickDonationXlsxFile()}
+                onClick={() => downloadQuickDonationXLS()}
                 className="bg-teal-500 text-sm  p-2 text-white"
               >
                 {" "}
@@ -504,8 +767,11 @@ const UserAppealDonationChart = () => {
     </div>
   );
 };
-
 export default UserAppealDonationChart;
+
+
+// umar apko q mana kar raha taa ka sir ko website na dekoooo
+
 
 // "use client";
 // import React, { useEffect, useState } from "react";
