@@ -105,7 +105,7 @@ const DashBoard: React.FC = () => {
     return (part * 100) / percentage;
   }
 
-  // Example usage
+  // Example usages
   let percentageuser;
   let percentageDonation;
   const partUser = users && users; // This is the known part of the total
