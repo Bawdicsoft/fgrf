@@ -16,6 +16,7 @@ import Head from "next/head";
 
 // export const metadata: Metadata = {
 //   title: "FGRF | Faizan Global Relief Foundation UK",
+// hee
 //   description: "FGRF | Faizan Global Relief Foundation UK",
 // };
 
