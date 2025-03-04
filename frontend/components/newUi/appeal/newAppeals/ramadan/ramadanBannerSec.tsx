@@ -19,7 +19,7 @@ const RamadanBannerSection = () => {
   const contentContext = useContentContext();
   const data = contentContext.content;
   const foodBoxData = data.filter(
-    (title: any) => "Ramadan 2024" === title.content.sec
+    (title: any) => "Ramadan 2025" === title.content.sec
   );
   const photos = foodBoxData[0]?.content?.photo;
   const [docs, setDocs] = useState(0);
