@@ -44,7 +44,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* Main Layout Content */}
-        {children}
+{/*         {children} */}
         
       </body>
     </html>
